@@ -1,0 +1,21 @@
+<svg width="1442" height="1316" viewBox="0 0 1442 1316" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Atom/Shape</title>
+    <defs>
+        <linearGradient x1="100.039812%" y1="84.8753845%" x2="10.0404131%" y2="22.1355781%" id="linearGradient-1">
+            <stop stop-color="#F03F32" offset="0%"></stop>
+            <stop stop-color="#360940" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="10.0404131%" y1="10.7031933%" x2="100.039812%" y2="99.1842697%" id="linearGradient-2">
+            <stop stop-color="#F03F32" offset="0%"></stop>
+            <stop stop-color="#360940" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Atom/Shape" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(6.000000, 21.000000)">
+            <path d="M1087.98758,159.174203 C1292.22414,278.015751 1332.32102,430.037766 1324.28333,606.970679 C1316.24563,783.903592 1170.57964,881.626657 1052.7554,934.736556 C934.931169,987.846456 674.264445,1148.87354 313.566369,1154.46233 C-47.1317068,1160.05113 169.864293,956.160474 236.88523,740.09329 C303.906167,524.026106 883.751028,40.3326539 1087.98758,159.174203 Z"
+                  id="Path-3" fill="url(#linearGradient-1)" transform="translate(718.040966, 647.614979) rotate(-15.000000) translate(-718.040966, -647.614979) "></path>
+            <path d="M939.431826,211.276541 C1113,257 1158.17656,378.451995 1175.09659,509.89359 C1192.01661,641.335185 1095.24181,732.668079 1013.59855,787.433633 C931.955285,842.199187 756.981689,995.434727 486.672463,1047.40396 C216.363237,1099.3732 352.959746,920.346539 375.282445,752.243496 C397.605144,584.140454 765.863653,165.553081 939.431826,211.276541 Z"
+                  id="Path-3" fill="url(#linearGradient-2)"></path>
+        </g>
+    </g>
+</svg>

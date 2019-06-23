@@ -1,0 +1,10 @@
+exclude .cache
+exclude .editorconfig
+exclude .git
+exclude .gitattributes
+exclude .github
+exclude .gitignore
+exclude .travis.yml
+exclude /Build
+exclude /Tests
+exclude /*.md
