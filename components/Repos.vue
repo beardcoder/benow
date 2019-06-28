@@ -1,7 +1,7 @@
 <template>
     <ul class="repos">
         <template v-for="repo in repos.data">
-            <li class="repo" v-bind:key="repo.id" v-if="repo.fork === false">
+            <li class="repo" data-aos="zoom-in" v-bind:key="repo.id" v-if="repo.fork === false">
                 <h4>{{ repo.name }}</h4>
                 <p>{{ repo.description }}</p>
                 <a class="repo__link" v-bind:href="repo.html_url" target="_blank">zum Repo</a>
@@ -12,7 +12,6 @@
 
 <script>
     import Octokit from '@octokit/rest';
-
     export default {
         name: 'Repos',
         data() {

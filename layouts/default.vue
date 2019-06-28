@@ -1,10 +1,11 @@
 <template>
-    <nuxt />
+    <div class="content">
+        <nuxt />
+    </div>
 </template>
 
 <style lang="scss">
     @import "~normalize-scss/sass/normalize/import-now";
-    @import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|Roboto+Slab:300,400&display=swap');
 
     //font-family: 'Roboto Slab', serif;
     //font-family: 'Quicksand', sans-serif;
@@ -65,6 +66,10 @@
     img {
         max-width: 100%;
         height: auto;
+    }
+
+    .content {
+        overflow-x: hidden;
     }
 
 </style>

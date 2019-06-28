@@ -10,7 +10,12 @@ export default {
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
             {hid: 'description', name: 'description', content: process.env.npm_package_description || ''},
         ],
-        link: [],
+        link: [
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|Roboto+Slab:300,400&display=swap',
+            },
+        ],
     },
     /*
     ** Customize the progress-bar color
@@ -24,8 +29,9 @@ export default {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        '~/plugins/vue-fragment',
-        '~/plugins/vue-in-viewport-directive',
+        '@/plugins/vue-fragment',
+        '@/plugins/vue-in-viewport-directive',
+        { src: '@/plugins/aos.js', mode: 'client' },
     ],
     /*
     ** Nuxt.js modules

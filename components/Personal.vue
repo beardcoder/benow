@@ -36,15 +36,18 @@
 
 <style lang="scss">
     .personal {
-        display: flex;
-        flex-flow: row;
-        margin-top: 250px;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
         padding-right: 1rem;
         padding-left: 1rem;
         position: relative;
+
+        @media (min-width: 768px) {
+            display: flex;
+            flex-flow: row;
+            margin-top: 250px;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     .personal__image {
@@ -77,7 +80,9 @@
     }
 
     .personal__content {
-        max-width: 750px;
-        margin-left: 150px;
+        @media (min-width: 768px) {
+            max-width: 750px;
+            margin-left: 150px;
+        }
     }
 </style>

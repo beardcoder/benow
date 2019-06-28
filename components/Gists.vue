@@ -1,7 +1,7 @@
 <template>
     <ul class="gists">
         <template v-for="gist in gists.data">
-            <li class="gist" v-bind:key="gist.id">
+            <li data-aos="zoom-in" class="gist" v-bind:key="gist.id">
                 <h4>{{ gist.description }}</h4>
                 <a class="gist__link" v-bind:href="gist.html_url" target="_blank">zum Repo</a>
             </li>

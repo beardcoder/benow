@@ -1,8 +1,10 @@
 <template>
     <fragment>
         <Header />
-        <Personal />
-        <Projects />
+        <main>
+            <Personal />
+            <Projects />
+        </main>
     </fragment>
 </template>
 
