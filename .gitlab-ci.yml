@@ -40,7 +40,7 @@ build:
     expire_in: 1 hour
     name: "${CI_COMMIT_REF_NAME}"
     paths:
-      - out/
+      - dist/
 
 deploy:
   stage: deploy
