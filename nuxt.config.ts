@@ -1,4 +1,6 @@
-export default {
+import NuxtConfiguration from '@nuxt/config'
+
+const config: NuxtConfiguration = {
     mode: 'universal',
     /*
     ** Headers of the page
@@ -20,7 +22,7 @@ export default {
     /*
     ** Customize the progress-bar color
     */
-    loading: {color: '#ffffff'},
+    loading: { color: "#121212" },
     /*
     ** Global CSS
     */
@@ -29,9 +31,9 @@ export default {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        '@/plugins/vue-fragment',
-        '@/plugins/vue-in-viewport-directive',
-        { src: '@/plugins/aos.js', mode: 'client' },
+        '@/plugins/vue-fragment.ts',
+        {src: '@/plugins/aos.ts', mode: 'client'},
+        {src: '@/plugins/in-viewport', mode: 'client'},
     ],
     /*
     ** Nuxt.js modules
@@ -55,6 +57,7 @@ export default {
     */
     build: {
 
+        devtools: true,
         html: {
             minify: {
                 collapseBooleanAttributes: true,
@@ -87,6 +90,7 @@ export default {
         ** You can extend webpack config here
         */
         extend(config, ctx) {
+            config.devtool = ctx.isClient ? 'eval-source-map' : 'inline-source-map';
         },
         postcss: {
             // Add plugin names as key and arguments as value
@@ -110,3 +114,5 @@ export default {
         optimizeImages: true,
     },
 };
+
+export default config

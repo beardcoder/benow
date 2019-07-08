@@ -12,6 +12,7 @@
 
 <script>
     import Octokit from '@octokit/rest';
+
     export default {
         name: 'Repos',
         data() {
@@ -48,12 +49,17 @@
 
     .repo {
         background: #09090b;
-        box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.50);
-        min-width: 30%;
-        max-width: 30%;
+        box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.5);
         margin: 1.5%;
+        min-width: 100%;
+        max-width: 100%;
         padding: 1rem;
         box-sizing: border-box;
+
+        @media (min-width: 40em) {
+            min-width: 30%;
+            max-width: 30%;
+        }
     }
 
     .repo__link {

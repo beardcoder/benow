@@ -3,7 +3,7 @@
         <dt class="skill__tile">
             {{ title }}
         </dt>
-        <dd v-in-viewport.once class="skill__percent">
+        <dd data-in-viewport class="skill__percent">
             <div class="skill__percentBackground"></div>
             <div class="skill__percentIndicator" :style="{width: value + '%'}"></div>
         </dd>
@@ -45,7 +45,7 @@
     }
 
     .skill__percent:not(.in-viewport) .skill__percentIndicator {
-        width: 0% !important;
+        width: 0 !important;
     }
 
 </style>

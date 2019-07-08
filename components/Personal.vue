@@ -1,7 +1,7 @@
 <template>
     <section class="personal">
         <DesignShapeLeft />
-        <div class="personal__imageWrapper" v-in-viewport.once>
+        <div class="personal__imageWrapper" data-in-viewport>
             <img src="@/assets/images/markus_sommer.jpg?webp?resize&size=420" alt='Bild von Markus Sommer' title='Bild von Markus Sommer' class="personal__image" />
         </div>
         <div class="personal__content">
