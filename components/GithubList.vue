@@ -3,14 +3,19 @@
         <h3>{{title}}</h3>
         <ul class="github__list">
             <template v-for="item in data">
-                <li data-aos="zoom-in" class="github__item" v-bind:key="item.id">
-                    <div v-if="item.full_name">
+                <li
+                    data-aos="zoom-in"
+                    class="github__item"
+                    v-bind:key="item.id"
+                    v-if="gist || item.fork === false"
+                >
+                    <div v-if="!gist">
                         <h4>{{ item.full_name }}</h4>
                         <p>{{ item.description }}</p>
                     </div>
                     <h4 v-else>{{ item.description }}</h4>
                     <a
-                        :class="{'github__link': true,'github__link--secondary': secondary}"
+                        :class="{'github__link': true,'github__link--secondary': gist}"
                         v-bind:href="item.html_url"
                         target="_blank"
                     >{{linkText}}</a>
@@ -26,8 +31,8 @@
         props: {
             data: Array,
             linkText: String,
-            secondary: Boolean,
             title: String,
+            gist: Boolean
         },
     };
 </script>

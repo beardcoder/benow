@@ -14,7 +14,7 @@
             </p>
         </header>
         <github-list :data="github.repos" linkText="zum Repo" title="Repositories" />
-        <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" secondary />
+        <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" gist />
         <design-shape />
     </section>
 </template>
