@@ -12668,6 +12668,11 @@ vue-in-viewport-directive@^2.0.0:
   resolved "https://registry.yarnpkg.com/vue-in-viewport-directive/-/vue-in-viewport-directive-2.0.0.tgz#d81735a525eab2c45d4dfc947b1f7a3be74c990d"
   integrity sha512-Ck8a89R2Bb6WxVUvw/WPP9ESz1tmDO7Zlj0ia2MXGI8tRNA54YYbdPNPLv5HfrSnoQ7efsFW0GYA1lxIPAowow==
 
+vue-lazyload@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.3.1.tgz#75715bc091d8453e1f3d6daca74b8e7254c297d1"
+  integrity sha512-sQ4O3TRq95SL3MyK9VaLI/KGFoEK5054/gtDvSwem+UvSGQYy94DX6VzOeCHc/oTQg3r5M8HSlMSBBQu873Mww==
+
 vue-loader@^15.7.0:
   version "15.7.0"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.7.0.tgz#27275aa5a3ef4958c5379c006dd1436ad04b25b3"

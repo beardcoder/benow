@@ -2,7 +2,7 @@
     <fragment>
         <dt class="skill__tile">{{ title }}</dt>
         <dd data-in-viewport class="skill__percent">
-            <div class="skill__percentNumber">{{value}}</div>
+            <div class="skill__percentNumber" :style="{marginLeft: value + '%'}">{{value}}</div>
             <div class="skill__percentBackground"></div>
             <div class="skill__percentIndicator" :style="{width: value + '%'}"></div>
         </dd>
@@ -45,5 +45,34 @@
 
     .skill__percent:not(.in-viewport) .skill__percentIndicator {
         width: 0 !important;
+    }
+
+    .skill__percentNumber {
+        background: #404040;
+        width: 26px;
+        height: 26px;
+        border-radius: 13px;
+        line-height: 25px;
+        text-align: center;
+        font-size: 12px;
+        position: relative;
+        transition: margin-left 0.8s;
+        transform: translateX(-50%);
+
+        &:after {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-top: 13px solid #404040;
+            transform: translateX(-20px);
+            bottom: -4px;
+        }
+    }
+
+    .skill__percent:not(.in-viewport) .skill__percentNumber {
+        margin-left: 0 !important;
     }
 </style>

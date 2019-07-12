@@ -1,15 +1,23 @@
 <template>
-    <header class="header" :style="{ backgroundImage: `url(${require('@/assets/images/header.jpg')})` }">
+    <header
+        class="header"
+        :style="{ backgroundImage: `url(${require('@/assets/images/header.jpg?webp')})` }"
+    >
         <div class="header_content">
             <h1>
-                Webentwicker<br />
-                Frontend Ingenieur<br />
-                Designer<br />
+                Webentwicker
+                <br />Frontend Ingenieur
+                <br />Designer
+                <br />
             </h1>
-            <h3>
-                Innovation, Inspiration, Technik und Leidenschaft
-            </h3>
-            <img class="header_shape" alt='header shape' src="@/assets/images/shape.svg" width="1442" height="1316" />
+            <h3>Innovation, Inspiration, Technik und Leidenschaft</h3>
+            <img
+                class="header_shape"
+                alt="header shape"
+                src="@/assets/images/shape.svg"
+                width="1442"
+                height="1316"
+            />
         </div>
     </header>
 </template>

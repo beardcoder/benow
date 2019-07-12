@@ -14,20 +14,20 @@
             </p>
         </header>
         <github-list :data="github.repos" linkText="zum Repo" title="Repositories" />
-        <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" secondary/>
-        <DesignShapeRight />
+        <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" secondary />
+        <design-shape />
     </section>
 </template>
 <script>
     import GithubList from './GithubList';
-    import DesignShapeRight from './DesignShapeRight';
+    import DesignShape from './DesignShape';
     import { mapGetters } from 'vuex';
 
     export default {
         name: 'Projects',
         components: {
             GithubList,
-            DesignShapeRight,
+            DesignShape,
         },
         computed: mapGetters({
             github: 'github/get',

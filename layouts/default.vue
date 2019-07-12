@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-    @import "~normalize-scss/sass/normalize/import-now";
+    @import '~normalize-scss/sass/normalize/import-now';
 
     //font-family: 'Roboto Slab', serif;
     //font-family: 'Quicksand', sans-serif;
@@ -20,7 +20,7 @@
         -moz-osx-font-smoothing: grayscale;
         background-color: #141618;
         height: 100%;
-        color: #ffffff;
+        color: #fff;
         width: 100%;
     }
 
@@ -71,5 +71,4 @@
     .content {
         overflow-x: hidden;
     }
-
 </style>

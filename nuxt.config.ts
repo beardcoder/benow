@@ -34,6 +34,7 @@ const config: NuxtConfiguration = {
         '@/plugins/vue-fragment.ts',
         {src: '@/plugins/aos.ts', mode: 'client'},
         {src: '@/plugins/in-viewport', mode: 'client'},
+        {src: '@/plugins/vue-lazyload', mode: 'client'},
     ],
     /*
     ** Nuxt.js modules
@@ -112,6 +113,7 @@ const config: NuxtConfiguration = {
     },
     optimizedImages: {
         optimizeImages: true,
+        optimizeImagesInDev: true,
     },
 };
 
