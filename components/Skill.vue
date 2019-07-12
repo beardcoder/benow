@@ -1,9 +1,8 @@
 <template>
     <fragment>
-        <dt class="skill__tile">
-            {{ title }}
-        </dt>
+        <dt class="skill__tile">{{ title }}</dt>
         <dd data-in-viewport class="skill__percent">
+            <div class="skill__percentNumber">{{value}}</div>
             <div class="skill__percentBackground"></div>
             <div class="skill__percentIndicator" :style="{width: value + '%'}"></div>
         </dd>
@@ -47,5 +46,4 @@
     .skill__percent:not(.in-viewport) .skill__percentIndicator {
         width: 0 !important;
     }
-
 </style>
