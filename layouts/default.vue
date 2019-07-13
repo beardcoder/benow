@@ -1,15 +1,14 @@
 <template>
-    <div class="content">
-        <nuxt />
-    </div>
+    <nuxt />
 </template>
 
-<style lang="scss">
-    @import '~normalize-scss/sass/normalize/import-now';
+<script lang="ts">
+    import 'normalize.css';
+    import Vue from 'vue';
+    export default Vue.extend({});
+</script>
 
-    //font-family: 'Roboto Slab', serif;
-    //font-family: 'Quicksand', sans-serif;
-
+<style lang="postcss">
     html,
     body {
         font-size: 18px;

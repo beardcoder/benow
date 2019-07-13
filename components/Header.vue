@@ -21,12 +21,12 @@
         </div>
     </header>
 </template>
+<script lang="ts">
+    import Vue from 'vue';
+    export default Vue.extend({});
+</script>
 
-<style lang="scss">
-    @function strip-unit($value) {
-        @return $value / ($value * 0 + 1);
-    }
-
+<style lang="postcss">
     .header {
         display: flex;
         min-height: 500px;

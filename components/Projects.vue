@@ -18,12 +18,14 @@
         <design-shape />
     </section>
 </template>
-<script>
-    import GithubList from './GithubList';
-    import DesignShape from './DesignShape';
+
+<script lang="ts">
+    import Vue from 'vue';
+    import GithubList from './GithubList.vue';
+    import DesignShape from './DesignShape.vue';
     import { mapGetters } from 'vuex';
 
-    export default {
+    export default Vue.extend({
         name: 'Projects',
         components: {
             GithubList,
@@ -35,7 +37,7 @@
         mounted() {
             this.$store.dispatch('github/fetch');
         },
-    };
+    });
 </script>
 
 <style lang="scss" scoped>

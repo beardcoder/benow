@@ -43,7 +43,7 @@
     };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="postcss">
     .github {
         margin-top: 50px;
 
@@ -69,7 +69,7 @@
     }
 
     .github__item {
-        background: #222225;
+        background: #232629;
         box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.5);
         margin: 1rem;
         min-width: calc((100% / 1) - 2rem);

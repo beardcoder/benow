@@ -1,15 +1,16 @@
 <template>
     <div :class="{'designShape': true, 'designShape--left': left}"></div>
 </template>
-<script>
-    export default {
+<script lang="ts">
+    import Vue from 'vue';
+    export default Vue.extend({
         props: {
             left: Boolean,
         },
-        name: 'DesignShapeLeft',
-    };
+    });
 </script>
-<style scoped lang="scss">
+
+<style scoped lang="postcss">
     .designShape {
         height: 873px;
         width: 200vw;

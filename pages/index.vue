@@ -1,24 +1,28 @@
 <template>
     <fragment>
-        <Header />
+        <page-header />
         <main>
-            <Personal />
-            <Projects />
+            <personal />
+            <projects />
         </main>
+        <page-footer />
     </fragment>
 </template>
 
-<script>
-    import Header from '../components/Header';
-    import Personal from '../components/Personal';
-    import Projects from '../components/Projects';
+<script lang="ts">
+    import PageHeader from '../components/Header.vue';
+    import PageFooter from '../components/Footer.vue';
+    import Personal from '../components/Personal.vue';
+    import Projects from '../components/Projects.vue';
 
-    export default {
+    import Vue from 'vue';
+    export default Vue.extend({
         components: {
+            PageHeader,
             Projects,
-            Header,
             Personal,
+            PageFooter,
         },
-    };
+    });
 </script>
 

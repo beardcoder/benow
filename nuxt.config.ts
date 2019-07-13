@@ -49,10 +49,6 @@ const config: NuxtConfiguration = {
         '@nuxtjs/manifest',
     ],
 
-    axios: {
-        // proxyHeaders: false
-    },
-
     /*
     ** Build configuration
     */

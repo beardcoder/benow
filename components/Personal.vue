@@ -25,27 +25,28 @@
             </p>
             <p>Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.</p>
             <dl class="personal__skills">
-                <Skill title="CSS" value="90" />
-                <Skill title="HTML" value="95" />
-                <Skill title="JavaScript" value="70" />
-                <Skill title="PHP" value="80" />
-                <Skill title="React" value="50" />
-                <Skill title="Vue" value="60" />
+                <skill title="CSS" value="90" />
+                <skill title="HTML" value="95" />
+                <skill title="JavaScript" value="70" />
+                <skill title="PHP" value="80" />
+                <skill title="React" value="50" />
+                <skill title="Vue" value="60" />
             </dl>
         </div>
     </section>
 </template>
 
-<script>
-    import Skill from './Skill';
-    import DesignShape from './DesignShape';
+<script lang="ts">
+    import Vue from 'vue';
+    import Skill from './Skill.vue';
+    import DesignShape from './DesignShape.vue';
 
-    export default {
+    export default Vue.extend({
         components: {
             Skill,
             DesignShape,
         },
-    };
+    });
 </script>
 
 <style lang="scss">
