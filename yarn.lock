@@ -722,7 +722,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@glidejs/glide@^3.2.4":
+"@glidejs/glide@^3.2.4", "@glidejs/glide@^3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@glidejs/glide/-/glide-3.3.0.tgz#5d0a0cddad863a66272a15826919c64c60351094"
   integrity sha512-8rs4yGHRlCOvubBM7RyB4sijzl0q5ST7Yvv9frSb8xIRWdztoY7lP/uMMc9GBEM0up5MvxIYWOXig1b5gT/j2A==
@@ -1770,6 +1770,11 @@
     "@types/body-parser" "*"
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
+
+"@types/glidejs@^1.0.30":
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/@types/glidejs/-/glidejs-1.0.30.tgz#41b2a67212f2542cb877b5e21a873b1477820418"
+  integrity sha512-I5b0kpBFCoWGOh2Xbon1Lkv7ZP5n+YilMSGorwRouRB1AQu1/XaArLp3Yo75Rmyc/LzixuB94Ee0/8MU3VFvuA==
 
 "@types/glob@^7.1.1":
   version "7.1.1"
@@ -11969,7 +11974,7 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
-tiny-slider@^2.9.1:
+tiny-slider@^2.9.1, tiny-slider@^2.9.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/tiny-slider/-/tiny-slider-2.9.2.tgz#dcd70ac79054a4d170bc2cfde3efbdaa2cc0c75f"
   integrity sha512-2sgEJpVbpIbbgiYM/xGa0HMvvtUZSJvXeZJmLWBux6VgFqh/MQG8LXBR59ZLYpa/1OtwM0E6/ic55oLOJN9Mnw==

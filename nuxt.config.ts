@@ -113,7 +113,7 @@ const config: NuxtConfiguration = {
     },
     optimizedImages: {
         optimizeImages: true,
-        optimizeImagesInDev: true,
+        optimizeImagesInDev: false,
     },
 };
 

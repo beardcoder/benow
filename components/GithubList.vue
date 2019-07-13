@@ -2,13 +2,8 @@
     <div class="github">
         <h3>{{title}}</h3>
         <ul class="github__list">
-            <template v-for="item in data">
-                <li
-                    data-aos="zoom-in"
-                    class="github__item"
-                    v-bind:key="item.id"
-                    v-if="gist || item.fork === false"
-                >
+            <template v-for="(item, i) in data">
+                <li data-aos="zoom-in" class="github__item" v-bind:key="i" v-if="i < 3 || showAll">
                     <div v-if="!gist">
                         <h4>{{ item.full_name }}</h4>
                         <p>{{ item.description }}</p>
@@ -22,6 +17,12 @@
                 </li>
             </template>
         </ul>
+        <div style="text-align: center;">
+            <button class="github__toggle" v-on:click="showAll = !showAll">
+                <span v-if="!showAll">Alle anzeigen</span>
+                <span v-else>wieder ausblenden</span>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -32,7 +33,12 @@
             data: Array,
             linkText: String,
             title: String,
-            gist: Boolean
+            gist: Boolean,
+        },
+        data() {
+            return {
+                showAll: false,
+            };
         },
     };
 </script>
@@ -90,7 +96,12 @@
         overflow: hidden;
     }
 
-    .github__link {
+    .github__toggle {
+        background: transparent;
+    }
+
+    .github__link,
+    .github__toggle {
         margin-top: 1rem;
         display: inline-block;
         padding: 5px 30px;

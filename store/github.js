@@ -17,7 +17,9 @@ export const mutations = {
         state.isLoading.gists = false;
     },
     addRepos(state, data) {
-        state.data.repos = data;
+        state.data.repos = data.filter((item) => {
+            return item.fork === false;
+        });
     },
 
     loadingGists(state) {
