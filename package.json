@@ -1,7 +1,7 @@
 {
     "name": "creativeworkspace",
     "version": "1.0.0",
-    "description": "Creativewirkspace Website",
+    "description": "Creativeworkspace Website",
     "author": "Markus Sommer",
     "private": true,
     "scripts": {
@@ -30,6 +30,7 @@
         "normalize.css": "^8.0.1",
         "nuxt": "^2.8.1",
         "nuxt-rfg-icon": "^0.6.3",
+        "nuxt-webfontloader": "^1.1.0",
         "postcss-hexrgba": "^1.0.1",
         "postcss-nested": "^4.1.2",
         "postcss-responsive-type": "^1.0.0",

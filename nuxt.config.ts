@@ -19,13 +19,6 @@ const config: NuxtConfiguration = {
                 content: process.env.npm_package_description || '',
             },
         ],
-        link: [
-            {
-                rel: 'stylesheet',
-                href:
-                    'https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|Roboto+Slab:300,400&display=swap',
-            },
-        ],
     },
     /*
      ** Customize the progress-bar color
@@ -55,8 +48,14 @@ const config: NuxtConfiguration = {
         // Simple usage
         ['nuxt-rfg-icon', { masterPicture: 'assets/favicon.png' }],
         '@nuxtjs/manifest',
+        'nuxt-webfontloader',
     ],
 
+    webfontloader: {
+        google: {
+            families: ['Titillium+Web:300,400,700', 'Roboto+Slab:300,400'],
+        },
+    },
     /*
      ** Build configuration
      */
