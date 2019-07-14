@@ -14,8 +14,9 @@
     },
     "dependencies": {
         "@bazzite/nuxt-optimized-images": "^0.2.1",
+        "@nuxtjs/axios": "^5.5.4",
         "@nuxtjs/manifest": "^3.0.0-beta.16",
-        "@octokit/rest": "^16.28.3",
+        "@octokit/rest": "^16.28.4",
         "aos": "^3.0.0-beta.6",
         "imagemin-gifsicle": "^6.0.1",
         "imagemin-mozjpeg": "^8.0.0",
