@@ -1,59 +1,66 @@
-import NuxtConfiguration from '@nuxt/config'
+import NuxtConfiguration from '@nuxt/config';
 
 const config: NuxtConfiguration = {
     mode: 'universal',
     /*
-    ** Headers of the page
-    */
+     ** Headers of the page
+     */
     head: {
         title: process.env.npm_package_name || '',
         meta: [
-            {charset: 'utf-8'},
-            {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-            {hid: 'description', name: 'description', content: process.env.npm_package_description || ''},
+            { charset: 'utf-8' },
+            {
+                name: 'viewport',
+                content: 'width=device-width, initial-scale=1',
+            },
+            {
+                hid: 'description',
+                name: 'description',
+                content: process.env.npm_package_description || '',
+            },
         ],
         link: [
             {
                 rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|Roboto+Slab:300,400&display=swap',
+                href:
+                    'https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|Roboto+Slab:300,400&display=swap',
             },
         ],
     },
     /*
-    ** Customize the progress-bar color
-    */
-    loading: { color: "#121212" },
+     ** Customize the progress-bar color
+     */
+    loading: { color: '#121212' },
     /*
-    ** Global CSS
-    */
+     ** Global CSS
+     */
     css: [],
     /*
-    ** Plugins to load before mounting the App
-    */
+     ** Plugins to load before mounting the App
+     */
     plugins: [
         '@/plugins/vue-fragment.ts',
-        {src: '@/plugins/aos.ts', mode: 'client'},
-        {src: '@/plugins/in-viewport', mode: 'client'},
-        {src: '@/plugins/vue-lazyload', mode: 'client'},
+        { src: '@/plugins/aos.ts', mode: 'client' },
+        { src: '@/plugins/in-viewport', mode: 'client' },
+        { src: '@/plugins/vue-lazyload', mode: 'client' },
     ],
     /*
-    ** Nuxt.js modules
-    */
+     ** Nuxt.js modules
+     */
     modules: [
         '@nuxtjs/eslint-module',
         '@bazzite/nuxt-optimized-images',
         '@nuxtjs/axios',
 
         // Simple usage
-        ['nuxt-rfg-icon', {masterPicture: 'assets/favicon.png'}],
+        ['nuxt-rfg-icon', { masterPicture: 'assets/favicon.png' }],
         '@nuxtjs/manifest',
     ],
 
     /*
-    ** Build configuration
-    */
+     ** Build configuration
+     */
     build: {
-
         devtools: true,
         html: {
             minify: {
@@ -68,7 +75,6 @@ const config: NuxtConfiguration = {
                 useShortDoctype: true,
             },
         },
-
         optimization: {
             minimize: true,
             minimizer: [
@@ -84,10 +90,12 @@ const config: NuxtConfiguration = {
         },
 
         /*
-        ** You can extend webpack config here
-        */
+         ** You can extend webpack config here
+         */
         extend(config, ctx) {
-            config.devtool = ctx.isClient ? 'eval-source-map' : 'inline-source-map';
+            config.devtool = ctx.isClient
+                ? 'eval-source-map'
+                : 'inline-source-map';
         },
         postcss: {
             // Add plugin names as key and arguments as value
@@ -113,4 +121,4 @@ const config: NuxtConfiguration = {
     },
 };
 
-export default config
+export default config;

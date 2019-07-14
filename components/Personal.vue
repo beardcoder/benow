@@ -4,7 +4,7 @@
         <div class="personal__imageWrapper" data-in-viewport>
             <img
                 src="@/assets/images/markus_sommer.jpg?sqip"
-                v-lazy="require('@/assets/images/markus_sommer.jpg?webp?resize&size=420')"
+                v-lazy="require('@/assets/images/markus_sommer.jpg?webp&size=420')"
                 alt="Bild von Markus Sommer"
                 title="Bild von Markus Sommer"
                 class="personal__image"
