@@ -19,7 +19,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="postcss">
     .skill__tile {
         font-family: 'Roboto Slab', serif;
     }

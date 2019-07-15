@@ -49,7 +49,7 @@
     });
 </script>
 
-<style lang="scss">
+<style lang="postcss">
     .personal {
         padding-right: 1rem;
         padding-left: 1rem;

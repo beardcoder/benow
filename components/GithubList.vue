@@ -26,21 +26,22 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'GithubList',
+<script lang="ts">
+    import { Component, Vue } from 'vue-property-decorator';
+    @Component({
+        data() {
+            return {
+                showAll: false,
+            };
+        },
         props: {
             data: Array,
             linkText: String,
             title: String,
             gist: Boolean,
         },
-        data() {
-            return {
-                showAll: false,
-            };
-        },
-    };
+    })
+    export default class GithubList extends Vue {}
 </script>
 
 <style scoped lang="postcss">

@@ -1,20 +1,32 @@
 {
-    "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "lib": ["esnext", "esnext.asynciterable", "dom"],
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "sourceMap": true,
-        "strict": true,
-        "allowSyntheticDefaultImports": true,
-        "noEmit": true,
-        "baseUrl": ".",
-        "resolveJsonModule": true,
-        "paths": {
-            "~/*": ["./*"]
-        },
-        "types": ["@nuxt/vue-app", "@types/node", "@types/webpack-env"]
-    }
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app"
+    ]
+  }
 }

@@ -20,16 +20,13 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-    import GithubList from './GithubList.vue';
-    import DesignShape from './DesignShape.vue';
+    import { Component, Vue } from 'vue-property-decorator';
     import { mapGetters } from 'vuex';
 
-    export default Vue.extend({
-        name: 'Projects',
+    @Component({
         components: {
-            GithubList,
-            DesignShape,
+            GithubList: () => import('./GithubList.vue'),
+            DesignShape: () => import('./DesignShape.vue'),
         },
         computed: mapGetters({
             github: 'github/get',
@@ -37,10 +34,11 @@
         mounted() {
             this.$store.dispatch('github/fetch');
         },
-    });
+    })
+    export default class Projects extends Vue {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
     .projects {
         max-width: 1440px;
         margin-left: auto;
