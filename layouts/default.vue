@@ -18,12 +18,13 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: #141618;
-        height: 100%;
+        min-height: 100%;
         color: #fff;
         width: 100%;
     }
 
     body {
+        width: 100%;
         overflow-x: hidden;
     }
 

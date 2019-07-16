@@ -1,12 +1,12 @@
 <template>
-    <fragment>
+    <div class="app" id="app">
         <page-header />
         <main class="main">
             <personal />
             <projects :github="github" />
         </main>
         <page-footer />
-    </fragment>
+    </div>
 </template>
 
 <script lang="ts">
@@ -37,4 +37,11 @@
         },
     });
 </script>
+
+<style lang="postcss">
+    .app {
+        overflow-x: hidden;
+    }
+</style>
+
 
