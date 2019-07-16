@@ -13,8 +13,12 @@
                 kannst dann nur her damit.
             </p>
         </header>
-        <github-list :data="github.repos" linkText="zum Repo" title="Repositories" />
-        <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" gist />
+        <div id="repos">
+            <github-list :data="github.repos" linkText="zum Repo" title="Repositories" />
+        </div>
+        <div id="snippets">
+            <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" gist />
+        </div>
         <design-shape />
     </section>
 </template>

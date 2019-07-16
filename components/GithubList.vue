@@ -18,7 +18,7 @@
             </template>
         </ul>
         <div style="text-align: center;">
-            <button class="github__toggle" v-on:click="showAll = !showAll">
+            <button :class="{'github__toggle': true,'github__toggle--secondary': gist}" v-on:click="showAll = !showAll">
                 <span v-if="!showAll">Alle anzeigen</span>
                 <span v-else>wieder ausblenden</span>
             </button>

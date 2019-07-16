@@ -44,6 +44,7 @@ const config: NuxtConfiguration = {
         { src: '@/plugins/aos.ts', mode: 'client' },
         { src: '@/plugins/in-viewport', mode: 'client' },
         { src: '@/plugins/vue-lazyload', mode: 'client' },
+        { src: '@/plugins/scrollnav', mode: 'client' },
     ],
     /*
      ** Nuxt.js modules
@@ -107,6 +108,7 @@ const config: NuxtConfiguration = {
                 'postcss-nested': {},
                 'postcss-responsive-type': {},
                 'postcss-hexrgba': {},
+                'postcss-css-variables': {},
             },
             preset: {
                 // Change the postcss-preset-env settings

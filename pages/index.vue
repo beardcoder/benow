@@ -1,7 +1,7 @@
 <template>
     <fragment>
         <page-header />
-        <main>
+        <main class="main">
             <personal />
             <projects />
         </main>

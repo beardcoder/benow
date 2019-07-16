@@ -3,6 +3,13 @@
         class="header"
         :style="{ backgroundImage: `url(${require('@/assets/images/header.jpg?webp')})` }"
     >
+        <no-ssr>
+            <scrollactive :offset="50" class="nav" v-on:itemchanged="onItemChanged">
+                <a href="#personal" class="scrollactive-item">Personal</a>
+                <a href="#repos" class="scrollactive-item">Repositories</a>
+                <a href="#snippets" class="scrollactive-item">Snippets</a>
+            </scrollactive>
+        </no-ssr>
         <div class="header_content">
             <h1>
                 Webentwicker
@@ -23,7 +30,17 @@
 </template>
 <script lang="ts">
     import Vue from 'vue';
-    export default Vue.extend({});
+    export default Vue.extend({
+        methods: {
+            onItemChanged(event, currentItem) {
+                if (currentItem) {
+                    window.history.replaceState(null, '', currentItem);
+                } else {
+                    window.history.pushState(null, '', '/');
+                }
+            },
+        },
+    });
 </script>
 
 <style lang="postcss">
@@ -79,5 +96,24 @@
         width: calc(1000px + 442 * ((100vw - 420px) / 860));
         top: calc(-100px + -200 * ((100vw - 420px) / 860));
         left: calc(-500px + -140 * ((100vw - 420px) / 860));
+    }
+
+    .nav {
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        background: #000;
+        text-align: center;
+    }
+
+    .scrollactive-item {
+        color: #fff;
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px;
+
+        &.is-active {
+            color: #32f0d1;
+        }
     }
 </style>

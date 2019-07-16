@@ -1,5 +1,5 @@
 <template>
-    <section class="personal">
+    <section id="personal" class="personal section">
         <design-shape left />
         <div class="personal__imageWrapper" data-in-viewport>
             <img
