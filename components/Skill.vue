@@ -1,12 +1,12 @@
 <template>
-    <fragment>
-        <dt class="skill__tile">{{ title }}</dt>
-        <dd data-in-viewport class="skill__percent">
+    <li>
+        <div class="skill__tile">{{ title }}</div>
+        <div data-in-viewport class="skill__percent">
             <div class="skill__percentNumber" :style="{marginLeft: value + '%'}">{{value}}</div>
             <div class="skill__percentBackground"></div>
             <div class="skill__percentIndicator" :style="{width: value + '%'}"></div>
-        </dd>
-    </fragment>
+        </div>
+    </li>
 </template>
 
 <script lang="ts">

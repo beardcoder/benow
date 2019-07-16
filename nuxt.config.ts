@@ -40,7 +40,6 @@ const config: NuxtConfiguration = {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        '@/plugins/vue-fragment.ts',
         { src: '@/plugins/aos.ts', mode: 'client' },
         { src: '@/plugins/in-viewport', mode: 'client' },
         { src: '@/plugins/vue-lazyload', mode: 'client' },

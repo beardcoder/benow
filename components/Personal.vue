@@ -24,14 +24,14 @@
                 </strong>
             </p>
             <p>Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.</p>
-            <dl class="personal__skills">
+            <ul class="personal__skills">
                 <skill title="CSS" value="90" />
                 <skill title="HTML" value="95" />
                 <skill title="JavaScript" value="70" />
                 <skill title="PHP" value="80" />
                 <skill title="React" value="50" />
                 <skill title="Vue" value="60" />
-            </dl>
+            </ul>
         </div>
     </section>
 </template>
@@ -99,5 +99,11 @@
             max-width: 750px;
             margin-left: 150px;
         }
+    }
+
+    .personal__skills {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 </style>

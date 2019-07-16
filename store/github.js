@@ -1,4 +1,4 @@
-import Octokit from '@octokit/rest';
+const Octokit = process.server ? require('@octokit/rest') : undefined;
 
 export const state = () => ({
     isLoading: {
