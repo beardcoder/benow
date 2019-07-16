@@ -34,25 +34,28 @@ export const mutations = {
 };
 
 export const actions = {
-    fetch({ commit }) {
-        commit('loadingGists');
-        commit('loadingRepos');
-
+    fetchGists() {
         const clientWithAuth = new Octokit({
             auth: 'af546dac1c7586e645262865beea708d6290c12f',
         });
 
-        clientWithAuth.gists
+        return clientWithAuth.gists
             .listPublicForUser({
                 username: 'beardcoder',
             })
-            .then((res) => commit('addGists', res.data));
+            .then((res) => res.data);
+    },
 
-        clientWithAuth.repos
+    fetchRepos() {
+        const clientWithAuth = new Octokit({
+            auth: 'af546dac1c7586e645262865beea708d6290c12f',
+        });
+
+        return clientWithAuth.repos
             .listForUser({
                 username: 'beardcoder',
             })
-            .then((res) => commit('addRepos', res.data));
+            .then((res) => res.data);
     },
 };
 

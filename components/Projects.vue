@@ -23,11 +23,10 @@
     </section>
 </template>
 
-<script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
+<script>
     import { mapGetters } from 'vuex';
 
-    @Component({
+    export default {
         components: {
             GithubList: () => import('./GithubList.vue'),
             DesignShape: () => import('./DesignShape.vue'),
@@ -35,11 +34,7 @@
         computed: mapGetters({
             github: 'github/get',
         }),
-        mounted() {
-            this.$store.dispatch('github/fetch');
-        },
-    })
-    export default class Projects extends Vue {}
+    };
 </script>
 
 <style lang="postcss" scoped>
