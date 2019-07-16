@@ -3,7 +3,11 @@
         <h3>{{title}}</h3>
         <ul class="github__list">
             <template v-for="(item, i) in data">
-                <li data-aos="zoom-in" class="github__item" v-bind:key="i" v-if="i < 3 || showAll">
+                <li
+                    :aria-hidden="!(i < 3 || showAll) ? true : false"
+                    :class="{'github__item': true, 'github__item--hidden': !(i < 3 || showAll)}"
+                    v-bind:key="i"
+                >
                     <div v-if="!gist">
                         <h4>{{ item.full_name }}</h4>
                         <p>{{ item.description }}</p>
@@ -18,7 +22,10 @@
             </template>
         </ul>
         <div style="text-align: center;">
-            <button :class="{'github__toggle': true,'github__toggle--secondary': gist}" v-on:click="showAll = !showAll">
+            <button
+                :class="{'github__toggle': true,'github__toggle--secondary': gist}"
+                v-on:click="showAll = !showAll"
+            >
                 <span v-if="!showAll">Alle anzeigen</span>
                 <span v-else>wieder ausblenden</span>
             </button>
@@ -86,6 +93,10 @@
         @media (min-width: 60em) {
             min-width: calc((100% / 3) - 2rem);
             max-width: calc((100% / 3) - 2rem);
+        }
+
+        &--hidden {
+            display: none;
         }
     }
 
