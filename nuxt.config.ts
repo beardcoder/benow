@@ -63,7 +63,7 @@ const config: NuxtConfiguration = {
      ** Build configuration
      */
     build: {
-        devtools: true,
+        devtools: false,
         html: {
             minify: {
                 collapseBooleanAttributes: true,
