@@ -1,4 +1,5 @@
 import NuxtConfiguration from '@nuxt/config';
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 const config: NuxtConfiguration = {
     mode: 'universal',
@@ -21,8 +22,8 @@ const config: NuxtConfiguration = {
         ],
         link: [
             {
-                rel: 'preload',
-                as: 'style',
+                rel: 'stylesheet',
+                lazyload: true,
                 href:
                     'https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|Roboto+Slab:300,400&display=swap',
             },
@@ -40,7 +41,6 @@ const config: NuxtConfiguration = {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '@/plugins/aos.ts', mode: 'client' },
         { src: '@/plugins/in-viewport', mode: 'client' },
         { src: '@/plugins/vue-lazyload', mode: 'client' },
         { src: '@/plugins/scrollnav', mode: 'client' },
@@ -52,6 +52,7 @@ const config: NuxtConfiguration = {
         '@nuxtjs/eslint-module',
         '@bazzite/nuxt-optimized-images',
         '@nuxtjs/axios',
+        'nuxt-payload-extractor',
 
         // Simple usage
         ['nuxt-rfg-icon', { masterPicture: 'assets/favicon.png' }],
@@ -80,7 +81,9 @@ const config: NuxtConfiguration = {
             minimize: true,
             minimizer: [
                 // terser-webpack-plugin
-                // optimize-css-assets-webpack-plugin
+                new OptimizeCssAssetsPlugin({
+                    cssProcessor: require('cssnano'),
+                }),
             ],
             splitChunks: {
                 chunks: 'all',
