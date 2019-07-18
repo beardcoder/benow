@@ -14,7 +14,7 @@
                     </div>
                     <h4 v-else>{{ item.description }}</h4>
                     <a
-                        :class="{'github__link': true,'github__link--secondary': gist}"
+                        :class="{'btn': true,'btn--secondary': gist}"
                         v-bind:href="item.html_url"
                         target="_blank"
                     >{{linkText}}</a>
@@ -22,10 +22,7 @@
             </template>
         </ul>
         <div style="text-align: center;">
-            <button
-                :class="{'github__toggle': true,'github__toggle--secondary': gist}"
-                v-on:click="showAll = !showAll"
-            >
+            <button :class="{'btn': true, 'btn--secondary': gist}" v-on:click="showAll = !showAll">
                 <span v-if="!showAll">Alle anzeigen</span>
                 <span v-else>wieder ausblenden</span>
             </button>
@@ -102,32 +99,7 @@
 
     h4 {
         text-overflow: ellipsis;
-
-        /* Required for text-overflow to do anything */
         white-space: nowrap;
         overflow: hidden;
-    }
-
-    .github__toggle {
-        background: transparent;
-    }
-
-    .github__link,
-    .github__toggle {
-        margin-top: 1rem;
-        display: inline-block;
-        padding: 5px 30px;
-        text-transform: uppercase;
-        border: 4px solid;
-        border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
-        border-image-slice: 4;
-        text-decoration: none;
-        color: #fff;
-        font-weight: 700;
-
-        &--secondary {
-            border-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
-            border-image-slice: 4;
-        }
     }
 </style>

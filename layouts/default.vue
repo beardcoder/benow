@@ -71,4 +71,52 @@
     .content {
         overflow-x: hidden;
     }
+
+    .btn {
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 10px 30px;
+        line-height: 1;
+        text-transform: uppercase;
+        border: 4px solid;
+        border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+        border-image-slice: 4;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.19);
+        background-image: linear-gradient(135deg, #f03f3200 0%, #36094000 100%);
+        transition: background 0.3s;
+        z-index: 2;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        &--secondary {
+            border-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
+            border-image-slice: 4;
+
+            &:after {
+                background-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
+            }
+        }
+
+        &:hover:after,
+        &:focus:after {
+            opacity: 1;
+        }
+    }
 </style>
