@@ -1,33 +1,37 @@
 <template>
     <section class="projects">
-        <header class="projects__header">
-            <h2>Projekte</h2>
-            <p>
-                Hast du dich schon einmal gefragt wie Manche Menschen so schnell Programmieren können?
-                Oder fehlt dir Inspiration zu einem kleinen Bereich deiner Seite?
-            </p>
-            <p>Hier findest du alles, was einem Das Leben leichter macht 😊</p>
-            <p>
-                Meine kleine Snippet Datenbank wird Stetig erweitert und überarbeitet,
-                da ich sie Selbst jeden Tag Produktiv nutze. Wenn du einen Fehler findest oder etwas verbessern
-                kannst dann nur her damit.
-            </p>
-        </header>
-        <div id="repos">
-            <github-list :data="github.repos" linkText="zum Repo" title="Repositories" />
-        </div>
-        <div id="snippets">
-            <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" gist />
-        </div>
+        <LazyHydrate>
+            <header class="projects__header">
+                <h2>Projekte</h2>
+                <p>
+                    Hast du dich schon einmal gefragt wie Manche Menschen so schnell Programmieren können?
+                    Oder fehlt dir Inspiration zu einem kleinen Bereich deiner Seite?
+                </p>
+                <p>Hier findest du alles, was einem Das Leben leichter macht 😊</p>
+                <p>
+                    Meine kleine Snippet Datenbank wird Stetig erweitert und überarbeitet,
+                    da ich sie Selbst jeden Tag Produktiv nutze. Wenn du einen Fehler findest oder etwas verbessern
+                    kannst dann nur her damit.
+                </p>
+            </header>
+            <div id="repos">
+                <github-list :data="github.repos" linkText="zum Repo" title="Repositories" />
+            </div>
+            <div id="snippets">
+                <github-list :data="github.gists" linkText="zum Snippet" title="Snippets" gist />
+            </div>
+        </LazyHydrate>
         <design-shape />
     </section>
 </template>
 
 <script>
+    import LazyHydrate from 'vue-lazy-hydration';
     import { mapGetters } from 'vuex';
 
     export default {
         components: {
+            LazyHydrate,
             GithubList: () => import('./GithubList.vue'),
             DesignShape: () => import('./DesignShape.vue'),
         },
