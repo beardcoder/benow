@@ -1,45 +1,42 @@
 <template>
     <section id="personal" class="personal section">
-        <LazyHydrate>
-            <design-shape left />
-            <div class="personal__imageWrapper" data-in-viewport>
-                <img
-                    src="@/assets/images/markus_sommer.jpg?sqip"
-                    v-lazy="require('@/assets/images/markus_sommer.jpg?webp&size=420')"
-                    alt="Bild von Markus Sommer"
-                    title="Bild von Markus Sommer"
-                    class="personal__image"
-                    width="420"
-                    height="630"
-                />
-            </div>
-            <div class="personal__content">
-                <h2>Mein Name ist Markus Sommer</h2>
-                <h3>Webentwickler, Frontend Artist und Designer</h3>
-                <p>
-                    Brauchst du Hilfe z. B.
-                    <strong>deine Website in neuem Glanz</strong> erstrahlen zu lassen? Oder einfach nur mal einen Tipp wie du am besten eine
-                    <strong>
-                        Sitemap
-                        einrichtest?
-                    </strong>
-                </p>
-                <p>Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.</p>
-                <ul class="personal__skills">
-                    <skill title="CSS" value="90" />
-                    <skill title="HTML" value="95" />
-                    <skill title="JavaScript" value="70" />
-                    <skill title="PHP" value="80" />
-                    <skill title="Vue" value="60" />
-                    <skill title="Docker" value="70" />
-                </ul>
-            </div>
-        </LazyHydrate>
+        <design-shape left />
+        <div class="personal__imageWrapper" data-in-viewport>
+            <img
+                src="@/assets/images/markus_sommer.jpg?sqip"
+                v-lazy="require('@/assets/images/markus_sommer.jpg?webp&size=420')"
+                alt="Bild von Markus Sommer"
+                title="Bild von Markus Sommer"
+                class="personal__image"
+                width="420"
+                height="630"
+            />
+        </div>
+        <div class="personal__content">
+            <h2>Mein Name ist Markus Sommer</h2>
+            <h3>Webentwickler, Frontend Artist und Designer</h3>
+            <p>
+                Brauchst du Hilfe z. B.
+                <strong>deine Website in neuem Glanz</strong> erstrahlen zu lassen? Oder einfach nur mal einen Tipp wie du am besten eine
+                <strong>
+                    Sitemap
+                    einrichtest?
+                </strong>
+            </p>
+            <p>Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.</p>
+            <ul class="personal__skills">
+                <skill title="CSS" value="90" />
+                <skill title="HTML" value="95" />
+                <skill title="JavaScript" value="70" />
+                <skill title="PHP" value="80" />
+                <skill title="Vue" value="60" />
+                <skill title="Docker" value="70" />
+            </ul>
+        </div>
     </section>
 </template>
 
 <script lang="ts">
-    import LazyHydrate from 'vue-lazy-hydration';
     import Vue from 'vue';
     import Skill from './Skill.vue';
     import DesignShape from './DesignShape.vue';
@@ -48,7 +45,6 @@
         components: {
             Skill,
             DesignShape,
-            LazyHydrate,
         },
     });
 </script>
