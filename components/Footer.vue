@@ -1,5 +1,12 @@
 <template>
     <footer class="footer">
+        <img
+            class="footer__shape"
+            alt="header shape"
+            src="@/assets/images/shape.svg"
+            width="1442"
+            height="1316"
+        />
         <div class="footer__content">
             <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
             <ul class="social">
@@ -64,6 +71,16 @@
         margin-top: 100px;
         padding-top: 150px;
         padding-bottom: 150px;
+        position: relative;
+    }
+
+    .footer__shape {
+        position: absolute;
+        bottom: 50px;
+        min-width: 800px;
+        right: -50%;
+        z-index: -1;
+        transform: rotate(270deg);
     }
 
     .footer__content {

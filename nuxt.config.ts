@@ -7,24 +7,18 @@ const config: NuxtConfiguration = {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
-        meta: [
-            { charset: 'utf-8' },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-            {
-                hid: 'description',
-                name: 'description',
-                content: process.env.npm_package_description || '',
-            },
-        ],
+        title:
+            'Markus Sommer | Creativeworkspace > Moderne Webtechnologien und Design',
+        htmlAttrs: {
+            lang: 'de',
+        },
     },
+
     /*
      ** Customize the progress-bar color
      */
     loading: { color: '#121212' },
+
     /*
      ** Global CSS
      */
@@ -50,7 +44,25 @@ const config: NuxtConfiguration = {
         // Simple usage
         ['nuxt-rfg-icon', { masterPicture: 'assets/favicon.png' }],
         '@nuxtjs/manifest',
+        'nuxt-seo',
     ],
+
+    seo: {
+        // Module options
+        name: 'Markus Sommer',
+        title: 'Creativeworkspace',
+        templateTitle: '%name% - %title%',
+        description: 'Entwickler für moderne Web Technologieren und Design',
+        lang: 'de',
+        language: 'Deutsch',
+        author: ['Markus Sommer', 'info@creativeworkspace.de'],
+        'og:type': 'website',
+        'og:title': 'Moderne Webtechnologien und Design',
+        'og:site_name': 'Creativeworkspace',
+        'og:url': 'https://creativeworkspace.de',
+        'og:description':
+            'Entwickler für moderne Web Technologieren und Design',
+    },
 
     webfontloader: {
         google: {

@@ -29,8 +29,8 @@
                 <skill title="HTML" value="95" />
                 <skill title="JavaScript" value="70" />
                 <skill title="PHP" value="80" />
-                <skill title="React" value="50" />
                 <skill title="Vue" value="60" />
+                <skill title="Docker" value="70" />
             </ul>
         </div>
     </section>
@@ -103,7 +103,7 @@
 
     .personal__skills {
         list-style: none;
-        margin: 0;
+        margin: 60px 0 0 0;
         padding: 0;
     }
 </style>

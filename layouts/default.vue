@@ -36,12 +36,14 @@
         font-family: 'Roboto Slab', serif;
         font-size: responsive 24px 50px; /* min-size, max-size */
         margin-top: 0;
+        line-height: 1.4;
     }
 
     h2 {
         font-family: 'Roboto Slab', serif;
         font-size: responsive 22px 34px; /* min-size, max-size */
         margin-top: 0;
+        line-height: 1.4;
     }
 
     h3 {
@@ -49,6 +51,7 @@
         font-size: responsive 20px 30px; /* min-size, max-size */
         font-weight: 300;
         margin-top: 0;
+        line-height: 1.4;
     }
 
     h4 {
@@ -57,10 +60,15 @@
         font-weight: 400;
         margin-top: 0;
         margin-bottom: 1rem;
+        line-height: 1.4;
     }
 
     h2 + h3 {
-        margin-top: -30px;
+        margin-top: -10px;
+
+        @media (min-width: 1200px) {
+            margin-top: -30px;
+        }
     }
 
     img {

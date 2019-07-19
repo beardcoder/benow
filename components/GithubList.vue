@@ -4,8 +4,8 @@
         <ul class="github__list">
             <template v-for="(item, i) in data">
                 <li
-                    :aria-hidden="!(i < 3 || showAll) ? true : false"
-                    :class="{'github__item': true, 'github__item--hidden': !(i < 3 || showAll)}"
+                    :aria-hidden="!(i < 6 || showAll) ? true : false"
+                    :class="{'github__item': true, 'github__item--hidden': !(i < 6 || showAll)}"
                     v-bind:key="i"
                 >
                     <div v-if="!gist">

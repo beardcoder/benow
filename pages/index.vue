@@ -41,6 +41,13 @@
 <style lang="postcss">
     .app {
         overflow-x: hidden;
+        position: relative;
+        z-index: 10;
+    }
+
+    .main {
+        position: relative;
+        z-index: 20;
     }
 </style>
 

@@ -22,6 +22,7 @@
 <style lang="postcss">
     .skill__tile {
         font-family: 'Roboto Slab', serif;
+        margin-bottom: -20px;
     }
 
     .skill__percent {
@@ -74,6 +75,6 @@
     }
 
     .skill__percent:not(.in-viewport) .skill__percentNumber {
-        margin-left: 0 !important;
+        margin-left: 20% !important;
     }
 </style>
