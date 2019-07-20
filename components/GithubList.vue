@@ -17,6 +17,7 @@
                         :class="{'btn': true,'btn--secondary': gist}"
                         v-bind:href="item.html_url"
                         target="_blank"
+                        rel="noopener"
                     >{{linkText}}</a>
                 </li>
             </template>
