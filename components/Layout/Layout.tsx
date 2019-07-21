@@ -2,16 +2,13 @@ import * as React from 'react';
 import Head from 'next/head';
 import 'sanitize.css';
 import './Layout.css';
-import { NextSeo } from 'next-seo';
 
 const Layout: React.FunctionComponent = ({ children }) => (
     <div>
         <Head>
-            <NextSeo
-                title="Markus Sommer | Creativeworkspace > Moderne Webtechnologien und Design"
-                description="Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren und Design"
-                canonical="https://creativeworkspace.de/"
-            />
+            <title>Markus Sommer | Creativeworkspace > Moderne Webtechnologien und Design</title>
+            <meta name="description" content="Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren und Design" />
+            <link rel="canonical" href="https://creativeworkspace.de" />
             <meta charSet="utf-8" />
             <meta
                 name="viewport"
