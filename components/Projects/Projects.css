@@ -1,0 +1,18 @@
+.projects {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    position: relative;
+}
+
+.projectsHeader {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+
+    @media (min-width: 40em) {
+        text-align: center;
+    }
+}

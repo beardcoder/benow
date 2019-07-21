@@ -1,11 +1,7 @@
 {
     "extends": [
         "stylelint-config-standard",
-        "stylelint-config-recommended",
-        "stylelint-config-recommended-scss"
-    ],
-    "plugins": [
-        "stylelint-scss"
+        "stylelint-config-recommended"
     ],
     "rules": {
         "indentation": 4,

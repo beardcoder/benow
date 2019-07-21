@@ -1,55 +1,55 @@
 image: node:latest
 
 variables:
-  RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
+    RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
 
-  #--------------------------------------------------------#
-  # NEXT VARIABLES (no Docker)                             #
-  #--------------------------------------------------------#
-  NEXT_URL: https://next.creativeworkspace.de/
-  NEXT_USER: web_next-js
-  NEXT_SERVER: 159.69.21.63
-  NEXT_PATH: /var/www/clients/client1/web28/private
-  NEXT_PORT: '22'
+    #--------------------------------------------------------#
+    # NEXT VARIABLES (no Docker)                             #
+    #--------------------------------------------------------#
+    NEXT_URL: https://next.creativeworkspace.de/
+    NEXT_USER: web_next-js
+    NEXT_SERVER: 159.69.21.63
+    NEXT_PATH: /var/www/clients/client1/web28/private
+    NEXT_PORT: '22'
 
-  YARN_CACHE_FOLDER: ${CI_PROJECT_DIR}/.cache/yarn
+    YARN_CACHE_FOLDER: ${CI_PROJECT_DIR}/.cache/yarn
 
 cache:
-  paths:
-    - node_modules/
-    - .cache/
+    paths:
+        - node_modules/
+        - .cache/
 
 stages:
-  - setup
-  - build
-  - deploy
+    - setup
+    - build
+    - deploy
 
 setup:
-  stage: setup
-  script: yarn install
+    stage: setup
+    script: yarn install
 
 build:
-  stage: build
-  script:
-    - NODE_ENV=production yarn build
-    - NODE_ENV=production yarn generate
-  environment:
-    name: production
-    url: https://next-js.creativeworkspace.de
-  artifacts:
-    expire_in: 1 hour
-    name: "${CI_COMMIT_REF_NAME}"
-    paths:
-      - dist/
+    stage: build
+    script:
+        - NODE_ENV=production yarn build
+        - NODE_ENV=production yarn export
+    environment:
+        name: production
+        url: https://next-js.creativeworkspace.de
+    artifacts:
+        expire_in: 1 hour
+        name: '${CI_COMMIT_REF_NAME}'
+        paths:
+            - out/
 
 deploy:
-  stage: deploy
-  image: 1drop/php-73-docker-utils
-  before_script:
-    - eval $(ssh-agent -s)
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-    - mkdir -p ~/.ssh
-    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-  script:
-    - cd dist/
-    - $RSYNC -e "ssh -p $NEXT_PORT" --filter="merge ../.ci/.deploy-filter" . $NEXT_USER@$NEXT_SERVER:$NEXT_PATH
+    stage: deploy
+    image: 1drop/php-73-docker-utils
+    before_script:
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - mkdir -p ~/.ssh
+        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    script:
+        - cd out/
+        - $RSYNC -e "ssh -p $NEXT_PORT" --filter="merge ../.ci/.deploy-filter" . $NEXT_USER@$NEXT_SERVER:$NEXT_PATH

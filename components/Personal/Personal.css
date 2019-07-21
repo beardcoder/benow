@@ -1,0 +1,56 @@
+.personal {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    position: relative;
+
+    @media (min-width: 768px) {
+        display: flex;
+        flex-flow: row;
+        margin-top: 250px;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.personalImage {
+    position: relative;
+}
+
+.personalImageWrapper {
+    max-width: 420px;
+    display: inline-block;
+    position: relative;
+    align-self: flex-start;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 40px;
+        right: -40px;
+        border: 0 solid;
+        border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+        border-image-slice: 5;
+        transition: border-width 0.6s linear;
+    }
+}
+
+.personalImageWrapper.isVisible:after {
+    border-width: 5px;
+}
+
+.personalContent {
+    @media (min-width: 768px) {
+        max-width: 750px;
+        margin-left: 150px;
+    }
+}
+
+.personalSkills {
+    list-style: none;
+    margin: 60px 0 0 0;
+    padding: 0;
+}
