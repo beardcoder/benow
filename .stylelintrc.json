@@ -16,7 +16,6 @@
         "selector-attribute-operator-space-before": "never",
         "selector-attribute-operator-space-after": "never",
         "selector-attribute-brackets-space-inside": "never",
-        "declaration-block-trailing-semicolon": "always",
         "declaration-colon-space-before": "never",
         "declaration-colon-space-after": "always",
         "comment-whitespace-inside": "always",
@@ -26,6 +25,7 @@
         "media-feature-parentheses-space-inside": "never",
         "media-feature-colon-space-before": "never",
         "media-feature-colon-space-after": "always",
-        "declaration-colon-newline-after": null
+        "declaration-colon-newline-after": null,
+        "declaration-block-trailing-semicolon": null
     }
 }

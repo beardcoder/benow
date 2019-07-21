@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './GithubList.css';
 import globalStyles from './../Layout/Layout.css';
 import { GithubItem } from '../../interfaces';
+import classnames from 'classnames';
 
 type Props = {
     items: GithubItem[];
@@ -40,12 +41,12 @@ class PageGithubList extends React.Component<Props, State> {
                     {items.map((item, index) => (
                         <li
                             key={item.id}
-                            className={[
+                            className={classnames(
                                 styles.githubItem,
                                 !this.state.open && index >= 3
                                     ? styles.githubItemHidden
                                     : '',
-                            ].join(' ')}>
+                            )}>
                             <div>
                                 <h4>
                                     {gist ? item.description : item.full_name}
@@ -54,10 +55,10 @@ class PageGithubList extends React.Component<Props, State> {
                             </div>
                             <a
                                 href={item.html_url}
-                                className={[
+                                className={classnames(
                                     globalStyles.btn,
-                                    gist ? globalStyles.btnSecondary : [],
-                                ].join(' ')}
+                                    gist ? globalStyles.btnSecondary : '',
+                                )}
                                 target="_blank"
                                 rel="noopener">
                                 {linkText}
