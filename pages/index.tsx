@@ -14,7 +14,7 @@ type Props = {
 };
 
 const IndexPage: NextPage<Props> = ({ repos, gists }) => (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout>
         <div className="app">
             <PageHeader />
             <main className="main">

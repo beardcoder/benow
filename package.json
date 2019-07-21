@@ -23,6 +23,7 @@
         "next": "^9.0.2",
         "next-compose-plugins": "^2.2.0",
         "next-optimized-images": "^2.5.3",
+        "next-seo": "^2.0.0",
         "next-typed-css": "^1.0.1",
         "postcss-css-variables": "^0.13.0",
         "postcss-nested": "^4.1.2",
