@@ -6,11 +6,11 @@ variables:
     #--------------------------------------------------------#
     # NEXT VARIABLES (no Docker)                             #
     #--------------------------------------------------------#
-    NEXT_URL: https://next.creativeworkspace.de/
-    NEXT_USER: web_next-js
-    NEXT_SERVER: 159.69.21.63
-    NEXT_PATH: /var/www/clients/client1/web28/private
-    NEXT_PORT: '22'
+    DEV_URL: https://next.creativeworkspace.de/
+    DEV_USER: web_next-js
+    DEV_SERVER: 159.69.21.63
+    DEV_PATH: /var/www/clients/client1/web28/private
+    DEV_PORT: '22'
 
     PROD_URL: https://next.creativeworkspace.de/
     PROD_USER: web_www
