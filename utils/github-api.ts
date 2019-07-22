@@ -1,4 +1,5 @@
-import Octokit from '@octokit/rest';
+const isServer = typeof window === 'undefined';
+const Octokit = isServer ? require('@octokit/rest') : null;
 
 /** Calls a mock API which returns the above array to simulate "get all". */
 export async function findAllRepos() {
@@ -10,7 +11,7 @@ export async function findAllRepos() {
         .listForUser({
             username: 'beardcoder',
         })
-        .then((res) => res.data);
+        .then((res: any) => res.data);
 }
 
 /** Calls a mock API which returns the above array to simulate "get all". */
@@ -23,5 +24,5 @@ export async function findAllGists() {
         .listPublicForUser({
             username: 'beardcoder',
         })
-        .then((res) => res.data);
+        .then((res: any) => res.data);
 }
