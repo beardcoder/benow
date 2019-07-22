@@ -77,6 +77,8 @@ const Layout: React.FunctionComponent = ({ children }) => {
                     content="/static/browserconfig.xml?v=NmP44eAp5E"
                 />
                 <meta name="theme-color" content="#202025" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
             </Head>
             {children}
         </div>
