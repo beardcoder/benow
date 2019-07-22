@@ -39,7 +39,7 @@ class PagePersonal extends React.Component<Props, State> {
                             styles.personalImageWrapper,
                         ].join(' ')}>
                         <img
-                            src={require('../../assets/images/markus_sommer.jpg?webp&size=420')}
+                            src={require('../../assets/images/markus_sommer.jpg?webp')}
                             alt="Bild von Markus Sommer"
                             title="Bild von Markus Sommer"
                             className={styles.personalImage}
