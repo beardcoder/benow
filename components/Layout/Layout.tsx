@@ -10,7 +10,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
         WebFont.load({
             google: {
                 families: [
-                    'Titillium+Web:300,400,700&display=swap',
+                    'Titillium+Web:300,400,700',
                     'Roboto+Slab:300,400&display=swap',
                 ],
             },
