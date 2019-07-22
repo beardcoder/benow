@@ -12,6 +12,12 @@ variables:
     NEXT_PATH: /var/www/clients/client1/web28/private
     NEXT_PORT: '22'
 
+    PROD_URL: https://next.creativeworkspace.de/
+    PROD_USER: web_www
+    PROD_SERVER: 159.69.21.63
+    PROD_PATH: /var/www/clients/client1/web1/private
+    PROD_PORT: '22'
+
     YARN_CACHE_FOLDER: ${CI_PROJECT_DIR}/.cache/yarn
 
 cache:
@@ -35,16 +41,18 @@ build:
         - NODE_ENV=production yarn export
     environment:
         name: production
-        url: https://next-js.creativeworkspace.de
     artifacts:
         expire_in: 1 hour
         name: '${CI_COMMIT_REF_NAME}'
         paths:
             - out/
 
-deploy:
+deploy:dev:
     stage: deploy
     image: 1drop/php-73-docker-utils
+    environment:
+        name: development
+        url: https://dev.creativeworkspace.de
     before_script:
         - eval $(ssh-agent -s)
         - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
@@ -52,4 +60,23 @@ deploy:
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     script:
         - cd out/
-        - $RSYNC -e "ssh -p $NEXT_PORT" --filter="merge ../.ci/.deploy-filter" . $NEXT_USER@$NEXT_SERVER:$NEXT_PATH
+        - $RSYNC -e "ssh -p $DEV_PORT" --filter="merge ../.ci/.deploy-filter" . $DEV_USER@$DEV_SERVER:$DEV_PATH
+    only:
+        - develop
+
+deploy:prod:
+    stage: deploy
+    image: 1drop/php-73-docker-utils
+    environment:
+        name: production
+        url: https://creativeworkspace.de
+    before_script:
+        - eval $(ssh-agent -s)
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+        - mkdir -p ~/.ssh
+        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    script:
+        - cd out/
+        - $RSYNC -e "ssh -p $PROD_PORT" --filter="merge ../.ci/.deploy-filter" . $PROD_USER@$PROD_SERVER:$PROD_PATH
+    only:
+        - master
