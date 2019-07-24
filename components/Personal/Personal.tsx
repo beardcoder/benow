@@ -30,7 +30,7 @@ class PagePersonal extends React.Component<Props, State> {
 
     render() {
         return (
-            <section id={styles.personal} className={styles.personal}>
+            <section id="about-me" className={styles.personal}>
                 {/* <design-shape left /> */}
                 <ReactVisibilitySensor onChange={this.onChange}>
                     <div
