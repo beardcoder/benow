@@ -11,7 +11,7 @@ type Props = {
 const PageProjects: React.FunctionComponent<Props> = ({ repos, gists }) => (
     <section id="projects" className={styles.projects}>
         <header className={styles.projectsHeader}>
-            <h2>Projekte</h2>
+            <h2>Projekte und Snippets die mir und vielleicht auch dir helfen können.</h2>
             <p>
                 Hast du dich schon einmal gefragt wie Manche Menschen so schnell
                 Programmieren können? Oder fehlt dir Inspiration zu einem
