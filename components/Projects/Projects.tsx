@@ -9,7 +9,7 @@ type Props = {
 };
 
 const PageProjects: React.FunctionComponent<Props> = ({ repos, gists }) => (
-    <section className={styles.projects}>
+    <section id="projects" className={styles.projects}>
         <header className={styles.projectsHeader}>
             <h2>Projekte</h2>
             <p>
@@ -25,7 +25,7 @@ const PageProjects: React.FunctionComponent<Props> = ({ repos, gists }) => (
                 her damit.
             </p>
         </header>
-        <div id="repos">
+        <div id="repositories">
             <PageGithubList
                 linkText="zum Repo"
                 title="Repositories"

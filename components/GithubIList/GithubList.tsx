@@ -16,13 +16,13 @@ type State = {
 };
 
 class PageGithubList extends React.Component<Props, State> {
+
     constructor(props: Props) {
         super(props);
 
         this.state = {
             open: false,
         };
-
         this.onClick = this.onClick.bind(this);
     }
 
@@ -37,13 +37,13 @@ class PageGithubList extends React.Component<Props, State> {
         return (
             <div className={styles.github}>
                 <h3>{title}</h3>
-                <ul className={styles.githubList}>
+                <ul className={styles.githubList} ref="">
                     {items.map((item, index) => (
                         <li
                             key={item.id}
                             className={classnames(
                                 styles.githubItem,
-                                !this.state.open && index >= 3
+                                !this.state.open && index >= 6
                                     ? styles.githubItemHidden
                                     : '',
                             )}>
@@ -51,7 +51,7 @@ class PageGithubList extends React.Component<Props, State> {
                                 <h4>
                                     {gist ? item.description : item.full_name}
                                 </h4>
-                                {!gist ? <p>item.description</p> : ''}
+                                {!gist ? <p>{item.description}</p> : ''}
                             </div>
                             <a
                                 href={item.html_url}

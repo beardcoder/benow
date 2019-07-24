@@ -7,6 +7,7 @@ import { GithubItem } from '../interfaces';
 import { findAllRepos, findAllGists } from '../utils/github-api';
 import PageProjects from '../components/Projects/Projects';
 import PageFooter from '../components/Footer/Footer';
+import Navigation from '../components/Navigation/Navigation';
 
 type Props = {
     repos: GithubItem[];
@@ -16,6 +17,18 @@ type Props = {
 const IndexPage: NextPage<Props> = ({ repos, gists }) => (
     <Layout>
         <div className="app">
+            <Navigation
+                items={[
+                    {
+                        name: 'Über mich',
+                        link: '#about-me',
+                    },
+                    {
+                        name: 'Projekte',
+                        link: '#projects',
+                    },
+                ]}
+            />
             <PageHeader />
             <main className="main">
                 <PagePersonal />
