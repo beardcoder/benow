@@ -1,4 +1,5 @@
 import * as React from 'react';
+import globalStyles from '../components/Layout/Layout.css';
 import Layout from '../components/Layout/Layout';
 import { NextPage } from 'next';
 import PageHeader from '../components/Header/Header';
@@ -16,7 +17,7 @@ type Props = {
 
 const IndexPage: NextPage<Props> = ({ repos, gists }) => (
     <Layout>
-        <div className="app">
+        <div className={globalStyles.app}>
             <Navigation
                 items={[
                     {
@@ -30,7 +31,7 @@ const IndexPage: NextPage<Props> = ({ repos, gists }) => (
                 ]}
             />
             <PageHeader />
-            <main className="main">
+            <main className={globalStyles.main}>
                 <PagePersonal />
                 <PageProjects repos={repos} gists={gists} />
             </main>

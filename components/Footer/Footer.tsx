@@ -30,7 +30,10 @@ const PageFooter: React.FunctionComponent<Props> = ({ socialLinks }) => (
                                   className={styles.socialLink}
                                   title={item.title}
                                   href={item.link}
-                                  dangerouslySetInnerHTML={{__html: item.icon}} />
+                                  dangerouslySetInnerHTML={{
+                                      __html: item.icon,
+                                  }}
+                              />
                           </li>
                       ))
                     : ''}

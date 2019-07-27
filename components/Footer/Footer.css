@@ -3,14 +3,12 @@
 }
 
 .footer {
-    background-color: var(--color__footer);
     margin-top: 100px;
-    padding-top: 150px;
-    padding-bottom: 150px;
     position: relative;
+    z-index: 10;
 }
 
-.footer__shape {
+.footerShape {
     position: absolute;
     bottom: 50px;
     min-width: 800px;
@@ -20,10 +18,14 @@
 }
 
 .footerContent {
+    background-color: var(--color__footer);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    z-index: 20;
 }
 
 .social {

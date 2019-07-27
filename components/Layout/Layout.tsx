@@ -17,7 +17,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
         });
     });
     return (
-        <div>
+        <React.Fragment>
             <Head>
                 <title>
                     Markus Sommer | Creativeworkspace > Moderne Webtechnologien
@@ -81,7 +81,7 @@ const Layout: React.FunctionComponent = ({ children }) => {
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
             </Head>
             {children}
-        </div>
+        </React.Fragment>
     );
 };
 
