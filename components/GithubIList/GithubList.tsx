@@ -16,7 +16,6 @@ type State = {
 };
 
 class PageGithubList extends React.Component<Props, State> {
-
     constructor(props: Props) {
         super(props);
 
@@ -38,33 +37,37 @@ class PageGithubList extends React.Component<Props, State> {
             <div className={styles.github}>
                 <h3>{title}</h3>
                 <ul className={styles.githubList} ref="">
-                    {items.map((item, index) => (
-                        <li
-                            key={item.id}
-                            className={classnames(
-                                styles.githubItem,
-                                !this.state.open && index >= 6
-                                    ? styles.githubItemHidden
-                                    : '',
-                            )}>
-                            <div>
-                                <h4>
-                                    {gist ? item.description : item.full_name}
-                                </h4>
-                                {!gist ? <p>{item.description}</p> : ''}
-                            </div>
-                            <a
-                                href={item.html_url}
-                                className={classnames(
-                                    globalStyles.btn,
-                                    gist ? globalStyles.btnSecondary : '',
-                                )}
-                                target="_blank"
-                                rel="noopener">
-                                {linkText}
-                            </a>
-                        </li>
-                    ))}
+                    {items
+                        ? items.map((item, index) => (
+                              <li
+                                  key={item.id}
+                                  className={classnames(
+                                      styles.githubItem,
+                                      !this.state.open && index >= 6
+                                          ? styles.githubItemHidden
+                                          : '',
+                                  )}>
+                                  <div>
+                                      <h4>
+                                          {gist
+                                              ? item.description
+                                              : item.full_name}
+                                      </h4>
+                                      {!gist ? <p>{item.description}</p> : ''}
+                                  </div>
+                                  <a
+                                      href={item.html_url}
+                                      className={classnames(
+                                          globalStyles.btn,
+                                          gist ? globalStyles.btnSecondary : '',
+                                      )}
+                                      target="_blank"
+                                      rel="noopener">
+                                      {linkText}
+                                  </a>
+                              </li>
+                          ))
+                        : ''}
                 </ul>
                 <div style={{ textAlign: 'center' }}>
                     <button

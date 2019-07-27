@@ -1,28 +1,25 @@
-const isServer = typeof window === 'undefined';
-const Octokit = isServer ? require('@octokit/rest') : null;
+import fetch from 'isomorphic-unfetch';
 
-/** Calls a mock API which returns the above array to simulate "get all". */
+const auth = 'af546dac1c7586e645262865beea708d6290c12f';
+const username = 'beardcoder';
 export async function findAllRepos() {
-    const clientWithAuth = new Octokit({
-        auth: 'af546dac1c7586e645262865beea708d6290c12f',
-    });
-
-    return await clientWithAuth.repos
-        .listForUser({
-            username: 'beardcoder',
-        })
-        .then((res: any) => res.data);
+    return await fetch(`https://api.github.com/users/${username}/repos`, {
+        headers: {
+            Authorization: `token ${auth}`,
+            'Content-Type': 'application/json',
+        },
+    }).then((res) => res.json());
 }
 
 /** Calls a mock API which returns the above array to simulate "get all". */
 export async function findAllGists() {
-    const clientWithAuth = new Octokit({
-        auth: 'af546dac1c7586e645262865beea708d6290c12f',
-    });
-
-    return clientWithAuth.gists
-        .listPublicForUser({
-            username: 'beardcoder',
-        })
-        .then((res: any) => res.data);
+    return await fetch(
+        `https://api.github.com/users/${username}/gists`,
+        {
+            headers: {
+                Authorization: `token ${auth}`,
+                'Content-Type': 'application/json',
+            },
+        },
+    ).then((res) => res.json());
 }

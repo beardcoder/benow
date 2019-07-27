@@ -44,13 +44,12 @@ IndexPage.getInitialProps = async () => {
     // Example for including initial props in a Next.js function compnent page.
     // Don't forget to include the respective types for any props passed into
     // the component.
-
-    // @ts-ignore
-    const repos: GithubItem[] = await findAllRepos();
-
-    // @ts-ignore
-    const gists: GithubItem[] = await findAllGists();
-
+    let repos: GithubItem[] = [];
+    let gists: GithubItem[] = [];
+    if (!process.browser) {
+        repos = await findAllRepos().then((res) => res);
+        gists = await findAllGists().then((res) => res);
+    }
     return { repos, gists };
 };
 
