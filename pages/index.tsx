@@ -47,9 +47,27 @@ IndexPage.getInitialProps = async () => {
     let repos: GithubItem[] = [];
     let gists: GithubItem[] = [];
     if (!process.browser) {
-        repos = await findAllRepos().then((res) => res);
-        gists = await findAllGists().then((res) => res);
+        repos = await findAllRepos().then((res) =>
+            res.map((item: GithubItem) => {
+                return {
+                    id: item.id,
+                    description: item.description,
+                    full_name: item.full_name,
+                    html_url: item.html_url,
+                };
+            }),
+        );
+        gists = await findAllGists().then((res) =>
+            res.map((item: GithubItem) => {
+                return {
+                    id: item.id,
+                    description: item.description,
+                    html_url: item.html_url,
+                };
+            }),
+        );
     }
+
     return { repos, gists };
 };
 
