@@ -1,12 +1,14 @@
 import * as React from 'react';
 import styles from './Header.css';
+import classnames from 'classnames';
 
 const PageHeader: React.FunctionComponent = () => (
-    <header
-        className={styles.header}
-        style={{
-            backgroundImage: `url(${require('../../assets/images/header.jpg?webp')})`,
-        }}>
+    <header className={classnames(styles.header)}>
+        <style jsx>{`
+            header {
+                background-image: url(${require('../../assets/images/header.jpg?webp')});
+            }
+        `}</style>
         <div className={styles.headerContent}>
             <h1>
                 Webentwicker
