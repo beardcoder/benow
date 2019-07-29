@@ -37,7 +37,7 @@ export default class NavigationItem extends React.Component<
         window.removeEventListener('scroll', this.checkIfNavlinksAreActive);
     }
 
-    isCurrentSection(section: any, scrollTop: any) {
+    isCurrentSection(section: Element, scrollTop: number) {
         let de = document.documentElement;
         let box = section.getBoundingClientRect();
         let sectionTop = Math.floor(
@@ -60,7 +60,7 @@ export default class NavigationItem extends React.Component<
 
         let section = document.querySelector(this.props.link);
 
-        if (this.isCurrentSection(section, scrollTop)) {
+        if (section && this.isCurrentSection(section, scrollTop)) {
             this.setState({
                 active: true,
             });

@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './Projects.css';
 import { GithubItem } from '../../interfaces';
 import PageGithubList from '../GithubIList/GithubList';
+import { Shape } from '../Shape/Shape';
 
 type Props = {
     repos: GithubItem[];
@@ -10,6 +11,7 @@ type Props = {
 
 const PageProjects: React.FunctionComponent<Props> = ({ repos, gists }) => (
     <section id="projects" className={styles.projects}>
+        <Shape direction="right" />
         <header className={styles.projectsHeader}>
             <h2>
                 Projekte und Snippets die mir und vielleicht auch dir helfen

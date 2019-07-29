@@ -12,11 +12,6 @@ body {
     width: 100%;
 }
 
-body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
 strong {
     font-weight: 700;
 }
@@ -119,7 +114,7 @@ img {
 }
 
 .app {
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     z-index: 10;
 }

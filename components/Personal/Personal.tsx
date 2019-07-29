@@ -2,6 +2,7 @@ import * as React from 'react';
 import styles from './Personal.css';
 import Skill from '../Skill/Skill';
 import ReactVisibilitySensor from 'react-visibility-sensor';
+import { Shape } from '../Shape/Shape';
 
 type Props = {};
 
@@ -31,7 +32,7 @@ class PagePersonal extends React.Component<Props, State> {
     render() {
         return (
             <section id="about-me" className={styles.personal}>
-                {/* <design-shape left /> */}
+                <Shape direction="left" />
                 <h2 className={styles.header}>
                     Meine Leidenschaften und mein Fokus ist das User Interface
                     und die User Expiriance
