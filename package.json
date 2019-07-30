@@ -10,11 +10,13 @@
     },
     "dependencies": {
         "@octokit/rest": "^16.28.5",
+        "@types/aos": "^3.0.1",
         "@types/classnames": "^2.2.9",
         "@types/webfontloader": "^1.6.29",
         "@zeit/next-bundle-analyzer": "^0.1.2",
         "@zeit/next-css": "^1.0.1",
         "active-menu-link": "^1.1.6",
+        "aos": "^2.3.4",
         "autoprefixer": "^9.6.1",
         "classnames": "^2.2.6",
         "cssnano": "^4.1.10",

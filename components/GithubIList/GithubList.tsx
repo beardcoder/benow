@@ -40,6 +40,7 @@ class PageGithubList extends React.Component<Props, State> {
                     {items
                         ? items.map((item, index) => (
                               <li
+                                  data-aos="fade-in"
                                   key={item.id}
                                   className={classnames(
                                       styles.githubItem,

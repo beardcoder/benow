@@ -34,8 +34,8 @@ class PagePersonal extends React.Component<Props, State> {
             <section id="about-me" className={styles.personal}>
                 <Shape direction="left" />
                 <h2 className={styles.header}>
-                    Meine Leidenschaften und mein Fokus ist das User Interface
-                    und die User Expiriance
+                    Meine Leidenschaften und mein Fokus ist die User Expiriance
+                    und das User Interface
                 </h2>
 
                 <div className={styles.wrapper}>

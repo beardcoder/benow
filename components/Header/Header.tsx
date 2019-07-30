@@ -10,7 +10,7 @@ const PageHeader: React.FunctionComponent = () => (
             }
         `}</style>
         <div className={styles.headerContent}>
-            <h1>
+            <h1 className={styles.h1}>
                 Webentwicker
                 <br />
                 Frontend Ingenieur
@@ -18,7 +18,9 @@ const PageHeader: React.FunctionComponent = () => (
                 Designer
                 <br />
             </h1>
-            <h3>Innovation, Inspiration, Technik und Leidenschaft</h3>
+            <h3 className={styles.h3}>
+                Innovation, Inspiration, Technik und Leidenschaft
+            </h3>
             <img
                 className={styles.headerShape}
                 alt="header shape"

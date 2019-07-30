@@ -9,6 +9,7 @@ import { findAllRepos, findAllGists } from '../utils/github-api';
 import PageProjects from '../components/Projects/Projects';
 import PageFooter from '../components/Footer/Footer';
 import Navigation from '../components/Navigation/Navigation';
+import 'sanitize.css';
 
 type Props = {
     repos: GithubItem[];

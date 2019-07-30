@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import 'sanitize.css';
 import './Layout.css';
 
 const Layout: React.FunctionComponent = ({ children }) => {

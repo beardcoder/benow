@@ -20,7 +20,6 @@
 
 .personalImage {
     position: relative;
-    margin-bottom: 20px;
 }
 
 .personalImageWrapper {
@@ -28,6 +27,7 @@
     display: inline-block;
     position: relative;
     align-self: flex-start;
+    margin-bottom: 20px;
 
     &:after {
         content: '';
