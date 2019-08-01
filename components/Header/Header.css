@@ -14,13 +14,14 @@
 
 .h1 {
     font-family: 'Roboto Slab', serif;
-    font-size: responsive 24px 65px; /* min-size, max-size */
+    font-size: responsive 40px 65px; /* min-size, max-size */
     margin-top: 0;
     line-height: 1.4;
     position: relative;
     z-index: 2;
     display: inline-block;
     text-align: left;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.2);
 
     @media (min-width: 500px) {
         text-align: right;
@@ -32,7 +33,7 @@
     position: relative;
     z-index: 2;
     text-align: left;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .headerContent {
