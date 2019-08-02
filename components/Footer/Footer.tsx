@@ -20,6 +20,7 @@ const PageFooter: React.FunctionComponent<Props> = ({ socialLinks }) => (
             width="1442"
             height="1316"
         />
+
         <div className={styles.footerContent}>
             <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
             <ul className={styles.social}>

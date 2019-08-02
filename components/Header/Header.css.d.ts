@@ -1,4 +1,5 @@
 export const header: string;
+export const backgroundWrapper: string;
 export const h1: string;
 export const h3: string;
 export const headerContent: string;

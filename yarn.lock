@@ -1347,6 +1347,11 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/rellax@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@types/rellax/-/rellax-1.7.2.tgz#873ad6f393aba05ad70279cea71e781b9c917d9f"
+  integrity sha512-n9x892AC/YYAJfOaH4nQ+iofiEF5TZKC2itU4h5DSs4baMX8f88b7Hw26FgrWSHhYaZK12+wkfXwApo1vlwHFA==
+
 "@types/webfontloader@^1.6.29":
   version "1.6.29"
   resolved "https://registry.yarnpkg.com/@types/webfontloader/-/webfontloader-1.6.29.tgz#c6b5f6eb8ca31d0aae6b02b6c1300349dd93ea8e"
@@ -7616,6 +7621,11 @@ relateurl@0.2.x:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+rellax@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/rellax/-/rellax-1.10.0.tgz#0308b813b458f9175d37ffb4272e1f616eab1341"
+  integrity sha512-BtxD9b8cAQcTs6iat1fqKvHMjIZ8CaxjsC5U/cIIVHC4LjkIsr0ZmeqxUm5ZvBvyjLwfPbU8Wcryp77sR5C8QA==
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
