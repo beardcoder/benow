@@ -3,6 +3,7 @@ import styles from './GithubList.css';
 import globalStyles from './../Layout/Layout.css';
 import { GithubItem } from '../../interfaces';
 import classnames from 'classnames';
+import PageGithubItem from './GithubItem';
 
 type Props = {
     items: GithubItem[];
@@ -39,44 +40,24 @@ class PageGithubList extends React.Component<Props, State> {
                 <ul className={styles.githubList} ref="">
                     {items
                         ? items.map((item, index) => (
-                              <li
-                                  data-aos="fade-in"
-                                  key={item.id}
-                                  className={classnames(
-                                      styles.githubItem,
-                                      !this.state.open && index >= 6
-                                          ? styles.githubItemHidden
-                                          : '',
-                                  )}>
-                                  <div>
-                                      <h4>
-                                          {gist
-                                              ? item.description
-                                              : item.full_name}
-                                      </h4>
-                                      {!gist ? <p>{item.description}</p> : ''}
-                                  </div>
-                                  <a
-                                      href={item.html_url}
-                                      className={classnames(
-                                          globalStyles.btn,
-                                          gist ? globalStyles.btnSecondary : '',
-                                      )}
-                                      target="_blank"
-                                      rel="noopener">
-                                      {linkText}
-                                  </a>
-                              </li>
+                              <PageGithubItem
+                                  item={item}
+                                  index={index}
+                                  key={index}
+                                  gist={gist}
+                                  linkText={linkText}
+                                  open={this.state.open}
+                              />
                           ))
                         : ''}
                 </ul>
                 <div style={{ textAlign: 'center' }}>
                     <button
                         onClick={this.onClick}
-                        className={[
+                        className={classnames(
                             globalStyles.btn,
-                            gist ? globalStyles.btnSecondary : [],
-                        ].join(' ')}>
+                            gist ? globalStyles.btnSecondary : null,
+                        )}>
                         {this.state.open ? 'Verbergen' : 'Alle anzeigen'}
                     </button>
                 </div>
