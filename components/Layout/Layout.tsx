@@ -76,6 +76,23 @@ const Layout: React.FunctionComponent = ({ children }) => {
                     content="/static/browserconfig.xml?v=NmP44eAp5E"
                 />
                 <meta name="theme-color" content="#202025" />
+                <meta name="author" content="Markus Sommer" />
+                <meta name="robots" content="index, follow" />
+                <meta name="og:locale" content="de_DE" />
+                <meta
+                    property="og:title"
+                    content="Markus Sommer | Creativeworkspace"
+                />
+                <meta property="og:site_name" content="Creativeworkspace" />
+                <meta
+                    property="og:url"
+                    content="https://creativeworkspace.de"
+                />
+                <meta
+                    property="og:description"
+                    content="Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren und Design"
+                />
+                <meta property="og:type" content="profile" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
             </Head>

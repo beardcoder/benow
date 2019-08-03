@@ -3,6 +3,7 @@ import styles from './Personal.css';
 import Skill from '../Skill/Skill';
 import ReactVisibilitySensor from 'react-visibility-sensor';
 import { Shape } from '../Shape/Shape';
+import classnames from 'classnames';
 
 type Props = {};
 
@@ -41,12 +42,10 @@ class PagePersonal extends React.Component<Props, State> {
                 <div className={styles.wrapper}>
                     <ReactVisibilitySensor onChange={this.onChange}>
                         <div
-                            className={[
-                                this.state.isVisible
-                                    ? styles.isVisible
-                                    : undefined,
+                            className={classnames(
+                                this.state.isVisible ? styles.isVisible : null,
                                 styles.personalImageWrapper,
-                            ].join(' ')}>
+                            )}>
                             <img
                                 src={require('../../assets/images/markus_sommer.jpg?webp')}
                                 alt="Bild von Markus Sommer"
@@ -60,10 +59,10 @@ class PagePersonal extends React.Component<Props, State> {
                     <div className={styles.personalContent}>
                         <h3>Webentwickler, Frontend Artist und Designer</h3>
                         <p>
-                            Brauchst du Hilfe z. B.{' '}
-                            <strong>deine Website in neuem Glanz</strong>{' '}
+                            Brauchst du Hilfe z. B.
+                            <strong>deine Website in neuem Glanz</strong>
                             erstrahlen zu lassen? Oder einfach nur mal einen
-                            Tipp wie du am besten eine{' '}
+                            Tipp wie du am besten eine
                             <strong>Sitemap einrichtest?</strong>
                         </p>
                         <p>
