@@ -13,7 +13,7 @@ export const person = () => {
                 "https://twitter.com/beardcoder",
                 "https://forge.typo3.org/users/41461",
                 "https://www.xing.com/profile/Markus_Sommer30",
-                "https://www.linkedin.com/in/markus-sommer-9040649b/",
+                "https://www.linkedin.com/in/markus-sommer-9040649b/"
             ]
         }`,
     };
