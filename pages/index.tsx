@@ -9,6 +9,8 @@ import { findAllRepos, findAllGists } from '../utils/github-api';
 import PageProjects from '../components/Projects/Projects';
 import PageFooter from '../components/Footer/Footer';
 import Navigation from '../components/Navigation/Navigation';
+import { NextSeo } from 'next-seo';
+import { person, openGraphPerson } from '../utils/schema-data';
 import 'sanitize.css';
 
 type Props = {
@@ -18,6 +20,17 @@ type Props = {
 
 const IndexPage: NextPage<Props> = ({ repos, gists }) => (
     <Layout>
+        <NextSeo
+            title="Markus Sommer — moderne Web Technologieren, Design und Frontendartist"
+            description="Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren, Design und Frontend"
+            canonical="https://creativeworkspace.de"
+            twitter={{
+                handle: '@beardcoder',
+                cardType: 'summary_large_image',
+            }}
+            openGraph={openGraphPerson()}
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={person()} />
         <div className={globalStyles.app}>
             <Navigation
                 items={[

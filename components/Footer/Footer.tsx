@@ -31,6 +31,7 @@ const PageFooter: React.FunctionComponent<Props> = ({ socialLinks }) => (
                                   className={styles.socialLink}
                                   title={item.title}
                                   href={item.link}
+                                  target="_blank"
                                   dangerouslySetInnerHTML={{
                                       __html: item.icon,
                                   }}
@@ -69,6 +70,11 @@ PageFooter.defaultProps = {
             icon: require('../../assets/icons/xing-brands.svg?include'),
             link: 'https://www.xing.com/profile/Markus_Sommer30',
             title: 'Xing Profil von Markus Sommer',
+        },
+        {
+            icon: require('../../assets/icons/linkedin-in-brands.svg?include'),
+            link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
+            title: 'linkedin Profil von Markus Sommer',
         },
     ],
 };
