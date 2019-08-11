@@ -3,7 +3,6 @@
 }
 
 .footer {
-    margin-top: 100px;
     position: relative;
     z-index: 10;
     background-color: var(--color__footer);
@@ -56,17 +55,17 @@
     margin: 15px;
     position: relative;
     border-radius: calc(var(--size) / 2);
+}
 
-    svg {
-        max-width: 100%;
-        height: auto;
-        z-index: 3;
-        position: relative;
-    }
+.socialLink svg {
+    max-width: 100%;
+    height: auto;
+    z-index: 3;
+    position: relative;
+}
 
-    svg path {
-        fill: #fff;
-    }
+.socialLink svg path {
+    fill: #fff;
 }
 
 .socialLink:before,
@@ -92,4 +91,10 @@
     right: 0;
     background: var(--color__footer);
     z-index: 2;
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.socialLink:hover:after {
+    transform: scale(0);
 }

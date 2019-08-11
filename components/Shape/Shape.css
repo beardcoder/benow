@@ -1,7 +1,7 @@
 .designShape {
     height: 873px;
     width: 200vw;
-    top: -20%;
+    top: -500px;
     left: calc(-1 * (200vw - 100%) / 2);
     position: absolute;
     transform: rotate(20deg);

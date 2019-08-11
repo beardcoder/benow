@@ -100,10 +100,10 @@ img {
 .btnSecondary {
     border-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
     border-image-slice: 4;
+}
 
-    &:after {
-        background-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
-    }
+.btnSecondary:after {
+    background-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
 }
 
 .app {
@@ -115,4 +115,6 @@ img {
 .main {
     position: relative;
     z-index: 20;
+    overflow: hidden;
+    padding-bottom: 100px;
 }

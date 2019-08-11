@@ -4,17 +4,19 @@ import styles from './Shape.css';
 
 interface Props {
     direction: 'left' | 'right';
-    bottom?: boolean
+    bottom?: boolean;
 }
 
 export const Shape: React.FC<Props> = (props) => {
     return (
-        <div
-            className={classnames(
-                styles.designShape,
-                props.direction === 'left' ? styles.designShapeLeft : '',
-                props.bottom ? styles.designShapeBottom : '',
-            )}
-        />
+        <div className="rellax" data-rellax-speed="-1.5">
+            <div
+                className={classnames(
+                    styles.designShape,
+                    props.direction === 'left' ? styles.designShapeLeft : '',
+                    props.bottom ? styles.designShapeBottom : '',
+                )}
+            />
+        </div>
     );
 };
