@@ -59,16 +59,20 @@ export default class NavigationItem extends React.Component<
         let scrollTop = this.getScrollTop();
 
         let section = document.querySelector(this.props.link);
-
         if (section && this.isCurrentSection(section, scrollTop)) {
-            this.setState({
-                active: true,
-            });
-            window.history.replaceState(null, '', this.props.link);
+            if (!this.state.active) {
+                this.setState({
+                    active: true,
+                });
+                window.history.replaceState(null, '', this.props.link);
+            }
         } else {
-            this.setState({
-                active: false,
-            });
+            if (this.state.active) {
+                this.setState({
+                    active: false,
+                });
+                window.history.replaceState(null, '', '/');
+            }
         }
     }
 
