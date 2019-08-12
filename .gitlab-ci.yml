@@ -32,13 +32,12 @@ stages:
 
 setup:
     stage: setup
-    script: yarn install
+    script: npm install
 
 build:
     stage: build
     script:
-        - NODE_ENV=production yarn build
-        - NODE_ENV=production yarn export
+        - NODE_ENV=production npm run export
     environment:
         name: production
     artifacts:
