@@ -5,6 +5,9 @@ import ReactVisibilitySensor from 'react-visibility-sensor';
 import { Shape } from '../Shape/Shape';
 import classnames from 'classnames';
 
+// @ts-ignore
+import LazyLoad from 'vanilla-lazyload';
+
 type Props = {};
 
 type State = {
@@ -20,6 +23,12 @@ class PagePersonal extends React.Component<Props, State> {
         };
 
         this.onChange = this.onChange.bind(this);
+    }
+
+    componentDidMount() {
+        new LazyLoad({
+            elements_selector: '.lazy',
+        });
     }
 
     onChange(isVisible: boolean) {
@@ -47,12 +56,15 @@ class PagePersonal extends React.Component<Props, State> {
                                 styles.personalImageWrapper,
                             )}>
                             <img
-                                src={require('../../assets/images/markus_sommer.jpg?webp')}
-                                alt="Bild von Markus Sommer"
+                                src={require('../../assets/images/markus_sommer.jpg?lqip')}
+                                data-src={require('../../assets/images/markus_sommer.jpg?webp')}
+                                alt="Markus Sommer"
                                 title="Bild von Markus Sommer"
-                                className={styles.personalImage}
-                                width="420"
-                                height="630"
+                                className={[styles.personalImage, 'lazy'].join(
+                                    ' ',
+                                )}
+                                width={420}
+                                height={630}
                             />
                         </div>
                     </ReactVisibilitySensor>

@@ -3,18 +3,25 @@ import styles from './Header.css';
 import classnames from 'classnames';
 import Rellax from 'rellax';
 
+// @ts-ignore
+import LazyLoad from 'vanilla-lazyload';
+
 const PageHeader: React.FunctionComponent = () => {
     React.useEffect(() => {
         new Rellax('.rellax');
+        new LazyLoad({
+            elements_selector: '.lazy',
+        });
     });
 
     return (
         <header className={classnames(styles.header)}>
             <div className={styles.backgroundWrapper}>
                 <div
-                    className="background rellax"
+                    className="background rellax lazy"
                     data-rellax-speed="-5"
                     role="presentation"
+                    data-bg={`url(${require('../../assets/images/header.jpg?webp')})`}
                 />
             </div>
             <style jsx>{`
@@ -26,7 +33,7 @@ const PageHeader: React.FunctionComponent = () => {
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    background-image: url(${require('../../assets/images/header.jpg?webp')});
+                    background-image: url(${require('../../assets/images/header.jpg?lqip')});
                 }
             `}</style>
             <div className={styles.headerContent}>
