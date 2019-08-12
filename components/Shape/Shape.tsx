@@ -7,14 +7,16 @@ interface Props {
     bottom?: boolean;
 }
 
-export const Shape: React.FC<Props> = (props) => {
+export const Shape: React.FunctionComponent<Props> = (props) => {
     return (
-        <div className="rellax" data-rellax-speed="-1.5">
+        <div
+            className={classnames(styles.wrapper, 'rellax')}
+            data-rellax-speed="-3">
             <div
                 className={classnames(
-                    styles.designShape,
-                    props.direction === 'left' ? styles.designShapeLeft : '',
-                    props.bottom ? styles.designShapeBottom : '',
+                    styles.shape,
+                    props.direction === 'left' ? styles.shapeLeft : '',
+                    props.bottom ? styles.shapeBottom : '',
                 )}
             />
         </div>

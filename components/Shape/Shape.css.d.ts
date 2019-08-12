@@ -1,3 +1,4 @@
-export const designShape: string;
-export const designShapeLeft: string;
-export const designShapeBottom: string;
+export const wrapper: string;
+export const shape: string;
+export const shapeLeft: string;
+export const shapeBottom: string;
