@@ -56,7 +56,7 @@ class PagePersonal extends React.Component<Props, State> {
                                 styles.personalImageWrapper,
                             )}>
                             <img
-                                src={require('../../assets/images/markus_sommer.jpg?resize&size=50')}
+                                src={require('../../assets/images/markus_sommer.jpg?lqip')}
                                 data-src={require('../../assets/images/markus_sommer.jpg?webp')}
                                 alt="Markus Sommer"
                                 title="Bild von Markus Sommer"
@@ -71,10 +71,10 @@ class PagePersonal extends React.Component<Props, State> {
                     <div className={styles.personalContent}>
                         <h3>Webentwickler, Frontend Artist und Designer</h3>
                         <p>
-                            Brauchst du Hilfe z. B.
-                            <strong>deine Website in neuem Glanz</strong>
+                            Brauchst du Hilfe z. B.{' '}
+                            <strong>deine Website in neuem Glanz</strong>{' '}
                             erstrahlen zu lassen? Oder einfach nur mal einen
-                            Tipp wie du am besten eine
+                            Tipp wie du am besten eine{' '}
                             <strong>Sitemap einrichtest?</strong>
                         </p>
                         <p>
