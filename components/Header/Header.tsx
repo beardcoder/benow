@@ -33,7 +33,7 @@ const PageHeader: React.FunctionComponent = () => {
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    background-image: url(${require('../../assets/images/header.jpg?lqip')});
+                    background-image: url(${require('../../assets/images/header_small.jpg')});
                 }
             `}</style>
             <div className={styles.headerContent}>
