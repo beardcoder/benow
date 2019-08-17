@@ -56,7 +56,7 @@ class PagePersonal extends React.Component<Props, State> {
                                 styles.personalImageWrapper,
                             )}>
                             <img
-                                src={require('../../assets/images/markus_sommer.jpg?lqip')}
+                                src={require('../../assets/images/markus_sommer_small.jpg')}
                                 data-src={require('../../assets/images/markus_sommer.jpg?webp')}
                                 alt="Markus Sommer"
                                 title="Bild von Markus Sommer"

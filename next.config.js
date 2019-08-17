@@ -1,7 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 const withCSS = require('next-typed-css');
-const withProgressBar = require('next-progressbar');
 const dotEnvResult = require('dotenv').config();
 
 if (dotEnvResult.error) {
@@ -34,14 +33,6 @@ module.exports = withPlugins(
                     camelCase: true,
                     importLoaders: 1,
                     localIdentName: '[local]___[hash:base64:5]',
-                },
-            },
-        ],
-        [
-            withProgressBar,
-            {
-                progressBar: {
-                    profile: true,
                 },
             },
         ],
