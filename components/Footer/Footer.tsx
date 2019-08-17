@@ -32,6 +32,7 @@ const PageFooter: React.FunctionComponent<Props> = ({ socialLinks }) => (
                                   title={item.title}
                                   href={item.link}
                                   target="_blank"
+                                  rel="noopener"
                                   dangerouslySetInnerHTML={{
                                       __html: item.icon,
                                   }}
