@@ -5,7 +5,6 @@ import ReactVisibilitySensor from 'react-visibility-sensor';
 import { Shape } from '../Shape/Shape';
 import classnames from 'classnames';
 
-// @ts-ignore
 import LazyLoad from 'vanilla-lazyload';
 
 type Props = {};

@@ -1,4 +1,4 @@
-image: node:alpine
+image: node
 
 variables:
     RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
