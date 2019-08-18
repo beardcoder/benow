@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 import Head from 'next/head';
 import './Layout.css';
 
 const Layout: React.FunctionComponent = ({ children }) => {
     useEffect(() => {
+        const tagManagerArgs = {
+            gtmId: 'GTM-NT4CRWW',
+        };
+
+        TagManager.initialize(tagManagerArgs);
         const WebFont = require('webfontloader');
 
         WebFont.load({

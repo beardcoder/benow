@@ -55,7 +55,7 @@ const IndexPage: NextPage<Props> = ({ repos, gists }) => (
 );
 
 IndexPage.getInitialProps = async () => {
-    // Example for including initial props in a Next.js function compnent page.
+    // Example for including initial props in a Next.js function component page.
     // Don't forget to include the respective types for any props passed into
     // the component.
     let repos: GithubItem[] = [];
