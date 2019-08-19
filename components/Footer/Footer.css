@@ -11,12 +11,19 @@
 }
 
 .footerShape {
-    position: absolute;
-    bottom: 50px;
-    min-width: 800px;
-    right: -50%;
-    z-index: -1;
-    transform: rotate(270deg);
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .footerShape {
+        display: block;
+        position: absolute;
+        bottom: 50px;
+        min-width: 800px;
+        right: -50%;
+        z-index: -1;
+        transform: rotate(270deg);
+    }
 }
 
 .footerContent {

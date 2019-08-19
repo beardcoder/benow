@@ -5,8 +5,10 @@
     max-height: 1200px;
     background-size: 1200px;
     position: relative;
+}
 
-    @media (min-width: 768px) {
+@media (min-width: 768px) {
+    .header {
         background-size: cover;
     }
 }
@@ -30,8 +32,10 @@
     display: inline-block;
     text-align: left;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
-    @media (min-width: 500px) {
+@media (min-width: 500px) {
+    .h1 {
         text-align: right;
     }
 }
@@ -51,8 +55,10 @@
     padding-right: 1rem;
     position: relative;
     max-width: 1440px;
+}
 
-    @media (min-width: 768px) {
+@media (min-width: 768px) {
+    .headerContent {
         margin-bottom: 100px;
     }
 }
@@ -78,8 +84,8 @@
     text-decoration: none;
     display: inline-block;
     padding: 10px;
+}
 
-    &.is-active {
-        color: #32f0d1;
-    }
+.scrollactive-item.is-active {
+    color: #32f0d1;
 }
