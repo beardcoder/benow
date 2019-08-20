@@ -39,7 +39,7 @@ const PageFooter: React.FunctionComponent<Props> = ({ socialLinks }) => (
                               />
                           </li>
                       ))
-                    : ''}
+                    : undefined}
             </ul>
         </div>
     </footer>
