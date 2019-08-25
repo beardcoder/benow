@@ -38,18 +38,18 @@
     position: relative;
     transition: margin-left 0.8s;
     transform: translateX(-50%);
+}
 
-    &:after {
-        position: absolute;
-        content: '';
-        width: 0;
-        height: 0;
-        border-left: 13px solid transparent;
-        border-right: 13px solid transparent;
-        border-top: 13px solid #404040;
-        transform: translateX(-20px);
-        bottom: -4px;
-    }
+.skillPercentNumber:after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid #404040;
+    transform: translateX(-20px);
+    bottom: -4px;
 }
 
 .isNotVisible .skillPercentNumber {

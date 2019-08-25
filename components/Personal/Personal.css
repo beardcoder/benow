@@ -2,20 +2,6 @@
     padding-right: 1rem;
     padding-left: 1rem;
     position: relative;
-
-    @media (min-width: 768px) {
-        margin-top: 250px;
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-.wrapper {
-    @media (min-width: 768px) {
-        display: flex;
-        flex-flow: row;
-    }
 }
 
 .personalImage {
@@ -28,31 +14,24 @@
     position: relative;
     align-self: flex-start;
     margin-bottom: 20px;
+}
 
-    &:after {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        top: 20px;
-        bottom: 20px;
-        left: 40px;
-        right: -40px;
-        border: 0 solid;
-        border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
-        border-image-slice: 5;
-        transition: border-width 0.6s linear;
-    }
+.personalImageWrapper:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 40px;
+    right: -40px;
+    border: 0 solid;
+    border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+    border-image-slice: 5;
+    transition: border-width 0.6s linear;
 }
 
 .personalImageWrapper.isVisible:after {
     border-width: 5px;
-}
-
-.personalContent {
-    @media (min-width: 768px) {
-        max-width: 750px;
-        margin-left: 150px;
-    }
 }
 
 .personalSkills {
@@ -66,4 +45,23 @@
     max-width: 900px;
     margin: auto;
     margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    .personalContent {
+        max-width: 750px;
+        margin-left: 150px;
+    }
+
+    .personal {
+        margin-top: 250px;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-flow: row;
+    }
 }

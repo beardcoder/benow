@@ -42,8 +42,10 @@ h4 {
 
 h2 + h3 {
     margin-top: -10px;
+}
 
-    @media (min-width: 1200px) {
+@media (min-width: 1200px) {
+    h2 + h3 {
         margin-top: -30px;
     }
 }
@@ -77,24 +79,24 @@ img {
     transition: background 0.3s;
     z-index: 2;
     font-size: 1rem;
+}
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        background-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
-        opacity: 0;
-        transition: opacity 0.2s;
-    }
+.btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
 
-    &:hover:after,
-    &:focus:after {
-        opacity: 1;
-    }
+.btn:hover:after,
+.btn:focus:after {
+    opacity: 1;
 }
 
 .btnSecondary {
