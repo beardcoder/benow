@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styles from './Projects.css';
-import { GithubItem } from '../../interfaces';
-import PageGithubList from '../GithubIList/GithubList';
-import { Shape } from '../Shape/Shape';
+import { GithubItem } from '@/interfaces';
+import PageGithubList from '@/components/GithubIList/GithubList';
+import { Shape } from '@/components/Shape/Shape';
 
 type Props = {
     repos: GithubItem[];

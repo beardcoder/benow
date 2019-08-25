@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './GithubList.css';
-import globalStyles from './../Layout/Layout.css';
-import { GithubItem } from '../../interfaces';
+import globalStyles from '@/components/Layout/Layout.css';
+import { GithubItem } from '@/interfaces';
 import classnames from 'classnames';
 import PageGithubItem from './GithubItem';
 
