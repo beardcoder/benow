@@ -75,14 +75,10 @@
     fill: #fff;
 }
 
-.socialLink:before,
-.socialLink:after {
+.socialLink:before {
     content: '';
     position: absolute;
     border-radius: calc((var(--size) + 8px) / 2);
-}
-
-.socialLink:before {
     top: -4px;
     bottom: -4px;
     left: -4px;
@@ -92,6 +88,9 @@
 }
 
 .socialLink:after {
+    content: '';
+    position: absolute;
+    border-radius: calc((var(--size) + 8px) / 2);
     top: 0;
     bottom: 0;
     left: 0;

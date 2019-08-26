@@ -2,6 +2,7 @@ const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 const withCSS = require('next-typed-css');
 const dotEnvResult = require('dotenv').config();
+const path = require('path');
 
 if (dotEnvResult.error) {
     throw dotEnvResult.error;
@@ -38,6 +39,13 @@ module.exports = withPlugins(
         ],
     ],
     {
+        webpack: (config, options) => {
+            config.resolve.alias = {
+                ...config.resolve.alias,
+                '@': path.resolve('./'),
+            };
+            return config;
+        },
         env: {
             ...dotEnvResult,
         },
