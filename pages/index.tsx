@@ -1,24 +1,27 @@
 import * as React from 'react';
-import globalStyles from '../components/Layout/Layout.css';
-import Layout from '../components/Layout/Layout';
+import globalStyles from '~/components/Layout/Layout.css';
+import Layout from '~/components/Layout/Layout';
 import { NextPage } from 'next';
-import PageHeader from '../components/Header/Header';
-import PagePersonal from '../components/Personal/Personal';
-import { GithubItem } from '../interfaces';
-import { findAllRepos, findAllGists } from '../utils/github-api';
-import PageProjects from '../components/Projects/Projects';
-import PageFooter from '../components/Footer/Footer';
-import Navigation from '../components/Navigation/Navigation';
+import PageHeader from '~/components/Header/Header';
+import PagePersonal from '~/components/Personal/Personal';
+import { GithubItem, Article } from '../interfaces';
+import { findAllRepos, findAllGists } from '~/utils/github-api';
+import { findArticles } from '~/utils/blog';
+import PageProjects from '~/components/Projects/Projects';
+import PageFooter from '~/components/Footer/Footer';
+import Navigation from '~/components/Navigation/Navigation';
 import { NextSeo } from 'next-seo';
-import { person, openGraphPerson } from '../utils/schema-data';
+import { person, openGraphPerson } from '~/utils/schema-data';
 import 'sanitize.css';
+import List from '~/components/Blog/List/List';
 
 type Props = {
     repos: GithubItem[];
     gists: GithubItem[];
+    articles: Article[];
 };
 
-const IndexPage: NextPage<Props> = ({ repos, gists }) => (
+const IndexPage: NextPage<Props> = ({ repos, gists, articles }) => (
     <Layout>
         <NextSeo
             title="Markus Sommer — moderne Web Technologieren, Design und Frontendartist"
@@ -48,6 +51,7 @@ const IndexPage: NextPage<Props> = ({ repos, gists }) => (
             <main className={globalStyles.main}>
                 <PagePersonal />
                 <PageProjects repos={repos} gists={gists} />
+                <List articles={articles} />
             </main>
             <PageFooter />
         </div>
@@ -60,6 +64,7 @@ IndexPage.getInitialProps = async () => {
     // the component.
     let repos: GithubItem[] = [];
     let gists: GithubItem[] = [];
+    let articles: Article[] = [];
     if (!process.browser) {
         repos = await findAllRepos().then((res) => {
             // Only get non forked repos
@@ -85,9 +90,20 @@ IndexPage.getInitialProps = async () => {
                 };
             }),
         );
+
+        articles = await findArticles().then((res) =>
+            res.data.map((item: Article) => {
+                return {
+                    id: item.id,
+                    slug: item.slug,
+                    headline: item.headline,
+                    description: item.description,
+                };
+            }),
+        );
     }
 
-    return { repos, gists };
+    return { repos, gists, articles };
 };
 
 export default IndexPage;

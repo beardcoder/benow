@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styles from './Personal.css';
-import Skill from '@/components/Skill/Skill';
+import Skill from '~/components/Skill/Skill';
 import ReactVisibilitySensor from 'react-visibility-sensor';
-import { Shape } from '@/components/Shape/Shape';
+import { Shape } from '~/components/Shape/Shape';
 import classnames from 'classnames';
 
 import LazyLoad from 'vanilla-lazyload';

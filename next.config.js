@@ -43,7 +43,14 @@ module.exports = withPlugins(
             config.resolve.alias = {
                 ...config.resolve.alias,
                 '@': path.resolve('./'),
+                '~': path.resolve('./'),
             };
+
+            config.module.rules.push({
+                test: /\.md$/,
+                use: 'raw-loader',
+            });
+
             return config;
         },
         env: {

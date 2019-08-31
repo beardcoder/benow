@@ -5,8 +5,19 @@
 // import User from 'path/to/interfaces';
 
 export type GithubItem = {
-  id: string;
-  full_name?: string;
-  description: string;
-  html_url: string;
-}
+    id: string;
+    full_name?: string;
+    description: string;
+    html_url: string;
+};
+
+export type Article = {
+    id: number;
+    slug: string;
+    headline: string;
+    datePublished: string;
+    created_on?: string;
+    author: string;
+    description: string;
+    image?: string;
+};
