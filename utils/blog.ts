@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-unfetch';
+
 export async function findArticles() {
     return await fetch(`https://api.creativeworkspace.de/_/items/article`).then(
         (res) => res.json(),
