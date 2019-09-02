@@ -36,8 +36,8 @@ build:
     image: docker:dind
     stage: build
     script:
-        - docker build . -t creativeworkspace.de:5000/creativeworkspace:$CI_COMMIT_REF_NAME
-        - docker push creativeworkspace.de:5000/creativeworkspace:$CI_COMMIT_REF_NAME
+        - docker build . -t docker.creativeworkspace.de/creativeworkspace:$CI_COMMIT_REF_NAME
+        - docker push docker.creativeworkspace.de/creativeworkspace:$CI_COMMIT_REF_NAME
 
 deploy:dev:
     stage: deploy
