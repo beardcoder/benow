@@ -1,5 +1,3 @@
-image: node
-
 variables:
     RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
 
@@ -35,6 +33,7 @@ stages:
     script: npm install
 
 build:
+    image: docker:dind
     stage: build
     script:
         - docker build . -t creativeworkspace.de:5000/creativeworkspace:$CI_COMMIT_REF_NAME
