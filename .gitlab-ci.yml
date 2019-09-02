@@ -30,14 +30,13 @@ stages:
     - build
     - deploy
 
-setup:
+.setup:
     stage: setup
     script: npm install
 
-build:
+.build:
     stage: build
     script:
-        - NODE_ENV=production npm run build
         - NODE_ENV=production npm run export
     environment:
         name: production
@@ -59,8 +58,9 @@ deploy:dev:
         - mkdir -p ~/.ssh
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     script:
-        - cd out/
         - $RSYNC -e "ssh -p $DEV_PORT" --filter="merge ../.ci/.deploy-filter" . $DEV_USER@$DEV_SERVER:$DEV_PATH
+        - cd out/
+        - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH PHP_BIN=$DEV_PHP_PATH 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
     only:
         - develop
 

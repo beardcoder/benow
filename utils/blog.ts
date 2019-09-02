@@ -1,13 +1,13 @@
-import fetch from 'isomorphic-unfetch';
+import DirectusSDK from '@directus/sdk-js';
+const client = new DirectusSDK({
+    url: 'https://api.creativeworkspace.de/',
+    project: '_',
+});
 
-export async function findArticles() {
-    return await fetch(`https://api.creativeworkspace.de/_/items/article`).then(
-        (res) => res.json(),
-    );
+export async function fetchAllArticles() {
+    return await client.getItems('article');
 }
 
-export async function findArticle(slug: string) {
-    return await fetch(
-        `https://api.creativeworkspace.de/_/items/article?single=1&filter[slug]=${slug}`,
-    ).then((res) => res.json());
+export async function fetchArticle(id: number) {
+    return await client.getItem('article', id);
 }

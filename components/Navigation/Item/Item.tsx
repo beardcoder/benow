@@ -64,14 +64,12 @@ export default class NavigationItem extends React.Component<
                 this.setState({
                     active: true,
                 });
-                window.history.replaceState(null, '', this.props.link);
             }
         } else {
             if (this.state.active) {
                 this.setState({
                     active: false,
                 });
-                window.history.replaceState(null, '', '/');
             }
         }
     }

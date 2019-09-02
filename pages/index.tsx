@@ -1,4 +1,3 @@
-import * as React from 'react';
 import globalStyles from '~/components/Layout/Layout.css';
 import Layout from '~/components/Layout/Layout';
 import { NextPage } from 'next';
@@ -6,7 +5,7 @@ import PageHeader from '~/components/Header/Header';
 import PagePersonal from '~/components/Personal/Personal';
 import { GithubItem, Article } from '../interfaces';
 import { findAllRepos, findAllGists } from '~/utils/github-api';
-import { findArticles } from '~/utils/blog';
+import { fetchAllArticles } from '~/utils/blog';
 import PageProjects from '~/components/Projects/Projects';
 import PageFooter from '~/components/Footer/Footer';
 import Navigation from '~/components/Navigation/Navigation';
@@ -91,7 +90,7 @@ IndexPage.getInitialProps = async () => {
             }),
         );
 
-        articles = await findArticles().then((res) =>
+        articles = await fetchAllArticles().then((res) =>
             res.data.map((item: Article) => {
                 return {
                     id: item.id,
