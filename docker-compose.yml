@@ -2,6 +2,6 @@ version: '3'
 
 services:
     app:
-        build: ./
+        image: creativeworkspace.de:5000/creativeworkspace:$CI_COMMIT_REF_NAME
         ports:
             - 3333:3000

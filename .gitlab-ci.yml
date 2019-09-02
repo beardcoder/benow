@@ -34,17 +34,11 @@ stages:
     stage: setup
     script: npm install
 
-.build:
+build:
     stage: build
     script:
-        - NODE_ENV=production npm run export
-    environment:
-        name: production
-    artifacts:
-        expire_in: 1 hour
-        name: '${CI_COMMIT_REF_NAME}'
-        paths:
-            - out/
+        - docker build . -t creativeworkspace.de:5000/creativeworkspace:$CI_COMMIT_REF_NAME
+        - docker push creativeworkspace.de:5000/creativeworkspace:$CI_COMMIT_REF_NAME
 
 deploy:dev:
     stage: deploy
@@ -59,7 +53,7 @@ deploy:dev:
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     script:
         - $RSYNC -e "ssh -p $DEV_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $DEV_USER@$DEV_SERVER:$DEV_PATH
-        - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH PHP_BIN=$DEV_PHP_PATH 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
+        - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH CI_COMMIT_REF_NAME=$CI_COMMIT_REF_NAME 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
     only:
         - develop
 
