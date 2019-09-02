@@ -1,3 +1,5 @@
+image: node
+
 variables:
     RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
 
@@ -32,12 +34,17 @@ stages:
     stage: setup
     script: npm install
 
-build:
-    image: docker:dind
+.build:
     stage: build
     script:
-        - docker build . -t docker.creativeworkspace.de/creativeworkspace:$CI_COMMIT_REF_NAME
-        - docker push docker.creativeworkspace.de/creativeworkspace:$CI_COMMIT_REF_NAME
+        - NODE_ENV=production npm run export
+    environment:
+        name: production
+    artifacts:
+        expire_in: 1 hour
+        name: '${CI_COMMIT_REF_NAME}'
+        paths:
+            - out/
 
 deploy:dev:
     stage: deploy
@@ -51,7 +58,8 @@ deploy:dev:
         - mkdir -p ~/.ssh
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     script:
-        - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH CI_COMMIT_REF_NAME=$CI_COMMIT_REF_NAME 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
+        - $RSYNC -e "ssh -p $DEV_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $DEV_USER@$DEV_SERVER:$DEV_PATH
+        - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH PHP_BIN=$DEV_PHP_PATH 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
     only:
         - develop
 
