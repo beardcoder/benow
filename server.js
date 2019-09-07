@@ -21,9 +21,9 @@ app.prepare().then(() => {
 
     server.get('/', (req, res) => ssrCache({ req, res, pagePath: '/' }));
 
-    server.get('/blog/:id', (req, res) => {
-        const queryParams = { id: req.params.id };
-        const pagePath = '/blog';
+    server.get('/article/:id/:slug', (req, res) => {
+        const queryParams = { id: req.params.id, slug: req.params.slug };
+        const pagePath = '/article';
         return ssrCache({ req, res, pagePath, queryParams });
     });
 
