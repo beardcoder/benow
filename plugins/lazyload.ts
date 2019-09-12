@@ -1,0 +1,5 @@
+// @ts-ignore
+import LazyLoad from 'vanilla-lazyload';
+new LazyLoad({
+    elements_selector: '.lazy',
+});
