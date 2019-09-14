@@ -10,15 +10,14 @@ RUN npm install
 # Copying source files
 COPY . .
 
+EXPOSE 3000
+
+ENV NODE_ENV production
+ENV NUXT_HOST 0.0.0.0
+ENV NUXT_PORT 3000
+
 # Building app
 RUN npm run generate
-
-EXPOSE 5000
-
-# set app serving to permissive / assigned
-ENV NUXT_HOST=0.0.0.0
-# set app port
-ENV NUXT_PORT=5000
 
 # Running the app
 CMD [ "npm", "start" ]
