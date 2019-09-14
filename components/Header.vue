@@ -5,7 +5,7 @@
                 class="background rellax lazy"
                 data-rellax-speed="-5"
                 role="presentation"
-                :style="`background-image: url(${require('~/assets/images/header.jpg?webp')})`"
+                :style="`background-image: url('${require('~/assets/images/header.jpg?webp')}')`"
                 :data-bg="`url(${require('~/assets/images/header.jpg?webp')})`"
             />
         </div>
@@ -30,7 +30,9 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    export default Vue.extend({});
+    export default Vue.extend({
+        name: 'Header',
+    });
 </script>
 
 <style scoped>
@@ -122,12 +124,12 @@
         position: fixed;
         z-index: 999;
         width: 100%;
-        background: #000;
+        background: #000000;
         text-align: center;
     }
 
     .scrollactive-item {
-        color: #fff;
+        color: #ffffff;
         text-decoration: none;
         display: inline-block;
         padding: 10px;

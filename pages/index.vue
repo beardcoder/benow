@@ -1,18 +1,36 @@
 <template>
     <div class="container">
         <Header />
+        <main class="main">
+            <Personal />
+            <Projects />
+        </main>
+        <Footer />
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import Vue from 'vue';
     import Header from '~/components/Header.vue';
+    import Personal from '~/components/Personal.vue';
+    import Projects from '~/components/Projects.vue';
+    import Footer from '~/components/Footer.vue';
 
-    export default {
+    export default Vue.extend({
         components: {
+            Projects,
             Header,
+            Personal,
+            Footer,
         },
-    };
+    });
 </script>
 
 <style>
+    .main {
+        position: relative;
+        z-index: 20;
+        overflow: hidden;
+        padding-bottom: 100px;
+    }
 </style>

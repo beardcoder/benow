@@ -1,0 +1,127 @@
+<template>
+    <section id="about-me" class="personal">
+        <Shape direction="left" />
+        <h2 class="header">
+            Meine Leidenschaften und mein Fokus ist die User Expiriance und das
+            User Interface
+        </h2>
+
+        <div class="wrapper">
+            <div v-in-viewport.once class="personalImageWrapper">
+                <img
+                    :src="require('~/assets/images/markus_sommer_small.jpg')"
+                    :data-src="
+                        require('~/assets/images/markus_sommer.jpg?webp')
+                    "
+                    width="420"
+                    height="420"
+                    alt="Markus Sommer"
+                    title="Bild von Markus Sommer"
+                    class="personalImage lazy"
+                />
+            </div>
+            <div class="personalContent">
+                <h3>Webentwickler, Frontend Artist und Designer</h3>
+                <p>
+                    Brauchst du Hilfe z. B.
+                    <strong>deine Website in neuem Glanz</strong>
+                    erstrahlen zu lassen? Oder einfach nur mal einen Tipp wie du
+                    am besten eine
+                    <strong>Sitemap einrichtest?</strong>
+                </p>
+                <p>
+                    Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur
+                    Seite.
+                </p>
+                <ul class="personalSkills">
+                    <Skill title="CSS" :value="90" />
+                    <Skill title="HTML" :value="95" />
+                    <Skill title="JavaScript" :value="70" />
+                    <Skill title="PHP" :value="80" />
+                    <Skill title="Vue" :value="60" />
+                    <Skill title="Docker" :value="70" />
+                </ul>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+    import Skill from '~/components/Skill.vue';
+    import Shape from '~/components/Shape.vue';
+
+    export default {
+        name: 'Personal',
+        components: { Skill, Shape },
+    };
+</script>
+
+<style scoped>
+    .personal {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        position: relative;
+    }
+
+    .personalImage {
+        position: relative;
+    }
+
+    .personalImageWrapper {
+        max-width: 420px;
+        display: inline-block;
+        position: relative;
+        align-self: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .personalImageWrapper:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 40px;
+        right: -40px;
+        border: 0 solid;
+        border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+        border-image-slice: 5;
+        transition: border-width 0.6s linear;
+    }
+
+    .personalImageWrapper.in-viewport:after {
+        border-width: 5px;
+    }
+
+    .personalSkills {
+        list-style: none;
+        margin: 60px 0 0 0;
+        padding: 0;
+    }
+
+    .header {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+
+    @media (min-width: 768px) {
+        .personalContent {
+            max-width: 750px;
+            margin-left: 150px;
+        }
+
+        .personal {
+            margin-top: 250px;
+            max-width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-flow: row;
+        }
+    }
+</style>

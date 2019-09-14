@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app">
         <nuxt />
     </div>
 </template>
@@ -121,12 +121,5 @@
         overflow: hidden;
         position: relative;
         z-index: 10;
-    }
-
-    .main {
-        position: relative;
-        z-index: 20;
-        overflow: hidden;
-        padding-bottom: 100px;
     }
 </style>

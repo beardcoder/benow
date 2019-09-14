@@ -22,7 +22,7 @@ module.exports = {
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#ffffff' },
+    loading: { color: '#fff' },
     /*
      ** Global CSS
      */
@@ -33,6 +33,7 @@ module.exports = {
     plugins: [
         { src: '~/plugins/rellax', mode: 'client' },
         { src: '~/plugins/lazyload', mode: 'client' },
+        { src: '~/plugins/viewport-directive', mode: 'client' },
     ],
     /*
      ** Nuxt.js dev-modules
@@ -75,10 +76,7 @@ module.exports = {
      ** Build configuration
      */
     build: {
-        /*
-         ** You can extend webpack config here
-         */
-        extend(config, ctx) {},
+        watch: ['api'],
         postcss: {
             // Add plugin names as key and arguments as value
             // Install them before as dependencies with npm or yarn

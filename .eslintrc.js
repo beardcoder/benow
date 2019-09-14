@@ -15,5 +15,6 @@ module.exports = {
         'vue/html-indent': 'off',
         'vue/singleline-html-element-content-newline': 'off',
         'vue/html-self-closing': 'off',
+        'vue/no-v-html': 'off',
     },
 };

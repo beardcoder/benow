@@ -1,81 +1,80 @@
 image: node
 
 variables:
-    RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
+  RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
 
-    #--------------------------------------------------------#
-    # NEXT VARIABLES (no Docker)                             #
-    #--------------------------------------------------------#
-    DEV_URL: https://next.creativeworkspace.de/
-    DEV_USER: web_next-js
-    DEV_SERVER: 159.69.21.63
-    DEV_PATH: /var/www/clients/client1/web28/private
-    DEV_PORT: '22'
+  DEV_URL: https://next.creativeworkspace.de/
+  DEV_USER: web_next-js
+  DEV_SERVER: 159.69.21.63
+  DEV_PATH: /var/www/clients/client1/web28/private
+  DEV_PORT: '22'
+  DEV_COMPOSE_PROJECT_NAME: creativeworkspace-dev
 
-    PROD_URL: https://next.creativeworkspace.de/
-    PROD_USER: web_www
-    PROD_SERVER: 159.69.21.63
-    PROD_PATH: /var/www/clients/client1/web1/private
-    PROD_PORT: '22'
+  PROD_URL: https://creativeworkspace.de/
+  PROD_USER: web_www
+  PROD_SERVER: 159.69.21.63
+  PROD_PATH: /var/www/clients/client1/web1/private
+  PROD_PORT: '22'
+  PROD_COMPOSE_PROJECT_NAME: creativeworkspace-prod
 
-    YARN_CACHE_FOLDER: ${CI_PROJECT_DIR}/.cache/yarn
+  YARN_CACHE_FOLDER: ${CI_PROJECT_DIR}/.cache/yarn
 
 cache:
-    paths:
-        - node_modules/
-        - .cache/
+  paths:
+    - node_modules/
+    - .cache/
 
 stages:
-    - setup
-    - build
-    - deploy
+  - setup
+  - build
+  - deploy
 
 .setup:
-    stage: setup
-    script: npm install
+  stage: setup
+  script: npm install
 
 .build:
-    stage: build
-    script:
-        - NODE_ENV=production npm run export
-    environment:
-        name: production
-    artifacts:
-        expire_in: 1 hour
-        name: '${CI_COMMIT_REF_NAME}'
-        paths:
-            - out/
+  stage: build
+  script:
+    - NODE_ENV=production npm run export
+  environment:
+    name: production
+  artifacts:
+    expire_in: 1 hour
+    name: '${CI_COMMIT_REF_NAME}'
+    paths:
+      - dist/
 
 deploy:dev:
-    stage: deploy
-    image: 1drop/php-73-docker-utils
-    environment:
-        name: development
-        url: https://dev.creativeworkspace.de
-    before_script:
-        - eval $(ssh-agent -s)
-        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-        - mkdir -p ~/.ssh
-        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    script:
-        - $RSYNC -e "ssh -p $DEV_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $DEV_USER@$DEV_SERVER:$DEV_PATH
-        - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH PHP_BIN=$DEV_PHP_PATH 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
-    only:
-        - develop
+  stage: deploy
+  image: 1drop/php-73-docker-utils
+  environment:
+    name: development
+    url: https://dev.creativeworkspace.de
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - $RSYNC -e "ssh -p $DEV_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $DEV_USER@$DEV_SERVER:$DEV_PATH
+    - ssh $DEV_USER@$DEV_SERVER DEPLOY_DIR=$DEV_PATH PHP_BIN=$DEV_PHP_PATH COMPOSE_PROJECT_NAME=$DEV_COMPOSE_PROJECT_NAME 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
+  only:
+    - develop
 
 deploy:prod:
-    stage: deploy
-    image: 1drop/php-73-docker-utils
-    environment:
-        name: production
-        url: https://creativeworkspace.de
-    before_script:
-        - eval $(ssh-agent -s)
-        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-        - mkdir -p ~/.ssh
-        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    script:
-        - cd out/
-        - $RSYNC -e "ssh -p $PROD_PORT" --filter="merge ../.ci/.deploy-filter" . $PROD_USER@$PROD_SERVER:$PROD_PATH
-    only:
-        - master
+  stage: deploy
+  image: 1drop/php-73-docker-utils
+  environment:
+    name: production
+    url: https://creativeworkspace.de
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  script:
+    - $RSYNC -e "ssh -p $PROD_PORT" --filter="merge ../.ci/.deploy-filter" . $PROD_USER@$PROD_SERVER:$PROD_PATH
+    - ssh $PROD_USER@$PROD_SERVER DEPLOY_DIR=$PROD_PATH PHP_BIN=$PROD_PHP_PATH COMPOSE_PROJECT_NAME=$PROD_COMPOSE_PROJECT_NAME 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
+  only:
+    - master
