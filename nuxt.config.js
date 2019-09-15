@@ -4,9 +4,17 @@ module.exports = {
      ** Headers of the page
      */
     head: {
-        title: 'Markus Sommer — moderne Web Technologieren, Design und Frontendartist',
+        htmlAttrs: {
+            lang: 'de',
+        },
+        title:
+            'Markus Sommer — moderne Web Technologieren, Design und Frontendartist',
         meta: [
             { charset: 'utf-8' },
+            { lang: 'de' },
+            { language: 'Deutsch' },
+            { author: 'Markus Sommer' },
+            { canonical: 'https://creativeworkspace.de' },
             {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
@@ -14,7 +22,8 @@ module.exports = {
             {
                 hid: 'description',
                 name: 'description',
-                content: 'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren, Design und Frontend',
+                content:
+                    'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren, Design und Frontend',
             },
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

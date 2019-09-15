@@ -1,5 +1,23 @@
 <template>
     <section id="about-me" class="personal">
+        <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Markus Sommer",
+        "url": "http://www.creativeworkspace.de",
+        "jobTitle": "Frontend Developer",
+        "gender": "male",
+        "image": "{{ require('~/assets/images/markus_sommer.jpg?webp') }}",
+        "sameAs": [
+            "https://github.com/beardcoder",
+            "https://twitter.com/beardcoder",
+            "https://forge.typo3.org/users/41461",
+            "https://www.xing.com/profile/Markus_Sommer30",
+            "https://www.linkedin.com/in/markus-sommer-9040649b/"
+        ]
+    }
+        </script>
         <Shape direction="left" />
         <h2 class="header">
             Meine Leidenschaften und mein Fokus ist die User Expiriance und das
@@ -9,15 +27,12 @@
         <div class="wrapper">
             <div v-in-viewport.once class="personalImageWrapper">
                 <img
-                    :src="require('~/assets/images/markus_sommer_small.jpg')"
-                    :data-src="
-                        require('~/assets/images/markus_sommer.jpg?webp')
-                    "
+                    :src="require('~/assets/images/markus_sommer.jpg?webp')"
                     width="420"
                     height="420"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"
-                    class="personalImage lazy"
+                    class="personalImage"
                 />
             </div>
             <div class="personalContent">
