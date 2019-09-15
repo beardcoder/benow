@@ -2,16 +2,29 @@
     <div class="github">
         <h3>{{ title }}</h3>
         <ul class="githubList">
-            <li v-for="(item, index) in items" :key="item.id" v-in-viewport.once :class="{'githubItem': true, 'githubItemHidden': !open && index >= 6}">
+            <li
+                v-for="(item, index) in items"
+                :key="item.id"
+                v-in-viewport.once
+                :class="{'githubItem': true, 'githubItemHidden': !open && index >= 6}"
+            >
                 <div>
                     <h4>{{ gist ? item.description : item.full_name }}</h4>
                     <p v-if="!gist">{{ item.description }}</p>
                 </div>
-                <a :href="item.html_url" class="btn" target="_blank" rel="noopener">{{ linkText }}</a>
+                <a
+                    :href="item.html_url"
+                    :class="{'btn': true, 'btnSecondary': gist}"
+                    target="_blank"
+                    rel="noopener"
+                >{{ linkText }}</a>
             </li>
         </ul>
         <div style="text-align: center;">
-            <button class="btn" @click="open = !open">{{ open ? 'Verbergen' : 'Alle anzeigen' }}</button>
+            <button
+                :class="{'btn': true, 'btnSecondary': gist}"
+                @click="open = !open"
+            >{{ open ? 'Verbergen' : 'Alle anzeigen' }}</button>
         </div>
     </div>
 </template>
