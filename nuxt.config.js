@@ -26,7 +26,47 @@ module.exports = {
                     'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren, Design und Frontend',
             },
         ],
-        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+        link: [
+            {
+                rel: 'shortcut icon',
+                type: 'image/x-icon',
+                href: '/favicon.ico',
+            },
+            {
+                rel: 'apple-touch-icon',
+                sizes: '180x180',
+                href: '/apple-touch-icon.png?v=NmP44eAp5E',
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/favicon-32x32.png?v=NmP44eAp5E',
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/favicon-16x16.png?v=NmP44eAp5E',
+            },
+            {
+                rel: 'manifest',
+                href: '/site.webmanifest?v=NmP44eAp5E',
+            },
+            {
+                rel: 'mask-icon',
+                href: '/safari-pinned-tab.svg?v=NmP44eAp5E',
+                color: '#202025',
+            },
+            {
+                rel: 'preconnect',
+                href: 'https://fonts.googleapis.com',
+            },
+            {
+                rel: 'preconnect',
+                href: 'https://fonts.gstatic.com',
+            },
+        ],
     },
     /*
      ** Customize the progress-bar color
