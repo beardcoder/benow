@@ -100,6 +100,7 @@ module.exports = {
         '@nuxtjs/axios',
         '@bazzite/nuxt-optimized-images',
         'nuxt-webfontloader',
+        ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
     ],
     /*
      ** Axios module configuration
