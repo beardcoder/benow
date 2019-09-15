@@ -85,6 +85,9 @@ module.exports = {
      ** Build configuration
      */
     build: {
+        extractCSS: true,
+        parallel: true,
+        cache: false,
         watch: ['api'],
         postcss: {
             // Add plugin names as key and arguments as value
