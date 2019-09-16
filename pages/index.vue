@@ -23,6 +23,9 @@
             Personal,
             Footer,
         },
+        async fetch({ store }) {
+            await store.dispatch('fetchGithub');
+        },
     });
 </script>
 
