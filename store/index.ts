@@ -19,10 +19,7 @@ export const mutations: MutationTree<RootState> = {
 
 export const actions: ActionTree<RootState, RootState> = {
     async fetchGithub({ commit }) {
-        // @ts-ignore
         const repos: GithubItem[] = await reposAPI(this.$axios);
-
-        // @ts-ignore
         const snippets: GithubItem[] = await snippetsAPI(this.$axios);
 
         commit('setRepos', repos);
