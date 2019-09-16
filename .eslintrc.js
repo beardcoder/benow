@@ -17,5 +17,7 @@ module.exports = {
         'vue/html-self-closing': 'off',
         'vue/no-v-html': 'off',
         'vue/multiline-html-element-content-newline': 'off',
+        'vue/max-attributes-per-line': 'off',
+        'vue/html-closing-bracket-newline': 'off'
     },
 };

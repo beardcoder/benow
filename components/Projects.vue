@@ -8,22 +8,27 @@
             </h2>
             <p>
                 Hast du dich schon einmal gefragt wie Manche Menschen so schnell
-                Programmieren können? Oder fehlt dir Inspiration zu einem
-                kleinen Bereich deiner Seite?
+                Programmieren können? Oder fehlt dir
+                Inspiration zu einem kleinen Bereich deiner Seite?
             </p>
             <p>Hier findest du alles, was einem Das Leben leichter macht 😊</p>
             <p>
                 Meine kleine Snippet Datenbank wird Stetig erweitert und
-                überarbeitet, da ich sie Selbst jeden Tag Produktiv nutze. Wenn
-                du einen Fehler findest oder etwas verbessern kannst dann nur
-                her damit.
+                überarbeitet, da ich sie Selbst jeden Tag
+                Produktiv nutze. Wenn du einen Fehler findest oder etwas
+                verbessern kannst dann nur her damit.
             </p>
         </header>
         <div id="repositories">
-            <GithubList :items="repos" link-text="zum Repo" title="Repositories" />
+            <GithubList :items="repos"
+                        link-text="zum Repo"
+                        title="Repositories" />
         </div>
-        <div id="snippets">
-            <GithubList gist :items="snippets" link-text="zum Snippet" title="Snippets" />
+        <div id="snippets" class="snippets">
+            <GithubList :items="snippets"
+                        gist
+                        link-text="zum Snippet"
+                        title="Snippets" />
         </div>
     </section>
 </template>
@@ -59,6 +64,10 @@
         margin-left: auto;
         margin-right: auto;
         padding: 1rem;
+    }
+
+    .snippets {
+        margin-top: 150px;
     }
 
     @media (min-width: 40em) {

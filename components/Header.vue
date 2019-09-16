@@ -2,11 +2,11 @@
     <header class="wrapper">
         <div class="backgroundWrapper">
             <div
-                class="background rellax lazy"
+                :data-bg="`url(${require('~/assets/images/header.jpg?webp')})`"
+                :style="`background-image: url('${require('~/assets/images/header.jpg?webp')}')`"
                 data-rellax-speed="-5"
                 role="presentation"
-                :style="`background-image: url('${require('~/assets/images/header.jpg?webp')}')`"
-                :data-bg="`url(${require('~/assets/images/header.jpg?webp')})`"
+                class="background rellax lazy"
             />
         </div>
         <div class="headerContent">
@@ -16,13 +16,14 @@
                 <br />Designer
                 <br />
             </h1>
-            <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
+            <h3 class="h3">Innovation, Inspiration, Technik und
+                           Leidenschaft</h3>
             <img
-                class="headerShape"
-                alt="header shape"
                 :src="require('~/assets/images/shape.svg')"
-                width="1442"
+                alt="header shape"
                 height="1316"
+                width="1442"
+                class="headerShape"
             />
         </div>
     </header>
@@ -30,6 +31,7 @@
 
 <script lang="ts">
     import Vue from 'vue';
+
     export default Vue.extend({
         name: 'Header',
     });

@@ -2,9 +2,12 @@
     <li v-in-viewport.once class="skill">
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
-            <div class="skillPercentNumber" :style="`margin-left: ${value}%`">{{ value }}</div>
+            <div :style="`margin-left: ${value}%`" class="skillPercentNumber">
+                {{ value }}
+            </div>
             <div class="skillPercentBackground"></div>
-            <div class="skillPercentIndicator" :style="`width: ${value}%`"></div>
+            <div :style="`width: ${value}%`"
+                 class="skillPercentIndicator"></div>
         </div>
     </li>
 </template>

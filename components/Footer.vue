@@ -1,24 +1,23 @@
 <template>
     <footer class="footer">
-        <img
-            class="footerShape"
-            alt="footer shape"
-            :src="require('~/assets/images/shape.svg')"
-            width="1442"
-            height="1316"
+        <img :src="require('~/assets/images/shape.svg')"
+             alt="footer shape"
+             height="1316"
+             width="1442"
+             class="footerShape"
         />
         <div class="footerContent">
             <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
             <ul class="social">
-                <li v-for="(item, index) in socialLinks" :key="index" class="socialItem">
-                    <a
-                        class="socialLink"
-                        :title="item.title"
-                        :href="item.link"
-                        target="_blank"
-                        rel="noopener"
-                        v-html="item.icon"
-                    ></a>
+                <li v-for="(item, index) in socialLinks"
+                    :key="index"
+                    class="socialItem">
+                    <a :href="item.link"
+                       :title="item.title"
+                       rel="noopener"
+                       target="_blank"
+                       class="socialLink"
+                       v-html="item.icon"></a>
                 </li>
             </ul>
         </div>
@@ -32,12 +31,14 @@
             return {
                 socialLinks: [
                     {
-                        icon: require('~/assets/icons/github-brands.svg?include'),
+                        icon: require(
+                            '~/assets/icons/github-brands.svg?include'),
                         link: 'https://github.com/beardcoder',
                         title: 'Github Profil von Markus Sommer',
                     },
                     {
-                        icon: require('~/assets/icons/twitter-brands.svg?include'),
+                        icon: require(
+                            '~/assets/icons/twitter-brands.svg?include'),
                         link: 'https://twitter.com/beardcoder',
                         title: 'Twitter Profil von Markus Sommer',
                     },
@@ -47,7 +48,8 @@
                         title: 'Neos Website',
                     },
                     {
-                        icon: require('~/assets/icons/typo3-brands.svg?include'),
+                        icon: require(
+                            '~/assets/icons/typo3-brands.svg?include'),
                         link: 'https://forge.typo3.org/users/41461',
                         title: 'TYPO3 Forge',
                     },
@@ -57,7 +59,8 @@
                         title: 'Xing Profil von Markus Sommer',
                     },
                     {
-                        icon: require('~/assets/icons/linkedin-in-brands.svg?include'),
+                        icon: require(
+                            '~/assets/icons/linkedin-in-brands.svg?include'),
                         link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
                         title: 'linkedin Profil von Markus Sommer',
                     },
@@ -142,7 +145,7 @@
     }
 
     .socialLink svg path {
-        fill: #fff;
+        fill: #ffffff;
     }
 
     .socialLink:before {

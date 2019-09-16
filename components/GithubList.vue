@@ -14,9 +14,9 @@
                 </div>
                 <a
                     :href="item.html_url"
-                    :class="{'btn': true, 'btnSecondary': gist}"
-                    target="_blank"
                     rel="noopener"
+                    target="_blank"
+                    :class="{'btn': true, 'btnSecondary': gist}"
                 >{{ linkText }}</a>
             </li>
         </ul>
@@ -24,7 +24,8 @@
             <button
                 :class="{'btn': true, 'btnSecondary': gist}"
                 @click="open = !open"
-            >{{ open ? 'Verbergen' : 'Alle anzeigen' }}</button>
+            >{{ open ? 'Verbergen' : 'Alle anzeigen' }}
+            </button>
         </div>
     </div>
 </template>

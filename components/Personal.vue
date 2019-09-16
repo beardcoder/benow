@@ -1,22 +1,22 @@
 <template>
     <section id="about-me" class="personal">
         <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "Markus Sommer",
-        "url": "http://www.creativeworkspace.de",
-        "jobTitle": "Frontend Developer",
-        "gender": "male",
-        "image": "{{ require('~/assets/images/markus_sommer.jpg?webp') }}",
-        "sameAs": [
-            "https://github.com/beardcoder",
-            "https://twitter.com/beardcoder",
-            "https://forge.typo3.org/users/41461",
-            "https://www.xing.com/profile/Markus_Sommer30",
-            "https://www.linkedin.com/in/markus-sommer-9040649b/"
-        ]
-    }
+            {
+                "@context": "http://schema.org",
+                "@type": "Person",
+                "name": "Markus Sommer",
+                "url": "http://www.creativeworkspace.de",
+                "jobTitle": "Frontend Developer",
+                "gender": "male",
+                "image": "{{ require('~/assets/images/markus_sommer.jpg?webp') }}",
+                "sameAs": [
+                    "https://github.com/beardcoder",
+                    "https://twitter.com/beardcoder",
+                    "https://forge.typo3.org/users/41461",
+                    "https://www.xing.com/profile/Markus_Sommer30",
+                    "https://www.linkedin.com/in/markus-sommer-9040649b/"
+                ]
+            }
         </script>
         <Shape direction="left" />
         <h2 class="header">
@@ -28,10 +28,10 @@
             <div v-in-viewport.once class="personalImageWrapper">
                 <img
                     :src="require('~/assets/images/markus_sommer.jpg?webp')"
-                    width="420"
-                    height="420"
                     alt="Markus Sommer"
+                    height="420"
                     title="Bild von Markus Sommer"
+                    width="420"
                     class="personalImage"
                 />
             </div>
@@ -49,12 +49,12 @@
                     Seite.
                 </p>
                 <ul class="personalSkills">
-                    <Skill title="CSS" :value="90" />
-                    <Skill title="HTML" :value="95" />
-                    <Skill title="JavaScript" :value="70" />
-                    <Skill title="PHP" :value="80" />
-                    <Skill title="Vue" :value="60" />
-                    <Skill title="Docker" :value="70" />
+                    <Skill :value="90" title="CSS" />
+                    <Skill :value="95" title="HTML" />
+                    <Skill :value="70" title="JavaScript" />
+                    <Skill :value="80" title="PHP" />
+                    <Skill :value="60" title="Vue" />
+                    <Skill :value="70" title="Docker" />
                 </ul>
             </div>
         </div>
@@ -62,8 +62,8 @@
 </template>
 
 <script>
-    import Skill from '~/components/Skill.vue';
     import Shape from '~/components/Shape.vue';
+    import Skill from '~/components/Skill.vue';
 
     export default {
         name: 'Personal',
