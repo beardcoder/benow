@@ -1,8 +1,8 @@
 // @ts-ignore
 import { GithubItem } from '~/types';
 
-const auth = 'af546dac1c7586e645262865beea708d6290c12f';
-const username = 'beardcoder';
+const auth = process.env.GITHUB_TOKEN;
+const username = process.env.GITHUB_USERNAME;
 
 export function repos($axios: any) {
     return $axios.$get(`https://api.github.com/users/${username}/repos`, {

@@ -101,6 +101,7 @@ module.exports = {
         '@bazzite/nuxt-optimized-images',
         'nuxt-webfontloader',
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
+        '@nuxtjs/dotenv',
     ],
     /*
      ** Axios module configuration
@@ -129,7 +130,7 @@ module.exports = {
         extractCSS: true,
         parallel: true,
         cache: false,
-        watch: ['api'],
+        watch: ['~/api/*'],
         postcss: {
             // Add plugin names as key and arguments as value
             // Install them before as dependencies with npm or yarn

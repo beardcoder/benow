@@ -4,6 +4,7 @@
         <main class="main">
             <Personal />
             <Projects />
+            <!--            <Blog />-->
         </main>
         <Footer />
     </div>
@@ -15,6 +16,7 @@
     import Personal from '~/components/Personal.vue';
     import Projects from '~/components/Projects.vue';
     import Footer from '~/components/Footer.vue';
+    // import Blog from '~/components/Blog.vue';
 
     export default Vue.extend({
         components: {
@@ -22,9 +24,11 @@
             Header,
             Personal,
             Footer,
+            // Blog,
         },
         async fetch({ store }) {
             await store.dispatch('fetchGithub');
+            await store.dispatch('fetchBlog');
         },
     });
 </script>
