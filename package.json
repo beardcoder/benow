@@ -56,6 +56,6 @@
         "eslint-config-prettier": "^6.3.0",
         "eslint-plugin-nuxt": "^0.4.3",
         "eslint-plugin-prettier": "^3.1.0",
-        "prettier": "https://github.com/prettier/prettier.git#master"
+        "prettier": "git+https://github.com/prettier/prettier.git#master"
     }
 }
