@@ -32,7 +32,12 @@ module.exports = {
     ],
     // add your custom rules here
     rules: {
-        'nuxt/no-cjs-in-config': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
+        'no-console': 'off',
+        '@typescript-eslint/indent': 'off',
+        'vue/script-indent': 'off',
         'vue/html-indent': 'off',
         'vue/singleline-html-element-content-newline': 'off',
         'vue/html-self-closing': 'off',
