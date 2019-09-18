@@ -5,12 +5,13 @@ const auth = process.env.GITHUB_TOKEN;
 const username = process.env.GITHUB_USERNAME;
 
 export function repos($axios: any) {
-    return $axios.$get(`https://api.github.com/users/${username}/repos`, {
-        headers: {
-            Authorization: `token ${auth}`,
-            'Content-Type': 'application/json',
-        },
-    })
+    return $axios
+        .$get(`https://api.github.com/users/${username}/repos`, {
+            headers: {
+                Authorization: `token ${auth}`,
+                'Content-Type': 'application/json',
+            },
+        })
         .then((data: any[]) => {
             // Only get non forked repos
             const resReduce = data.filter((item: GithubItem | any) => {
@@ -26,7 +27,7 @@ export function repos($axios: any) {
                 };
             });
         });
-};
+}
 
 // @ts-ignore
 export function snippets($axios) {
@@ -44,6 +45,6 @@ export function snippets($axios) {
                     description: item.description,
                     html_url: item.html_url,
                 };
-            }),
+            })
         );
 }

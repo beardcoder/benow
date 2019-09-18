@@ -6,8 +6,7 @@
                 {{ value }}
             </div>
             <div class="skillPercentBackground"></div>
-            <div :style="`width: ${value}%`"
-                 class="skillPercentIndicator"></div>
+            <div :style="`width: ${value}%`" class="skillPercentIndicator"></div>
         </div>
     </li>
 </template>

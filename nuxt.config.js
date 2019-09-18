@@ -7,8 +7,7 @@ module.exports = {
         htmlAttrs: {
             lang: 'de',
         },
-        title:
-            'Markus Sommer — moderne Web Technologieren, Design und Frontendartist',
+        title: 'Markus Sommer — moderne Web Technologieren, Design und Frontendartist',
         meta: [
             { charset: 'utf-8' },
             { lang: 'de' },
@@ -116,10 +115,7 @@ module.exports = {
 
     webfontloader: {
         google: {
-            families: [
-                'Titillium+Web:300,400,700',
-                'Roboto+Slab:300,400&display=swap',
-            ],
+            families: ['Titillium+Web:300,400,700', 'Roboto+Slab:300,400&display=swap'],
         },
     },
 

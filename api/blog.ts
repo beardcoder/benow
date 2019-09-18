@@ -10,5 +10,4 @@ export function blog() {
         fields: 'headline.*,author.*,description.*,articlebody.*,slug.*,image.*,id',
     });
     return articles;
-};
-
+}

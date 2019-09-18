@@ -26,21 +26,18 @@ export const mutations: MutationTree<RootState> = {
 export const actions: ActionTree<RootState, RootState> = {
     fetchGithub({ commit }) {
         return Promise.all([
-            reposAPI(this.$axios)
-                .then((data: any) => {
-                    commit('setRepos', data);
-                }),
-            snippetsAPI(this.$axios)
-                .then((data: any) => {
-                    commit('setSnippets', data);
-                }),
+            reposAPI(this.$axios).then((data: any) => {
+                commit('setRepos', data);
+            }),
+            snippetsAPI(this.$axios).then((data: any) => {
+                commit('setSnippets', data);
+            }),
         ]);
     },
 
     fetchBlog({ commit }) {
-        return blogAPI()
-            .then(data => {
-                commit('setBlog', data);
-            });
+        return blogAPI().then(data => {
+            commit('setBlog', data);
+        });
     },
 };

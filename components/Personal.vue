@@ -20,8 +20,7 @@
         </script>
         <Shape direction="left" />
         <h2 class="header">
-            Meine Leidenschaften und mein Fokus ist die User Expiriance und das
-            User Interface
+            Meine Leidenschaften und mein Fokus ist die User Expiriance und das User Interface
         </h2>
 
         <div class="wrapper">
@@ -40,13 +39,11 @@
                 <p>
                     Brauchst du Hilfe z. B.
                     <strong>deine Website in neuem Glanz</strong>
-                    erstrahlen zu lassen? Oder einfach nur mal einen Tipp wie du
-                    am besten eine
+                    erstrahlen zu lassen? Oder einfach nur mal einen Tipp wie du am besten eine
                     <strong>Sitemap einrichtest?</strong>
                 </p>
                 <p>
-                    Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur
-                    Seite.
+                    Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.
                 </p>
                 <ul class="personalSkills">
                     <Skill :value="90" title="CSS" />

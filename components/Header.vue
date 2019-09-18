@@ -12,12 +12,13 @@
         <div class="headerContent">
             <h1 class="h1">
                 Webentwicker
-                <br />Frontend Artist
-                <br />Designer
+                <br />
+                Frontend Artist
+                <br />
+                Designer
                 <br />
             </h1>
-            <h3 class="h3">Innovation, Inspiration, Technik und
-                           Leidenschaft</h3>
+            <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
                 :src="require('~/assets/images/shape.svg')"
                 alt="header shape"
@@ -126,12 +127,12 @@
         position: fixed;
         z-index: 999;
         width: 100%;
-        background: #000000;
+        background: #000;
         text-align: center;
     }
 
     .scrollactive-item {
-        color: #ffffff;
+        color: #fff;
         text-decoration: none;
         display: inline-block;
         padding: 10px;

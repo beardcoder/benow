@@ -6,7 +6,7 @@
                 v-for="(item, index) in items"
                 :key="item.id"
                 v-in-viewport.once
-                :class="{'githubItem': true, 'githubItemHidden': !open && index >= 6}"
+                :class="{ githubItem: true, githubItemHidden: !open && index >= 6 }"
             >
                 <div>
                     <h4>{{ gist ? item.description : item.full_name }}</h4>
@@ -16,15 +16,15 @@
                     :href="item.html_url"
                     rel="noopener"
                     target="_blank"
-                    :class="{'btn': true, 'btnSecondary': gist}"
-                >{{ linkText }}</a>
+                    :class="{ btn: true, btnSecondary: gist }"
+                >
+                    {{ linkText }}
+                </a>
             </li>
         </ul>
         <div style="text-align: center;">
-            <button
-                :class="{'btn': true, 'btnSecondary': gist}"
-                @click="open = !open"
-            >{{ open ? 'Verbergen' : 'Alle anzeigen' }}
+            <button :class="{ btn: true, btnSecondary: gist }" @click="open = !open">
+                {{ open ? 'Verbergen' : 'Alle anzeigen' }}
             </button>
         </div>
     </div>
