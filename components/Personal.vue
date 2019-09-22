@@ -20,7 +20,8 @@
         </script>
         <Shape direction="left" />
         <h2 class="header">
-            Meine Leidenschaften und mein Fokus ist die User Expiriance und das User Interface
+            Mein Fokus meine Leidenschaft und ist auf die Benutzer Erfahren (User Expiriance)
+            gerichtet
         </h2>
 
         <div class="wrapper">
