@@ -1,23 +1,6 @@
 <template>
     <section id="about-me" class="personal">
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Person",
-                "name": "Markus Sommer",
-                "url": "http://www.creativeworkspace.de",
-                "jobTitle": "Frontend Developer",
-                "gender": "male",
-                "image": "{{ require('~/assets/images/markus_sommer.jpg?webp') }}",
-                "sameAs": [
-                    "https://github.com/beardcoder",
-                    "https://twitter.com/beardcoder",
-                    "https://forge.typo3.org/users/41461",
-                    "https://www.xing.com/profile/Markus_Sommer30",
-                    "https://www.linkedin.com/in/markus-sommer-9040649b/"
-                ]
-            }
-        </script>
+        <script type="application/ld+json" v-html="schema" />
         <Shape direction="left" />
         <h2 class="header">
             Mein Fokus meine Leidenschaft und ist auf die Benutzer Erfahren (User Expiriance)
@@ -66,6 +49,26 @@
     export default {
         name: 'Personal',
         components: { Skill, Shape },
+        data() {
+            return {
+                schema: `{
+                "@context": "http://schema.org",
+                "@type": "Person",
+                "name": "Markus Sommer",
+                "url": "http://www.creativeworkspace.de",
+                "jobTitle": "Frontend Developer",
+                "gender": "male",
+                "image": "${require('~/assets/images/markus_sommer.jpg?webp')}",
+                "sameAs": [
+                    "https://github.com/beardcoder",
+                    "https://twitter.com/beardcoder",
+                    "https://forge.typo3.org/users/41461",
+                    "https://www.xing.com/profile/Markus_Sommer30",
+                    "https://www.linkedin.com/in/markus-sommer-9040649b/"
+                ]
+            }`,
+            };
+        },
     };
 </script>
 
