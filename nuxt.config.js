@@ -82,6 +82,7 @@ module.exports = {
         { src: '~/plugins/rellax', mode: 'client' },
         { src: '~/plugins/lazyload', mode: 'client' },
         { src: '~/plugins/viewport-directive', mode: 'client' },
+        { src: '~/plugins/carousel', mode: 'client' },
     ],
     /*
      ** Nuxt.js dev-modules
@@ -101,12 +102,17 @@ module.exports = {
         'nuxt-webfontloader',
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
+        'nuxt-feature-toggle',
     ],
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
      */
     axios: {},
+
+    featureToggle: {
+        queryString: true,
+    },
 
     optimizedImages: {
         optimizeImages: true,

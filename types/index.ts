@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export * from './state';
 
 export type GithubItem = {

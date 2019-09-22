@@ -37,7 +37,7 @@ export const actions: ActionTree<RootState, RootState> = {
 
     fetchBlog({ commit }) {
         return blogAPI().then(data => {
-            commit('setBlog', data);
+            commit('setBlog', data.data);
         });
     },
 };
