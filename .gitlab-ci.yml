@@ -32,7 +32,7 @@ stages:
 build:
     stage: build
     before_script:
-        - NODE_ENV=production npm install
+        - npm install
     script:
         - NODE_ENV=production npm run generate
     environment:
@@ -76,7 +76,6 @@ deploy:prod:
         - cd dist/
     script:
         - $RSYNC -e "ssh -p $PROD_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $PROD_USER@$PROD_SERVER:$PROD_PATH
-    #        - ssh $PROD_USER@$PROD_SERVER DEPLOY_DIR=$PROD_PATH PHP_BIN=$PROD_PHP_PATH COMPOSE_PROJECT_NAME=$PROD_COMPOSE_PROJECT_NAME PORT=$PROD_DOCKER_PORT 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
     after_script:
         - curl $PROD_URL -s -I -H "secret-header:true"
     only:
