@@ -29,8 +29,8 @@
             Blog,
         },
         async fetch({ store }) {
-            await store.dispatch('fetchGithub');
-            await store.dispatch('fetchBlog');
+            await store.dispatch('github/fetch');
+            await store.dispatch('blog/fetch');
         },
     });
 </script>

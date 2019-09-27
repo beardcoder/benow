@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
     mode: 'universal',
     /*
      ** Headers of the page
@@ -148,3 +148,5 @@ module.exports = {
         },
     },
 };
+
+export default config;

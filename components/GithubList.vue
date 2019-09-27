@@ -30,21 +30,22 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'GithubList',
+<script lang="ts">
+    import Vue from 'vue';
+    export default Vue.extend({
         props: {
             items: { type: Array, default: null, required: false },
             gist: { type: Boolean, default: () => false, required: false },
             linkText: { type: String, default: null, required: true },
             title: { type: String, default: null, required: true },
         },
+
         data() {
             return {
                 open: false,
             };
         },
-    };
+    });
 </script>
 
 <style scoped>

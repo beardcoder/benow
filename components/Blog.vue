@@ -28,23 +28,13 @@
 <script lang="ts">
     import Vue from 'vue';
     import { mapState } from 'vuex';
-    import { RootState } from '~/types';
+    import { RootState } from '../types';
 
     export default Vue.extend({
-        name: 'Blog',
-        components: {},
-        data() {
-            return {
-                showCarousel: false,
-            };
-        },
         computed: {
             ...mapState({
-                articles: (state: RootState) => state.articles,
+                articles: ({ blog }: RootState) => blog.articles,
             }),
-        },
-        mounted() {
-            this.showCarousel = true;
         },
     });
 </script>

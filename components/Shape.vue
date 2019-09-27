@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-    export default {
-        name: 'Shape',
+    import Vue from 'vue';
+    export default Vue.extend({
         props: {
             direction: {
                 type: String,
@@ -17,7 +17,7 @@
                 default: () => false,
             },
         },
-    };
+    });
 </script>
 
 <style scoped>

@@ -5,10 +5,10 @@
     "author": "Markus Sommer",
     "private": true,
     "scripts": {
-        "dev": "nuxt",
-        "build": "nuxt generate && nuxt build",
-        "generate": "nuxt generate",
-        "start": "nuxt start",
+        "dev": "nuxt-ts",
+        "build": "nuxt-ts build",
+        "generate": "nuxt-ts generate",
+        "start": "nuxt-ts start",
         "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
     },
     "dependencies": {

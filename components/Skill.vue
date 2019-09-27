@@ -2,23 +2,22 @@
     <li v-in-viewport.once class="skill">
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
-            <div :style="`margin-left: ${value}%`" class="skillPercentNumber">
-                {{ value }}
-            </div>
+            <div :style="`margin-left: ${value}%`" class="skillPercentNumber">{{ value }}</div>
             <div class="skillPercentBackground"></div>
             <div :style="`width: ${value}%`" class="skillPercentIndicator"></div>
         </div>
     </li>
 </template>
 
-<script>
-    export default {
+<script lang="ts">
+    import Vue from 'vue';
+    export default Vue.extend({
         name: 'Skill',
         props: {
             title: { type: String, default: '', required: true },
             value: { type: Number, default: 0, required: true },
         },
-    };
+    });
 </script>
 
 <style scoped>

@@ -25,21 +25,22 @@
     </section>
 </template>
 
-<script>
+<script lang="ts">
+    import Vue from 'vue';
     import { mapState } from 'vuex';
+    import { RootState } from '../types';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';
 
-    export default {
-        name: 'Projects',
+    export default Vue.extend({
         components: { GithubList, Shape },
         computed: {
             ...mapState({
-                repos: state => state.repos,
-                snippets: state => state.snippets,
+                repos: ({ github }: RootState) => github.repos,
+                snippets: ({ github }: RootState) => github.snippets,
             }),
         },
-    };
+    });
 </script>
 
 <style scoped>
