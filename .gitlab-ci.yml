@@ -24,7 +24,6 @@ variables:
 cache:
     paths:
         - node_modules/
-        - .cache/
 
 stages:
     - build
@@ -35,7 +34,7 @@ build:
     before_script:
         - NODE_ENV=production npm install
     script:
-        - NODE_ENV=production npm run export
+        - NODE_ENV=production npm run generate
     environment:
         name: production
     artifacts:
