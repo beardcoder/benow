@@ -27,18 +27,15 @@ cache:
         - .cache/
 
 stages:
-    - setup
     - build
     - deploy
 
-setup:
-    stage: setup
-    script: npm install
-
 build:
     stage: build
+    before_script:
+        - npm install
     script:
-        - NODE_ENV=production npm run generate
+        - NODE_ENV=production npm run export
     environment:
         name: production
     artifacts:
