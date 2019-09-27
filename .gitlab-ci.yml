@@ -31,11 +31,11 @@ stages:
     - build
     - deploy
 
-.setup:
+setup:
     stage: setup
     script: npm install
 
-.build:
+build:
     stage: build
     script:
         - NODE_ENV=production npm run export
@@ -77,9 +77,10 @@ deploy:prod:
         - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
         - mkdir -p ~/.ssh
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+        - cd dist/
     script:
         - $RSYNC -e "ssh -p $PROD_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $PROD_USER@$PROD_SERVER:$PROD_PATH
-        - ssh $PROD_USER@$PROD_SERVER DEPLOY_DIR=$PROD_PATH PHP_BIN=$PROD_PHP_PATH COMPOSE_PROJECT_NAME=$PROD_COMPOSE_PROJECT_NAME PORT=$PROD_DOCKER_PORT 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
+    #        - ssh $PROD_USER@$PROD_SERVER DEPLOY_DIR=$PROD_PATH PHP_BIN=$PROD_PHP_PATH COMPOSE_PROJECT_NAME=$PROD_COMPOSE_PROJECT_NAME PORT=$PROD_DOCKER_PORT 'bash -s' < $CI_PROJECT_DIR/.ci/deploy-dev.sh
     after_script:
         - curl $PROD_URL -s -I -H "secret-header:true"
     only:
