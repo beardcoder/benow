@@ -129,9 +129,7 @@ const config = {
      ** Build configuration
      */
     build: {
-        extractCSS: true,
-        parallel: true,
-        cache: false,
+        cache: true,
         watch: ['~/api/*'],
         postcss: {
             // Add plugin names as key and arguments as value
