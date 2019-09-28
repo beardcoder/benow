@@ -14,8 +14,8 @@ export const mutations: MutationTree<BlogState> = {
 
 export const actions: ActionTree<BlogState, BlogState> = {
     async fetch({ commit }) {
-        return await blogAPI().then(data => {
-            commit('setArticles', data.data);
+        return await blogAPI(this.$axios).then(data => {
+            commit('setArticles', data);
         });
     },
 };

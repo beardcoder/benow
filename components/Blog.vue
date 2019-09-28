@@ -1,27 +1,33 @@
 <template>
     <div class="blog">
-        <h3>Blog</h3>
-        <carousel class="articles" :per-page-custom="[[320, 1], [768, 2], [1024, 3], [1400, 4]]">
-            <slide v-for="article in articles" :key="article.id">
-                <div class="article">
-                    <div class="articleHeader">
-                        <img
-                            :src="
-                                `https://api.creativeworkspace.de/thumbnail/_/640/360/crop/good/${article.image.filename}`
-                            "
-                            alt="Article image"
-                        />
-                        <h3 class="articleHeadline">{{ article.headline }}</h3>
+        <h3 class="blogHeader">Blog</h3>
+        <client-only>
+            <carousel
+                class="articles"
+                :per-page-custom="[[320, 1], [768, 2], [1024, 3], [1400, 4]]"
+            >
+                <slide v-for="article in articles" :key="article.id">
+                    <div class="article">
+                        <div class="articleHeader">
+                            <img :src="article.cover_image" alt="Article image" />
+                        </div>
+                        <div class="articleBody">
+                            <h3>{{ article.title }}</h3>
+                        </div>
+                        <div class="articleFooter">
+                            <a
+                                rel="noopener"
+                                target="_blank"
+                                :href="article.url"
+                                :class="{ btn: true }"
+                            >
+                                Lesen
+                            </a>
+                        </div>
                     </div>
-                    <div class="articleBody" v-html="article.description"></div>
-                    <div class="articleFooter">
-                        <a rel="noopener" target="_blank" :class="{ btn: true }">
-                            Lesen
-                        </a>
-                    </div>
-                </div>
-            </slide>
-        </carousel>
+                </slide>
+            </carousel>
+        </client-only>
     </div>
 </template>
 
@@ -84,5 +90,9 @@
     .articleFooter {
         margin: 20px;
         padding-bottom: 20px;
+    }
+
+    .blogHeader {
+        text-align: center;
     }
 </style>
