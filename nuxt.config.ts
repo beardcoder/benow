@@ -1,11 +1,6 @@
-import shrinkRay from 'shrink-ray-current';
-
 const config = {
     mode: 'universal',
 
-    render: {
-        compressor: shrinkRay(),
-    },
     /*
      ** Headers of the page
      */
