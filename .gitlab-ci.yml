@@ -73,8 +73,6 @@ deploy:prod:
         - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
         - cd dist/
     script:
-        - $RSYNC -e "ssh -p $PROD_PORT" --filter="merge $CI_PROJECT_DIR/.ci/.deploy-filter" . $PROD_USER@$PROD_SERVER:$PROD_PATH
-    after_script:
-        - curl $PROD_URL -s -I -H "secret-header:true"
+        - $RSYNC -e "ssh -p $PROD_PORT" . $PROD_USER@$PROD_SERVER:$PROD_PATH
     only:
         - master
