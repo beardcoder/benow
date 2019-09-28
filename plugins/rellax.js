@@ -1,5 +1,9 @@
 import Rellax from 'rellax';
 
-const rellax = new Rellax('.rellax');
+function initRellax() {
+    if (!(this instanceof Rellax)) {
+        return new Rellax('.rellax');
+    }
+}
 
-console.log(rellax);
+initRellax();
