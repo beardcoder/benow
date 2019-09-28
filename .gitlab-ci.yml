@@ -14,10 +14,8 @@ variables:
     PROD_URL: https://creativeworkspace.de/
     PROD_USER: web_www
     PROD_SERVER: 159.69.21.63
-    PROD_PATH: /var/www/clients/client1/web1/private
+    PROD_PATH: /var/www/clients/client1/web1/private/public
     PROD_PORT: '22'
-    PROD_COMPOSE_PROJECT_NAME: creativeworkspace-prod
-    PROD_DOCKER_PORT: 3000
 
     YARN_CACHE_FOLDER: ${CI_PROJECT_DIR}/.cache/yarn
 
