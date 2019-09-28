@@ -34,7 +34,6 @@
         "lqip-loader": "^2.2.0",
         "lru-cache": "^5.1.1",
         "nuxt": "^2.9.2",
-        "nuxt-feature-toggle": "^1.0.1",
         "nuxt-payload-extractor": "0.0.12",
         "nuxt-seo": "^1.2.2",
         "nuxt-webfontloader": "^1.1.0",

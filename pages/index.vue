@@ -4,9 +4,7 @@
         <main class="main">
             <Personal />
             <Projects />
-            <feature-toggle name="blog" :value="true">
-                <Blog />
-            </feature-toggle>
+            <Blog />
         </main>
         <Footer />
     </div>
