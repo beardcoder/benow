@@ -17,28 +17,29 @@
             </p>
         </header>
         <div id="repositories">
-            <GithubList :items="repos" link-text="zum Repo" title="Repositories" />
+            <github-list :items="repos" link-text="zum Repo" title="Repositories" />
         </div>
         <div id="snippets" class="snippets">
-            <GithubList :items="snippets" gist link-text="zum Snippet" title="Snippets" />
+            <github-list :items="snippets" gist link-text="zum Snippet" title="Snippets" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
     import Vue from 'vue';
-    import { mapState } from 'vuex';
-    import { RootState } from '../types';
+    import { RootState, GithubItem } from '../types';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';
 
     export default Vue.extend({
         components: { GithubList, Shape },
         computed: {
-            ...mapState({
-                repos: ({ github }: RootState) => github.repos,
-                snippets: ({ github }: RootState) => github.snippets,
-            }),
+            repos(): GithubItem[] {
+                return (this.$store.state as RootState).github.repos;
+            },
+            snippets(): GithubItem[] {
+                return (this.$store.state as RootState).github.snippets;
+            },
         },
     });
 </script>

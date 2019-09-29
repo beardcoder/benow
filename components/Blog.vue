@@ -12,7 +12,7 @@
                             <img :src="article.cover_image" alt="Article image" />
                         </div>
                         <div class="articleBody">
-                            <h3>{{ article.title }}</h3>
+                            <h4>{{ article.title }}</h4>
                         </div>
                         <div class="articleFooter">
                             <a
@@ -33,14 +33,13 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import { mapState } from 'vuex';
-    import { RootState } from '../types';
+    import { Article } from '../types';
 
     export default Vue.extend({
         computed: {
-            ...mapState({
-                articles: ({ blog }: RootState) => blog.articles,
-            }),
+            articles(): Article[] {
+                return this.$store.state.blog.articles;
+            },
         },
     });
 </script>

@@ -5,14 +5,14 @@ module.exports = {
         browser: true,
         node: true,
     },
-    'parserOptions': {
-        'ecmaVersion': 2018,
-        'sourceType': 'module',
-        'parser': '@typescript-eslint/parser',
-        'ecmaFeatures': {
-            'globalReturn': false,
-            'impliedStrict': false,
-            'jsx': false,
+    parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
+        parser: '@typescript-eslint/parser',
+        ecmaFeatures: {
+            globalReturn: false,
+            impliedStrict: false,
+            jsx: false,
         },
     },
     extends: [
@@ -26,10 +26,7 @@ module.exports = {
         'prettier',
         'plugin:nuxt/recommended',
     ],
-    plugins: [
-        'vue',
-        'prettier',
-    ],
+    plugins: ['vue', 'prettier'],
     // add your custom rules here
     rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
@@ -45,5 +42,6 @@ module.exports = {
         'vue/multiline-html-element-content-newline': 'off',
         'vue/max-attributes-per-line': 'off',
         'vue/html-closing-bracket-newline': 'off',
+        'vue/require-default-prop': 'off',
     },
 };

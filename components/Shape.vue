@@ -10,7 +10,7 @@
         props: {
             direction: {
                 type: String,
-                default: () => 'right',
+                default: 'right',
             },
             bottom: {
                 type: Boolean,
