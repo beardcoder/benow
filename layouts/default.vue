@@ -27,14 +27,14 @@
 
     h2 {
         font-family: 'Roboto Slab', serif;
-        font-size: responsive 22px 40px; /* min-size, max-size */
+        font-size: responsive 30px 40px; /* min-size, max-size */
         margin-top: 0;
         line-height: 1.4;
     }
 
     h3 {
         font-family: 'Roboto Slab', serif;
-        font-size: responsive 20px 30px; /* min-size, max-size */
+        font-size: 30px; /* min-size, max-size */
         font-weight: 300;
         margin-top: 0;
         line-height: 1.4;

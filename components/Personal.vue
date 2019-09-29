@@ -53,21 +53,21 @@
         data() {
             return {
                 schema: `{
-                        "@context": "http://schema.org",
-                        "@type": "Person",
-                        "name": "Markus Sommer",
-                        "url": "http://www.creativeworkspace.de",
-                        "jobTitle": "Frontend Developer",
-                        "gender": "male",
-                        "image": "${require('~/assets/images/markus_sommer.jpg?webp')}",
-                        "sameAs": [
-                            "https://github.com/beardcoder",
-                            "https://twitter.com/beardcoder",
-                            "https://forge.typo3.org/users/41461",
-                            "https://www.xing.com/profile/Markus_Sommer30",
-                            "https://www.linkedin.com/in/markus-sommer-9040649b/"
-                        ]
-                    }`,
+                            "@context": "http://schema.org",
+                            "@type": "Person",
+                            "name": "Markus Sommer",
+                            "url": "http://www.creativeworkspace.de",
+                            "jobTitle": "Frontend Developer",
+                            "gender": "male",
+                            "image": "${require('~/assets/images/markus_sommer.jpg?webp')}",
+                            "sameAs": [
+                                "https://github.com/beardcoder",
+                                "https://twitter.com/beardcoder",
+                                "https://forge.typo3.org/users/41461",
+                                "https://www.xing.com/profile/Markus_Sommer30",
+                                "https://www.linkedin.com/in/markus-sommer-9040649b/"
+                            ]
+                        }`,
             };
         },
     });
@@ -78,6 +78,7 @@
         padding-right: 1rem;
         padding-left: 1rem;
         position: relative;
+        margin-top: 150px;
     }
 
     .personalImage {
