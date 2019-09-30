@@ -11,14 +11,14 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
+    import { Component, Vue } from 'nuxt-property-decorator';
     import Header from '~/components/Header.vue';
     import Personal from '~/components/Personal.vue';
     import Projects from '~/components/Projects.vue';
     import Footer from '~/components/Footer.vue';
     import Blog from '~/components/Blog.vue';
 
-    export default Vue.extend({
+    @Component({
         components: {
             Projects,
             Header,
@@ -26,11 +26,13 @@
             Footer,
             Blog,
         },
+    })
+    export default class Index extends Vue {
         async fetch({ store }) {
             await store.dispatch('github/fetch');
             await store.dispatch('blog/fetch');
-        },
-    });
+        }
+    }
 </script>
 
 <style>

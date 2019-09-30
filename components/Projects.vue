@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue } from 'nuxt-property-decorator';
     import { RootState, GithubItem } from '../types';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';

@@ -42,7 +42,7 @@
     </section>
 </template>
 <script lang="ts">
-    import { Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue } from 'nuxt-property-decorator';
     import Shape from '~/components/Shape.vue';
     import Skill from '~/components/Skill.vue';
 
@@ -51,28 +51,25 @@
             Shape,
             Skill,
         },
-        data() {
-            return {
-                schema: `{
-                            "@context": "http://schema.org",
-                            "@type": "Person",
-                            "name": "Markus Sommer",
-                            "url": "http://www.creativeworkspace.de",
-                            "jobTitle": "Frontend Developer",
-                            "gender": "male",
-                            "image": "${require('~/assets/images/markus_sommer.jpg?webp')}",
-                            "sameAs": [
-                                "https://github.com/beardcoder",
-                                "https://twitter.com/beardcoder",
-                                "https://forge.typo3.org/users/41461",
-                                "https://www.xing.com/profile/Markus_Sommer30",
-                                "https://www.linkedin.com/in/markus-sommer-9040649b/"
-                            ]
-                        }`,
-            };
-        },
     })
-    export default class Personal extends Vue {}
+    export default class Personal extends Vue {
+        schema = `{
+                        "@context": "http://schema.org",
+                        "@type": "Person",
+                        "name": "Markus Sommer",
+                        "url": "http://www.creativeworkspace.de",
+                        "jobTitle": "Frontend Developer",
+                        "gender": "male",
+                        "image": "${require('~/assets/images/markus_sommer.jpg?webp')}",
+                        "sameAs": [
+                            "https://github.com/beardcoder",
+                            "https://twitter.com/beardcoder",
+                            "https://forge.typo3.org/users/41461",
+                            "https://www.xing.com/profile/Markus_Sommer30",
+                            "https://www.linkedin.com/in/markus-sommer-9040649b/"
+                        ]
+                    }`;
+    }
 </script>
 
 <style scoped>

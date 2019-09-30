@@ -31,8 +31,8 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue, Prop } from 'vue-property-decorator';
-    import { GithubItem } from '../types';
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { GithubItem } from '~/types';
 
     @Component({
         data() {
@@ -42,10 +42,10 @@
         },
     })
     export default class GithubList extends Vue {
-        @Prop() items: GithubItem[] = [];
-        @Prop() gist = false;
-        @Prop() linkText = '';
-        @Prop() title = '';
+        @Prop() items!: GithubItem[];
+        @Prop() gist!: boolean;
+        @Prop() linkText!: string;
+        @Prop() title!: string;
     }
 </script>
 

@@ -127,6 +127,12 @@ const config = {
     build: {
         cache: true,
         watch: ['~/api/*'],
+        babel: {
+            plugins: [
+                ['@babel/plugin-proposal-decorators', { legacy: true }],
+                ['@babel/plugin-proposal-class-properties', { loose: true }],
+            ],
+        },
         postcss: {
             // Add plugin names as key and arguments as value
             // Install them before as dependencies with npm or yarn

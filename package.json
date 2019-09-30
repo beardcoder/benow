@@ -35,6 +35,7 @@
         "lru-cache": "^5.1.1",
         "nuxt": "^2.9.2",
         "nuxt-payload-extractor": "0.0.12",
+        "nuxt-property-decorator": "^2.4.0",
         "nuxt-seo": "^1.2.2",
         "nuxt-webfontloader": "^1.1.0",
         "postcss-responsive-type": "^1.0.0",
