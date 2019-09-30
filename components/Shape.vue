@@ -1,23 +1,17 @@
 <template>
     <div data-rellax-speed="-3" class="wrapper rellax">
-        <div :class="{ shape: true, shapeLeft: direction === 'left', shapeBootom: bottom }" />
+        <div :class="{ shape: true, shapeLeft: direction === 'left', shapeBottom: bottom }" />
     </div>
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-    export default Vue.extend({
-        props: {
-            direction: {
-                type: String,
-                default: 'right',
-            },
-            bottom: {
-                type: Boolean,
-                default: () => false,
-            },
-        },
-    });
+    import { Component, Prop, Vue } from 'vue-property-decorator';
+
+    @Component
+    export default class Shape extends Vue {
+        @Prop() direction = 'right';
+        @Prop() bottom = false;
+    }
 </script>
 
 <style scoped>

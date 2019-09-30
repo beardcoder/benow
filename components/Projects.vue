@@ -26,22 +26,22 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
+    import { Component, Vue } from 'vue-property-decorator';
     import { RootState, GithubItem } from '../types';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';
 
-    export default Vue.extend({
+    @Component({
         components: { GithubList, Shape },
-        computed: {
-            repos(): GithubItem[] {
-                return (this.$store.state as RootState).github.repos;
-            },
-            snippets(): GithubItem[] {
-                return (this.$store.state as RootState).github.snippets;
-            },
-        },
-    });
+    })
+    export default class Projects extends Vue {
+        get repos(): GithubItem[] {
+            return (this.$store.state as RootState).github.repos;
+        }
+        get snippets(): GithubItem[] {
+            return (this.$store.state as RootState).github.snippets;
+        }
+    }
 </script>
 
 <style scoped>

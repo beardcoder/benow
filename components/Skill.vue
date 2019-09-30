@@ -10,14 +10,13 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-    export default Vue.extend({
-        name: 'Skill',
-        props: {
-            title: { type: String, default: '', required: true },
-            value: { type: Number, default: 0, required: true },
-        },
-    });
+    import { Component, Prop, Vue } from 'vue-property-decorator';
+
+    @Component
+    export default class Shape extends Vue {
+        @Prop() title = '';
+        @Prop() value = 0;
+    }
 </script>
 
 <style scoped>

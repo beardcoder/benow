@@ -32,16 +32,15 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
+    import { Component, Vue } from 'vue-property-decorator';
     import { Article } from '../types';
 
-    export default Vue.extend({
-        computed: {
-            articles(): Article[] {
-                return this.$store.state.blog.articles;
-            },
-        },
-    });
+    @Component
+    export default class Blog extends Vue {
+        get articles(): Article[] {
+            return this.$store.state.blog.articles;
+        }
+    }
 </script>
 
 <style scoped>
@@ -68,18 +67,6 @@
 
     .articleHeader {
         position: relative;
-    }
-
-    .articleHeadline {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin-bottom: 0;
-        padding-top: 50px;
-        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-        padding-left: 20px;
-        padding-bottom: 10px;
     }
 
     .articleBody {

@@ -41,15 +41,16 @@
         </div>
     </section>
 </template>
-
 <script lang="ts">
-    import Vue from 'vue';
+    import { Component, Vue } from 'vue-property-decorator';
     import Shape from '~/components/Shape.vue';
     import Skill from '~/components/Skill.vue';
 
-    export default Vue.extend({
-        name: 'Personal',
-        components: { Skill, Shape },
+    @Component({
+        components: {
+            Shape,
+            Skill,
+        },
         data() {
             return {
                 schema: `{
@@ -70,7 +71,8 @@
                         }`,
             };
         },
-    });
+    })
+    export default class Personal extends Vue {}
 </script>
 
 <style scoped>

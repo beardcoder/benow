@@ -31,21 +31,22 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-    export default Vue.extend({
-        props: {
-            items: { type: Array, default: null, required: false },
-            gist: { type: Boolean, default: () => false, required: false },
-            linkText: { type: String, default: null, required: true },
-            title: { type: String, default: null, required: true },
-        },
+    import { Component, Vue, Prop } from 'vue-property-decorator';
+    import { GithubItem } from '../types';
 
+    @Component({
         data() {
             return {
                 open: false,
             };
         },
-    });
+    })
+    export default class GithubList extends Vue {
+        @Prop() items: GithubItem[] = [];
+        @Prop() gist = false;
+        @Prop() linkText = '';
+        @Prop() title = '';
+    }
 </script>
 
 <style scoped>

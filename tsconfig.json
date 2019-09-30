@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "experimentalDecorators": true,
         "target": "esnext",
         "module": "esnext",
         "moduleResolution": "node",
@@ -9,6 +10,7 @@
         "sourceMap": true,
         "strict": true,
         "noEmit": true,
+        "noImplicitAny": false,
         "baseUrl": ".",
         "paths": {
             "~/*": ["./*"],

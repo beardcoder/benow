@@ -26,8 +26,9 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue';
-    export default Vue.extend({
+    import { Component, Vue } from 'vue-property-decorator';
+
+    @Component({
         data() {
             return {
                 socialLinks: [
@@ -64,7 +65,8 @@
                 ],
             };
         },
-    });
+    })
+    export default class Footer extends Vue {}
 </script>
 
 <style>
