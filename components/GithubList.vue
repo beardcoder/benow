@@ -82,10 +82,13 @@
         max-width: calc((100% / 1) - 2rem);
         padding: 1rem;
         box-sizing: border-box;
-        opacity: 0;
-        transform: scale3d(0.1, 0.1, 0.1);
         transition: opacity 0.5s, transform 0.8s;
         border-radius: 4px;
+    }
+
+    .githubItem.below-viewport {
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1);
     }
 
     .githubItemHidden {
