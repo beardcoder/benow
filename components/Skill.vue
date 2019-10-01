@@ -15,7 +15,7 @@
     @Component
     export default class Shape extends Vue {
         @Prop() title!: string;
-        @Prop() value!: number;
+        @Prop({ default: 0, type: Number }) value!: number;
     }
 </script>
 

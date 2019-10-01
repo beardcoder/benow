@@ -11,10 +11,9 @@ const config = {
         title: 'Markus Sommer — moderne Web Technologieren, Design und Frontendartist',
         meta: [
             { charset: 'utf-8' },
-            { lang: 'de' },
-            { language: 'Deutsch' },
-            { author: 'Markus Sommer' },
-            { canonical: 'https://creativeworkspace.de' },
+            { hid: 'lang', name: 'lang', content: 'de' },
+            { hid: 'language', name: 'language', content: 'Deutsch' },
+            { hid: 'author', name: 'author', content: 'Markus Sommer' },
             {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
@@ -27,6 +26,10 @@ const config = {
             },
         ],
         link: [
+            {
+                rel: 'canonical',
+                href: 'https://creativeworkspace.de',
+            },
             {
                 rel: 'shortcut icon',
                 type: 'image/x-icon',

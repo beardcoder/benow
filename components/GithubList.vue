@@ -43,7 +43,7 @@
     })
     export default class GithubList extends Vue {
         @Prop() items!: GithubItem[];
-        @Prop() gist!: boolean;
+        @Prop({ default: false, type: Boolean }) gist!: boolean;
         @Prop() linkText!: string;
         @Prop() title!: string;
     }

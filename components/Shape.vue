@@ -9,8 +9,8 @@
 
     @Component
     export default class Shape extends Vue {
-        @Prop() direction!: string;
-        @Prop() bottom!: boolean;
+        @Prop({ default: 'left' }) direction!: string;
+        @Prop({ default: false, type: Boolean }) bottom!: boolean;
     }
 </script>
 
