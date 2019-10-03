@@ -3,6 +3,7 @@
         <img
             :src="require('~/assets/images/shape.svg')"
             alt="footer shape"
+            loading="lazy"
             height="1316"
             width="1442"
             class="footerShape"

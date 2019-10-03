@@ -2,8 +2,8 @@
     <header class="wrapper">
         <div class="backgroundWrapper">
             <div
-                :data-bg="`url(${require('~/assets/images/header.jpg?webp')})`"
-                :style="`background-image: url('${require('~/assets/images/header.jpg?webp')}')`"
+                v-lazy:background-image="`${require('~/assets/images/header.jpg?webp')}`"
+                :style="`background-image: url('${require('~/assets/images/header.jpg?sqip')}')`"
                 data-rellax-speed="-5"
                 role="presentation"
                 class="background rellax lazy"
@@ -21,6 +21,7 @@
             <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
                 :src="require('~/assets/images/shape.svg')"
+                loading="lazy"
                 alt="header shape"
                 height="1316"
                 width="1442"

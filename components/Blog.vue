@@ -9,7 +9,12 @@
                 <slide v-for="article in articles" :key="article.id">
                     <div class="article">
                         <div class="articleHeader">
-                            <img :src="article.cover_image" alt="Article image" />
+                            <img
+                                v-lazy="article.cover_image"
+                                width="1000"
+                                height="420"
+                                alt="Article image"
+                            />
                         </div>
                         <div class="articleBody">
                             <h4>{{ article.title }}</h4>

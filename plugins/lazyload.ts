@@ -1,7 +1,4 @@
-import LazyLoad from 'vanilla-lazyload';
+import Vue from 'vue';
+import VueLazyload from 'vue-lazyload';
 
-// eslint-disable-next-line no-new
-new LazyLoad({
-    // eslint-disable-next-line @typescript-eslint/camelcase
-    elements_selector: '.lazy',
-});
+Vue.use(VueLazyload);
