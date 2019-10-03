@@ -3,7 +3,7 @@
         <div class="backgroundWrapper">
             <div
                 v-lazy:background-image="`${require('~/assets/images/header.jpg?webp')}`"
-                :style="`background-image: url('${require('~/assets/images/header.jpg?sqip')}')`"
+                :style="`background-color: ${require('~/assets/images/header.jpg?lqip-colors')[0]}`"
                 data-rellax-speed="-5"
                 role="presentation"
                 class="background rellax lazy"
