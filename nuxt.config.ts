@@ -69,6 +69,10 @@ const config = {
                 rel: 'preconnect',
                 href: 'https://fonts.gstatic.com',
             },
+            {
+                rel: 'preconnect',
+                href: 'https://www.google-analytics.com',
+            },
         ],
     },
     /*
