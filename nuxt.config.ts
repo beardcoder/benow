@@ -82,7 +82,7 @@ const config = {
     /*
      ** Global CSS
      */
-    css: [],
+    css: ['sanitize.css'],
     /*
      ** Plugins to load before mounting the App
      */

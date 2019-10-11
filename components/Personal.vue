@@ -102,7 +102,11 @@
         left: 40px;
         right: -40px;
         border: 0 solid;
-        border-image: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+        border-image: linear-gradient(
+            135deg,
+            var(--color__primary) 0%,
+            var(--color__primary--dark) 100%
+        );
         border-image-slice: 5;
         transition: border-width 0.6s linear;
     }

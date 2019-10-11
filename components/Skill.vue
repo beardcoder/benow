@@ -38,7 +38,11 @@
     }
 
     .skillPercentIndicator {
-        background-image: linear-gradient(135deg, #32f0d1 0%, #104f98 100%);
+        background-image: linear-gradient(
+            135deg,
+            var(--color__secondary) 0%,
+            var(--color__secondary--dark) 100%
+        );
         height: 6px;
         position: relative;
         top: -6px;
