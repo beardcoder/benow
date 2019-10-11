@@ -7,19 +7,20 @@
                 :per-page-custom="[[320, 1], [768, 2], [1024, 3], [1400, 4]]"
             >
                 <slide v-for="article in articles" :key="article.id">
-                    <div class="article">
+                    <card class="article">
                         <div class="articleHeader">
                             <img
                                 v-lazy="article.cover_image"
                                 width="1000"
                                 height="420"
+                                class="articleImage"
                                 alt="Article image"
                             />
                         </div>
                         <div class="articleBody">
                             <h4>{{ article.title }}</h4>
                         </div>
-                        <div class="articleFooter">
+                        <div class="articleFooter" style="text-align: right">
                             <a
                                 rel="noopener"
                                 target="_blank"
@@ -29,7 +30,7 @@
                                 Lesen
                             </a>
                         </div>
-                    </div>
+                    </card>
                 </slide>
             </carousel>
         </client-only>
@@ -39,8 +40,10 @@
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
     import { Article } from '~/types';
-
-    @Component
+    import Card from '~/components/Card.vue';
+    @Component({
+        components: { Card },
+    })
     export default class Blog extends Vue {
         get articles(): Article[] {
             return this.$store.state.blog.articles;
@@ -61,17 +64,14 @@
     }
 
     .article {
-        background: #232629;
-        box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
-        margin-left: 20px;
-        margin-right: 20px;
-        margin-bottom: 20px;
-        height: 100%;
+        margin: 1rem;
     }
 
     .articleHeader {
         position: relative;
+        margin-top: -1rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
     }
 
     .articleBody {
@@ -79,8 +79,7 @@
     }
 
     .articleFooter {
-        margin: 20px;
-        padding-bottom: 20px;
+        margin-top: 1rem;
     }
 
     .blogHeader {

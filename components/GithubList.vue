@@ -8,18 +8,22 @@
                 v-in-viewport.once
                 :class="{ githubItem: true, githubItemHidden: !open && index >= 6 }"
             >
-                <div>
-                    <h4>{{ gist ? item.description : item.full_name }}</h4>
-                    <p v-if="!gist">{{ item.description }}</p>
-                </div>
-                <a
-                    :href="item.html_url"
-                    rel="noopener"
-                    target="_blank"
-                    :class="{ btn: true, btnSecondary: gist }"
-                >
-                    {{ linkText }}
-                </a>
+                <card>
+                    <div>
+                        <h4>{{ gist ? item.description : item.full_name }}</h4>
+                        <p v-if="!gist">{{ item.description }}</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <a
+                            :href="item.html_url"
+                            rel="noopener"
+                            target="_blank"
+                            :class="{ btn: true, btnSecondary: gist }"
+                        >
+                            {{ linkText }}
+                        </a>
+                    </div>
+                </card>
             </li>
         </ul>
         <div style="text-align: center;">
@@ -33,8 +37,10 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import { GithubItem } from '~/types';
+    import Card from '~/components/Card.vue';
 
     @Component({
+        components: { Card },
         data() {
             return {
                 open: false,
@@ -75,15 +81,10 @@
     }
 
     .githubItem {
-        background: #232629;
-        box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.5);
         margin: 1rem;
         min-width: calc((100% / 1) - 2rem);
         max-width: calc((100% / 1) - 2rem);
-        padding: 1rem;
-        box-sizing: border-box;
         transition: opacity 0.5s, transform 0.8s;
-        border-radius: 4px;
     }
 
     .githubItem.below-viewport {
