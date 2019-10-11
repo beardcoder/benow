@@ -1,13 +1,16 @@
 <template>
     <header class="wrapper">
         <div class="backgroundWrapper">
-            <div
-                v-lazy:background-image="`${require('~/assets/images/header.jpg?webp')}`"
-                :style="`background-color: ${require('~/assets/images/header.jpg?lqip-colors')[0]}`"
-                data-rellax-speed="-5"
-                role="presentation"
-                class="background rellax lazy"
-            />
+            <div class="backgroundParallax rellax" data-rellax-speed="-5">
+                <div
+                    v-lazy:background-image="`${require('~/assets/images/header.jpg?webp')}`"
+                    :style="
+                        `background-color: ${require('~/assets/images/header.jpg?lqip-colors')[0]}`
+                    "
+                    role="presentation"
+                    class="background"
+                />
+            </div>
         </div>
         <div class="headerContent">
             <h1 class="h1">
@@ -54,7 +57,8 @@
         }
     }
 
-    .backgroundWrapper {
+    .backgroundWrapper,
+    .backgroundParallax {
         position: absolute;
         top: 0;
         right: 0;

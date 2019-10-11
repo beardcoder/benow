@@ -14,6 +14,7 @@ export const mutations: MutationTree<BlogState> = {
 
 export const actions: ActionTree<BlogState, BlogState> = {
     async fetch({ commit }) {
+        // eslint-disable-next-line no-return-await
         return await blogAPI(this.$axios).then(data => {
             commit('setArticles', data);
         });
