@@ -23,11 +23,11 @@
             </h1>
             <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
-                :src="require('~/assets/images/shape.svg')"
+                :src="require('~/assets/images/shape2.svg')"
                 loading="lazy"
                 alt="header shape"
-                height="1316"
-                width="1442"
+                width="182"
+                height="142"
                 class="headerShape"
             />
         </div>
@@ -122,9 +122,9 @@
     .headerShape {
         max-width: none;
         position: absolute;
-        width: calc(1000px + 442 * ((100vw - 420px) / 860));
-        top: calc(-100px + -200 * ((100vw - 420px) / 860));
-        left: calc(-500px + -140 * ((100vw - 420px) / 860));
+        width: calc(1200px + 100 * ((100vw - 420px) / 860));
+        top: calc(-100px + -100 * ((100vw - 420px) / 860));
+        left: calc(-600px);
     }
 
     .nav {
