@@ -89,7 +89,7 @@
             position: absolute;
             bottom: 50px;
             min-width: 800px;
-            right: -50%;
+            right: -500px;
             z-index: -1;
             transform: rotate(270deg);
         }
