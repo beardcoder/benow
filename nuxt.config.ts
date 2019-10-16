@@ -2,7 +2,7 @@ import path from 'path';
 import glob from 'glob';
 
 // in the articles directory
-const files = glob.sync('**/*.md', { cwd: 'articles' });
+const files = glob.sync('**/*.md', { cwd: 'content/articles' });
 
 // We define a function to trim the '.md' from the filename
 // and return the correct path.
@@ -133,6 +133,7 @@ const config = {
 
     generate: {
         routes() {
+            console.log(files);
             return files.map(getSlugs);
         },
     },
