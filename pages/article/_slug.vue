@@ -58,7 +58,7 @@
                 publisher: this.attributes.author,
                 image: [
                     'https://creativeworkspace.de' +
-                    require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
+                        require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
                 ],
             };
         }
