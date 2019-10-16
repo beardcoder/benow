@@ -52,18 +52,23 @@
                 '@type': 'BlogPosting',
                 headline: this.attributes.title,
                 description: this.attributes.description,
-                datePublished: this.attributes.datePublished,
-                dateModified: this.attributes.datePublished,
+                datePublished: this.generateDate(),
+                dateModified: this.generateDate(),
                 author: this.attributes.author,
+                publisher: this.attributes.author,
                 image: [
                     'https://creativeworkspace.de' +
-                        require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
+                    require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
                 ],
             };
         }
 
         attributes!: ArticleAttributes;
         slug!: string;
+
+        generateDate() {
+            return new Date(this.attributes.datePublished).toISOString();
+        }
 
         initHighlightJs() {
             const targets = document.querySelectorAll('code');
