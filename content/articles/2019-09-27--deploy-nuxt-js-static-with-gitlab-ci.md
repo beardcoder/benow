@@ -1,8 +1,8 @@
 ---
 title: Deploy nuxt.js static mit gitlab-ci
-ctime: 09.27.2019
+datePublished: 09.27.2019
 author: Markus Sommer
-description: Ich habe viele Beiträge gesehen in den beschreiben wird wie man vue oder nuxt apps baut und auf dem Server ausrollt. Leider zeigt keines dieser Postings wie man es mit gitlab ci und einem nginx hinbekommen. Ich versuche hier meine Erfahrungen zusammenzuschreiben in der Hoffnung jemanden den holprigen Weg zu ersparen, den ich gegangen bin. 
+description: In diesem Artikel zeige ich euch wie ihr eine Nuxt Application mit der Gitlab-CI bauen und auf dem Server ausrollen könne. 
 ---
 
 ## Vorbereitung

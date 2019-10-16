@@ -105,6 +105,7 @@ const config = {
         { src: '~/plugins/lazyload', mode: 'client' },
         { src: '~/plugins/viewport-directive', mode: 'client' },
         { src: '~/plugins/carousel', mode: 'client' },
+        { src: '~/plugins/jsonld' },
     ],
     /*
      ** Nuxt.js dev-modules

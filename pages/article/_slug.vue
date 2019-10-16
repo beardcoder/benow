@@ -6,7 +6,7 @@
                 <shape direction="left" />
                 <h1>{{ attributes.title }}</h1>
                 <div class="subtitle">
-                    Veröffentlicht am {{ attributes.ctime }} von {{ attributes.author }}
+                    Veröffentlicht am {{ attributes.datePublished }} von {{ attributes.author }}
                 </div>
                 <p class="description">{{ attributes.description }}</p>
                 <div class="blog-content content" v-html="content"></div>
@@ -32,17 +32,38 @@
     import BlogHeader from '~/components/BlogHeader.vue';
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
+    import { Jsonld } from '~/node_modules/nuxt-jsonld';
+    import { ArticleAttributes } from '~/types';
 
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('css', css);
     hljs.registerLanguage('xml', yaml);
     hljs.registerLanguage('bash', bash);
 
+    @Jsonld
     @Component({
         components: { Shape, BackLink, BlogHeader, PHeader, PFooter },
         transition: 'slide-left',
     })
     export default class Index extends Vue {
+        jsonld() {
+            return {
+                '@context': 'http://schema.org',
+                headline: this.attributes.title,
+                description: this.attributes.description,
+                datePublished: this.attributes.datePublished,
+                dateModified: this.attributes.datePublished,
+                author: this.attributes.author,
+                image: [
+                    'https://creativeworkspace.de' +
+                        require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
+                ],
+            };
+        }
+
+        attributes!: ArticleAttributes;
+        slug!: string;
+
         initHighlightJs() {
             const targets = document.querySelectorAll('code');
             targets.forEach(target => {

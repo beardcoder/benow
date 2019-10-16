@@ -4,11 +4,11 @@
             <div class="backgroundParallax rellax" data-rellax-speed="-5">
                 <div
                     v-lazy:background-image="
-                        require(`~/assets/images/articles/${slug}/thumbnail.jpg?webp`)
+                        require(`~/assets/images/articles/${slug}/full.jpg?webp`)
                     "
                     :style="
                         `background-color: ${
-                            require(`~/assets/images/articles/${slug}/thumbnail.jpg?lqip-colors`)[0]
+                            require(`~/assets/images/articles/${slug}/full.jpg?lqip-colors`)[0]
                         }`
                     "
                     role="presentation"

@@ -15,7 +15,7 @@ export type Article = {
 
 export type ArticleAttributes = {
     title: string;
-    ctime: string;
+    datePublished: string;
     author: string;
     description: string;
 };
