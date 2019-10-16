@@ -49,6 +49,7 @@
         jsonld() {
             return {
                 '@context': 'http://schema.org',
+                '@type': 'BlogPosting',
                 headline: this.attributes.title,
                 description: this.attributes.description,
                 datePublished: this.attributes.datePublished,
