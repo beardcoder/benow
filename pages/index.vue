@@ -1,36 +1,53 @@
 <template>
     <div class="container">
-        <Header />
+        <p-header />
         <main class="main">
-            <Personal />
-            <Projects />
-            <Blog />
+            <personal />
+            <projects />
+            <blog :articles="articles" />
         </main>
-        <Footer />
+        <p-footer />
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import Header from '~/components/Header.vue';
     import Personal from '~/components/Personal.vue';
     import Projects from '~/components/Projects.vue';
-    import Footer from '~/components/Footer.vue';
     import Blog from '~/components/Blog.vue';
+    import PFooter from '~/components/PFooter.vue';
+    import PHeader from '~/components/PHeader.vue';
 
     @Component({
         components: {
+            PHeader,
+            PFooter,
             Projects,
-            Header,
             Personal,
-            Footer,
             Blog,
         },
+        transition: 'slide-right',
     })
     export default class Index extends Vue {
+        articles!: any[];
+
         async fetch({ store }) {
             await store.dispatch('github/fetch');
-            await store.dispatch('blog/fetch');
+        }
+
+        asyncData() {
+            const resolve = require.context('~/content/', true, /\.md$/);
+            const imports = resolve.keys().map(key => {
+                // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
+                const filenames = key.match(/articles\/(.+)\.md$/);
+                return {
+                    slug: filenames ? filenames[1] : '',
+                    content: resolve(key),
+                };
+            });
+            return {
+                articles: imports,
+            };
         }
     }
 </script>

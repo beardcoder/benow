@@ -6,9 +6,10 @@
             loading="lazy"
             height="1316"
             width="1442"
-            class="footerShape"
+            class="shape"
         />
-        <div class="footerContent">
+        <div class="content">
+            <slot />
             <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
             <ul class="social">
                 <li v-for="(item, index) in socialLinks" :key="index" class="socialItem">
@@ -18,8 +19,9 @@
                         rel="noopener"
                         target="_blank"
                         class="socialLink"
-                        v-html="item.icon"
-                    ></a>
+                    >
+                        <span class="socialIcon" v-html="item.icon"></span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -28,9 +30,12 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
+    import BackLink from '~/components/BackLink.vue';
 
-    @Component
-    export default class Footer extends Vue {
+    @Component({
+        components: { BackLink },
+    })
+    export default class PFooter extends Vue {
         socialLinks = [
             {
                 icon: require('~/assets/icons/github-brands.svg?include'),
@@ -66,10 +71,8 @@
     }
 </script>
 
-<style>
-    :root {
-        --color__footer: #232629;
-    }
+<style scoped>
+    @import '~/assets/css/variables.css';
 
     .footer {
         position: relative;
@@ -79,12 +82,12 @@
         padding-bottom: 150px;
     }
 
-    .footerShape {
+    .shape {
         display: none;
     }
 
     @media (min-width: 768px) {
-        .footerShape {
+        .shape {
             display: block;
             position: absolute;
             bottom: 50px;
@@ -95,7 +98,7 @@
         }
     }
 
-    .footerContent {
+    .content {
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
@@ -130,18 +133,15 @@
         border-image-slice: 4;
         margin: 15px;
         position: relative;
+        color: #fff;
         border-radius: calc(var(--size) / 2);
     }
 
-    .socialLink svg {
+    .socialIcon {
         max-width: 100%;
         height: auto;
         z-index: 3;
         position: relative;
-    }
-
-    .socialLink svg path {
-        fill: #fff;
     }
 
     .socialLink:before {

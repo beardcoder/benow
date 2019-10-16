@@ -1,6 +1,6 @@
 <template>
-    <div data-rellax-speed="-3" class="wrapper rellax">
-        <div :class="{ shape: true, shapeLeft: direction === 'left', shapeBottom: bottom }" />
+    <div data-rellax-speed="-3" :class="{ wrapper: true, rellax: true, wrapperBottom: bottom }">
+        <div :class="{ shape: true, shapeLeft: direction === 'left' }" />
     </div>
 </template>
 
@@ -37,7 +37,7 @@
         transform: rotate(-20deg);
     }
 
-    .shapeBottom {
+    .wrapperBottom {
         top: auto;
         bottom: 20%;
     }

@@ -1,3 +1,17 @@
+import path from 'path';
+import glob from 'glob';
+
+// in the articles directory
+const files = glob.sync('**/*.md', { cwd: 'articles' });
+
+// We define a function to trim the '.md' from the filename
+// and return the correct path.
+// This function will be used later
+function getSlugs(post) {
+    const slug = post.substr(0, post.lastIndexOf('.'));
+    return `/article/${slug}`;
+}
+
 const config = {
     mode: 'universal',
 
@@ -117,6 +131,12 @@ const config = {
      */
     axios: {},
 
+    generate: {
+        routes() {
+            return files.map(getSlugs);
+        },
+    },
+
     optimizedImages: {
         optimizeImages: true,
         optimizeImagesInDev: true,
@@ -134,6 +154,13 @@ const config = {
     build: {
         cache: true,
         watch: ['~/api/*'],
+        extend(config) {
+            config.module.rules.push({
+                test: /\.md$/,
+                include: path.resolve(__dirname, 'content'),
+                loader: 'frontmatter-markdown-loader',
+            });
+        },
         babel: {
             plugins: [
                 ['@babel/plugin-proposal-decorators', { legacy: true }],

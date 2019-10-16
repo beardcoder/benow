@@ -15,7 +15,7 @@
         font-weight: 300;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #141618;
+        background-color: #161819;
         min-height: 100%;
         color: #fff;
         width: 100%;

@@ -38,7 +38,7 @@
     import { Component, Vue } from 'nuxt-property-decorator';
 
     @Component
-    export default class Header extends Vue {}
+    export default class PHeader extends Vue {}
 </script>
 
 <style scoped>

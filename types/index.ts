@@ -9,19 +9,13 @@ export type GithubItem = {
 };
 
 export type Article = {
-    type_of: string;
-    id: number;
+    attributes: ArticleAttributes;
+    html: string;
+};
+
+export type ArticleAttributes = {
     title: string;
+    ctime: string;
+    author: string;
     description: string;
-    cover_image: string;
-    published_at: string;
-    tag_list: string[];
-    slug: string;
-    path: string;
-    url: string;
-    canonical_url: string;
-    comments_count: number;
-    positive_reactions_count: number;
-    published_timestamp: string;
-    user: {};
 };

@@ -1,10 +1,11 @@
 // @ts-ignore
 import { GithubItem } from '~/types';
+import { NuxtAxiosInstance } from '~/node_modules/@nuxtjs/axios';
 
 const auth = process.env.GITHUB_TOKEN;
 const username = process.env.GITHUB_USERNAME;
 
-export function repos($axios: any) {
+export function repos($axios: NuxtAxiosInstance) {
     return $axios
         .$get(`https://api.github.com/users/${username}/repos`, {
             headers: {
@@ -22,7 +23,11 @@ export function repos($axios: any) {
                 return {
                     id: item.id,
                     description: item.description,
+
+                    // eslint-disable-next-line @typescript-eslint/camelcase
                     full_name: item.full_name,
+
+                    // eslint-disable-next-line @typescript-eslint/camelcase
                     html_url: item.html_url,
                 };
             });
