@@ -26,6 +26,7 @@
     import css from 'highlight.js/lib/languages/css';
     import yaml from 'highlight.js/lib/languages/yaml';
     import bash from 'highlight.js/lib/languages/bash';
+    import php from 'highlight.js/lib/languages/php';
     import 'highlight.js/styles/a11y-dark.css';
     import PFooter from '~/components/PFooter.vue';
     import PHeader from '~/components/PHeader.vue';
@@ -40,6 +41,7 @@
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('css', css);
     hljs.registerLanguage('xml', yaml);
+    hljs.registerLanguage('php', php);
     hljs.registerLanguage('bash', bash);
 
     @Jsonld

@@ -8,7 +8,8 @@ description: Einfach und schnell eigene Inhaltselemente im TYPO3 CMS erstellen.
 Wer hat nicht schon mal das Problem gehabt das ein Kunde oder man selbst ein youtube Video oder einen Button gebraucht hat. Dafür aber gleich eine Extension einbauen? Sein TYPO3 CMS mit zusätzlichen Features belasten, obwohl man diese vielleicht gar nicht braucht?
 
 Was wir als Erstes brauchen ist eine eigene Extension als Grundlage. Diese muss nicht viel enthalten. Es reicht, wenn sie lediglich aus folgender Struktur besteht.
-```
+
+```text
 eigene_inhaltselemente
     Configuration
         TypoScript
@@ -62,7 +63,7 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Conf
 
 Damit unser neues Element auch im »Content Wizzard« verfügbar ist müssen wir das PageTS erweitern um folgende Zeilen. Damit wir keine zusätzliche TypoScript Datei benötigen können wir eine Function des TYPO3 CORE's benutzen um unser PageTS einzubinden. Zudem Registrieren wir uns gleich einen Eigenen Tap namens OnePage um unsere Eigenen Elemente einfacher zu finden.
 
-```
+```php
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
 mod {
 	wizards.newContentElement.wizardItems.extra {
