@@ -125,6 +125,7 @@ const config = {
         'nuxt-webfontloader',
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
+        '@nuxtjs/sitemap',
     ],
     /*
      ** Axios module configuration
@@ -134,7 +135,6 @@ const config = {
 
     generate: {
         routes() {
-            console.log(files);
             return files.map(getSlugs);
         },
     },

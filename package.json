@@ -19,6 +19,7 @@
         "@nuxtjs/component-cache": "^1.1.5",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/google-tag-manager": "^2.3.0",
+        "@nuxtjs/sitemap": "^2.0.0",
         "@types/node-fetch": "^2.5.2",
         "@types/rellax": "^1.7.2",
         "axios": "latest",

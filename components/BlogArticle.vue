@@ -12,7 +12,10 @@
             <p class="description">{{ article.content.attributes.description }}</p>
         </div>
         <div class="footer" style="text-align: right">
-            <nuxt-link :to="`/article/${article.slug}`" :class="{ btn: true }">
+            <nuxt-link
+                :to="{ name: 'article-slug', params: { slug: article.slug } }"
+                :class="{ btn: true }"
+            >
                 Lesen
             </nuxt-link>
         </div>
