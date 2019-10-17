@@ -129,6 +129,7 @@ const config = {
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
+        '@nuxtjs/netlify-files',
     ],
 
     sitemap: {
