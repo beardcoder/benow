@@ -46,7 +46,7 @@
     import Shape from '~/components/Shape.vue';
     import Skill from '~/components/Skill.vue';
     import { Jsonld } from '~/node_modules/nuxt-jsonld';
-    import personSchema from '~/utils/personSchema';
+    import personSchema from '~/utils/schema/person';
 
     @Jsonld
     @Component({
