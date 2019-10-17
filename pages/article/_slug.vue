@@ -46,6 +46,19 @@
         transition: 'slide-left',
     })
     export default class Index extends Vue {
+        head() {
+            return {
+                title: this.attributes.title,
+                meta: [
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: this.attributes.description,
+                    },
+                ],
+            };
+        }
+
         jsonld() {
             return {
                 '@context': 'http://schema.org',

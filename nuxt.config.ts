@@ -22,7 +22,7 @@ const config = {
         htmlAttrs: {
             lang: 'de',
         },
-        title: 'Markus Sommer — moderne Web Technologieren, Design und Frontendartist',
+        titleTemplate: '%s — Markus Sommer',
         meta: [
             { charset: 'utf-8' },
             { hid: 'lang', name: 'lang', content: 'de' },

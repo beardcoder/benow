@@ -29,6 +29,12 @@
         transition: 'slide-right',
     })
     export default class Index extends Vue {
+        head() {
+            return {
+                title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
+            };
+        }
+
         articles!: any[];
 
         async fetch({ store }) {
