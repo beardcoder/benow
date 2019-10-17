@@ -27,7 +27,7 @@
         components: { BackLink },
         props: { headerImage: { type: String, default: null, required: false } },
     })
-    export default class PHeader extends Vue {
+    export default class BlogHeader extends Vue {
         @Prop() slug!: string;
     }
 </script>

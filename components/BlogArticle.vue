@@ -1,10 +1,20 @@
 <template>
     <card class="article">
-        <div class="header">
+        <div
+            class="image"
+            :style="
+                `background-color: ${
+                    require(`~/assets/images/articles/${article.slug}/thumbnail.jpg?lqip-colors`)[0]
+                }`
+            "
+        >
             <img
-                v-lazy="require(`~/assets/images/articles/${article.slug}/thumbnail.jpg`)"
+                v-lazy="require(`~/assets/images/articles/${article.slug}/thumbnail.jpg?webp`)"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAFRCAQAAAACiBsCAAADSklEQVR42u3UMQ0AAAzDsJU/6SEogEo2hBzJAYyIBIBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYlAWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBVA8IDABUgzSsTgAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
+                width="600"
+                height="337"
             />
         </div>
         <div class="body">
@@ -39,11 +49,20 @@
     }
 </script>
 <style scoped>
-    .header {
+    .image {
         position: relative;
+        padding-bottom: 56.25%;
         margin-top: -1rem;
         margin-left: -1rem;
         margin-right: -1rem;
+    }
+
+    .articleImage {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 
     .body {
