@@ -9,7 +9,7 @@ Wer hat nicht schon mal das Problem gehabt das ein Kunde oder man selbst ein you
 
 Was wir als Erstes brauchen ist eine eigene Extension als Grundlage. Diese muss nicht viel enthalten. Es reicht, wenn sie lediglich aus folgender Struktur besteht.
 
-```text
+```plaintext
 eigene_inhaltselemente
     Configuration
         TypoScript
@@ -134,7 +134,7 @@ Mit folgendem TypoScript legen wir das Rendering für das Inhaltselement fest. W
 
 Da wir das FAL benutzen um unser Vorschaubild zu Rendern packen wir das ganze in eine Fluid Variable um darauf ohne Probleme zugreifen zu können. Wir bedienen uns hier der Standardfunktion aus dem CSS_STYLED_CONTENT
 
-```
+```plaintext
 tt_content.video_content = FLUIDTEMPLATE
 tt_content.video_content {
 	file = EXT:eigene_inhaltselemente/Resources/Private/Templates/VideoContent.html
