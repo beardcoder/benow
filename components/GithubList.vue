@@ -16,7 +16,7 @@
                     <div style="text-align: right;">
                         <a
                             :href="item.html_url"
-                            rel="noopener"
+                            rel="noreferrer"
                             target="_blank"
                             :class="{ btn: true, btnSecondary: gist }"
                         >
