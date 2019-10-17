@@ -60,6 +60,7 @@
                 ],
                 link: [
                     {
+                        hid: 'canonical',
                         rel: 'canonical',
                         href: 'https://creativeworkspace.de/article/' + this.slug,
                     },
