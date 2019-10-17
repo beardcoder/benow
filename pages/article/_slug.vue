@@ -58,6 +58,12 @@
                         content: this.attributes.description,
                     },
                 ],
+                link: [
+                    {
+                        rel: 'canonical',
+                        href: 'https://creativeworkspace.de/article/' + this.slug,
+                    },
+                ],
             };
         }
 
