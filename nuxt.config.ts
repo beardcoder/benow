@@ -129,6 +129,12 @@ const config = {
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
     ],
+
+    sitemap: {
+        hostname: 'https://creativeworkspace.de',
+        gzip: true,
+    },
+
     /*
      ** Axios module configuration
      ** See https://axios.nuxtjs.org/options
