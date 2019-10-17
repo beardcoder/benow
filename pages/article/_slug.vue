@@ -34,6 +34,7 @@
     import Shape from '~/components/Shape.vue';
     import { Jsonld } from '~/node_modules/nuxt-jsonld';
     import { ArticleAttributes } from '~/types';
+    import personSchema from '~/utils/personSchema';
 
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('css', css);
@@ -67,8 +68,8 @@
                 description: this.attributes.description,
                 datePublished: this.generateDate(),
                 dateModified: this.generateDate(),
-                author: this.attributes.author,
-                publisher: this.attributes.author,
+                author: personSchema,
+                publisher: personSchema,
                 image: [
                     'https://creativeworkspace.de' +
                         require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
