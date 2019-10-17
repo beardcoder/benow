@@ -89,10 +89,12 @@ const config = {
             },
         ],
     },
+
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#fff' },
+    loading: { color: '#32f0d1', height: '4px' },
+
     /*
      ** Global CSS
      */
