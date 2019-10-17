@@ -39,16 +39,6 @@
     }
 </script>
 <style scoped>
-    .article {
-        margin: 1rem;
-    }
-
-    @media (min-width: 768px) {
-        .article {
-            max-width: calc(33% - 2rem);
-        }
-    }
-
     .header {
         position: relative;
         margin-top: -1rem;

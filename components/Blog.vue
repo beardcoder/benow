@@ -25,13 +25,19 @@
 
 <style scoped>
     .blog {
-        margin-top: 100px;
+        max-width: 1440px;
+        margin: 100px auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     @media (min-width: 768px) {
         .articles {
-            display: flex;
-            flex-basis: 33%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: '. . .';
+            grid-gap: 2rem;
         }
     }
 
