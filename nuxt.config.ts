@@ -152,7 +152,6 @@ const config = {
 
     optimizedImages: {
         optimizeImages: true,
-        optimizeImagesInDev: true,
     },
 
     webfontloader: {

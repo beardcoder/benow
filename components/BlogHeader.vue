@@ -23,6 +23,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import BackLink from '~/components/BackLink.vue';
+
     @Component({
         components: { BackLink },
         props: { headerImage: { type: String, default: null, required: false } },
