@@ -15,7 +15,7 @@ In der Praxis sind jedoch Cross-Site-Scripting-Schwachstellen sehr verbreitet, w
 
 Mittels Header Variable wird der Browser dazu veranlasst Scripte und Anweisungen im Quelltext zu Prüfen und gegebenenfalls nicht auszuführen.
 
-Dies Bedeutet aber auch das viele Funktionen die eine Website benutzt wie z.b. Google Fonts oder Externe Bibliotheken oder CDN's in Ausnahmen definiert werden müssen. Um das Ganze zu vereinfachen gibt es die Webseite http://cspisawesome.com/. Diese ermöglicht uns für unsere Seite die Passende Content Security Policy zu generieren.
+Dies Bedeutet aber auch das viele Funktionen die eine Website benutzt wie z.b. Google Fonts oder Externe Bibliotheken oder CDN's in Ausnahmen definiert werden müssen. Um das Ganze zu vereinfachen gibt es die Webseite <a href="https://www.cspisawesome.com/">https://www.cspisawesome.com/</a>. Diese ermöglicht uns für unsere Seite die Passende Content Security Policy zu generieren.
 
 ## Einbindung
 

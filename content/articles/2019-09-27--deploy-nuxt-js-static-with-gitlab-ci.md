@@ -22,11 +22,11 @@ Um den CI Prozess von Gitlab zu nutzen, reicht ein Kostenloser Account, in dem m
 
 ![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/3j0m2pr0yn2wf6x6qt8x.jpg)
 
-Wie man ein neues Anlegt kann man auf der Seite https://docs.gitlab.com/ee/user/project/repository/#create-a-repository nachlesen
+Wie man ein neues Anlegt kann man auf der Seite <a href="https://docs.gitlab.com/ee/user/project/repository/#create-a-repository" target="_blank">https://docs.gitlab.com</a> nachlesen
 
 Nachdem man dies erledigt hat, muss man einen Private Key hinterlegen. Die CI braucht diesen um Daten via rsync ausliefern zu können.
 
-Wie man ein Key Paar erstellt findet ihr hier. https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+Wie man ein Key Paar erstellt findet ihr hier. <a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank">https://help.github.com/</a>
 
 In meinem Fall wird die Variable SSH_PRIVATE_KEY genannt. Diese Bezeichnung brauchen wir später in unserer Konfiguration
 

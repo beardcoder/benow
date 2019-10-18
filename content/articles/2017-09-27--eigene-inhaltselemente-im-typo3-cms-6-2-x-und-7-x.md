@@ -24,7 +24,7 @@ eigene_inhaltselemente
     ext_tables.php
     ext_emconf.php
 ```
-Ich beziehe mich hier auf die Extbase Struktur. Jedem ist aber selbst überlassen wie er seine Extensions aufbaut. Falls man an größeren Projekten arbeitet sollte man sich auf alle Fälle auf eine Struktur festlegen. Diese erleichtert das Arbeiten im Team ungemein. Weitere Dateien die angelegt werden können sind z.b. ext_icon.png|gif|svg und ext_tables.sql. Alle weiteren Optionen findet ihr imhttp://wiki.typo3.org/Extension_Developers_GuideTYPO3 Wiki Developer Guide.
+Ich beziehe mich hier auf die Extbase Struktur. Jedem ist aber selbst überlassen wie er seine Extensions aufbaut. Falls man an größeren Projekten arbeitet sollte man sich auf alle Fälle auf eine Struktur festlegen. Diese erleichtert das Arbeiten im Team ungemein. Weitere Dateien die angelegt werden können sind z.b. ext_icon.png|gif|svg und ext_tables.sql. Alle weiteren Optionen findet ihr im <a href="http://wiki.typo3.org/Extension_Developers_Guide" target="_blank">TYPO3 Wiki Developer Guide</a>.
 
 ## ext_emconf.php
 Als erstes befassen wir uns kurz mit der ext_emconf.php. Diese dient alleine dazu das wir später die Extension auch im TYPO3 Extensionmanager finden und aktivieren können. Ohne diese Aktivierung greifen unsere Einstellungen und Programmierungen nicht.
@@ -178,7 +178,7 @@ So ab nun kann man ganz einfach weitere Inhaltselemente hinzufügen und so hinbi
 
 Viel Spaß beim Ausprobieren und herumexperimentieren.
 
-Wer sich die Komplette Extension ansehen oder herunterladen möchte findet sie bei mir auf Github unter https://github.com/beardcoder/eigene_inhaltselemente
+Wer sich die Komplette Extension ansehen oder herunterladen möchte findet sie bei mir auf Github unter <a href="https://github.com/beardcoder/eigene_inhaltselemente" target="_blank">https://github.com/beardcoder/eigene_inhaltselemente</a>
 
 Vielen dank an:
 

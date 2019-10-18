@@ -64,6 +64,16 @@
         height: auto;
     }
 
+    a {
+        color: var(--color__secondary);
+        transition: color 0.2s;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--color__primary);
+    }
+
     .content {
         overflow-x: hidden;
     }
