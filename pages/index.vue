@@ -50,7 +50,7 @@
 
         asyncData() {
             const resolve = require.context('~/content/', true, /\.md$/);
-            const imports = resolve.keys().map(key => {
+            const imports: [] = resolve.keys().map(key => {
                 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
                 const filenames = key.match(/articles\/(.+)\.md$/);
                 return {
@@ -59,7 +59,7 @@
                 };
             });
             return {
-                articles: imports,
+                articles: imports.reverse(),
             };
         }
     }
