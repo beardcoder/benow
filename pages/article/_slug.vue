@@ -27,7 +27,7 @@
     import yaml from 'highlight.js/lib/languages/yaml';
     import bash from 'highlight.js/lib/languages/bash';
     import php from 'highlight.js/lib/languages/php';
-    import html from 'highlight.js/lib/languages/html';
+    import xml from 'highlight.js/lib/languages/xml';
     import plaintext from 'highlight.js/lib/languages/plaintext';
     import 'highlight.js/styles/a11y-dark.css';
     import PFooter from '~/components/PFooter.vue';
@@ -42,11 +42,11 @@
 
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('css', css);
-    hljs.registerLanguage('xml', yaml);
+    hljs.registerLanguage('yaml', yaml);
+    hljs.registerLanguage('xml', xml);
     hljs.registerLanguage('php', php);
     hljs.registerLanguage('plaintext', plaintext);
     hljs.registerLanguage('bash', bash);
-    hljs.registerLanguage('html', html);
 
     @Jsonld
     @Component({

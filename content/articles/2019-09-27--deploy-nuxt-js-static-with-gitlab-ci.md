@@ -1,6 +1,6 @@
 ---
 title: Deploy nuxt.js static mit gitlab-ci
-datePublished: 27.09.2019
+datePublished: 2019-09-27
 author: Markus Sommer
 description: In diesem Artikel zeige ich euch wie ihr eine Nuxt Application mit der Gitlab-CI bauen und auf dem Server ausrollen könne. 
 ---

@@ -1,6 +1,6 @@
 ---
 title: Eigene Inhaltselemente im TYPO3 CMS 6.2.x und 7.x
-datePublished: 09.05.2017
+datePublished: 2017-05-09
 author: Markus Sommer
 description: Einfach und schnell eigene Inhaltselemente im TYPO3 CMS erstellen. 
 ---
@@ -9,7 +9,7 @@ Wer hat nicht schon mal das Problem gehabt das ein Kunde oder man selbst ein you
 
 Was wir als Erstes brauchen ist eine eigene Extension als Grundlage. Diese muss nicht viel enthalten. Es reicht, wenn sie lediglich aus folgender Struktur besteht.
 
-```plaintext
+```
 eigene_inhaltselemente
     Configuration
         TypoScript
@@ -134,7 +134,7 @@ Mit folgendem TypoScript legen wir das Rendering für das Inhaltselement fest. W
 
 Da wir das FAL benutzen um unser Vorschaubild zu Rendern packen wir das ganze in eine Fluid Variable um darauf ohne Probleme zugreifen zu können. Wir bedienen uns hier der Standardfunktion aus dem CSS_STYLED_CONTENT
 
-```plaintext
+```
 tt_content.video_content = FLUIDTEMPLATE
 tt_content.video_content {
 	file = EXT:eigene_inhaltselemente/Resources/Private/Templates/VideoContent.html

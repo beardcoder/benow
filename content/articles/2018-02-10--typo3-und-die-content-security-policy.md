@@ -1,6 +1,6 @@
 ---
 title: TYPO3 und die Content Security Policy
-datePublished: 10.02.2018
+datePublished: 2018-02-10
 author: Markus Sommer
 description: Was ist eigentlich die Content Security Policy und warum sollte ich sie einsetzen? Eine integration in TYPO3 
 ---
