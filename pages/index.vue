@@ -29,6 +29,13 @@
         transition: 'slide-right',
     })
     export default class Index extends Vue {
+        mounted() {
+            if (window.location.hash) {
+                const elem = document.getElementById(window.location.hash.replace('#', ''));
+                if (elem) elem.scrollIntoView();
+            }
+        }
+
         head() {
             return {
                 title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
