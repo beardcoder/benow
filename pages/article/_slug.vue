@@ -6,7 +6,9 @@
                 <shape direction="left" />
                 <h1>{{ attributes.title }}</h1>
                 <div class="subtitle">
-                    Veröffentlicht am {{ attributes.datePublished }} von {{ attributes.author }}
+                    Veröffentlicht am
+                    {{ new Date(attributes.datePublished).toLocaleDateString() }} von
+                    {{ attributes.author }}
                 </div>
                 <p class="description">{{ attributes.description }}</p>
                 <div class="blog-content content" v-html="content"></div>
@@ -80,8 +82,8 @@
                 '@type': 'BlogPosting',
                 headline: this.attributes.title,
                 description: this.attributes.description,
-                datePublished: this.generateDate(),
-                dateModified: this.generateDate(),
+                datePublished: this.attributes.datePublished,
+                dateModified: this.attributes.datePublished,
                 author: personSchema,
                 publisher: organizationSchema,
                 mainEntityOfPage: 'https://creativeworkspace.de/article/' + this.slug,
@@ -94,10 +96,6 @@
 
         attributes!: ArticleAttributes;
         slug!: string;
-
-        generateDate() {
-            return new Date(this.attributes.datePublished).toISOString();
-        }
 
         initHighlightJs() {
             const targets = document.querySelectorAll('code');
