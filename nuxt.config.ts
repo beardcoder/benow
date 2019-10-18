@@ -130,6 +130,7 @@ const config = {
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
+        'nuxt-payload-extractor',
     ],
 
     sitemap: {
