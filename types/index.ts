@@ -8,14 +8,12 @@ export type GithubItem = {
     html_url: string;
 };
 
-export type Article = {
-    attributes: ArticleAttributes;
-    html: string;
-};
-
-export type ArticleAttributes = {
+export type Post = {
     title: string;
-    datePublished: string;
-    author: string;
+    date: string;
     description: string;
+    author: string;
+    image: string;
+    body: string;
+    slug: string;
 };

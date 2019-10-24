@@ -2,24 +2,21 @@
     <div id="blog" class="blog">
         <h3 class="blogHeader">Blog</h3>
         <div class="articles">
-            <blog-article v-for="article in articles" :key="article.id" :article="article" />
+            <post v-for="(post, index) in posts" :key="index" :post="post" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { Article } from '~/types';
-    import BlogArticle from '~/components/BlogArticle.vue';
+    import { Post as PostType } from '~/types';
+    import Post from '~/components/Post.vue';
 
     @Component({
-        components: { BlogArticle },
+        components: { Post },
     })
     export default class Blog extends Vue {
-        @Prop() articles!: {
-            slug: string;
-            content: Article;
-        }[];
+        @Prop() posts!: PostType[];
     }
 </script>
 

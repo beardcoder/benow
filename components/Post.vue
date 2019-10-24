@@ -1,15 +1,8 @@
 <template>
     <card class="article">
-        <div
-            class="image"
-            :style="
-                `background-color: ${
-                    require(`~/assets/images/articles/${article.slug}/thumbnail.jpg?lqip-colors`)[0]
-                }`
-            "
-        >
+        <div class="image">
             <img
-                v-lazy="require(`~/assets/images/articles/${article.slug}/thumbnail.jpg?webp`)"
+                v-lazy="post.image"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAFRCAQAAAACiBsCAAADSklEQVR42u3UMQ0AAAzDsJU/6SEogEo2hBzJAYyIBIBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYlAWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBVA8IDABUgzSsTgAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
@@ -18,12 +11,12 @@
             />
         </div>
         <div class="body">
-            <h4>{{ article.content.attributes.title }}</h4>
-            <p class="description">{{ article.content.attributes.description }}</p>
+            <h4>{{ post.title }}</h4>
+            <p class="description">{{ post.description }}</p>
         </div>
         <div class="footer" style="text-align: right">
             <nuxt-link
-                :to="{ name: 'article-slug', params: { slug: article.slug } }"
+                :to="{ name: 'post-slug', params: { slug: post.slug } }"
                 :class="{ btn: true }"
             >
                 Lesen
@@ -34,18 +27,15 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import Card from '~/components/Card.vue';
-    import { Article } from '~/types';
+    import { Post as PostType } from '~/types';
 
     @Component({
         components: {
             Card,
         },
     })
-    export default class Index extends Vue {
-        @Prop() article!: {
-            slug: string;
-            content: Article;
-        };
+    export default class Post extends Vue {
+        @Prop() post!: PostType;
     }
 </script>
 <style scoped>

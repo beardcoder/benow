@@ -1,17 +1,16 @@
 <template>
-    <div :key="$route.params.post" class="container">
-        <blog-header :slug="slug" />
+    <div :key="$route.params.slug" class="container">
         <div class="main">
             <article class="article">
                 <shape direction="left" />
-                <h1>{{ attributes.title }}</h1>
+                <h1>{{ post.title }}</h1>
                 <div class="subtitle">
                     Veröffentlicht am
-                    {{ new Date(attributes.datePublished).toLocaleDateString() }} von
-                    {{ attributes.author }}
+                    {{ new Date(post.date).toLocaleDateString() }} von
+                    {{ post.author }}
                 </div>
-                <p class="description">{{ attributes.description }}</p>
-                <div class="blog-content content" v-html="content"></div>
+                <p class="description">{{ post.description }}</p>
+                <div class="blog-content content" v-html="$md.render(post.body)"></div>
                 <shape direction="right" bottom />
             </article>
         </div>
@@ -38,7 +37,7 @@
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
     import { Jsonld } from '~/node_modules/nuxt-jsonld';
-    import { ArticleAttributes } from '~/types';
+    import { Post } from '~/types';
     import personSchema from '~/utils/schema/person';
     import organizationSchema from '~/utils/schema/organization';
 
@@ -58,19 +57,19 @@
     export default class Index extends Vue {
         head() {
             return {
-                title: this.attributes.title,
+                title: this.post.title,
                 meta: [
                     {
                         hid: 'description',
                         name: 'description',
-                        content: this.attributes.description,
+                        content: this.post.description,
                     },
                 ],
                 link: [
                     {
                         hid: 'canonical',
                         rel: 'canonical',
-                        href: 'https://creativeworkspace.de/article/' + this.slug,
+                        href: 'https://creativeworkspace.de/article/' + this.post.slug,
                     },
                 ],
             };
@@ -80,22 +79,18 @@
             return {
                 '@context': 'http://schema.org',
                 '@type': 'BlogPosting',
-                headline: this.attributes.title,
-                description: this.attributes.description,
-                datePublished: this.attributes.datePublished,
-                dateModified: this.attributes.datePublished,
+                headline: this.post.title,
+                description: this.post.description,
+                datePublished: this.post.date,
+                dateModified: this.post.date,
                 author: personSchema,
                 publisher: organizationSchema,
-                mainEntityOfPage: 'https://creativeworkspace.de/article/' + this.slug,
-                image: [
-                    'https://creativeworkspace.de' +
-                        require(`~/assets/images/articles/${this.slug}/full.jpg?webp`),
-                ],
+                mainEntityOfPage: 'https://creativeworkspace.de/article/' + this.post.slug,
+                image: ['https://creativeworkspace.de' + this.post.image],
             };
         }
 
-        attributes!: ArticleAttributes;
-        slug!: string;
+        post!: Post;
 
         initHighlightJs() {
             const targets = document.querySelectorAll('code');
@@ -108,17 +103,15 @@
             this.initHighlightJs();
         }
 
-        async asyncData({ params }) {
-            try {
-                const fileContent = await import(`~/content/articles/${params.slug}.md`);
-                return {
-                    attributes: fileContent.attributes,
-                    content: fileContent.html,
-                    slug: params.slug,
-                };
-            } catch (e) {
-                console.error(e);
-            }
+        async asyncData({ params, payload }) {
+            if (payload) return { post: payload };
+            else
+                try {
+                    const post = await require(`~/assets/content/blog/${params.slug}.json`);
+                    return { post };
+                } catch (e) {
+                    console.error(e);
+                }
         }
     }
 </script>

@@ -4,7 +4,7 @@
         <main class="main">
             <personal />
             <projects />
-            <blog :articles="articles" />
+            <blog :posts="posts" />
         </main>
         <p-footer />
     </div>
@@ -12,11 +12,15 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
+    import { namespace } from 'vuex-class';
     import Personal from '~/components/Personal.vue';
     import Projects from '~/components/Projects.vue';
     import Blog from '~/components/Blog.vue';
     import PFooter from '~/components/PFooter.vue';
     import PHeader from '~/components/PHeader.vue';
+    import { Post } from '~/types';
+
+    const blog = namespace('blog');
 
     @Component({
         components: {
@@ -42,25 +46,10 @@
             };
         }
 
-        articles!: any[];
+        @blog.State('posts') posts!: Post[];
 
         async fetch({ store }) {
-            await store.dispatch('github/fetch');
-        }
-
-        asyncData() {
-            const resolve = require.context('~/content/', true, /\.md$/);
-            const imports = resolve.keys().map(key => {
-                // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
-                const filenames = key.match(/articles\/(.+)\.md$/);
-                return {
-                    slug: filenames ? filenames[1] : '',
-                    content: resolve(key),
-                };
-            });
-            return {
-                articles: imports.reverse(),
-            };
+            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
         }
     }
 </script>

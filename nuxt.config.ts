@@ -130,8 +130,12 @@ const config = {
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
-        'nuxt-payload-extractor',
+        '@nuxtjs/markdownit',
     ],
+
+    markdownit: {
+        injected: true,
+    },
 
     sitemap: {
         hostname: 'https://creativeworkspace.de',
