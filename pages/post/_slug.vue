@@ -70,7 +70,7 @@
                     {
                         hid: 'canonical',
                         rel: 'canonical',
-                        href: 'https://creativeworkspace.de/article/' + this.post.slug,
+                        href: 'https://creativeworkspace.de/post/' + this.post.slug,
                     },
                 ],
             };
@@ -86,7 +86,7 @@
                 dateModified: this.post.date,
                 author: personSchema,
                 publisher: organizationSchema,
-                mainEntityOfPage: 'https://creativeworkspace.de/article/' + this.post.slug,
+                mainEntityOfPage: 'https://creativeworkspace.de/post/' + this.post.slug,
                 image: ['https://creativeworkspace.de' + this.post.image],
             };
         }
