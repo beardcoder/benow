@@ -2,14 +2,14 @@ import path from 'path';
 import glob from 'glob';
 
 // in the articles directory
-const files = glob.sync('**/*.md', { cwd: 'content/articles' });
+const files = glob.sync('**/*.json', { cwd: 'assets/content/blog' });
 
 // We define a function to trim the '.md' from the filename
 // and return the correct path.
 // This function will be used later
 function getSlugs(post) {
     const slug = post.substr(0, post.lastIndexOf('.'));
-    return `/article/${slug}`;
+    return `/post/${slug}`;
 }
 
 const config = {
