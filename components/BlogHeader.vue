@@ -3,14 +3,7 @@
         <div class="backgroundWrapper">
             <div class="backgroundParallax rellax" data-rellax-speed="-5">
                 <div
-                    v-lazy:background-image="
-                        require(`~/assets/images/articles/${slug}/full.jpg?webp`)
-                    "
-                    :style="
-                        `background-color: ${
-                            require(`~/assets/images/articles/${slug}/full.jpg?lqip-colors`)[0]
-                        }`
-                    "
+                    v-lazy:background-image="'~/static' + post.image + '?webp'"
                     role="presentation"
                     class="background"
                 />
@@ -23,13 +16,13 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import BackLink from '~/components/BackLink.vue';
+    import { Post } from '~/types';
 
     @Component({
         components: { BackLink },
-        props: { headerImage: { type: String, default: null, required: false } },
     })
     export default class BlogHeader extends Vue {
-        @Prop() slug!: string;
+        @Prop() post!: Post;
     }
 </script>
 

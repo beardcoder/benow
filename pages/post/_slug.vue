@@ -1,5 +1,6 @@
 <template>
     <div :key="$route.params.slug" class="container">
+        <blog-header :post="post" />
         <div class="main">
             <article class="article">
                 <shape direction="left" />

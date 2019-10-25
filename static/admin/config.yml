@@ -15,9 +15,10 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Author', name: 'author', widget: 'string', default: 'Markus Sommer' }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: true }
+      - { label: 'Author', name: 'author', widget: 'string', default: 'Markus Sommer', required: true }
+      - { label: 'Image', name: 'image', widget: 'image', required: true }
+      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }

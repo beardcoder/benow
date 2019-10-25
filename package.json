@@ -21,6 +21,8 @@
         "@nuxtjs/sitemap": "^2.0.0",
         "@types/node-fetch": "^2.5.2",
         "@types/rellax": "^1.7.2",
+        "@typescript-eslint/eslint-plugin": "^2.5.0",
+        "@typescript-eslint/parser": "^2.5.0",
         "axios": "latest",
         "cross-env": "^6.0.3",
         "glob": "^7.1.5",

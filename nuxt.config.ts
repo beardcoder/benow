@@ -156,6 +156,11 @@ const config = {
 
     optimizedImages: {
         optimizeImages: true,
+        inlineImageLimit: -1,
+        defaultImageLoader: 'img-loader',
+        webp: {
+            quality: 85,
+        },
     },
 
     webfontloader: {
@@ -170,12 +175,16 @@ const config = {
     build: {
         cache: true,
         watch: ['~/api/*'],
-        extend(config) {
+        extend(config, { isClient, loaders: { vue } }) {
             config.module.rules.push({
                 test: /\.md$/,
                 include: path.resolve(__dirname, 'content'),
                 loader: 'frontmatter-markdown-loader',
             });
+            if (isClient) {
+                vue.transformAssetUrls.img = ['data-src', 'src'];
+                vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
+            }
         },
         babel: {
             plugins: [
