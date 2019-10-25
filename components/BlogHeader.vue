@@ -2,11 +2,7 @@
     <header class="wrapper">
         <div class="backgroundWrapper">
             <div class="backgroundParallax rellax" data-rellax-speed="-5">
-                <div
-                    v-lazy:background-image="'~/static' + post.image + '?webp'"
-                    role="presentation"
-                    class="background"
-                />
+                <div v-lazy:background-image="post.image" role="presentation" class="background" />
             </div>
         </div>
         <back-link />
@@ -28,10 +24,19 @@
 
 <style scoped>
     .wrapper {
-        height: 50vh;
-        min-height: 500px;
+        height: 20vh;
+        min-height: 200px;
         max-height: 800px;
         position: relative;
+    }
+
+    @media (min-width: 768px) {
+        .wrapper {
+            height: 50vh;
+            min-height: 500px;
+            max-height: 800px;
+            position: relative;
+        }
     }
 
     .backgroundWrapper,

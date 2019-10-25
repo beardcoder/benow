@@ -130,16 +130,28 @@
         padding-bottom: 100px;
     }
 
+    @media (min-width: 768px) {
+        .article {
+            padding: 100px 1rem 0;
+        }
+    }
+
     .article {
         max-width: 800px;
         margin: 0 auto;
         position: relative;
-        padding: 100px 1rem 0;
+        padding: 60px 1rem 0;
     }
 
     .article h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .article h1 {
+            font-size: 3rem;
+        }
     }
 
     .article h3 {
