@@ -14,6 +14,7 @@ export type Post = {
     description: string;
     author: string;
     image: string;
+    thumbnail: string;
     body: string;
     slug: string;
 };

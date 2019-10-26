@@ -1,16 +1,5 @@
 import path from 'path';
-import glob from 'glob';
-
-// in the articles directory
-const files = glob.sync('**/*.json', { cwd: 'assets/content/blog' });
-
-// We define a function to trim the '.md' from the filename
-// and return the correct path.
-// This function will be used later
-function getSlugs(post) {
-    const slug = post.substr(0, post.lastIndexOf('.'));
-    return `/post/${slug}`;
-}
+import fs from 'fs';
 
 const config = {
     mode: 'universal',
@@ -150,7 +139,12 @@ const config = {
 
     generate: {
         routes() {
-            return files.map(getSlugs);
+            return fs.readdirSync('./assets/content/blog').map(file => {
+                return {
+                    route: `/blog/${file.slice(2, -5)}`, // Remove the .json from the end of the filename
+                    payload: require(`./assets/content/blog/${file}`),
+                };
+            });
         },
     },
 

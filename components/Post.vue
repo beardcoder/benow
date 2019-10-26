@@ -13,9 +13,9 @@
             <h4>{{ post.title }}</h4>
             <p class="description">{{ post.description }}</p>
         </div>
-        <div class="footer" style="text-align: right">
+        <div class="footer" style="text-align: right;">
             <nuxt-link
-                :to="{ name: 'post-slug', params: { slug: post.slug } }"
+                :to="{ name: 'blog-slug', params: { slug: post.slug } }"
                 :class="{ btn: true }"
             >
                 Lesen

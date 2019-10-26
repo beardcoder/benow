@@ -86,7 +86,7 @@
                 dateModified: this.post.date,
                 author: personSchema,
                 publisher: organizationSchema,
-                mainEntityOfPage: 'https://creativeworkspace.de/post/' + this.post.slug,
+                mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.post.slug,
                 image: ['https://creativeworkspace.de' + this.post.image],
             };
         }
