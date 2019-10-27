@@ -28,14 +28,18 @@
         padding-right: 1rem;
     }
 
+    .articles {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: '.';
+        grid-gap: 2rem;
+    }
+
     @media (min-width: 768px) {
-        .articles {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr;
-            grid-template-areas: '. . .';
-            grid-gap: 2rem;
-        }
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: '. . .';
     }
 
     .blogHeader {
