@@ -96,7 +96,6 @@ const config = {
         { src: '~/plugins/rellax', mode: 'client' },
         { src: '~/plugins/lazyload', mode: 'client' },
         { src: '~/plugins/viewport-directive', mode: 'client' },
-        { src: '~/plugins/carousel', mode: 'client' },
         { src: '~/plugins/jsonld' },
     ],
     /*
