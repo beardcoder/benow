@@ -12,7 +12,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
 
-    @Component
+    @Component({})
     export default class Shape extends Vue {
         @Prop() title!: string;
         @Prop({ default: 0, type: Number }) value!: number;

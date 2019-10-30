@@ -7,7 +7,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
 
-    @Component
+    @Component({})
     export default class Shape extends Vue {
         @Prop({ default: 'left' }) direction!: string;
         @Prop({ default: false, type: Boolean }) bottom!: boolean;

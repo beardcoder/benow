@@ -104,6 +104,10 @@
         font-size: 1rem;
     }
 
+    .btn:hover {
+        color: #fff;
+    }
+
     .btn:after {
         content: '';
         position: absolute;
