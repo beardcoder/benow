@@ -83,7 +83,8 @@ const config = {
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#32f0d1', height: '4px' },
+    // loading: { color: '#32f0d1', height: '4px' },
+    loading: false,
 
     /*
      ** Global CSS

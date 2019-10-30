@@ -53,7 +53,7 @@
     @Jsonld
     @Component({
         components: { Shape, BackLink, BlogHeader, PHeader, PFooter },
-        transition: 'slide-left',
+        transition: 'page',
     })
     export default class Index extends Vue {
         head() {

@@ -30,7 +30,7 @@
             Personal,
             Blog,
         },
-        transition: 'slide-right',
+        transition: 'page',
     })
     export default class Index extends Vue {
         mounted() {
