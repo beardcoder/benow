@@ -122,7 +122,23 @@ const config = {
     ],
 
     markdownit: {
+        preset: 'default',
+        linkify: true,
+        breaks: true,
         injected: true,
+        use: [
+            'markdown-it-div',
+            'markdown-it-attrs',
+            [
+                'markdown-it-link-attributes',
+                {
+                    attrs: {
+                        target: '_blank',
+                        rel: 'noopener',
+                    },
+                },
+            ],
+        ],
     },
 
     sitemap: {
