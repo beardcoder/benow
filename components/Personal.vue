@@ -30,12 +30,17 @@
                     Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.
                 </p>
                 <ul class="personalSkills">
-                    <Skill :value="90" title="CSS" />
-                    <Skill :value="95" title="HTML" />
-                    <Skill :value="70" title="JavaScript" />
-                    <Skill :value="80" title="PHP" />
-                    <Skill :value="60" title="Vue" />
-                    <Skill :value="70" title="Docker" />
+                    <Skill
+                        v-for="skill in skills"
+                        :key="
+                            skill.title
+                                .toLowerCase()
+                                .replace(/[^\w\s]/g, '')
+                                .replace(/[ ]/g, '_')
+                        "
+                        :value="skill.value"
+                        :title="skill.title"
+                    />
                 </ul>
             </div>
         </div>
@@ -56,6 +61,16 @@
         },
     })
     export default class Personal extends Vue {
+        skills = [
+            { title: 'CSS', value: 90 },
+            { title: 'HTML', value: 95 },
+            { title: 'JavaScript', value: 70 },
+            { title: 'PHP', value: 80 },
+            { title: 'Vue', value: 80 },
+            { title: 'Nuxt (SSR JavaScript)', value: 70 },
+            { title: 'Docker', value: 70 },
+        ];
+
         jsonld() {
             return personSchema;
         }
