@@ -51,12 +51,6 @@
         position: relative;
     }
 
-    @media (min-width: 768px) {
-        .header {
-            background-size: cover;
-        }
-    }
-
     .backgroundWrapper,
     .backgroundParallax {
         position: absolute;
@@ -125,24 +119,5 @@
         width: calc(1200px + 100 * ((100vw - 420px) / 860));
         top: calc(-100px + -100 * ((100vw - 420px) / 860));
         left: calc(-600px);
-    }
-
-    .nav {
-        position: fixed;
-        z-index: 999;
-        width: 100%;
-        background: #000;
-        text-align: center;
-    }
-
-    .scrollactive-item {
-        color: #fff;
-        text-decoration: none;
-        display: inline-block;
-        padding: 10px;
-    }
-
-    .scrollactive-item.is-active {
-        color: #32f0d1;
     }
 </style>

@@ -1,6 +1,8 @@
 <template>
     <div class="card">
-        <slot />
+        <div>
+            <slot />
+        </div>
     </div>
 </template>
 
@@ -13,9 +15,42 @@
 
 <style scoped>
     .card {
-        background-image: linear-gradient(45deg, #1c1e20, #303537);
+        background-color: #1f2123;
         padding: 1rem;
         box-sizing: border-box;
         height: 100%;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .card:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        pointer-events: none;
+        background-image: radial-gradient(
+            circle at 60% 90%,
+            rgba(62, 62, 62, 0.5) 0%,
+            rgba(28, 30, 32, 0) 50%
+        );
+    }
+
+    .card:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: '';
+        pointer-events: none;
+        background-image: radial-gradient(
+            circle at 100% 0%,
+            rgba(62, 62, 62, 0.5) 0%,
+            rgba(28, 30, 32, 0) 50%
+        );
     }
 </style>

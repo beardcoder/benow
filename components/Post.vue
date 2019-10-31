@@ -14,10 +14,7 @@
             <p class="description">{{ post.description }}</p>
         </div>
         <div class="footer" style="text-align: right;">
-            <nuxt-link
-                :to="{ name: 'blog-slug', params: { slug: post.slug } }"
-                :class="{ btn: true }"
-            >
+            <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }" class="btn">
                 Lesen
             </nuxt-link>
         </div>

@@ -6,7 +6,8 @@
                 v-for="(item, index) in items"
                 :key="item.id"
                 v-in-viewport.once
-                :class="{ githubItem: true, githubItemHidden: !open && index >= 6 }"
+                class="githubItem"
+                :class="{ githubItemHidden: !open && index >= 6 }"
             >
                 <card>
                     <div>

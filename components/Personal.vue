@@ -30,7 +30,7 @@
                     Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.
                 </p>
                 <ul class="personalSkills">
-                    <Skill
+                    <skill
                         v-for="skill in skills"
                         :key="
                             skill.title
