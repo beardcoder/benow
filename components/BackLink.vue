@@ -3,11 +3,13 @@
         <span class="backLink__text">Zurück</span>
     </nuxt-link>
 </template>
+
 <script lang="ts">
     export default {
         name: 'BackLink',
     };
 </script>
+
 <style scoped>
     .backLink {
         --size: 100px;

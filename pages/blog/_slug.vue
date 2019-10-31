@@ -7,7 +7,7 @@
                 <h1>{{ post.title }}</h1>
                 <div class="subtitle">
                     Veröffentlicht am
-                    {{ new Date(post.date).toLocaleDateString() }} von
+                    {{ $dateFns.format(new Date(post.date), 'dd.MM.yyyy') }} von
                     {{ post.author }}
                 </div>
                 <p class="description">{{ post.description }}</p>

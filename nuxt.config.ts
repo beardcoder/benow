@@ -120,6 +120,7 @@ const config = {
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
         '@nuxtjs/markdownit',
+        '@nuxtjs/date-fns',
     ],
 
     markdownit: {

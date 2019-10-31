@@ -1352,6 +1352,13 @@
     consola "^2.10.1"
     defu "^0.0.3"
 
+"@nuxtjs/date-fns@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/date-fns/-/date-fns-1.0.0.tgz#73d22377179856fc5767c4e3f1f0a3439fbb9762"
+  integrity sha512-ZA3hFdhDc7duG8ej5ETAyy/cMSzOfcyCToGSDfdxLullBYpuJWApJEcpjcppd1C93euTaG1o+RVAGdEr4iPlDQ==
+  dependencies:
+    date-fns "^2.0.1"
+
 "@nuxtjs/dotenv@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/dotenv/-/dotenv-1.4.1.tgz#dd5abb98e22cc7ae27139d3aa606151034293128"
@@ -4104,6 +4111,11 @@ dashify@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dashify/-/dashify-2.0.0.tgz#fff270ca2868ca427fee571de35691d6e437a648"
   integrity sha512-hpA5C/YrPjucXypHPPc0oJ1l9Hf6wWbiOL7Ik42cxnsUOhWiCB/fylKbKqqJalW9FgkNQCw16YO8uW9Hs0Iy1A==
+
+date-fns@^2.0.1:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.6.0.tgz#a5bc82e6a4c3995ae124b0ba1a71aec7b8cbd666"
+  integrity sha512-F55YxqRdEfP/eYQmQjLN798v0AwLjmZ8nMBjdQvNwEE3N/zWVrlkkqT+9seBlPlsbkybG4JmWg3Ee3dIV9BcGQ==
 
 de-indent@^1.0.2:
   version "1.0.2"
@@ -8551,11 +8563,6 @@ nuxt-jsonld@^1.4.4:
   integrity sha512-dpWKXv/deEMOXj7uxycUKbwULMVQRuje55QkVIsSxPFZVuNKX/EODpaavUSM9PzoYHbBGQ1Hfy8bRj/B9eaJ5Q==
   dependencies:
     xxhashjs "^0.2.2"
-
-nuxt-payload-extractor@0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/nuxt-payload-extractor/-/nuxt-payload-extractor-0.0.14.tgz#f2089bf0888d953aeb860055c6b61d541910f0dc"
-  integrity sha512-IocCtYFgubYiaLTaDf8uWmFNU0QcYuuUphbsj+tZP0KC5cpsVEQWy6xUPFSEdpej3nHMjiDMRx4v1SXpsLXAzg==
 
 nuxt-property-decorator@^2.5.0:
   version "2.5.0"
