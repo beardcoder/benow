@@ -1,5 +1,5 @@
 <template>
-    <card class="article">
+    <card v-in-viewport.once class="article">
         <div class="image">
             <img
                 :src="post.thumbnail"
@@ -13,7 +13,7 @@
             <h4>{{ post.title }}</h4>
             <p class="description">{{ post.description }}</p>
         </div>
-        <div class="footer" style="text-align: right;">
+        <div class="footer">
             <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }" class="btn">
                 Lesen
             </nuxt-link>
@@ -35,6 +35,21 @@
     }
 </script>
 <style scoped>
+    .article {
+        opacity: 1;
+        transition: opacity 0.5s, transform 0.8s;
+    }
+
+    .below-viewport {
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1);
+    }
+
+    .article.in-viewport {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+
     .image {
         position: relative;
         padding-bottom: 56.25%;

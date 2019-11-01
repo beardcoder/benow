@@ -14,16 +14,14 @@
                         <h4>{{ gist ? item.description : item.full_name }}</h4>
                         <p v-if="!gist">{{ item.description }}</p>
                     </div>
-                    <div style="text-align: right;">
-                        <a
-                            :href="item.html_url"
-                            rel="noreferrer"
-                            target="_blank"
-                            :class="{ btn: true, btnSecondary: gist }"
-                        >
-                            {{ linkText }}
-                        </a>
-                    </div>
+                    <a
+                        :href="item.html_url"
+                        rel="noreferrer"
+                        target="_blank"
+                        :class="{ btn: true, btnSecondary: gist }"
+                    >
+                        {{ linkText }}
+                    </a>
                 </card>
             </li>
         </ul>

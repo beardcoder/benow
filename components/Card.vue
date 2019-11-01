@@ -33,9 +33,9 @@
         content: '';
         pointer-events: none;
         background-image: radial-gradient(
-            circle at 60% 90%,
-            rgba(62, 62, 62, 0.5) 0%,
-            rgba(28, 30, 32, 0) 50%
+            ellipse at 60% 120%,
+            rgba(62, 62, 62, 0.4) 0%,
+            rgba(28, 30, 32, 0) 60%
         );
     }
 
@@ -48,8 +48,8 @@
         content: '';
         pointer-events: none;
         background-image: radial-gradient(
-            circle at 100% 0%,
-            rgba(62, 62, 62, 0.5) 0%,
+            ellipse at 100% -10%,
+            rgba(62, 62, 62, 0.4) 0%,
             rgba(28, 30, 32, 0) 50%
         );
     }
