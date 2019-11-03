@@ -5,9 +5,10 @@
 </template>
 
 <script lang="ts">
-    export default {
-        name: 'BackLink',
-    };
+    import { Component, Vue } from 'nuxt-property-decorator';
+
+    @Component({})
+    export default class BackLink extends Vue {}
 </script>
 
 <style scoped>

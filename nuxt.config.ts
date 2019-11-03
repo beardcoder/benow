@@ -131,6 +131,7 @@ const config = {
         use: [
             'markdown-it-div',
             'markdown-it-attrs',
+            'markdown-it-highlightjs',
             [
                 'markdown-it-link-attributes',
                 {

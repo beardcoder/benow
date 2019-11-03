@@ -23,14 +23,6 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import hljs from 'highlight.js/lib/highlight';
-    import javascript from 'highlight.js/lib/languages/javascript';
-    import css from 'highlight.js/lib/languages/css';
-    import yaml from 'highlight.js/lib/languages/yaml';
-    import bash from 'highlight.js/lib/languages/bash';
-    import php from 'highlight.js/lib/languages/php';
-    import xml from 'highlight.js/lib/languages/xml';
-    import plaintext from 'highlight.js/lib/languages/plaintext';
     import 'highlight.js/styles/a11y-dark.css';
     import PFooter from '~/components/PFooter.vue';
     import PHeader from '~/components/PHeader.vue';
@@ -41,14 +33,6 @@
     import { Post } from '~/types';
     import personSchema from '~/utils/schema/person';
     import organizationSchema from '~/utils/schema/organization';
-
-    hljs.registerLanguage('javascript', javascript);
-    hljs.registerLanguage('css', css);
-    hljs.registerLanguage('yaml', yaml);
-    hljs.registerLanguage('xml', xml);
-    hljs.registerLanguage('php', php);
-    hljs.registerLanguage('plaintext', plaintext);
-    hljs.registerLanguage('bash', bash);
 
     @Jsonld
     @Component({
@@ -92,17 +76,6 @@
         }
 
         post!: Post;
-
-        initHighlightJs() {
-            const targets = document.querySelectorAll('code');
-            targets.forEach(target => {
-                hljs.highlightBlock(target);
-            });
-        }
-
-        mounted() {
-            this.initHighlightJs();
-        }
 
         async asyncData({ params, payload }) {
             if (payload) return { post: payload };
