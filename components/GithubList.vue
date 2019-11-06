@@ -40,17 +40,13 @@
 
     @Component({
         components: { Card },
-        data() {
-            return {
-                open: false,
-            };
-        },
     })
     export default class GithubList extends Vue {
         @Prop() items!: GithubItem[];
         @Prop({ default: false, type: Boolean }) gist!: boolean;
         @Prop() linkText!: string;
         @Prop() title!: string;
+        open = false;
     }
 </script>
 

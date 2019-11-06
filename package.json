@@ -12,7 +12,7 @@
         "start": "nuxt-ts start"
     },
     "dependencies": {
-        "@nuxt/typescript-runtime": "^0.2.2",
+        "@nuxt/typescript-runtime": "^0.2.4",
         "@nuxtjs/axios": "^5.8.0",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/google-tag-manager": "^2.3.1",
@@ -29,20 +29,20 @@
         "nuxt-seo": "^1.2.2",
         "rellax": "^1.10.0",
         "sanitize.css": "^11.0.0",
-        "typescript": "^3.6.4",
+        "typescript": "^3.7.2",
         "vue-in-viewport-directive": "^2.0.0",
         "vue-lazyload": "^1.3.3"
     },
     "devDependencies": {
         "@bazzite/nuxt-optimized-images": "^0.2.1",
-        "@nuxt/typescript-build": "^0.3.2",
+        "@nuxt/typescript-build": "^0.3.4",
         "@nuxtjs/date-fns": "^1.0.0",
         "@nuxtjs/eslint-config": "^1.1.2",
         "@nuxtjs/eslint-module": "^1.1.0",
         "@nuxtjs/markdownit": "^1.2.7",
         "@types/webpack-env": "^1.14.1",
-        "@typescript-eslint/eslint-plugin": "^2.6.0",
-        "@typescript-eslint/parser": "^2.6.0",
+        "@typescript-eslint/eslint-plugin": "^2.6.1",
+        "@typescript-eslint/parser": "^2.6.1",
         "@vue/cli-service": "^4.0.5",
         "babel-eslint": "^10.0.3",
         "eslint": "^6.6.0",

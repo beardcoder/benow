@@ -1,6 +1,6 @@
 <template>
     <div id="blog" class="blog">
-        <h3 class="blogHeader">Blog</h3>
+        <h3 class="blog__header">Blog</h3>
         <div class="articles">
             <post v-for="(post, index) in posts" :key="index" :post="post" />
         </div>
@@ -44,7 +44,7 @@
         }
     }
 
-    .blogHeader {
+    .blog__header {
         text-align: center;
     }
 </style>

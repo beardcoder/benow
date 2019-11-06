@@ -1,33 +1,33 @@
 <template>
     <section id="projects" class="projects">
         <Shape direction="right" />
-        <header class="projectsHeader">
+        <header class="projects__header">
             <h2>
                 Projekte und Snippets die mir und vielleicht auch dir helfen können.
             </h2>
             <p>
-                Hast du dich schon einmal gefragt wie Manche Menschen so schnell Programmieren
-                können? Oder fehlt dir Inspiration zu einem kleinen Bereich deiner Seite?
+                Hast du dich schon einmal gefragt, wie manche Menschen so schnell programmieren
+                können? Oder fehlt dir die Inspiration zu einem kleinen Bereich deiner Seite?
             </p>
-            <p>Hier findest du alles, was einem Das Leben leichter macht 😊</p>
+            <p>Hier findest du alles, was einem das Leben leichter macht 😊</p>
             <p>
-                Meine kleine Snippet Datenbank wird Stetig erweitert und überarbeitet, da ich sie
-                Selbst jeden Tag Produktiv nutze. Wenn du einen Fehler findest oder etwas verbessern
-                kannst dann nur her damit.
+                Meine kleine Snippet Datenbank wird stetig erweitert und überarbeitet, da ich sie
+                selbst jeden Tag produktiv nutze. Wenn du einen Fehler findest oder etwas verbessern
+                kannst, dann nur her damit.
             </p>
         </header>
         <div id="repositories">
-            <github-list :items="repos" link-text="zum Repo" title="Repositories" />
+            <github-list :items="github.repos" link-text="zum Repo" title="Repositories" />
         </div>
         <div id="snippets" class="snippets">
-            <github-list :items="snippets" gist link-text="zum Snippet" title="Snippets" />
+            <github-list :items="github.snippets" gist link-text="zum Snippet" title="Snippets" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
-    import { RootState, GithubItem } from '../types';
+    import { Component, State, Vue } from 'nuxt-property-decorator';
+    import { GithubState } from '~/types';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';
 
@@ -35,12 +35,7 @@
         components: { GithubList, Shape },
     })
     export default class Projects extends Vue {
-        get repos(): GithubItem[] {
-            return (this.$store.state as RootState).github.repos;
-        }
-        get snippets(): GithubItem[] {
-            return (this.$store.state as RootState).github.snippets;
-        }
+        @State('github') github!: GithubState;
     }
 </script>
 
@@ -53,7 +48,7 @@
         position: relative;
     }
 
-    .projectsHeader {
+    .projects__header {
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
@@ -65,7 +60,7 @@
     }
 
     @media (min-width: 40em) {
-        .projectsHeader {
+        .projects__header {
             text-align: center;
         }
     }

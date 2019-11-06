@@ -11,16 +11,13 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
-    import { namespace } from 'vuex-class';
+    import { Component, State, Vue } from 'nuxt-property-decorator';
     import Personal from '~/components/Personal.vue';
     import Projects from '~/components/Projects.vue';
     import Blog from '~/components/Blog.vue';
     import PFooter from '~/components/PFooter.vue';
     import PHeader from '~/components/PHeader.vue';
     import { Post } from '~/types';
-
-    const blog = namespace('blog');
 
     @Component({
         components: {
@@ -46,7 +43,7 @@
             };
         }
 
-        @blog.State('posts') posts!: Post[];
+        @State('blog/posts') posts!: Post[];
 
         async fetch({ store }) {
             await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);

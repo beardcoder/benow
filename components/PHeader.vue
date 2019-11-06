@@ -14,7 +14,7 @@
         </div>
         <div class="headerContent">
             <h1 class="h1">
-                Webentwicker
+                Webentwickler
                 <br />
                 Frontend Artist
                 <br />

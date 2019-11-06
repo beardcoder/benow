@@ -1,8 +1,12 @@
 <template>
     <header class="wrapper">
-        <div class="backgroundWrapper">
-            <div class="backgroundParallax rellax" data-rellax-speed="-5">
-                <div v-lazy:background-image="post.image" role="presentation" class="background" />
+        <div class="background">
+            <div class="background__parallax rellax" data-rellax-speed="-5">
+                <div
+                    v-lazy:background-image="post.image"
+                    role="presentation"
+                    class="background__image"
+                />
             </div>
         </div>
         <back-link />
@@ -39,8 +43,8 @@
         }
     }
 
-    .backgroundWrapper,
-    .backgroundParallax {
+    .background,
+    .background__parallax {
         position: absolute;
         top: 0;
         right: 0;
@@ -49,7 +53,7 @@
         overflow: hidden;
     }
 
-    .background {
+    .background__image {
         background-position: center center;
         background-size: cover;
         position: absolute;

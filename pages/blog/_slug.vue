@@ -11,7 +11,7 @@
                     {{ post.author }}
                 </div>
                 <p class="description">{{ post.description }}</p>
-                <div class="blog-content content" v-html="$md.render(post.body)"></div>
+                <div v-html="$md.render(post.body)"></div>
                 <shape direction="right" bottom />
             </article>
         </div>
