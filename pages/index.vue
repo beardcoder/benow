@@ -4,7 +4,7 @@
         <main class="main">
             <personal />
             <projects />
-            <blog :posts="posts" />
+            <blog :posts="blog.posts" />
         </main>
         <p-footer />
     </div>
@@ -17,7 +17,7 @@
     import Blog from '~/components/Blog.vue';
     import PFooter from '~/components/PFooter.vue';
     import PHeader from '~/components/PHeader.vue';
-    import { Post } from '~/types';
+    import { BlogState } from '~/types';
 
     @Component({
         components: {
@@ -43,7 +43,7 @@
             };
         }
 
-        @State('blog/posts') posts!: Post[];
+        @State('blog') blog!: BlogState;
 
         async fetch({ store }) {
             await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);

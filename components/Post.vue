@@ -2,7 +2,8 @@
     <card v-in-viewport.once class="article">
         <div class="image">
             <img
-                :src="post.thumbnail"
+                v-lazy="post.thumbnail"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8xwQAAgQBAmXv/TkAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
                 width="600"
