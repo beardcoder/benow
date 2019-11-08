@@ -25,7 +25,7 @@ const config = {
                 hid: 'description',
                 name: 'description',
                 content:
-                    'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren, Design und Frontend',
+                    'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend',
             },
         ],
         link: [

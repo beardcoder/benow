@@ -2,7 +2,7 @@
     <section id="about-me" class="personal">
         <Shape direction="left" />
         <h2 class="header">
-            Mein Fokus meine Leidenschaft und ist auf die Benutzer Erfahren (User Expiriance)
+            Mein Fokus meine Leidenschaft und ist auf die Benutzererfahrung (User Expiriance)
             gerichtet
         </h2>
 
