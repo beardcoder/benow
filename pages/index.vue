@@ -23,13 +23,12 @@
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
-    import PHeader from '~/components/PHeader.vue';
     import { BlogState } from '~/types';
 
     @Component({
         components: {
             LazyHydrate,
-            PHeader,
+            PHeader: () => import('~/components/PHeader.vue'),
             Personal: () => import('~/components/Personal.vue'),
             Projects: () => import('~/components/Projects.vue'),
             Blog: () => import('~/components/Blog.vue'),
