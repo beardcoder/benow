@@ -15,18 +15,18 @@
                 <shape direction="right" bottom />
             </article>
         </div>
-        <p-footer>
-            <back-link class="backLink--footer" />
-        </p-footer>
+        <lazy-hydrate when-visible>
+            <p-footer>
+                <back-link class="backLink--footer" />
+            </p-footer>
+        </lazy-hydrate>
     </div>
 </template>
 
 <script lang="ts">
+    import LazyHydrate from 'vue-lazy-hydration';
     import { Component, Vue } from 'nuxt-property-decorator';
     import 'highlight.js/styles/a11y-dark.css';
-    import PFooter from '~/components/PFooter.vue';
-    import PHeader from '~/components/PHeader.vue';
-    import BlogHeader from '~/components/BlogHeader.vue';
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
     import { Jsonld } from '~/node_modules/nuxt-jsonld';
@@ -36,7 +36,14 @@
 
     @Jsonld
     @Component({
-        components: { Shape, BackLink, BlogHeader, PHeader, PFooter },
+        components: {
+            LazyHydrate,
+            Shape,
+            BackLink,
+            BlogHeader: () => import('~/components/BlogHeader.vue'),
+            PHeader: () => import('~/components/PHeader.vue'),
+            PFooter: () => import('~/components/PFooter.vue'),
+        },
         transition: 'page',
     })
     export default class Index extends Vue {

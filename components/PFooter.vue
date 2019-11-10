@@ -1,13 +1,5 @@
 <template>
     <footer class="footer">
-        <img
-            :src="require('~/assets/images/shape.svg')"
-            alt="footer shape"
-            loading="lazy"
-            height="1316"
-            width="1442"
-            class="shape"
-        />
         <div class="content">
             <slot />
             <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
@@ -76,7 +68,7 @@
 
     .footer {
         position: relative;
-        z-index: 10;
+        z-index: 20;
         background-color: var(--color__footer);
         padding-top: 150px;
         padding-bottom: 150px;

@@ -2,30 +2,36 @@
     <div class="container">
         <p-header />
         <main class="main">
-            <personal />
-            <projects />
-            <blog :posts="blog.posts" />
+            <lazy-hydrate when-visible>
+                <personal />
+            </lazy-hydrate>
+            <lazy-hydrate when-visible>
+                <projects />
+            </lazy-hydrate>
+            <lazy-hydrate when-visible>
+                <blog :posts="blog.posts" />
+            </lazy-hydrate>
         </main>
-        <p-footer />
+        <lazy-hydrate ssr-only>
+            <p-footer />
+        </lazy-hydrate>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
-    import Personal from '~/components/Personal.vue';
-    import Projects from '~/components/Projects.vue';
-    import Blog from '~/components/Blog.vue';
-    import PFooter from '~/components/PFooter.vue';
+    import LazyHydrate from 'vue-lazy-hydration';
     import PHeader from '~/components/PHeader.vue';
     import { BlogState } from '~/types';
 
     @Component({
         components: {
+            LazyHydrate,
             PHeader,
-            PFooter,
-            Projects,
-            Personal,
-            Blog,
+            Personal: () => import('~/components/Personal.vue'),
+            Projects: () => import('~/components/Projects.vue'),
+            Blog: () => import('~/components/Blog.vue'),
+            PFooter: () => import('~/components/PFooter.vue'),
         },
         transition: 'page',
     })
@@ -51,7 +57,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .main {
         position: relative;
         z-index: 20;
