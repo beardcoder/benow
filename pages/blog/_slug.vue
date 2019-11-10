@@ -1,6 +1,8 @@
 <template>
     <div :key="$route.params.slug" class="container">
-        <blog-header :post="post" />
+        <lazy-hydrate when-idle>
+            <blog-header :post="post" />
+        </lazy-hydrate>
         <div class="main">
             <article class="article">
                 <shape direction="left" />
@@ -41,7 +43,6 @@
             Shape,
             BackLink,
             BlogHeader: () => import('~/components/BlogHeader.vue'),
-            PHeader: () => import('~/components/PHeader.vue'),
             PFooter: () => import('~/components/PFooter.vue'),
         },
         transition: 'page',
