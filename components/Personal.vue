@@ -13,8 +13,8 @@
                     :src="require('~/assets/images/markus_sommer.jpg?sqip')"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"
-                    height="420"
-                    width="420"
+                    height="500"
+                    width="667"
                     class="personalImage"
                 />
             </div>
@@ -48,8 +48,8 @@
 </template>
 
 <script>
-    import Shape from '~/components/Shape.vue';
-    import Skill from '~/components/Skill.vue';
+    import Shape from '~/components/Shape';
+    import Skill from '~/components/Skill';
     import personSchema from '~/utils/schema/person';
 
     export default {
