@@ -9,14 +9,19 @@
     </li>
 </template>
 
-<script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-
-    @Component({})
-    export default class Skill extends Vue {
-        @Prop() title!: string;
-        @Prop({ default: 0, type: Number }) value!: number;
-    }
+<script>
+    export default {
+        props: {
+            title: {
+                type: String,
+                default: '',
+            },
+            value: {
+                type: Number,
+                default: 0,
+            },
+        },
+    };
 </script>
 
 <style scoped>

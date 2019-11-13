@@ -13,17 +13,18 @@
     </header>
 </template>
 
-<script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+<script>
     import BackLink from '~/components/BackLink.vue';
-    import { Post } from '~/types';
 
-    @Component({
+    export default {
         components: { BackLink },
-    })
-    export default class BlogHeader extends Vue {
-        @Prop() post!: Post;
-    }
+        props: {
+            post: {
+                type: Object,
+                default: () => {},
+            },
+        },
+    };
 </script>
 
 <style scoped>

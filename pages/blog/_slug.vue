@@ -25,19 +25,16 @@
     </div>
 </template>
 
-<script lang="ts">
+<script>
     import LazyHydrate from 'vue-lazy-hydration';
-    import { Component, Vue } from 'nuxt-property-decorator';
+    import consola from 'consola';
     import 'highlight.js/styles/a11y-dark.css';
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
-    import { Jsonld } from '~/node_modules/nuxt-jsonld';
-    import { Post } from '~/types';
     import personSchema from '~/utils/schema/person';
     import organizationSchema from '~/utils/schema/organization';
 
-    @Jsonld
-    @Component({
+    export default {
         components: {
             LazyHydrate,
             Shape,
@@ -45,9 +42,15 @@
             BlogHeader: () => import('~/components/BlogHeader.vue'),
             PFooter: () => import('~/components/PFooter.vue'),
         },
+
+        data() {
+            return {
+                post: {},
+            };
+        },
+
         transition: 'page',
-    })
-    export default class Index extends Vue {
+
         head() {
             return {
                 title: this.post.title,
@@ -66,7 +69,7 @@
                     },
                 ],
             };
-        }
+        },
 
         jsonld() {
             return {
@@ -81,9 +84,7 @@
                 mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.post.slug,
                 image: ['https://creativeworkspace.de' + this.post.image],
             };
-        }
-
-        post!: Post;
+        },
 
         async asyncData({ params, payload }) {
             if (payload) return { post: payload };
@@ -92,10 +93,10 @@
                     const post = await require(`~/assets/content/blog/${params.slug}.json`);
                     return { post };
                 } catch (e) {
-                    console.error(e);
+                    consola.error(e);
                 }
-        }
-    }
+        },
+    };
 </script>
 
 <style scoped>

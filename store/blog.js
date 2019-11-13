@@ -1,17 +1,14 @@
-import { ActionTree, MutationTree } from 'vuex';
-import { BlogState, Post } from '~/types';
-
-export const state = (): BlogState => ({
+export const state = () => ({
     posts: [],
 });
 
-export const mutations: MutationTree<BlogState> = {
-    setPosts(state: BlogState, posts: Post[]): void {
+export const mutations = {
+    setPosts(state, posts) {
         state.posts = posts;
     },
 };
 
-export const actions: ActionTree<BlogState, BlogState> = {
+export const actions = {
     async fetch({ commit }) {
         const files = await require.context('~/assets/content/blog/', false, /\.json$/);
         const posts = files.keys().map(key => {

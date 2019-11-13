@@ -20,12 +20,10 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { Component, State, Vue } from 'nuxt-property-decorator';
+<script>
     import LazyHydrate from 'vue-lazy-hydration';
-    import { BlogState } from '~/types';
-
-    @Component({
+    import { mapState } from 'vuex';
+    export default {
         components: {
             LazyHydrate,
             PHeader: () => import('~/components/PHeader.vue'),
@@ -35,27 +33,26 @@
             PFooter: () => import('~/components/PFooter.vue'),
         },
         transition: 'page',
-    })
-    export default class Index extends Vue {
+
+        computed: mapState(['blog']),
+
+        async fetch({ store }) {
+            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
+        },
+
         mounted() {
             if (window.location.hash) {
                 const elem = document.getElementById(window.location.hash.replace('#', ''));
                 if (elem) elem.scrollIntoView();
             }
-        }
+        },
 
         head() {
             return {
                 title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
             };
-        }
-
-        @State('blog') blog!: BlogState;
-
-        async fetch({ store }) {
-            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
-        }
-    }
+        },
+    };
 </script>
 
 <style scoped>

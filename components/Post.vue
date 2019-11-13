@@ -21,19 +21,21 @@
         </div>
     </card>
 </template>
-<script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+<script>
     import Card from '~/components/Card.vue';
-    import { Post as PostType } from '~/types';
 
-    @Component({
+    export default {
         components: {
             Card,
         },
-    })
-    export default class Post extends Vue {
-        @Prop() post!: PostType;
-    }
+
+        props: {
+            post: {
+                type: Object,
+                default: () => {},
+            },
+        },
+    };
 </script>
 <style scoped>
     .article {

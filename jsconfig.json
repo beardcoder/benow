@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "esnext",
+        "target": "esnext",
+        "jsx": "preserve",
+        "paths": {
+            "~/*": ["./*"],
+            "@/*": ["./*"],
+            "~~/*": ["./*"],
+            "@@/*": ["./*"]
+        }
+    },
+    "exclude": ["node_modules", ".nuxt", "dist"]
+}

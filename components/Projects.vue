@@ -25,18 +25,15 @@
     </section>
 </template>
 
-<script lang="ts">
-    import { Component, State, Vue } from 'nuxt-property-decorator';
-    import { GithubState } from '~/types';
+<script>
+    import { mapState } from 'vuex';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';
 
-    @Component({
+    export default {
         components: { GithubList, Shape },
-    })
-    export default class Projects extends Vue {
-        @State('github') github!: GithubState;
-    }
+        computed: mapState(['github']),
+    };
 </script>
 
 <style scoped>

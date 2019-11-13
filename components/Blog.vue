@@ -7,17 +7,18 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { Post as PostType } from '~/types';
+<script>
     import Post from '~/components/Post.vue';
 
-    @Component({
+    export default {
         components: { Post },
-    })
-    export default class Blog extends Vue {
-        @Prop() posts!: PostType[];
-    }
+        props: {
+            posts: {
+                type: Array,
+                default: () => [],
+            },
+        },
+    };
 </script>
 
 <style scoped>

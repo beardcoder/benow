@@ -1,7 +1,7 @@
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
 
-const config = {
+export default {
     mode: 'universal',
 
     /*
@@ -105,7 +105,6 @@ const config = {
     buildModules: [
         // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
-        '@nuxt/typescript-build',
     ],
     /*
      ** Nuxt.js modules
@@ -198,12 +197,6 @@ const config = {
                 vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
             }
         },
-        babel: {
-            plugins: [
-                ['@babel/plugin-proposal-decorators', { legacy: true }],
-                ['@babel/plugin-proposal-class-properties', { loose: true }],
-            ],
-        },
         postcss: {
             // Add plugin names as key and arguments as value
             // Install them before as dependencies with npm or yarn
@@ -219,5 +212,3 @@ const config = {
         },
     },
 };
-
-export default config;
