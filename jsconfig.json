@@ -4,6 +4,9 @@
         "module": "esnext",
         "target": "esnext",
         "jsx": "preserve",
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
         "paths": {
             "~/*": ["./*"],
             "@/*": ["./*"],
