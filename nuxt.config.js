@@ -114,7 +114,8 @@ export default {
         '@nuxtjs/axios',
         '@bazzite/nuxt-optimized-images',
         'nuxt-webfontloader',
-        ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
+        // Disable gtm for the moment
+        // ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',

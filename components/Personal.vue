@@ -48,8 +48,8 @@
 </template>
 
 <script>
-    import Shape from '~/components/Shape';
-    import Skill from '~/components/Skill';
+    import Shape from '~/components/Shape.vue';
+    import Skill from '~/components/Skill.vue';
     import personSchema from '~/utils/schema/person';
 
     export default {
