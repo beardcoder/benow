@@ -1,5 +1,5 @@
 <template>
-    <div :key="$route.params.slug" class="container">
+    <div :key="$route.params.slug" v-if="post" class="container">
         <lazy-hydrate when-idle>
             <blog-header :post="post" />
         </lazy-hydrate>
@@ -25,16 +25,18 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
     import LazyHydrate from 'vue-lazy-hydration';
-    import consola from 'consola';
+    import { Component, Vue } from 'nuxt-property-decorator';
     import 'highlight.js/styles/a11y-dark.css';
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
+    import { Jsonld } from '~/node_modules/nuxt-jsonld';
     import personSchema from '~/utils/schema/person';
     import organizationSchema from '~/utils/schema/organization';
 
-    export default {
+    @Jsonld
+    @Component({
         components: {
             LazyHydrate,
             Shape,
@@ -42,15 +44,9 @@
             BlogHeader: () => import('~/components/BlogHeader.vue'),
             PFooter: () => import('~/components/PFooter.vue'),
         },
-
-        data() {
-            return {
-                post: {},
-            };
-        },
-
         transition: 'page',
-
+    })
+    export default class Index extends Vue {
         head() {
             return {
                 title: this.post.title,
@@ -69,7 +65,7 @@
                     },
                 ],
             };
-        },
+        }
 
         jsonld() {
             return {
@@ -84,7 +80,9 @@
                 mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.post.slug,
                 image: ['https://creativeworkspace.de' + this.post.image],
             };
-        },
+        }
+
+        post;
 
         async asyncData({ params, payload }) {
             if (payload) return { post: payload };
@@ -93,10 +91,10 @@
                     const post = await require(`~/assets/content/blog/${params.slug}.json`);
                     return { post };
                 } catch (e) {
-                    consola.error(e);
+                    console.error(e);
                 }
-        },
-    };
+        }
+    }
 </script>
 
 <style scoped>

@@ -6,6 +6,9 @@ module.exports = {
     },
     parserOptions: {
         parser: 'babel-eslint',
+        ecmaFeatures: {
+            legacyDecorators: true,
+        },
     },
     extends: [
         '@nuxtjs',
@@ -16,5 +19,7 @@ module.exports = {
     ],
     plugins: ['prettier'],
     // add your custom rules here
-    rules: {},
+    rules: {
+        'no-console': 'off',
+    },
 };

@@ -11,7 +11,7 @@
                 <projects />
             </lazy-hydrate>
             <lazy-hydrate when-visible>
-                <blog :posts="blog.posts" />
+                <blog v-if="blog" :posts="blog.posts" />
             </lazy-hydrate>
         </main>
         <lazy-hydrate ssr-only>
@@ -20,10 +20,12 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { Component, State, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
-    import { mapState } from 'vuex';
-    export default {
+    import { BlogState } from '~/types';
+
+    @Component({
         components: {
             LazyHydrate,
             PHeader: () => import('~/components/PHeader.vue'),
@@ -33,26 +35,27 @@
             PFooter: () => import('~/components/PFooter.vue'),
         },
         transition: 'page',
-
-        computed: mapState(['blog']),
-
-        async fetch({ store }) {
-            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
-        },
-
+    })
+    export default class Index extends Vue {
         mounted() {
             if (window.location.hash) {
                 const elem = document.getElementById(window.location.hash.replace('#', ''));
                 if (elem) elem.scrollIntoView();
             }
-        },
+        }
 
         head() {
             return {
                 title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
             };
-        },
-    };
+        }
+
+        @State('blog') blog: BlogState | undefined;
+
+        async fetch({ store }) {
+            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
+        }
+    }
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-export default {
+const config = {
     mode: 'universal',
 
     /*
@@ -105,6 +105,7 @@ export default {
     buildModules: [
         // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
+        '@nuxt/typescript-build',
     ],
     /*
      ** Nuxt.js modules
@@ -122,6 +123,12 @@ export default {
         '@nuxtjs/markdownit',
         '@nuxtjs/date-fns',
     ],
+
+    typescript: {
+        typeCheck: {
+            eslint: true,
+        },
+    },
 
     markdownit: {
         preset: 'default',
@@ -198,6 +205,12 @@ export default {
                 vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
             }
         },
+        babel: {
+            plugins: [
+                ['@babel/plugin-proposal-decorators', { legacy: true }],
+                ['@babel/plugin-proposal-class-properties', { loose: true }],
+            ],
+        },
         postcss: {
             // Add plugin names as key and arguments as value
             // Install them before as dependencies with npm or yarn
@@ -213,3 +226,5 @@ export default {
         },
     },
 };
+
+export default config;

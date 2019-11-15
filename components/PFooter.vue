@@ -20,45 +20,47 @@
     </footer>
 </template>
 
-<script>
-    export default {
-        data() {
-            return {
-                socialLinks: [
-                    {
-                        icon: require('~/assets/icons/github-brands.svg?include'),
-                        link: 'https://github.com/beardcoder',
-                        title: 'Github Profil von Markus Sommer',
-                    },
-                    {
-                        icon: require('~/assets/icons/twitter-brands.svg?include'),
-                        link: 'https://twitter.com/beardcoder',
-                        title: 'Twitter Profil von Markus Sommer',
-                    },
-                    {
-                        icon: require('~/assets/icons/neos-brands.svg?include'),
-                        link: 'https://www.neos.io/',
-                        title: 'Neos Website',
-                    },
-                    {
-                        icon: require('~/assets/icons/typo3-brands.svg?include'),
-                        link: 'https://forge.typo3.org/users/41461',
-                        title: 'TYPO3 Forge',
-                    },
-                    {
-                        icon: require('~/assets/icons/xing-brands.svg?include'),
-                        link: 'https://www.xing.com/profile/Markus_Sommer30',
-                        title: 'Xing Profil von Markus Sommer',
-                    },
-                    {
-                        icon: require('~/assets/icons/linkedin-in-brands.svg?include'),
-                        link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
-                        title: 'linkedin Profil von Markus Sommer',
-                    },
-                ],
-            };
-        },
-    };
+<script lang="ts">
+    import { Component, Vue } from 'nuxt-property-decorator';
+    import BackLink from '~/components/BackLink.vue';
+
+    @Component({
+        components: { BackLink },
+    })
+    export default class PFooter extends Vue {
+        socialLinks = [
+            {
+                icon: require('~/assets/icons/github-brands.svg?include'),
+                link: 'https://github.com/beardcoder',
+                title: 'Github Profil von Markus Sommer',
+            },
+            {
+                icon: require('~/assets/icons/twitter-brands.svg?include'),
+                link: 'https://twitter.com/beardcoder',
+                title: 'Twitter Profil von Markus Sommer',
+            },
+            {
+                icon: require('~/assets/icons/neos-brands.svg?include'),
+                link: 'https://www.neos.io/',
+                title: 'Neos Website',
+            },
+            {
+                icon: require('~/assets/icons/typo3-brands.svg?include'),
+                link: 'https://forge.typo3.org/users/41461',
+                title: 'TYPO3 Forge',
+            },
+            {
+                icon: require('~/assets/icons/xing-brands.svg?include'),
+                link: 'https://www.xing.com/profile/Markus_Sommer30',
+                title: 'Xing Profil von Markus Sommer',
+            },
+            {
+                icon: require('~/assets/icons/linkedin-in-brands.svg?include'),
+                link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
+                title: 'linkedin Profil von Markus Sommer',
+            },
+        ];
+    }
 </script>
 
 <style scoped>

@@ -46,36 +46,35 @@
         </div>
     </section>
 </template>
-
-<script>
+<script lang="ts">
+    import { Component, Vue } from 'nuxt-property-decorator';
     import Shape from '~/components/Shape.vue';
     import Skill from '~/components/Skill.vue';
+    import { Jsonld } from '~/node_modules/nuxt-jsonld';
     import personSchema from '~/utils/schema/person';
 
-    export default {
+    @Jsonld
+    @Component({
         components: {
             Shape,
             Skill,
         },
-
-        data() {
-            return {
-                skills: [
-                    { title: 'CSS', value: 90 },
-                    { title: 'HTML', value: 95 },
-                    { title: 'JavaScript', value: 70 },
-                    { title: 'PHP', value: 80 },
-                    { title: 'Vue', value: 80 },
-                    { title: 'Nuxt (SSR JavaScript)', value: 70 },
-                    { title: 'Docker', value: 70 },
-                ],
-            };
-        },
+    })
+    export default class Personal extends Vue {
+        skills = [
+            { title: 'CSS', value: 90 },
+            { title: 'HTML', value: 95 },
+            { title: 'JavaScript', value: 70 },
+            { title: 'PHP', value: 80 },
+            { title: 'Vue', value: 80 },
+            { title: 'Nuxt (SSR JavaScript)', value: 70 },
+            { title: 'Docker', value: 70 },
+        ];
 
         jsonld() {
             return personSchema;
-        },
-    };
+        }
+    }
 </script>
 
 <style scoped>

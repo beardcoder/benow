@@ -4,20 +4,14 @@
     </div>
 </template>
 
-<script>
-    export default {
-        props: {
-            direction: {
-                type: String,
-                default: 'left',
-            },
+<script lang="ts">
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
 
-            bottom: {
-                type: Boolean,
-                default: false,
-            },
-        },
-    };
+    @Component({})
+    export default class Shape extends Vue {
+        @Prop({ default: 'left' }) direction;
+        @Prop({ default: false, type: Boolean }) bottom;
+    }
 </script>
 
 <style scoped>

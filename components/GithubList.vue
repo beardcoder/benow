@@ -1,12 +1,12 @@
 <template>
     <div class="github">
         <h3>{{ title }}</h3>
-        <ul class="githubList">
+        <ul v-if="items" class="githubList">
             <li
                 v-for="(item, index) in items"
+                :class="{ githubItemHidden: !open && index >= 6 }"
                 :key="item.id"
                 v-in-viewport.once
-                :class="{ githubItemHidden: !open && index >= 6 }"
                 class="githubItem"
             >
                 <card>
@@ -33,37 +33,21 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { GithubItem } from '~/types';
     import Card from '~/components/Card.vue';
 
-    export default {
-        components: {
-            Card,
-        },
-        props: {
-            items: {
-                type: Array,
-                default: () => [],
-            },
-            gist: {
-                type: Boolean,
-                default: false,
-            },
-            linkText: {
-                type: String,
-                default: '',
-            },
-            title: {
-                type: String,
-                default: '',
-            },
-        },
-        data() {
-            return {
-                open: false,
-            };
-        },
-    };
+    @Component({
+        components: { Card },
+    })
+    export default class GithubList extends Vue {
+        @Prop() items: GithubItem[] | undefined;
+        @Prop({ default: false, type: Boolean }) gist: boolean | undefined;
+        @Prop() linkText;
+        @Prop() title;
+        open = false;
+    }
 </script>
 
 <style scoped>

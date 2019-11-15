@@ -1,5 +1,5 @@
 <template>
-    <header class="wrapper">
+    <header v-if="post" class="wrapper">
         <div class="background">
             <div class="background__parallax rellax" data-rellax-speed="-5">
                 <div
@@ -13,18 +13,17 @@
     </header>
 </template>
 
-<script>
+<script lang="ts">
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import BackLink from '~/components/BackLink.vue';
+    import { Post } from '~/types';
 
-    export default {
+    @Component({
         components: { BackLink },
-        props: {
-            post: {
-                type: Object,
-                default: () => {},
-            },
-        },
-    };
+    })
+    export default class BlogHeader extends Vue {
+        @Prop() post: Post | undefined;
+    }
 </script>
 
 <style scoped>

@@ -4,10 +4,6 @@
     </div>
 </template>
 
-<script>
-    export default {};
-</script>
-
 <style lang="postcss">
     .app {
         overflow: hidden;

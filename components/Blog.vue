@@ -1,5 +1,5 @@
 <template>
-    <div id="blog" class="blog">
+    <div id="blog" v-if="posts" class="blog">
         <h3 class="blog__header">Blog</h3>
         <div class="articles">
             <post v-for="(post, index) in posts" :key="index" :post="post" />
@@ -7,18 +7,17 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { Post as PostType } from '~/types';
     import Post from '~/components/Post.vue';
 
-    export default {
+    @Component({
         components: { Post },
-        props: {
-            posts: {
-                type: Array,
-                default: () => [],
-            },
-        },
-    };
+    })
+    export default class Blog extends Vue {
+        @Prop() posts: PostType[] | undefined;
+    }
 </script>
 
 <style scoped>

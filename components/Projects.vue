@@ -1,5 +1,5 @@
 <template>
-    <section id="projects" class="projects">
+    <section id="projects" v-if="github" class="projects">
         <Shape direction="right" />
         <header class="projects__header">
             <h2>
@@ -25,15 +25,18 @@
     </section>
 </template>
 
-<script>
-    import { mapState } from 'vuex';
+<script lang="ts">
+    import { Component, State, Vue } from 'nuxt-property-decorator';
+    import { GithubState } from '~/types';
     import GithubList from '~/components/GithubList.vue';
     import Shape from '~/components/Shape.vue';
 
-    export default {
+    @Component({
         components: { GithubList, Shape },
-        computed: mapState(['github']),
-    };
+    })
+    export default class Projects extends Vue {
+        @State('github') github: GithubState | undefined;
+    }
 </script>
 
 <style scoped>

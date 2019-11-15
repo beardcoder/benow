@@ -1,5 +1,5 @@
 <template>
-    <card v-in-viewport.once class="article">
+    <card v-in-viewport.once v-if="post" class="article">
         <div class="image">
             <img
                 v-lazy="post.thumbnail"
@@ -21,21 +21,19 @@
         </div>
     </card>
 </template>
-<script>
+<script lang="ts">
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import Card from '~/components/Card.vue';
+    import { Post as PostType } from '~/types';
 
-    export default {
+    @Component({
         components: {
             Card,
         },
-
-        props: {
-            post: {
-                type: Object,
-                default: () => {},
-            },
-        },
-    };
+    })
+    export default class Post extends Vue {
+        @Prop() post: PostType | undefined;
+    }
 </script>
 <style scoped>
     .article {
