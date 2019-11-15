@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.8.0",
+        "husky": "^3.0.9",
         "nuxt-edge": "^2.10.3-26229609.f54e9b21",
         "rellax": "^1.10.0",
         "sanitize.css": "^11.0.0",
