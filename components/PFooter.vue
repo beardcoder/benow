@@ -12,7 +12,7 @@
                         target="_blank"
                         class="socialLink"
                     >
-                        <span v-html="item.icon" class="socialIcon"></span>
+                        <span class="socialIcon" v-html="item.icon"></span>
                     </a>
                 </li>
             </ul>

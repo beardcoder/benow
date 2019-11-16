@@ -1,5 +1,5 @@
 <template>
-    <div :key="$route.params.slug" v-if="post" class="container">
+    <div v-if="post" :key="$route.params.slug" class="container">
         <lazy-hydrate when-idle>
             <blog-header :post="post" />
         </lazy-hydrate>

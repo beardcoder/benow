@@ -1,9 +1,4 @@
-import { Post, GithubItem } from '~/types';
-
-export interface RootState {
-    github: GithubState;
-    blog: BlogState;
-}
+import { GithubItem, Post } from '~/types';
 
 export interface GithubState {
     repos: GithubItem[];
@@ -12,4 +7,9 @@ export interface GithubState {
 
 export interface BlogState {
     posts: Post[];
+}
+
+export interface RootState {
+    github: GithubState;
+    blog: BlogState;
 }

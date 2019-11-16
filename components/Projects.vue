@@ -1,5 +1,5 @@
 <template>
-    <section id="projects" v-if="github" class="projects">
+    <section v-if="github" id="projects" class="projects">
         <Shape direction="right" />
         <header class="projects__header">
             <h2>

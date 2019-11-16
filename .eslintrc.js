@@ -10,16 +10,11 @@ module.exports = {
             legacyDecorators: true,
         },
     },
-    extends: [
-        '@nuxtjs',
-        'prettier',
-        'prettier/vue',
-        'plugin:prettier/recommended',
-        'plugin:nuxt/recommended',
-    ],
+    extends: ['@nuxtjs', '@nuxtjs/eslint-config-typescript', 'prettier', 'prettier/vue'],
     plugins: ['prettier'],
     // add your custom rules here
     rules: {
         'no-console': 'off',
+        'vue/no-v-html': 'off',
     },
 };

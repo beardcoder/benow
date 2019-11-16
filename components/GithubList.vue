@@ -4,9 +4,9 @@
         <ul v-if="items" class="githubList">
             <li
                 v-for="(item, index) in items"
-                :class="{ githubItemHidden: !open && index >= 6 }"
                 :key="item.id"
                 v-in-viewport.once
+                :class="{ githubItemHidden: !open && index >= 6 }"
                 class="githubItem"
             >
                 <card>

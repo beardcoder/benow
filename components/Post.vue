@@ -1,5 +1,5 @@
 <template>
-    <card v-in-viewport.once v-if="post" class="article">
+    <card v-if="post" v-in-viewport.once class="article">
         <div class="image">
             <img
                 v-lazy="post.thumbnail"

@@ -1,5 +1,5 @@
 <template>
-    <div id="blog" v-if="posts" class="blog">
+    <div v-if="posts" id="blog" class="blog">
         <h3 class="blog__header">Blog</h3>
         <div class="articles">
             <post v-for="(post, index) in posts" :key="index" :post="post" />
