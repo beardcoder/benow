@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <lazy-hydrate when-idle>
+        <lazy-hydrate when-visible>
             <p-header />
         </lazy-hydrate>
         <main class="main">

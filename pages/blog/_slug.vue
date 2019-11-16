@@ -1,11 +1,13 @@
 <template>
     <div v-if="post" :key="$route.params.slug" class="container">
-        <lazy-hydrate when-idle>
+        <lazy-hydrate when-visible>
             <blog-header :post="post" />
         </lazy-hydrate>
         <div class="main">
             <article class="article">
-                <shape direction="left" />
+                <lazy-hydrate ssr-only>
+                    <shape direction="left" />
+                </lazy-hydrate>
                 <h1>{{ post.title }}</h1>
                 <div class="subtitle">
                     Veröffentlicht am
@@ -14,7 +16,9 @@
                 </div>
                 <p class="description">{{ post.description }}</p>
                 <div v-html="$md.render(post.body)"></div>
-                <shape direction="right" bottom />
+                <lazy-hydrate ssr-only>
+                    <shape direction="right" bottom />
+                </lazy-hydrate>
             </article>
         </div>
         <lazy-hydrate when-visible>
