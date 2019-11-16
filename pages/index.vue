@@ -34,7 +34,6 @@
             Blog: () => import('~/components/Blog.vue'),
             PFooter: () => import('~/components/PFooter.vue'),
         },
-        transition: 'page',
     })
     export default class Index extends Vue {
         mounted() {

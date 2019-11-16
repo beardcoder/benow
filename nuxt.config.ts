@@ -173,6 +173,11 @@ const config = {
         },
     },
 
+    transition: {
+        name: 'page',
+        mode: 'out-in',
+    },
+
     optimizedImages: {
         optimizeImages: true,
         inlineImageLimit: -1,

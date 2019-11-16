@@ -29,9 +29,9 @@
     import LazyHydrate from 'vue-lazy-hydration';
     import { Component, Vue } from 'nuxt-property-decorator';
     import 'highlight.js/styles/a11y-dark.css';
+    import { Jsonld } from 'nuxt-jsonld';
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
-    import { Jsonld } from '~/node_modules/nuxt-jsonld';
     import personSchema from '~/utils/schema/person';
     import organizationSchema from '~/utils/schema/organization';
 
@@ -44,9 +44,8 @@
             BlogHeader: () => import('~/components/BlogHeader.vue'),
             PFooter: () => import('~/components/PFooter.vue'),
         },
-        transition: 'page',
     })
-    export default class Index extends Vue {
+    export default class Slug extends Vue {
         head() {
             return {
                 title: this.post.title,
