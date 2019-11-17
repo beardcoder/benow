@@ -34,6 +34,9 @@
     import { Component, Vue } from 'nuxt-property-decorator';
     import 'highlight.js/styles/a11y-dark.css';
     import { Jsonld } from 'nuxt-jsonld';
+    import { Route } from 'vue-router';
+    import dateFns from 'date-fns';
+    import MarkdownIt from 'markdown-it';
     import BackLink from '~/components/BackLink.vue';
     import Shape from '~/components/Shape.vue';
     import personSchema from '~/utils/schema/person';
@@ -50,6 +53,10 @@
         },
     })
     export default class Slug extends Vue {
+        $route: Route;
+        $dateFns: dateFns;
+        $md: MarkdownIt;
+
         head() {
             return {
                 title: this.post.title,

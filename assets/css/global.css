@@ -2,7 +2,7 @@ html,
 body {
     font-size: 18px;
     line-height: 1.5;
-    font-family: 'Maven Pro', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Maven Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -132,4 +132,8 @@ a:hover {
         var(--color__secondary) 0%,
         var(--color__secondary--dark) 100%
     );
+}
+
+p:last-child {
+    margin-bottom: 0;
 }

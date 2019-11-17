@@ -4,7 +4,7 @@
             class="shape_wrapper"
             :style="`background-image:url(${require('~/assets/images/shape_3.svg')});`"
         ></div>
-        <h3 class="blog__header">Blog</h3>
+        <h2 class="blog__header">Blog</h2>
         <div class="articles">
             <post v-for="(post, index) in posts" :key="index" :post="post" />
         </div>
@@ -30,6 +30,7 @@
         margin: 100px auto;
         padding-left: 1rem;
         padding-right: 1rem;
+        margin-top: 150px;
     }
 
     .articles {

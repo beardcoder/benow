@@ -56,7 +56,7 @@
     }
 
     .snippets {
-        margin-top: 150px;
+        margin-top: 100px;
     }
 
     @media (min-width: 40em) {

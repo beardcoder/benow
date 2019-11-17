@@ -21,6 +21,13 @@
                         target="_blank"
                     >
                         {{ linkText }}
+                        <img
+                            src="@/assets/icons/external-link-duotone.svg"
+                            width="15"
+                            height="15"
+                            alt="external link icon"
+                            style="margin-left: 5px; margin-bottom: 2px"
+                        />
                     </a>
                 </card>
             </li>
@@ -52,7 +59,7 @@
 
 <style scoped>
     .github {
-        margin-top: 50px;
+        margin-top: 100px;
     }
 
     .github h3 {
