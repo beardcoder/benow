@@ -14,7 +14,7 @@
     "dependencies": {
         "@nuxtjs/axios": "^5.8.0",
         "@types/markdown-it": "^0.0.9",
-        "husky": "^3.0.9",
+        "husky": "^3.1.0",
         "nuxt": "^2.10",
         "rellax": "^1.10.0",
         "sanitize.css": "^11.0.0",
@@ -28,7 +28,7 @@
         "@nuxt/typescript": "^2.8.1",
         "@nuxt/typescript-build": "^0.3.4",
         "@nuxt/typescript-runtime": "^0.2.4",
-        "@nuxtjs/date-fns": "^1.0.0",
+        "@nuxtjs/date-fns": "^1.1.0",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/eslint-config": "^1.1.2",
         "@nuxtjs/eslint-config-typescript": "^0.1.3",
