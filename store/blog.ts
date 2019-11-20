@@ -19,6 +19,7 @@ export const actions: ActionTree<BlogState, BlogState> = {
             res.slug = key.slice(2, -5);
             return res;
         });
-        await commit('setPosts', posts);
+
+        await commit('setPosts', posts.reverse());
     },
 };

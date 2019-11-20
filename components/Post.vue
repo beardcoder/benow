@@ -12,6 +12,7 @@
         </div>
         <div class="body">
             <h4>{{ post.title }}</h4>
+            <time>{{ $dateFns.format(new Date(post.date), 'dd.MM.yyyy') }}</time>
             <p class="description">{{ post.description }}</p>
         </div>
         <div class="footer">
@@ -33,9 +34,20 @@
     })
     export default class Post extends Vue {
         @Prop() post: PostType | undefined;
+
+        $dateFns;
     }
 </script>
 <style scoped>
+    h4 {
+        margin-bottom: 0;
+    }
+
+    time {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
     .article {
         opacity: 1;
         transition: opacity 0.5s, transform 0.8s;
