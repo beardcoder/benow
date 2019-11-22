@@ -83,7 +83,6 @@ const config = {
     /*
      ** Customize the progress-bar color
      */
-    // loading: { color: '#32f0d1', height: '4px' },
     loading: false,
 
     /*
@@ -173,7 +172,7 @@ const config = {
         },
     },
 
-    transition: {
+    pageTransition: {
         name: 'page',
         mode: 'out-in',
     },
@@ -199,16 +198,12 @@ const config = {
     build: {
         cache: true,
         watch: ['~/api/*'],
-        extend(config, { isClient, loaders: { vue } }) {
+        extend(config) {
             config.module.rules.push({
                 test: /\.md$/,
                 include: path.resolve(__dirname, 'content'),
                 loader: 'frontmatter-markdown-loader',
             });
-            if (isClient) {
-                vue.transformAssetUrls.img = ['data-src', 'src'];
-                vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
-            }
         },
         babel: {
             plugins: [

@@ -1,8 +1,8 @@
 <template>
     <section id="about-me" class="personal">
-        <Shape direction="left" />
+        <shape direction="left" />
         <h2 class="header">
-            Mein Fokus meine Leidenschaft und ist auf die Benutzererfahrung (User Expiriance)
+            Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience)
             gerichtet
         </h2>
 
@@ -22,12 +22,15 @@
                 <h3>Webentwickler, Frontend Artist und Designer</h3>
                 <p>
                     Brauchst du Hilfe z. B.
-                    <strong>deine Website in neuem Glanz</strong>
-                    erstrahlen zu lassen? Oder einfach nur mal einen Tipp wie du am besten eine
+                    <strong>um deine Website in neuem Glanz</strong>
+                    erstrahlen zu lassen oder mal einen Tipp wie du eine
                     <strong>Sitemap einrichtest?</strong>
                 </p>
                 <p>
-                    Dann melde dich bei mir. Ich stehe gerne mit Rat und Tat zur Seite.
+                    <a href="mailto:creativeworkspace@sommer-online.xyz">
+                        Dann melde dich bei mir.
+                    </a>
+                    Ich stehe gerne mit Rat und Tat zur Seite.
                 </p>
                 <ul class="personalSkills">
                     <skill
@@ -48,9 +51,9 @@
 </template>
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
+    import { Jsonld } from 'nuxt-jsonld';
     import Shape from '~/components/Shape.vue';
     import Skill from '~/components/Skill.vue';
-    import { Jsonld } from '~/node_modules/nuxt-jsonld';
     import personSchema from '~/utils/schema/person';
 
     @Jsonld
@@ -128,8 +131,7 @@
     .header {
         text-align: center;
         max-width: 900px;
-        margin: auto;
-        margin-bottom: 50px;
+        margin: auto auto 50px;
     }
 
     @media (min-width: 768px) {

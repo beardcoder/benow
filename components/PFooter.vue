@@ -30,6 +30,11 @@
     export default class PFooter extends Vue {
         socialLinks = [
             {
+                icon: require('~/assets/icons/mailbox-duotone.svg?include'),
+                link: 'mailto:creativeworkspace@sommer-online.xyz',
+                title: 'E-Mail Markus Sommer',
+            },
+            {
                 icon: require('~/assets/icons/github-brands.svg?include'),
                 link: 'https://github.com/beardcoder',
                 title: 'Github Profil von Markus Sommer',
