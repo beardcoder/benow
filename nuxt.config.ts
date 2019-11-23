@@ -115,6 +115,7 @@ const config = {
         'nuxt-webfontloader',
         // Disable gtm for the moment
         // ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
+        '@bazzite/nuxt-optimized-images',
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
@@ -202,15 +203,6 @@ const config = {
                 test: /\.md$/,
                 include: path.resolve(__dirname, 'content'),
                 loader: 'frontmatter-markdown-loader',
-            });
-
-            config.module.rules.push({
-                test: /\.jpe?g$/,
-                loader: 'lqip-loader',
-                options: {
-                    path: '/static',
-                    name: '[name].[ext]',
-                },
             });
         },
         babel: {

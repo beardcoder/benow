@@ -3,8 +3,8 @@
         <div class="backgroundWrapper">
             <div class="backgroundParallax rellax" data-rellax-speed="-5">
                 <div
-                    v-lazy:background-image="image.src"
-                    :style="`background-image: url(${image.preSrc})`"
+                    v-lazy:background-image="require('~/assets/images/header.jpg')"
+                    :style="`background-image: url(${require('~/assets/images/header.jpg?lqip')})`"
                     role="presentation"
                     lazy="loading"
                     class="background"
@@ -35,12 +35,9 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import image from '~/assets/images/header.jpg';
 
     @Component({})
-    export default class PHeader extends Vue {
-        image = image;
-    }
+    export default class PHeader extends Vue {}
 </script>
 
 <style scoped>
