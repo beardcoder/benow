@@ -112,7 +112,6 @@ const config = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@bazzite/nuxt-optimized-images',
         'nuxt-webfontloader',
         // Disable gtm for the moment
         // ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
@@ -203,6 +202,15 @@ const config = {
                 test: /\.md$/,
                 include: path.resolve(__dirname, 'content'),
                 loader: 'frontmatter-markdown-loader',
+            });
+
+            config.module.rules.push({
+                test: /\.jpe?g$/,
+                loader: 'lqip-loader',
+                options: {
+                    path: '/static',
+                    name: '[name].[ext]',
+                },
             });
         },
         babel: {

@@ -9,8 +9,9 @@
         <div class="wrapper">
             <div v-in-viewport.once class="personalImageWrapper">
                 <img
-                    v-lazy="require('~/assets/images/markus_sommer.jpg?webp')"
-                    :src="require('~/assets/images/markus_sommer.jpg?sqip')"
+                    v-lazy="image.src"
+                    :src="image.preSrc"
+                    lazy="loading"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"
                     height="500"
@@ -55,6 +56,7 @@
     import Shape from '~/components/Shape.vue';
     import Skill from '~/components/Skill.vue';
     import personSchema from '~/utils/schema/person';
+    import image from '~/assets/images/markus_sommer.jpg';
 
     @Jsonld
     @Component({
@@ -64,6 +66,7 @@
         },
     })
     export default class Personal extends Vue {
+        image = image;
         skills = [
             { title: 'CSS', value: 90 },
             { title: 'HTML', value: 95 },
@@ -86,6 +89,10 @@
         padding-left: 1rem;
         position: relative;
         margin-top: 150px;
+    }
+
+    .personalImage[lazy='loading'] {
+        filter: blur(5px);
     }
 
     .personalImage {
