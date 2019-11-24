@@ -1,15 +1,13 @@
 <template>
     <header v-if="post" class="wrapper">
         <div class="background">
-            <div class="background__parallax rellax" data-rellax-speed="-5">
-                <div
-                    v-lazy:background-image="post.image"
-                    role="presentation"
-                    class="background__image"
-                />
-            </div>
+            <div
+                v-lazy:background-image="post.image"
+                role="presentation"
+                class="background__image"
+            />
         </div>
-        <back-link />
+        <back-link/>
     </header>
 </template>
 

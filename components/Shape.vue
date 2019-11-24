@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ wrapperBottom: bottom }" data-rellax-speed="-3" class="wrapper rellax">
+    <div :class="{ wrapperBottom: bottom }" class="wrapper">
         <div :class="{ shapeLeft: direction === 'left' }" class="shape" />
     </div>
 </template>

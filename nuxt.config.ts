@@ -93,7 +93,6 @@ const config = {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '~/plugins/rellax', mode: 'client' },
         { src: '~/plugins/lazyload', mode: 'client' },
         { src: '~/plugins/viewport-directive', mode: 'client' },
         { src: '~/plugins/jsonld' },

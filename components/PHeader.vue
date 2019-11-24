@@ -1,15 +1,13 @@
 <template>
     <header class="wrapper">
         <div class="backgroundWrapper">
-            <div class="backgroundParallax rellax" data-rellax-speed="-5">
-                <div
-                    v-lazy:background-image="require('~/assets/images/header.jpg')"
-                    :style="`background-image: url(${require('~/assets/images/header.jpg?lqip')})`"
-                    role="presentation"
-                    lazy="loading"
-                    class="background"
-                />
-            </div>
+            <div
+                v-lazy:background-image="require('~/assets/images/header.jpg')"
+                :style="`background-image: url(${require('~/assets/images/header.jpg?lqip')})`"
+                role="presentation"
+                lazy="loading"
+                class="background"
+            />
         </div>
         <div class="headerContent">
             <h1 class="h1">
