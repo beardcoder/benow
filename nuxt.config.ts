@@ -94,6 +94,7 @@ const config = {
      */
     plugins: [
         { src: '~/plugins/lazyload', mode: 'client' },
+        { src: '~/plugins/vue-typed', mode: 'client' },
         { src: '~/plugins/viewport-directive', mode: 'client' },
         { src: '~/plugins/jsonld' },
     ],

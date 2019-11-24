@@ -14,6 +14,7 @@
                 <blog v-if="blog" :posts="blog.posts" />
             </lazy-hydrate>
         </main>
+        <contact-me />
         <lazy-hydrate ssr-only>
             <p-footer />
         </lazy-hydrate>
@@ -24,9 +25,11 @@
     import { Component, State, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
     import { BlogState } from '~/types';
+    import ContactMe from '~/components/ContactMe.vue';
 
     @Component({
         components: {
+            ContactMe,
             LazyHydrate,
             PHeader: () => import('~/components/PHeader.vue'),
             Personal: () => import('~/components/Personal.vue'),
