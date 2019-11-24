@@ -51,7 +51,8 @@
         padding: 10px 20px;
         width: 200px;
         height: 80px;
-        border-radius: 10px;
+        border-radius: 4px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
 
     .contactMe__message:before {
@@ -67,12 +68,22 @@
     }
 
     .contactMe__image {
-        height: 80px;
-        width: 80px;
-        border-radius: 40px;
+        padding: 5px;
+        border-radius: 50%;
         overflow: hidden;
         display: inline-block;
-        border: 4px solid var(--color__secondary);
+        background-image: linear-gradient(
+            135deg,
+            var(--color__secondary) 0%,
+            var(--color__secondary--dark) 100%
+        );
         vertical-align: bottom;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .contactMe__image img {
+        height: 75px;
+        width: 75px;
+        border-radius: 40px;
     }
 </style>
