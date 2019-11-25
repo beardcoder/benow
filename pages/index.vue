@@ -49,6 +49,7 @@
         head() {
             return {
                 title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
+                script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
             };
         }
 
