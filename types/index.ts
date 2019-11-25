@@ -3,9 +3,9 @@ export * from './state';
 
 export type GithubItem = {
     id: string;
-    full_name?: string;
+    name?: string;
     description: string;
-    html_url: string;
+    url: string;
 };
 
 export type Post = {

@@ -1,0 +1,17 @@
+query {
+    viewer {
+        repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}, isFork: false) {
+            nodes {
+                name
+                description
+                url
+            }
+        }
+        gists(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+            nodes {
+                description
+                url
+            }
+        }
+    }
+}

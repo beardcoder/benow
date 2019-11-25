@@ -11,11 +11,11 @@
             >
                 <card>
                     <div>
-                        <h4>{{ gist ? item.description : item.full_name }}</h4>
+                        <h4>{{ gist ? item.description : item.name }}</h4>
                         <p v-if="!gist">{{ item.description }}</p>
                     </div>
                     <a
-                        :href="item.html_url"
+                        :href="item.url"
                         :class="{ btn: true, btnSecondary: gist }"
                         rel="noreferrer"
                         target="_blank"

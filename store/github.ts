@@ -1,6 +1,6 @@
 import { ActionTree, MutationTree } from 'vuex';
 import { GithubItem, GithubState } from '~/types';
-import { repos as reposAPI, snippets as snippetsAPI } from '~/api/github';
+import queryFetchRepos from '~/apollo/queries/fetchRepos.graphql';
 
 export const state = (): GithubState => ({
     repos: [],
@@ -19,13 +19,11 @@ export const mutations: MutationTree<GithubState> = {
 
 export const actions: ActionTree<GithubState, GithubState> = {
     fetch({ commit }) {
-        return Promise.all([
-            reposAPI(this.$axios).then((data: any) => {
-                commit('setRepos', data);
-            }),
-            snippetsAPI(this.$axios).then((data: any) => {
-                commit('setSnippets', data);
-            }),
-        ]);
+        // @ts-ignore
+        const client = this.app.apolloProvider.defaultClient;
+        return client.query({ query: queryFetchRepos }).then(({ data }) => {
+            commit('setRepos', data.viewer.repositories.nodes);
+            commit('setSnippets', data.viewer.gists.nodes);
+        });
     },
 };
