@@ -121,21 +121,7 @@ const config = {
         '@nuxtjs/netlify-files',
         '@nuxtjs/markdownit',
         '@nuxtjs/date-fns',
-        '@nuxtjs/apollo',
     ],
-
-    apollo: {
-        clientConfigs: {
-            default: {
-                httpEndpoint: 'https://api.github.com/graphql',
-                httpLinkOptions: {
-                    headers: {
-                        Authorization: 'Bearer 17dd4d973f6eea7bc248e2e0701986dcbd3f4515',
-                    },
-                },
-            },
-        },
-    },
 
     typescript: {
         typeCheck: {
