@@ -12,7 +12,7 @@
                         target="_blank"
                         class="socialLink"
                     >
-                        <img :src="item.icon" class="socialIcon" />
+                        <img :src="item.icon" class="socialIcon" :alt="item.title" />
                     </a>
                 </li>
             </ul>
@@ -25,7 +25,7 @@
     import BackLink from '~/components/BackLink.vue';
 
     @Component({
-        components: { BackLink },
+        components: {BackLink},
     })
     export default class PFooter extends Vue {
         socialLinks = [
