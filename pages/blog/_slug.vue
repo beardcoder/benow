@@ -1,13 +1,9 @@
 <template>
     <div v-if="post" :key="$route.params.slug" class="container">
-        <lazy-hydrate when-visible>
-            <blog-header :post="post" />
-        </lazy-hydrate>
+        <blog-header :post="post" />
         <div class="main">
             <article class="article">
-                <lazy-hydrate ssr-only>
-                    <shape direction="left" />
-                </lazy-hydrate>
+                <shape direction="left" />
                 <h1>{{ post.title }}</h1>
                 <div class="subtitle">
                     Veröffentlicht am
@@ -16,21 +12,16 @@
                 </div>
                 <p class="description">{{ post.description }}</p>
                 <div v-html="$md.render(post.body)"></div>
-                <lazy-hydrate ssr-only>
-                    <shape direction="right" bottom />
-                </lazy-hydrate>
+                <shape direction="right" bottom />
             </article>
         </div>
-        <lazy-hydrate when-visible>
-            <p-footer>
-                <back-link class="backLink--footer" />
-            </p-footer>
-        </lazy-hydrate>
+        <p-footer>
+            <back-link class="backLink--footer" />
+        </p-footer>
     </div>
 </template>
 
 <script lang="ts">
-    import LazyHydrate from 'vue-lazy-hydration';
     import { Component, Vue } from 'nuxt-property-decorator';
     import 'highlight.js/styles/a11y-dark.css';
     import { Jsonld } from 'nuxt-jsonld';
@@ -41,15 +32,16 @@
     import Shape from '~/components/Shape.vue';
     import personSchema from '~/utils/schema/person';
     import organizationSchema from '~/utils/schema/organization';
+    import BlogHeader from '~/components/BlogHeader.vue';
+    import PFooter from '~/components/PFooter.vue';
 
     @Jsonld
     @Component({
         components: {
-            LazyHydrate,
             Shape,
             BackLink,
-            BlogHeader: () => import('~/components/BlogHeader.vue'),
-            PFooter: () => import('~/components/PFooter.vue'),
+            BlogHeader,
+            PFooter,
         },
     })
     export default class Slug extends Vue {
@@ -94,12 +86,12 @@
 
         post;
 
-        async asyncData({ params, payload }) {
-            if (payload) return { post: payload };
+        async asyncData({params, payload}) {
+            if (payload) return {post: payload};
             else
                 try {
-                    const post = await require(`~/assets/content/blog/${params.slug}.json`);
-                    return { post };
+                    const post = await require(`~/assets/content/blog/${ params.slug }.json`);
+                    return {post};
                 } catch (e) {
                     console.error(e);
                 }

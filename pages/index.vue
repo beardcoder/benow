@@ -1,41 +1,32 @@
 <template>
     <div class="container">
-        <lazy-hydrate when-visible>
-            <p-header />
-        </lazy-hydrate>
+        <p-header />
         <main class="main">
-            <lazy-hydrate when-visible>
-                <personal />
-            </lazy-hydrate>
-            <lazy-hydrate when-visible>
-                <projects />
-            </lazy-hydrate>
-            <lazy-hydrate when-visible>
-                <blog v-if="blog" :posts="blog.posts" />
-            </lazy-hydrate>
+            <personal />
+            <projects />
+            <blog v-if="blog" :posts="blog.posts" />
         </main>
         <contact-me />
-        <lazy-hydrate ssr-only>
-            <p-footer />
-        </lazy-hydrate>
+        <p-footer />
     </div>
 </template>
 
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
-    import LazyHydrate from 'vue-lazy-hydration';
     import { BlogState } from '~/types';
     import ContactMe from '~/components/ContactMe.vue';
+    import PHeader from '~/components/PHeader.vue';
+    import Personal from '~/components/Personal.vue';
+    import Projects from '~/components/Projects.vue';
+    import PFooter from '~/components/PFooter.vue';
 
     @Component({
         components: {
+            PFooter,
+            Projects,
+            Personal,
+            PHeader,
             ContactMe,
-            LazyHydrate,
-            PHeader: () => import('~/components/PHeader.vue'),
-            Personal: () => import('~/components/Personal.vue'),
-            Projects: () => import('~/components/Projects.vue'),
-            Blog: () => import('~/components/Blog.vue'),
-            PFooter: () => import('~/components/PFooter.vue'),
         },
     })
     export default class Index extends Vue {
@@ -49,13 +40,12 @@
         head() {
             return {
                 title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
-                script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
             };
         }
 
         @State('blog') blog: BlogState | undefined;
 
-        async fetch({ store }) {
+        async fetch({store}) {
             await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
         }
     }
