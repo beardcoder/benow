@@ -10,7 +10,7 @@
             <div v-in-viewport.once class="personalImageWrapper">
                 <img
                     v-lazy="require('~/assets/images/markus_sommer.jpg')"
-                    :src="require('~/assets/images/markus_sommer.jpg?lqip')"
+                    :src="require('~/assets/images/markus_sommer--lqip.jpg')"
                     lazy="loading"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"

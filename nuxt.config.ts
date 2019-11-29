@@ -115,7 +115,6 @@ const config = {
         'nuxt-webfontloader',
         // Disable gtm for the moment
         // ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
-        '@bazzite/nuxt-optimized-images',
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',

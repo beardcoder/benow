@@ -3,7 +3,7 @@
         <div class="backgroundWrapper">
             <div
                 v-lazy:background-image="require('~/assets/images/header.jpg')"
-                :style="`background-image: url(${require('~/assets/images/header.jpg?lqip')})`"
+                :style="`background-image: url(${require('~/assets/images/header--lqip.jpg')})`"
                 role="presentation"
                 lazy="loading"
                 class="background"
@@ -20,7 +20,7 @@
             </h1>
             <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
-                :src="require('~/assets/images/shape2.svg')"
+                src="~/assets/images/shape2.svg"
                 loading="lazy"
                 alt="header shape"
                 width="182"
