@@ -19,6 +19,7 @@
     import Personal from '~/components/Personal.vue';
     import Projects from '~/components/Projects.vue';
     import PFooter from '~/components/PFooter.vue';
+    import Blog from '~/components/Blog.vue';
 
     @Component({
         components: {
@@ -27,6 +28,7 @@
             Personal,
             PHeader,
             ContactMe,
+            Blog,
         },
     })
     export default class Index extends Vue {
