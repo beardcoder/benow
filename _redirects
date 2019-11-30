@@ -8,3 +8,4 @@
 /article/2017-09-27--eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x  /blog/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x
 /article/*                                                              /blog/:splat
 /post/*                                                                 /blog/:splat
+/blog/2019-09-27--deploy-nuxt-js-static-with-gitlab-ci                  /blog/2019-09-27-deploy-nuxt-js-static-with-gitlab-ci
