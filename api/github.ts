@@ -23,11 +23,7 @@ export function repos($axios: NuxtAxiosInstance) {
                 return {
                     id: item.id,
                     description: item.description,
-
-                    // eslint-disable-next-line @typescript-eslint/camelcase
                     full_name: item.full_name,
-
-                    // eslint-disable-next-line @typescript-eslint/camelcase
                     html_url: item.html_url,
                 };
             });

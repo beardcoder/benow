@@ -7,7 +7,7 @@
                 class="background__image"
             />
         </div>
-        <back-link/>
+        <back-link />
     </header>
 </template>
 

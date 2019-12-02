@@ -90,6 +90,16 @@ const config = {
         '@nuxtjs/date-fns',
     ],
 
+    /**
+     * PWA Settings
+     * See doc: https://pwa.nuxtjs.org/
+     */
+    pwa: {
+        meta: {
+            lang: 'de',
+        },
+    },
+
     typescript: {
         typeCheck: {
             eslint: true,

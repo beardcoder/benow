@@ -8,7 +8,6 @@ hljs.registerLanguage('javascript', require(`highlight.js/lib/languages/javascri
 hljs.registerLanguage('bash', require(`highlight.js/lib/languages/bash`));
 hljs.registerLanguage('typescript', require(`highlight.js/lib/languages/typescript`));
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default ({ app }, inject) => {
     const md = new MarkdownIt({
         html: true,
@@ -18,13 +17,12 @@ export default ({ app }, inject) => {
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     return hljs.highlight(lang, str).value;
-                } catch (__) {
-                }
+                } catch (__) {}
             }
 
             return ''; // use external default escaping
-        }
+        },
     }).use(MarkdownItTarget);
 
     inject('md', markdown => md.render(markdown));
-}
+};

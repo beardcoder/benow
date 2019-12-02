@@ -78,12 +78,12 @@
 
         post;
 
-        async asyncData({params, payload}) {
-            if (payload) return {post: payload};
+        async asyncData({ params, payload }) {
+            if (payload) return { post: payload };
             else
                 try {
-                    const post = await require(`~/assets/content/blog/${ params.slug }.json`);
-                    return {post};
+                    const post = await require(`~/assets/content/blog/${params.slug}.json`);
+                    return { post };
                 } catch (e) {
                     console.error(e);
                 }

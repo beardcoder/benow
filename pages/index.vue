@@ -47,7 +47,7 @@
 
         @State('blog') blog: BlogState | undefined;
 
-        async fetch({store}) {
+        async fetch({ store }) {
             await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
         }
     }

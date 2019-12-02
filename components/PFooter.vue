@@ -25,7 +25,7 @@
     import BackLink from '~/components/BackLink.vue';
 
     @Component({
-        components: {BackLink},
+        components: { BackLink },
     })
     export default class PFooter extends Vue {
         socialLinks = [

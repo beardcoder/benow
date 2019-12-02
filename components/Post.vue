@@ -12,7 +12,9 @@
         </div>
         <div class="body">
             <h4>{{ post.title }}</h4>
-            <time>{{ $dateFns.format(new Date(post.date), 'dd.MM.yyyy') }}</time>
+            <time :datetime="post.date">
+                {{ $dateFns.format(new Date(post.date), 'dd.MM.yyyy') }}
+            </time>
             <p class="description">{{ post.description }}</p>
         </div>
         <div class="footer">

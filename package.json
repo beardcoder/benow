@@ -8,7 +8,7 @@
         "build": "nuxt-ts build",
         "dev": "nuxt-ts",
         "generate": "nuxt-ts generate",
-        "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+        "lint": "eslint --ext .js,.ts,.vue .",
         "start": "nuxt-ts start"
     },
     "dependencies": {
