@@ -16,6 +16,10 @@ strong {
     font-weight: 700;
 }
 
+h1 {
+    font-family: 'Roboto Slab', serif;
+}
+
 h2 {
     font-family: 'Roboto Slab', serif;
     font-size: responsive 30px 40px; /* min-size, max-size */
