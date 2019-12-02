@@ -1,5 +1,4 @@
 import fs from 'fs';
-import path from 'path';
 
 const config = {
     mode: 'universal',
@@ -97,6 +96,7 @@ const config = {
         { src: '~/plugins/vue-typed' },
         { src: '~/plugins/viewport-directive', mode: 'client' },
         { src: '~/plugins/jsonld' },
+        { src: '~/plugins/markdown' },
     ],
     /*
      ** Nuxt.js dev-modules
@@ -118,7 +118,6 @@ const config = {
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
-        '@nuxtjs/markdownit',
         '@nuxtjs/date-fns',
     ],
 
@@ -126,27 +125,6 @@ const config = {
         typeCheck: {
             eslint: true,
         },
-    },
-
-    markdownit: {
-        preset: 'default',
-        linkify: true,
-        breaks: true,
-        injected: true,
-        use: [
-            'markdown-it-div',
-            'markdown-it-attrs',
-            'markdown-it-highlightjs',
-            [
-                'markdown-it-link-attributes',
-                {
-                    attrs: {
-                        target: '_blank',
-                        rel: 'noopener',
-                    },
-                },
-            ],
-        ],
     },
 
     sitemap: {
@@ -196,14 +174,8 @@ const config = {
      */
     build: {
         cache: true,
+        extractCss: true,
         watch: ['~/api/*'],
-        extend(config) {
-            config.module.rules.push({
-                test: /\.md$/,
-                include: path.resolve(__dirname, 'content'),
-                loader: 'frontmatter-markdown-loader',
-            });
-        },
         babel: {
             plugins: [
                 ['@babel/plugin-proposal-decorators', { legacy: true }],

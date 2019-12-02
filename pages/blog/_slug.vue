@@ -11,7 +11,7 @@
                     {{ post.author }}
                 </div>
                 <p class="description">{{ post.description }}</p>
-                <div v-html="$md.render(post.body)"></div>
+                <div v-html="$md(post.body)"></div>
                 <shape direction="right" bottom />
             </article>
         </div>
@@ -23,15 +23,13 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import 'highlight.js/styles/a11y-dark.css';
     import { Jsonld } from 'nuxt-jsonld';
-    import { Route } from 'vue-router';
-    import BackLink from '~/components/BackLink.vue';
-    import Shape from '~/components/Shape.vue';
-    import personSchema from '~/utils/schema/person';
-    import organizationSchema from '~/utils/schema/organization';
-    import BlogHeader from '~/components/BlogHeader.vue';
-    import PFooter from '~/components/PFooter.vue';
+    import BackLink from '@/components/BackLink.vue';
+    import Shape from '@/components/Shape.vue';
+    import personSchema from '@/utils/schema/person';
+    import organizationSchema from '@/utils/schema/organization';
+    import BlogHeader from '@/components/BlogHeader.vue';
+    import PFooter from '@/components/PFooter.vue';
 
     @Jsonld
     @Component({
@@ -43,8 +41,6 @@
         },
     })
     export default class Slug extends Vue {
-        $route: Route;
-
         head() {
             return {
                 title: this.post.title,
