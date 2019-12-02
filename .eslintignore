@@ -8,3 +8,5 @@ node_modules
 
 # Nuxt generate
 dist
+
+sw.*
