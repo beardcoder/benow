@@ -99,6 +99,7 @@ const config = {
         meta: {
             lang: 'de',
         },
+        theme_color: '#121212',
     },
 
     typescript: {
