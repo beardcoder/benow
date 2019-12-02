@@ -88,6 +88,7 @@ const config = {
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
         '@nuxtjs/date-fns',
+        '@nuxtjs/pwa',
     ],
 
     /**
