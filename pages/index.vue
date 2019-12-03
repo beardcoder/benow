@@ -22,6 +22,7 @@
     import Blog from '~/components/Blog.vue';
 
     @Component({
+        name: 'Index',
         components: {
             PFooter,
             Projects,

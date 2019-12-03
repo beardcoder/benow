@@ -33,6 +33,7 @@
 
     @Jsonld
     @Component({
+        name: 'Slug',
         components: {
             Shape,
             BackLink,
@@ -41,6 +42,9 @@
         },
     })
     export default class Slug extends Vue {
+        post;
+        $route;
+
         head() {
             return {
                 title: this.post.title,
@@ -55,7 +59,7 @@
                     {
                         hid: 'canonical',
                         rel: 'canonical',
-                        href: 'https://creativeworkspace.de/post/' + this.post.slug,
+                        href: 'https://creativeworkspace.de/blog/' + this.$route.params.slug,
                     },
                 ],
             };
@@ -71,12 +75,10 @@
                 dateModified: this.post.date,
                 author: personSchema,
                 publisher: organizationSchema,
-                mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.post.slug,
+                mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.$route.params.slug,
                 image: ['https://creativeworkspace.de' + this.post.image],
             };
         }
-
-        post;
 
         async asyncData({ params, payload }) {
             if (payload) return { post: payload };
