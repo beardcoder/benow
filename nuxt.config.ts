@@ -98,8 +98,8 @@ const config = {
     pwa: {
         meta: {
             lang: 'de',
+            theme_color: '#121212',
         },
-        theme_color: '#121212',
     },
 
     typescript: {
