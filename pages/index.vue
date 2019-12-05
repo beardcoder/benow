@@ -1,35 +1,41 @@
 <template>
     <div class="container">
-        <p-header />
+        <LazyHydrate when-idle>
+            <p-header />
+        </LazyHydrate>
         <main class="main">
-            <personal />
-            <projects />
-            <blog v-if="blog" :posts="blog.posts" />
+            <LazyHydrate when-visible>
+                <personal />
+            </LazyHydrate>
+            <LazyHydrate when-visible>
+                <projects />
+            </LazyHydrate>
+            <LazyHydrate when-visible>
+                <blog v-if="blog" :posts="blog.posts" />
+            </LazyHydrate>
         </main>
         <contact-me />
-        <p-footer />
+        <LazyHydrate ssr-only>
+            <p-footer />
+        </LazyHydrate>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
+    import LazyHydrate from 'vue-lazy-hydration';
     import { BlogState } from '~/types';
-    import ContactMe from '~/components/ContactMe.vue';
-    import PHeader from '~/components/PHeader.vue';
-    import Personal from '~/components/Personal.vue';
-    import Projects from '~/components/Projects.vue';
-    import PFooter from '~/components/PFooter.vue';
-    import Blog from '~/components/Blog.vue';
 
     @Component({
         name: 'Index',
         components: {
-            PFooter,
-            Projects,
-            Personal,
-            PHeader,
-            ContactMe,
-            Blog,
+            LazyHydrate,
+            ContactMe: () => import('~/components/ContactMe.vue'),
+            PHeader: () => import('~/components/PHeader.vue'),
+            Projects: () => import('~/components/Personal.vue'),
+            Personal: () => import('~/components/Projects.vue'),
+            PFooter: () => import('~/components/PFooter.vue'),
+            Blog: () => import('~/components/Blog.vue'),
         },
     })
     export default class Index extends Vue {

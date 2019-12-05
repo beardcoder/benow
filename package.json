@@ -19,6 +19,7 @@
         "rellax": "^1.10.0",
         "sanitize.css": "^11.0.0",
         "vue-in-viewport-directive": "^2.0.0",
+        "vue-lazy-hydration": "^1.0.0-beta.9",
         "vue-lazyload": "^1.3.3",
         "vue-typed-js": "^0.1.2"
     },

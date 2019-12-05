@@ -132,8 +132,13 @@ const config = {
                     content_type: 'post',
                 }),
             ]).then(entries => {
-                // @ts-ignore
-                return entries[0].items.map(entry => `/blog/${entry.fields.slug}`);
+                return entries[0].items.map(entry => {
+                    return {
+                        // @ts-ignore
+                        route: `/blog/${entry.fields.slug}`,
+                        payload: entry,
+                    };
+                });
             });
         },
     },

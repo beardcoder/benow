@@ -90,7 +90,6 @@
 
         async asyncData({ params, payload }) {
             if (payload) {
-                console.log(payload);
                 return { post: payload };
             } else {
                 try {
