@@ -1,4 +1,6 @@
-import fs from 'fs';
+import client from './plugins/contentful';
+
+require('dotenv').config();
 
 const config = {
     mode: 'universal',
@@ -65,10 +67,10 @@ const config = {
      */
     plugins: [
         { src: '~/plugins/lazyload', mode: 'client' },
-        { src: '~/plugins/vue-typed' },
+        '~/plugins/vue-typed',
         { src: '~/plugins/viewport-directive', mode: 'client' },
-        { src: '~/plugins/jsonld' },
-        { src: '~/plugins/markdown' },
+        '~/plugins/jsonld',
+        '~/plugins/markdown',
     ],
     /*
      ** Nuxt.js dev-modules
@@ -124,11 +126,14 @@ const config = {
 
     generate: {
         routes() {
-            return fs.readdirSync('./assets/content/blog').map(file => {
-                return {
-                    route: `/blog/${file.slice(0, -5)}`, // Remove the .json from the end of the filename
-                    payload: require(`./assets/content/blog/${file}`),
-                };
+            return Promise.all([
+                // get all blog posts
+                client.getEntries({
+                    content_type: 'post',
+                }),
+            ]).then(entries => {
+                // @ts-ignore
+                return entries[0].items.map(entry => `/blog/${entry.fields.slug}`);
             });
         },
     },

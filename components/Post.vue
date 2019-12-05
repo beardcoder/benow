@@ -2,7 +2,7 @@
     <card v-if="post" v-in-viewport.once class="article">
         <div class="image">
             <img
-                v-lazy="post.thumbnail"
+                v-lazy="post.fields.image.fields.file.url + '?fm=webp&w=600&h=337'"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8xwQAAgQBAmXv/TkAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
@@ -11,14 +11,12 @@
             />
         </div>
         <div class="body">
-            <h4>{{ post.title }}</h4>
-            <time :datetime="post.date">
-                {{ $dateFns.format(new Date(post.date), 'dd.MM.yyyy') }}
-            </time>
-            <p class="description">{{ post.description }}</p>
+            <h4>{{ post.fields.headline }}</h4>
+            <time :datetime="post.fields.date"></time>
+            <p class="description">{{ post.fields.description }}</p>
         </div>
         <div class="footer">
-            <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }" class="btn">
+            <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug } }" class="btn">
                 Lesen
             </nuxt-link>
         </div>

@@ -4,14 +4,21 @@
         <div class="main">
             <article class="article">
                 <shape direction="left" />
-                <h1>{{ post.title }}</h1>
+                <h1>{{ post.fields.headline }}</h1>
                 <div class="subtitle">
                     Veröffentlicht am
-                    {{ $dateFns.format(new Date(post.date), 'dd.MM.yyyy') }} von
-                    {{ post.author }}
+                    <time :datetime="post.sys.createdAt">
+                        {{ $dateFns.format(new Date(post.sys.createdAt), 'dd.MM.yyyy') }}
+                    </time>
+                    von Markus Sommer
+                    <br />
+                    Letzte Änderung
+                    <time :datetime="post.sys.updatedAt">
+                        {{ $dateFns.format(new Date(post.sys.updatedAt), 'dd.MM.yyyy') }}
+                    </time>
                 </div>
-                <p class="description">{{ post.description }}</p>
-                <div v-html="$md(post.body)"></div>
+                <p class="description">{{ post.fields.description }}</p>
+                <div v-html="$md(post.fields.articleBody)"></div>
                 <shape direction="right" bottom />
             </article>
         </div>
@@ -30,6 +37,7 @@
     import organizationSchema from '@/utils/schema/organization';
     import BlogHeader from '@/components/BlogHeader.vue';
     import PFooter from '@/components/PFooter.vue';
+    import client from '~/plugins/contentful';
 
     @Jsonld
     @Component({
@@ -47,12 +55,12 @@
 
         head() {
             return {
-                title: this.post.title,
+                title: this.post.fields.headline,
                 meta: [
                     {
                         hid: 'description',
                         name: 'description',
-                        content: this.post.description,
+                        content: this.post.fields.description,
                     },
                 ],
                 link: [
@@ -69,26 +77,32 @@
             return {
                 '@context': 'http://schema.org',
                 '@type': 'BlogPosting',
-                headline: this.post.title,
-                description: this.post.description,
-                datePublished: this.post.date,
-                dateModified: this.post.date,
+                headline: this.post.fields.headline,
+                description: this.post.fields.description,
+                datePublished: this.post.sys.createdAt,
+                dateModified: this.post.sys.updatedAt,
                 author: personSchema,
                 publisher: organizationSchema,
                 mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.$route.params.slug,
-                image: ['https://creativeworkspace.de' + this.post.image],
+                image: [this.post.fields.image.fields.file.url + '?fm=webp'],
             };
         }
 
         async asyncData({ params, payload }) {
-            if (payload) return { post: payload };
-            else
+            if (payload) {
+                console.log(payload);
+                return { post: payload };
+            } else {
                 try {
-                    const post = await require(`~/assets/content/blog/${params.slug}.json`);
-                    return { post };
+                    const { items } = await client.getEntries({
+                        content_type: 'post',
+                        'fields.slug[in]': params.slug,
+                    });
+                    return { post: items[0] };
                 } catch (e) {
                     console.error(e);
                 }
+            }
         }
     }
 </script>

@@ -1,4 +1,5 @@
 import { ActionTree, MutationTree } from 'vuex';
+import client from '../plugins/contentful';
 import { BlogState, Post } from '~/types';
 
 export const state = (): BlogState => ({
@@ -13,13 +14,11 @@ export const mutations: MutationTree<BlogState> = {
 
 export const actions: ActionTree<BlogState, BlogState> = {
     async fetch({ commit }) {
-        const files = await require.context('~/assets/content/blog/', false, /\.json$/);
-        const posts = files.keys().map(key => {
-            const res = files(key);
-            res.slug = key.slice(2, -5);
-            return res;
+        const response = await client.getEntries({
+            content_type: 'post',
+            order: '-sys.createdAt',
         });
 
-        await commit('setPosts', posts.reverse());
+        await commit('setPosts', response.items);
     },
 };
