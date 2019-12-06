@@ -2,10 +2,8 @@
     <header class="wrapper">
         <div class="backgroundWrapper">
             <div
-                v-lazy:background-image="require('~/assets/images/header.jpg')"
-                :style="`background-image: url(${require('~/assets/images/header--lqip.jpg')})`"
+                :style="`background-image: url(${require('~/assets/images/header.jpg')})`"
                 role="presentation"
-                lazy="loading"
                 class="background"
             />
         </div>
@@ -48,8 +46,7 @@
         position: relative;
     }
 
-    .backgroundWrapper,
-    .backgroundParallax {
+    .backgroundWrapper {
         position: absolute;
         top: 0;
         right: 0;
@@ -67,10 +64,6 @@
         left: 0;
         right: 0;
         will-change: transform;
-    }
-
-    .background[lazy='loading'] {
-        filter: blur(5px);
     }
 
     .h1 {
