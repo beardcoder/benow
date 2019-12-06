@@ -137,7 +137,7 @@ const config: Configuration = {
                 return entries[0].items.map(entry => {
                     return {
                         // @ts-ignore
-                        route: `/blog/${entry.fields.slug}`,
+                        route: `/blog/${entry.fields.slug}/`,
                         payload: entry,
                     };
                 });
