@@ -14,13 +14,13 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import BackLink from '~/components/BackLink.vue';
-    import { Post } from '~/types';
+    import { IPost } from '~/typings/contentful';
 
     @Component({
         components: { BackLink },
     })
     export default class BlogHeader extends Vue {
-        @Prop() post: Post | undefined;
+        @Prop() post: IPost | undefined;
     }
 </script>
 

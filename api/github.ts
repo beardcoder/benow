@@ -1,7 +1,7 @@
-// @ts-ignore
-import { GithubItem } from '~/types';
 import { NuxtAxiosInstance } from '~/node_modules/@nuxtjs/axios';
+import { GithubItem } from '~/typings';
 
+// @ts-ignore
 const auth = process.env.GITHUB_TOKEN;
 const username = process.env.GITHUB_USERNAME;
 

@@ -13,14 +13,14 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { Post as PostType } from '~/types';
     import Post from '~/components/Post.vue';
+    import { IPost } from '~/typings/contentful';
 
     @Component({
         components: { Post },
     })
     export default class Blog extends Vue {
-        @Prop() posts: PostType[] | undefined;
+        @Prop() posts: IPost[] | undefined;
     }
 </script>
 

@@ -1,13 +1,14 @@
 import { ActionTree, MutationTree } from 'vuex';
-import client from '../plugins/contentful';
-import { BlogState, Post } from '~/types';
+import { BlogState } from '~/typings';
+import { IPost } from '~/typings/contentful';
+import client from '~/plugins/contentful';
 
 export const state = (): BlogState => ({
     posts: [],
 });
 
 export const mutations: MutationTree<BlogState> = {
-    setPosts(state: BlogState, posts: Post[]): void {
+    setPosts(state: BlogState, posts: IPost[]): void {
         state.posts = posts;
     },
 };
@@ -19,6 +20,6 @@ export const actions: ActionTree<BlogState, BlogState> = {
             order: '-sys.createdAt',
         });
 
-        await commit('setPosts', response.items);
+        commit('setPosts', response.items);
     },
 };

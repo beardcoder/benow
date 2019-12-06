@@ -24,7 +24,7 @@
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
-    import { BlogState } from '~/types';
+    import { BlogState } from '../typings';
 
     @Component({
         name: 'Index',

@@ -12,7 +12,9 @@
         </div>
         <div class="body">
             <h4>{{ post.fields.headline }}</h4>
-            <time :datetime="post.fields.date"></time>
+            <time :datetime="post.sys.createdAt">
+                {{ $dateFns.format(new Date(post.sys.createdAt), 'dd.MM.yyyy') }}
+            </time>
             <p class="description">{{ post.fields.description }}</p>
         </div>
         <div class="footer">
@@ -25,7 +27,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import Card from '~/components/Card.vue';
-    import { Post as PostType } from '~/types';
+    import { IPost } from '~/typings/contentful';
 
     @Component({
         components: {
@@ -33,9 +35,7 @@
         },
     })
     export default class Post extends Vue {
-        @Prop() post: PostType | undefined;
-
-        $dateFns;
+        @Prop() post: IPost | undefined;
     }
 </script>
 <style scoped>
