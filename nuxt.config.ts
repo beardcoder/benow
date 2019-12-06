@@ -146,6 +146,7 @@ const config: Configuration = {
     },
 
     router: {
+        // Doc: https://nuxtjs.org/api/configuration-router/#trailingslash
         trailingSlash: true,
     },
 
