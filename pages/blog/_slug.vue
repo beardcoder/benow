@@ -67,7 +67,7 @@
                     {
                         hid: 'canonical',
                         rel: 'canonical',
-                        href: 'https://creativeworkspace.de/blog/' + this.$route.params.slug,
+                        href: 'https://creativeworkspace.de/blog/' + this.$route.params.slug + '/',
                     },
                 ],
             };
@@ -83,7 +83,8 @@
                 dateModified: this.post.sys.updatedAt,
                 author: personSchema,
                 publisher: organizationSchema,
-                mainEntityOfPage: 'https://creativeworkspace.de/blog/' + this.$route.params.slug,
+                mainEntityOfPage:
+                    'https://creativeworkspace.de/blog/' + this.$route.params.slug + '/',
                 image: [this.post.fields.image.fields.file.url + '?fm=webp'],
             };
         }

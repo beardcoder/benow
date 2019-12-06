@@ -1,8 +1,9 @@
+import { Configuration } from '@nuxt/types';
 import client from './plugins/contentful';
 
 require('dotenv').config();
 
-const config = {
+const config: Configuration = {
     mode: 'universal',
 
     /*
@@ -116,6 +117,7 @@ const config = {
     sitemap: {
         hostname: 'https://creativeworkspace.de',
         gzip: true,
+        trailingSlash: true,
     },
 
     /*
@@ -143,6 +145,10 @@ const config = {
         },
     },
 
+    router: {
+        trailingSlash: true,
+    },
+
     pageTransition: {
         name: 'page',
         mode: 'out-in',
@@ -168,7 +174,6 @@ const config = {
      */
     build: {
         cache: true,
-        extractCss: true,
         watch: ['~/api/*'],
         babel: {
             plugins: [
@@ -182,12 +187,7 @@ const config = {
             plugins: {
                 'postcss-responsive-type': {},
             },
-            preset: {
-                // Change the postcss-preset-env settings
-                autoprefixer: {
-                    grid: true,
-                },
-            },
+            preset: {},
         },
     },
 };
