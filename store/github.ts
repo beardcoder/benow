@@ -1,6 +1,6 @@
 import { ActionTree, MutationTree } from 'vuex';
 import { repos as reposAPI, snippets as snippetsAPI } from '~/api/github';
-import { GithubItem, GithubState } from '~/typings';
+import { GithubItem, GithubState } from '~/types';
 
 export const state = (): GithubState => ({
     repos: [],

@@ -14,7 +14,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import Post from '~/components/Post.vue';
-    import { IPost } from '~/typings/contentful';
+    import { IPost } from '~/types/contentful';
 
     @Component({
         components: { Post },

@@ -10,7 +10,7 @@
         "generate": "nuxt-ts generate",
         "lint": "eslint --ext .js,.ts,.vue .",
         "start": "nuxt-ts start",
-        "generate:ts": "contentful-typescript-codegen --output typings/contentful.d.ts"
+        "generate:ts": "contentful-typescript-codegen --output interfaces/contentful.d.ts"
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.8.0",

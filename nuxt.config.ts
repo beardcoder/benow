@@ -1,5 +1,5 @@
-import { Configuration } from '@nuxt/types';
 import client from './plugins/contentful';
+import { Configuration } from '~/node_modules/@nuxt/types';
 
 require('dotenv').config();
 

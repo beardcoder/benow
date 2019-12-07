@@ -14,7 +14,7 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import BackLink from '~/components/BackLink.vue';
-    import { IPost } from '~/typings/contentful';
+    import { IPost } from '~/types/contentful';
 
     @Component({
         components: { BackLink },
