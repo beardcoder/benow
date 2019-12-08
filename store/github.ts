@@ -1,6 +1,7 @@
 import { ActionTree, MutationTree } from 'vuex';
 import { repos as reposAPI, snippets as snippetsAPI } from '~/api/github';
-import { GithubItem, GithubState } from '~/types';
+import { GithubState } from '~/types';
+import { set } from '~/utils/store_utils';
 
 export const state = (): GithubState => ({
     repos: [],
@@ -8,13 +9,8 @@ export const state = (): GithubState => ({
 });
 
 export const mutations: MutationTree<GithubState> = {
-    setRepos(state: GithubState, repos: GithubItem[]): void {
-        state.repos = repos;
-    },
-
-    setSnippets(state: GithubState, snippets: GithubItem[]): void {
-        state.snippets = snippets;
-    },
+    setRepos: set('repos'),
+    setSnippets: set('snippets'),
 };
 
 export const actions: ActionTree<GithubState, GithubState> = {
