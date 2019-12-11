@@ -52,7 +52,7 @@
         "eslint-plugin-nuxt": "^0.5.0",
         "eslint-plugin-prettier": "^3.1.1",
         "glob": "^7.1.6",
-        "highlight.js": "^9.16.2",
+        "highlight.js": "^9.17.0",
         "husky": "^3.1.0",
         "markdown-it": "^10.0.0",
         "markdown-it-link-target": "^1.0.2",
