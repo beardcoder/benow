@@ -1,6 +1,6 @@
 import { ActionTree, MutationTree } from 'vuex';
 import { repos as reposAPI, snippets as snippetsAPI } from '~/api/github';
-import { GithubState } from '~/types';
+import { GithubItem, GithubState } from '~/types';
 import { set } from '~/utils/store_utils';
 
 export const state = (): GithubState => ({
@@ -16,12 +16,8 @@ export const mutations: MutationTree<GithubState> = {
 export const actions: ActionTree<GithubState, GithubState> = {
     fetch({ commit }) {
         return Promise.all([
-            reposAPI(this.$axios).then((data: any) => {
-                commit('setRepos', data);
-            }),
-            snippetsAPI(this.$axios).then((data: any) => {
-                commit('setSnippets', data);
-            }),
+            reposAPI(this.$axios).then((data: GithubItem[]) => commit('setRepos', data)),
+            snippetsAPI(this.$axios).then((data: GithubItem[]) => commit('setSnippets', data)),
         ]);
     },
 };

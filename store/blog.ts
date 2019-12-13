@@ -1,6 +1,6 @@
 import { ActionTree, MutationTree } from 'vuex';
-import { BlogState } from '~/types';
 import client from '~/plugins/contentful';
+import { BlogState } from '~/types';
 import { set } from '~/utils/store_utils';
 
 export const state = (): BlogState => ({
@@ -13,7 +13,7 @@ export const mutations: MutationTree<BlogState> = {
 
 export const actions: ActionTree<BlogState, BlogState> = {
     fetch({ commit }) {
-        return client
+        client
             .getEntries({
                 content_type: 'post',
                 order: '-sys.createdAt',

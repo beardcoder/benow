@@ -1,14 +1,16 @@
+import 'highlight.js/styles/a11y-dark.css';
+
+import hljs from 'highlight.js/lib/highlight.js';
 import MarkdownIt from 'markdown-it';
 import MarkdownItTarget from 'markdown-it-link-target';
-import hljs from 'highlight.js/lib/highlight.js';
-import 'highlight.js/styles/a11y-dark.css';
+
 hljs.registerLanguage('xml', require(`highlight.js/lib/languages/xml`));
 hljs.registerLanguage('yaml', require(`highlight.js/lib/languages/yaml`));
 hljs.registerLanguage('javascript', require(`highlight.js/lib/languages/javascript`));
 hljs.registerLanguage('bash', require(`highlight.js/lib/languages/bash`));
 hljs.registerLanguage('typescript', require(`highlight.js/lib/languages/typescript`));
 
-export default ({ app }, inject) => {
+export default ({ app }: any, inject: (arg0: string, arg1: (markdown: any) => string) => void) => {
     const md = new MarkdownIt({
         html: true,
         linkify: true,
