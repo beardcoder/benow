@@ -1,5 +1,5 @@
 <template>
-    <section v-if="github" id="projects" class="projects">
+    <section id="projects" class="projects">
         <Shape direction="right" />
         <header class="projects__header">
             <h2>
@@ -17,25 +17,26 @@
             </p>
         </header>
         <div id="repositories">
-            <github-list :items="github.repos" link-text="zum Repo" title="Repositories" />
+            <github-list :items="repos" link-text="zum Repo" title="Repositories" />
         </div>
         <div id="snippets" class="snippets">
-            <github-list :items="github.snippets" gist link-text="zum Snippet" title="Snippets" />
+            <github-list :items="snippets" gist link-text="zum Snippet" title="Snippets" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
-    import { Component, State, Vue } from 'nuxt-property-decorator';
-    import { GithubState } from '@/types';
+    import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import GithubList from '@/components/GithubList.vue';
     import Shape from '@/components/Shape.vue';
+    import { GithubItem } from '~/types';
 
     @Component({
         components: { GithubList, Shape },
     })
     export default class Projects extends Vue {
-        @State('github') github: GithubState | undefined;
+        @Prop() repos: GithubItem[];
+        @Prop() snippets: GithubItem[];
     }
 </script>
 

@@ -7,12 +7,8 @@
             <LazyHydrate when-visible>
                 <personal />
             </LazyHydrate>
-            <LazyHydrate when-visible>
-                <projects />
-            </LazyHydrate>
-            <LazyHydrate when-visible>
-                <blog v-if="blog" :posts="blog.posts" />
-            </LazyHydrate>
+            <projects :repos="repos" :snippets="snippets" />
+            <blog v-if="blog" :posts="blog.items" />
         </main>
         <contact-me />
         <LazyHydrate ssr-only>
@@ -22,9 +18,11 @@
 </template>
 
 <script lang="ts">
-    import { Component, State, Vue } from 'nuxt-property-decorator';
+    import { Component, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
-    import { BlogState } from '@/types';
+    import { GithubItem } from '@/types';
+    import { repos as reposAPI, snippets as snippetsAPI } from '~/api/github';
+    import client from '~/plugins/contentful';
 
     @Component({
         name: 'Index',
@@ -34,11 +32,15 @@
             PHeader: () => import(/* webpackChunkName: "home" */ '@/components/PHeader.vue'),
             Projects: () => import(/* webpackChunkName: "home" */ '@/components/Projects.vue'),
             Personal: () => import(/* webpackChunkName: "home" */ '@/components/Personal.vue'),
-            PFooter: () => import(/* webpackChunkName: "home" */ '@/components/PFooter.vue'),
             Blog: () => import(/* webpackChunkName: "home" */ '@/components/Blog.vue'),
+            PFooter: () => import(/* webpackChunkName: "global" */ '@/components/PFooter.vue'),
         },
     })
     export default class Index extends Vue {
+        snippets;
+        repos;
+        blog;
+
         mounted() {
             if (window.location.hash) {
                 const elem = document.getElementById(window.location.hash.replace('#', ''));
@@ -52,10 +54,32 @@
             };
         }
 
-        @State('blog') blog: BlogState | undefined;
+        async asyncData({ error, $axios }) {
+            const repos = await reposAPI($axios)
+                .then((data: GithubItem[]) => data)
+                .catch(() => {
+                    error({ statusCode: 404, message: 'Repos not found' });
+                });
+            const snippets = await snippetsAPI($axios)
+                .then((data: GithubItem[]) => data)
+                .catch(() => {
+                    error({ statusCode: 404, message: 'Snippets not found' });
+                });
+            const blog = await client
+                .getEntries({
+                    content_type: 'post',
+                    order: '-sys.createdAt',
+                })
+                .then(response => response)
+                .catch(() => {
+                    error({ statusCode: 404, message: 'Blog not found' });
+                });
 
-        async fetch({ store }) {
-            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
+            return {
+                repos,
+                snippets,
+                blog,
+            };
         }
     }
 </script>

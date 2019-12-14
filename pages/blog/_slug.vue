@@ -42,7 +42,7 @@
             Shape: () => import(/* webpackChunkName: "blog" */ '@/components/Shape.vue'),
             BackLink: () => import(/* webpackChunkName: "blog" */ '@/components/BackLink.vue'),
             BlogHeader: () => import(/* webpackChunkName: "blog" */ '@/components/BlogHeader.vue'),
-            PFooter: () => import(/* webpackChunkName: "blog" */ '@/components/PFooter.vue'),
+            PFooter: () => import(/* webpackChunkName: "global" */ '@/components/PFooter.vue'),
         },
     })
     export default class Slug extends Vue {
