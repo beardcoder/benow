@@ -2,7 +2,7 @@
     <header class="wrapper">
         <div class="backgroundWrapper">
             <div
-                :style="`background-image: url(${require('~/assets/images/header.jpg')})`"
+                :style="`background-image: url(${require('@/assets/images/header.jpg')})`"
                 role="presentation"
                 class="background"
             />
@@ -18,7 +18,7 @@
             </h1>
             <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
-                src="~/assets/images/shape2.svg"
+                src="@/assets/images/shape2.svg"
                 loading="lazy"
                 alt="header shape"
                 width="182"

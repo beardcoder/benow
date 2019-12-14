@@ -26,8 +26,8 @@
 </template>
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import Card from '~/components/Card.vue';
-    import { IPost } from '~/types/contentful';
+    import Card from '@/components/Card.vue';
+    import { IPost } from '@/types/contentful';
 
     @Component({
         components: {

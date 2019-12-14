@@ -1,7 +1,7 @@
 import { ActionTree, MutationTree } from 'vuex';
-import client from '~/plugins/contentful';
-import { BlogState } from '~/types';
-import { set } from '~/utils/store_utils';
+import client from '@/plugins/contentful';
+import { BlogState } from '@/types';
+import { set } from '@/utils/store_utils';
 
 export const state = (): BlogState => ({
     posts: [],

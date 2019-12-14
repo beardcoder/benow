@@ -141,3 +141,7 @@ a:hover {
 p:last-child {
     margin-bottom: 0;
 }
+
+pre {
+    overflow-x: auto;
+}

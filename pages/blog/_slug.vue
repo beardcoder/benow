@@ -31,22 +31,18 @@
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
     import { Jsonld } from 'nuxt-jsonld';
-    import BackLink from '@/components/BackLink.vue';
-    import Shape from '@/components/Shape.vue';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
-    import BlogHeader from '@/components/BlogHeader.vue';
-    import PFooter from '@/components/PFooter.vue';
     import client from '~/plugins/contentful';
 
     @Jsonld
     @Component({
         name: 'Slug',
         components: {
-            Shape,
-            BackLink,
-            BlogHeader,
-            PFooter,
+            Shape: () => import(/* webpackChunkName: "blog" */ '@/components/Shape.vue'),
+            BackLink: () => import(/* webpackChunkName: "blog" */ '@/components/BackLink.vue'),
+            BlogHeader: () => import(/* webpackChunkName: "blog" */ '@/components/BlogHeader.vue'),
+            PFooter: () => import(/* webpackChunkName: "blog" */ '@/components/PFooter.vue'),
         },
     })
     export default class Slug extends Vue {

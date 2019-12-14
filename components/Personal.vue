@@ -9,8 +9,8 @@
         <div class="wrapper">
             <div v-in-viewport.once class="personalImageWrapper">
                 <img
-                    v-lazy="require('~/assets/images/markus_sommer.jpg')"
-                    :src="require('~/assets/images/markus_sommer--lqip.jpg')"
+                    v-lazy="require('@/assets/images/markus_sommer.jpg')"
+                    :src="require('@/assets/images/markus_sommer--lqip.jpg')"
                     lazy="loading"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"
@@ -53,9 +53,9 @@
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
     import { Jsonld } from 'nuxt-jsonld';
-    import Shape from '~/components/Shape.vue';
-    import Skill from '~/components/Skill.vue';
-    import personSchema from '~/utils/schema/person';
+    import Shape from '@/components/Shape.vue';
+    import Skill from '@/components/Skill.vue';
+    import personSchema from '@/utils/schema/person';
 
     @Jsonld
     @Component({

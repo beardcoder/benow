@@ -24,18 +24,18 @@
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
-    import { BlogState } from '~/types';
+    import { BlogState } from '@/types';
 
     @Component({
         name: 'Index',
         components: {
             LazyHydrate,
-            ContactMe: () => import('~/components/ContactMe.vue'),
-            PHeader: () => import('~/components/PHeader.vue'),
-            Projects: () => import('~/components/Projects.vue'),
-            Personal: () => import('~/components/Personal.vue'),
-            PFooter: () => import('~/components/PFooter.vue'),
-            Blog: () => import('~/components/Blog.vue'),
+            ContactMe: () => import(/* webpackChunkName: "home" */ '@/components/ContactMe.vue'),
+            PHeader: () => import(/* webpackChunkName: "home" */ '@/components/PHeader.vue'),
+            Projects: () => import(/* webpackChunkName: "home" */ '@/components/Projects.vue'),
+            Personal: () => import(/* webpackChunkName: "home" */ '@/components/Personal.vue'),
+            PFooter: () => import(/* webpackChunkName: "home" */ '@/components/PFooter.vue'),
+            Blog: () => import(/* webpackChunkName: "home" */ '@/components/Blog.vue'),
         },
     })
     export default class Index extends Vue {

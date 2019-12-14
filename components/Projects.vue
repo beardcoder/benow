@@ -27,9 +27,9 @@
 
 <script lang="ts">
     import { Component, State, Vue } from 'nuxt-property-decorator';
-    import { GithubState } from '~/types';
-    import GithubList from '~/components/GithubList.vue';
-    import Shape from '~/components/Shape.vue';
+    import { GithubState } from '@/types';
+    import GithubList from '@/components/GithubList.vue';
+    import Shape from '@/components/Shape.vue';
 
     @Component({
         components: { GithubList, Shape },

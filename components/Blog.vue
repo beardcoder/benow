@@ -2,7 +2,7 @@
     <div v-if="posts" id="blog" class="blog">
         <div
             class="shape_wrapper"
-            :style="`background-image:url(${require('~/assets/images/shape_3.svg')});`"
+            :style="`background-image:url(${require('@/assets/images/shape_3.svg')});`"
         ></div>
         <h2 class="blog__header">Blog</h2>
         <div class="articles">
@@ -13,8 +13,8 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import Post from '~/components/Post.vue';
-    import { IPost } from '~/types/contentful';
+    import Post from '@/components/Post.vue';
+    import { IPost } from '@/types/contentful';
 
     @Component({
         components: { Post },

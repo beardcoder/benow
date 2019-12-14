@@ -1,5 +1,5 @@
-import { NuxtAxiosInstance } from '~/node_modules/@nuxtjs/axios';
-import { GithubItem } from '~/types';
+import { NuxtAxiosInstance } from '@nuxtjs/axios';
+import { GithubItem } from '@/types';
 
 // @ts-ignore
 const auth = process.env.GITHUB_TOKEN;

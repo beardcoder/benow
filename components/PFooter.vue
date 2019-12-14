@@ -22,7 +22,7 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import BackLink from '~/components/BackLink.vue';
+    import BackLink from '@/components/BackLink.vue';
 
     @Component({
         components: { BackLink },
@@ -30,37 +30,37 @@
     export default class PFooter extends Vue {
         socialLinks = [
             {
-                icon: require('~/assets/icons/mailbox-duotone.svg'),
+                icon: require('@/assets/icons/mailbox-duotone.svg'),
                 link: 'mailto:creativeworkspace@sommer-online.xyz',
                 title: 'E-Mail Markus Sommer',
             },
             {
-                icon: require('~/assets/icons/github-brands.svg'),
+                icon: require('@/assets/icons/github-brands.svg'),
                 link: 'https://github.com/beardcoder',
                 title: 'Github Profil von Markus Sommer',
             },
             {
-                icon: require('~/assets/icons/twitter-brands.svg'),
+                icon: require('@/assets/icons/twitter-brands.svg'),
                 link: 'https://twitter.com/beardcoder',
                 title: 'Twitter Profil von Markus Sommer',
             },
             {
-                icon: require('~/assets/icons/neos-brands.svg'),
+                icon: require('@/assets/icons/neos-brands.svg'),
                 link: 'https://www.neos.io/',
                 title: 'Neos Website',
             },
             {
-                icon: require('~/assets/icons/typo3-brands.svg'),
+                icon: require('@/assets/icons/typo3-brands.svg'),
                 link: 'https://forge.typo3.org/users/41461',
                 title: 'TYPO3 Forge',
             },
             {
-                icon: require('~/assets/icons/xing-brands.svg'),
+                icon: require('@/assets/icons/xing-brands.svg'),
                 link: 'https://www.xing.com/profile/Markus_Sommer30',
                 title: 'Xing Profil von Markus Sommer',
             },
             {
-                icon: require('~/assets/icons/linkedin-in-brands.svg'),
+                icon: require('@/assets/icons/linkedin-in-brands.svg'),
                 link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
                 title: 'linkedin Profil von Markus Sommer',
             },
@@ -69,7 +69,7 @@
 </script>
 
 <style scoped>
-    @import '~/assets/css/variables.css';
+    @import '@/assets/css/variables.css';
 
     .footer {
         position: relative;

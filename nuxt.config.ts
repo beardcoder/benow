@@ -1,5 +1,5 @@
 import client from './plugins/contentful';
-import { Configuration } from '~/node_modules/@nuxt/types';
+import { Configuration } from '@/node_modules/@nuxt/types';
 
 require('dotenv').config();
 
@@ -62,16 +62,16 @@ const config: Configuration = {
     /*
      ** Global CSS
      */
-    css: ['sanitize.css', '~/assets/css/variables.css', '~/assets/css/global.css'],
+    css: ['sanitize.css', '@/assets/css/variables.css', '@/assets/css/global.css'],
     /*
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '~/plugins/lazyload', mode: 'client' },
-        '~/plugins/vue-typed',
-        { src: '~/plugins/viewport-directive', mode: 'client' },
-        '~/plugins/jsonld',
-        '~/plugins/markdown',
+        { src: '@/plugins/lazyload', mode: 'client' },
+        '@/plugins/vue-typed',
+        { src: '@/plugins/viewport-directive', mode: 'client' },
+        '@/plugins/jsonld',
+        '@/plugins/markdown',
     ],
     /*
      ** Nuxt.js dev-modules
@@ -175,7 +175,7 @@ const config: Configuration = {
      */
     build: {
         cache: true,
-        watch: ['~/api/*'],
+        watch: ['@/api/*'],
         babel: {
             plugins: [
                 ['@babel/plugin-proposal-decorators', { legacy: true }],

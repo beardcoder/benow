@@ -42,8 +42,8 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { GithubItem } from '~/types';
-    import Card from '~/components/Card.vue';
+    import { GithubItem } from '@/types';
+    import Card from '@/components/Card.vue';
 
     @Component({
         components: { Card },
