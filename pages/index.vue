@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <LazyHydrate ssr-only>
+        <LazyHydrate when-visible>
             <p-header />
         </LazyHydrate>
         <main class="main">

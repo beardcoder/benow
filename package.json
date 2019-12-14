@@ -5,12 +5,11 @@
     "author": "Markus Sommer",
     "version": "1.0.0",
     "scripts": {
-        "build": "nuxt-ts build",
+        "build": "cross-env NODE_ENV=production nuxt-ts build",
         "dev": "nuxt-ts",
-        "generate": "nuxt-ts generate",
+        "generate": "cross-env NODE_ENV=production nuxt-ts generate",
         "lint": "eslint --ext .js,.ts,.vue .",
-        "start": "nuxt-ts start",
-        "generate:ts": "contentful-typescript-codegen --output interfaces/contentful.d.ts"
+        "start": "nuxt-ts start"
     },
     "dependencies": {
         "@nuxtjs/axios": "^5.8.0",
@@ -46,6 +45,7 @@
         "babel-eslint": "^10.0.3",
         "contentful": "^7.11.0",
         "contentful-management": "^5.12.0",
+        "cross-env": "^6.0.3",
         "eslint": "^6.7.2",
         "eslint-config-prettier": "^6.7.0",
         "eslint-plugin-nuxt": "^0.5.0",

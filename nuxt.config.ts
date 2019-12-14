@@ -39,14 +39,17 @@ const config: Configuration = {
             {
                 rel: 'preconnect',
                 href: 'https://fonts.googleapis.com',
+                crossorigin: true,
             },
             {
                 rel: 'preconnect',
                 href: 'https://fonts.gstatic.com',
+                crossorigin: true,
             },
             {
                 rel: 'preconnect',
                 href: 'https://www.google-analytics.com',
+                crossorigin: true,
             },
         ],
     },

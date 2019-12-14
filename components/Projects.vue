@@ -27,12 +27,15 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import GithubList from '@/components/GithubList.vue';
     import Shape from '@/components/Shape.vue';
     import { GithubItem } from '~/types';
 
     @Component({
-        components: { GithubList, Shape },
+        components: {
+            GithubList: () =>
+                import(/* webpackChunkName: "githubList" */ '@/components/GithubList.vue'),
+            Shape,
+        },
     })
     export default class Projects extends Vue {
         @Prop() repos: GithubItem[];
