@@ -1,11 +1,7 @@
 <template>
     <header class="wrapper">
         <div class="backgroundWrapper">
-            <div
-                :style="`background-image: url(${require('@/assets/images/header.jpg')})`"
-                role="presentation"
-                class="background"
-            />
+            <div role="presentation" class="background" />
         </div>
         <div class="headerContent">
             <h1 class="h1">
@@ -64,6 +60,19 @@
         left: 0;
         right: 0;
         will-change: transform;
+        background-image: url('/images/header--xs.jpg');
+    }
+
+    @media (min-width: 420px) {
+        .background {
+            background-image: url('/images/header--sm.jpg');
+        }
+    }
+
+    @media (min-width: 768px) {
+        .background {
+            background-image: url('/images/header.jpg');
+        }
     }
 
     .h1 {

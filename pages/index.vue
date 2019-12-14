@@ -7,8 +7,12 @@
             <LazyHydrate when-visible>
                 <personal />
             </LazyHydrate>
-            <projects :repos="repos" :snippets="snippets" />
-            <blog v-if="blog" :posts="blog.items" />
+            <LazyHydrate when-visible>
+                <projects :repos="repos" :snippets="snippets" />
+            </LazyHydrate>
+            <LazyHydrate when-visible>
+                <blog :posts="blog.items" />
+            </LazyHydrate>
         </main>
         <contact-me />
         <LazyHydrate ssr-only>

@@ -6,8 +6,8 @@
             </vue-typed-js>
             <div class="contactMe__image">
                 <img
-                    v-lazy="require('@/assets/images/markus_sommer--square.jpg')"
-                    :src="require('@/assets/images/markus_sommer--square.jpg?lqip')"
+                    v-lazy="'/images/markus_sommer--square.jpg'"
+                    src="/images/markus_sommer--square.jpg"
                     lazy="loading"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"

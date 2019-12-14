@@ -5,7 +5,7 @@ export default {
     url: 'http://www.creativeworkspace.de',
     jobTitle: 'Frontend Developer',
     gender: 'male',
-    image: require('@/assets/images/markus_sommer.jpg'),
+    image: '/images/markus_sommer.jpg',
     sameAs: [
         'https://github.com/beardcoder',
         'https://twitter.com/beardcoder',
