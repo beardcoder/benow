@@ -88,8 +88,7 @@ const config: Configuration = {
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
         'nuxt-webfontloader',
-        // Disable gtm for the moment
-        // ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
+        ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
