@@ -130,7 +130,7 @@
         border-image-slice: 4;
         margin: 15px;
         position: relative;
-        color: #fff;
+        color: var(--color__font);
         border-radius: calc(var(--size) / 2);
     }
 

@@ -24,7 +24,7 @@
         height: var(--size);
         text-decoration: none;
         margin: 15px;
-        color: #fff;
+        color: var(--color__font);
         border-radius: calc(var(--size) / 2);
         justify-content: center;
         align-items: center;

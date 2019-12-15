@@ -3,5 +3,8 @@
     --color__primary--dark: #360940;
     --color__secondary: #32f0d1;
     --color__secondary--dark: #104f98;
-    --color__footer: #232629;
+    --color__footer: #121212;
+    --color__background: #1a1c22;
+    --color__font: #ececed;
+    --color__font--secondary: #a1a1a2;
 }

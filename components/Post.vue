@@ -12,7 +12,7 @@
         </div>
         <div class="body">
             <h4>{{ post.fields.headline }}</h4>
-            <time :datetime="post.sys.createdAt">
+            <time class="articleTime" :datetime="post.sys.createdAt">
                 {{ $dateFns.format(new Date(post.sys.createdAt), 'dd.MM.yyyy') }}
             </time>
             <p class="description">{{ post.fields.description }}</p>
@@ -61,6 +61,10 @@
     .article.in-viewport {
         opacity: 1;
         transform: scale3d(1, 1, 1);
+    }
+
+    .articleTime {
+        color: var(--color__font--secondary);
     }
 
     .image {

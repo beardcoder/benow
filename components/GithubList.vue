@@ -12,7 +12,7 @@
                 <card>
                     <div>
                         <h4>{{ gist ? item.description : item.full_name }}</h4>
-                        <p v-if="!gist">{{ item.description }}</p>
+                        <p v-if="!gist" class="githubItem__description">{{ item.description }}</p>
                     </div>
                     <a
                         :href="item.html_url"
@@ -117,9 +117,15 @@
         }
     }
 
+    .githubItem__description {
+        color: var(--color__font--secondary);
+        margin-top: 0;
+    }
+
     h4 {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        margin-bottom: 10px;
     }
 </style>

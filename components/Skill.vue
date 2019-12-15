@@ -20,9 +20,14 @@
 </script>
 
 <style scoped>
+    .skill {
+        margin-bottom: 30px;
+    }
+
     .skillTitle {
         font-family: 'Roboto Slab', serif;
-        margin-bottom: -20px;
+        margin-bottom: -35px;
+        color: var(--color__font--secondary);
     }
 
     .skillPercent {
