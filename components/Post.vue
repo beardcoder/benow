@@ -39,6 +39,8 @@
     }
 </script>
 <style scoped>
+    @import '../assets/css/variables.css';
+
     h4 {
         margin-bottom: 0;
     }

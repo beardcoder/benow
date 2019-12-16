@@ -82,6 +82,8 @@
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .personal {
         padding-right: 1rem;
         padding-left: 1rem;

@@ -58,6 +58,8 @@
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .github {
         margin-top: 100px;
     }

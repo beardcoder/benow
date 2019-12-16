@@ -12,6 +12,8 @@
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .backLink {
         --size: 100px;
 

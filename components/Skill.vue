@@ -20,6 +20,8 @@
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .skill {
         margin-bottom: 30px;
     }
@@ -40,6 +42,7 @@
         background-color: #404040;
         height: 6px;
         margin-top: 20px;
+        border-radius: 3px;
     }
 
     .skillPercentIndicator {
@@ -51,6 +54,7 @@
         height: 6px;
         position: relative;
         top: -6px;
+        border-radius: 3px;
         transition: width 0.8s;
     }
 

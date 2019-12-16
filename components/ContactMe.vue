@@ -28,6 +28,8 @@
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .contactMe {
         position: fixed;
         bottom: 20px;

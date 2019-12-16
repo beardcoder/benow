@@ -69,7 +69,7 @@
 </script>
 
 <style scoped>
-    @import '@/assets/css/variables.css';
+    @import '../assets/css/variables.css';
 
     .footer {
         position: relative;

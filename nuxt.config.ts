@@ -177,6 +177,7 @@ const config: Configuration = {
      */
     build: {
         cache: true,
+        extractCSS: true,
         watch: ['@/api/*'],
         babel: {
             plugins: [
@@ -189,6 +190,8 @@ const config: Configuration = {
             // Install them before as dependencies with npm or yarn
             plugins: {
                 'postcss-responsive-type': {},
+                cssnano: {},
+                'postcss-css-variables': {},
             },
             preset: {},
         },
