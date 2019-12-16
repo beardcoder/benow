@@ -177,7 +177,6 @@ const config: Configuration = {
      */
     build: {
         cache: true,
-        extractCSS: true,
         watch: ['@/api/*'],
         babel: {
             plugins: [
