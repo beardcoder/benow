@@ -39,9 +39,9 @@
     @Component({
         name: 'Slug',
         components: {
-            Shape: () => import(/* webpackChunkName: "blog" */ '@/components/Shape.vue'),
-            BackLink: () => import(/* webpackChunkName: "blog" */ '@/components/BackLink.vue'),
-            BlogHeader: () => import(/* webpackChunkName: "blog" */ '@/components/BlogHeader.vue'),
+            Shape: () => import(/* webpackChunkName: "article" */ '@/components/Shape.vue'),
+            BackLink: () => import(/* webpackChunkName: "article" */ '@/components/BackLink.vue'),
+            BlogHeader: () => import(/* webpackChunkName: "article" */ '@/components/BlogHeader.vue'),
             PFooter: () => import(/* webpackChunkName: "global" */ '@/components/PFooter.vue'),
         },
     })
