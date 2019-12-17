@@ -8,13 +8,13 @@
                 <div class="subtitle">
                     Veröffentlicht am
                     <time :datetime="post.sys.createdAt">
-                        {{ $dateFns.format(new Date(post.sys.createdAt), 'dd.MM.yyyy') }}
+                        {{ new Date(post.sys.createdAt).toLocaleDateString() }}
                     </time>
                     von Markus Sommer
                     <br />
                     Letzte Änderung
                     <time :datetime="post.sys.updatedAt">
-                        {{ $dateFns.format(new Date(post.sys.updatedAt), 'dd.MM.yyyy') }}
+                        {{ new Date(post.sys.updatedAt).toLocaleDateString() }}
                     </time>
                 </div>
                 <p class="description">{{ post.fields.description }}</p>

@@ -94,7 +94,6 @@ const config: Configuration = {
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
-        '@nuxtjs/date-fns',
         '@nuxtjs/pwa',
     ],
 

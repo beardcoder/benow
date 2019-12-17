@@ -13,7 +13,7 @@
         <div class="body">
             <h4>{{ post.fields.headline }}</h4>
             <time class="articleTime" :datetime="post.sys.createdAt">
-                {{ $dateFns.format(new Date(post.sys.createdAt), 'dd.MM.yyyy') }}
+                {{ new Date(post.sys.createdAt).toLocaleDateString() }}
             </time>
             <p class="description">{{ post.fields.description }}</p>
         </div>
