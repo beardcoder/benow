@@ -1,18 +1,18 @@
-import { NuxtAxiosInstance } from '@nuxtjs/axios';
+import fetch from 'isomorphic-unfetch';
 import { GithubItem } from '@/types';
 
 // @ts-ignore
 const auth = process.env.GITHUB_TOKEN;
 const username = process.env.GITHUB_USERNAME;
 
-export function repos($axios: NuxtAxiosInstance) {
-    return $axios
-        .$get(`https://api.github.com/users/${username}/repos`, {
-            headers: {
-                Authorization: `token ${auth}`,
-                'Content-Type': 'application/json',
-            },
-        })
+export function reposFetch(): Promise<GithubItem[]> {
+    return fetch(`https://api.github.com/users/${username}/repos`, {
+        headers: {
+            Authorization: `token ${auth}`,
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => res.json())
         .then((data: any[]) => {
             // Only get non forked repos
             const resReduce = data.filter((item: GithubItem | any) => {
@@ -31,14 +31,14 @@ export function repos($axios: NuxtAxiosInstance) {
 }
 
 // @ts-ignore
-export function snippets($axios) {
-    return $axios
-        .$get(`https://api.github.com/users/${username}/gists`, {
-            headers: {
-                Authorization: `token ${auth}`,
-                'Content-Type': 'application/json',
-            },
-        })
+export function snippetsFetch(): Promise<GithubItem[]> {
+    return fetch(`https://api.github.com/users/${username}/gists`, {
+        headers: {
+            Authorization: `token ${auth}`,
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => res.json())
         .then((data: any[]) =>
             data.map((item: GithubItem) => {
                 return {

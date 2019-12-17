@@ -25,8 +25,8 @@
     import { Component, Vue } from 'nuxt-property-decorator';
     import LazyHydrate from 'vue-lazy-hydration';
     import { GithubItem } from '@/types';
-    import { repos as reposAPI, snippets as snippetsAPI } from '~/api/github';
     import client from '~/plugins/contentful';
+    import { reposFetch, snippetsFetch } from '~/api/github';
 
     @Component({
         name: 'Index',
@@ -58,13 +58,13 @@
             };
         }
 
-        async asyncData({ error, $axios }) {
-            const repos = await reposAPI($axios)
+        async asyncData({ error }) {
+            const repos = await reposFetch()
                 .then((data: GithubItem[]) => data)
                 .catch(() => {
                     error({ statusCode: 404, message: 'Repos not found' });
                 });
-            const snippets = await snippetsAPI($axios)
+            const snippets = await snippetsFetch()
                 .then((data: GithubItem[]) => data)
                 .catch(() => {
                     error({ statusCode: 404, message: 'Snippets not found' });
