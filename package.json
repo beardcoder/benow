@@ -68,5 +68,10 @@
     },
     "lint-staged": {
         "*.{js,vue}": "eslint"
+    },
+    "husky": {
+        "hooks": {
+            "post-merge": "(git-branch-is master && npm version minor || (git-branch-is dev && npm --no-git-tag-version version patch)"
+        }
     }
 }
