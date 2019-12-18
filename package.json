@@ -3,7 +3,7 @@
     "name": "creativeworkspace",
     "description": "My private website",
     "author": "Markus Sommer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scripts": {
         "build": "cross-env NODE_ENV=production nuxt-ts build",
         "dev": "nuxt-ts",
