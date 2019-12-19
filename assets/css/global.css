@@ -146,4 +146,7 @@ p:last-child {
 
 pre {
     overflow-x: auto;
+    background-color: var(--color__card--level-2);
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
 }

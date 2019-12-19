@@ -12,13 +12,15 @@
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .card {
-        background-color: #23242a;
+        background-color: var(--color__card--level-1);
         padding: 1rem;
         box-sizing: border-box;
         height: 100%;
         position: relative;
-        border-radius: 5px;
+        border-radius: var(--border-radius);
         overflow: hidden;
     }
 </style>

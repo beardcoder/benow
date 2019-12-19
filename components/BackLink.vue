@@ -60,7 +60,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--color__footer);
+        background: var(--color__background);
         z-index: 2;
         transform: scale(1);
         transition: transform 0.3s;

@@ -5,6 +5,9 @@
     --color__secondary--dark: #104f98;
     --color__footer: #121212;
     --color__background: #1a1c22;
+    --color__card--level-1: #23242a;
+    --color__card--level-2: #282930;
     --color__font: #ececed;
     --color__font--secondary: #a4a4a5;
+    --border-radius: 5px;
 }
