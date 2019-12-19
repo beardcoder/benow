@@ -2,8 +2,7 @@
     <card v-if="post" v-in-viewport.once class="article">
         <div class="image">
             <img
-                v-lazy="post.fields.image.fields.file.url + '?fm=webp&w=600&h=337'"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8xwQAAgQBAmXv/TkAAAAASUVORK5CYII="
+                :src="`${post.fields.image.fields.file.url}?fm=webp&w=600&h=337`"
                 class="articleImage"
                 alt="Article image"
                 width="600"

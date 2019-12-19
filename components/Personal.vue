@@ -9,13 +9,12 @@
         <div class="wrapper">
             <div v-in-viewport.once class="personalImageWrapper">
                 <img
-                    v-lazy="'/images/markus_sommer.jpg'"
-                    src="/images/markus_sommer--lqip.jpg"
+                    src="/images/markus_sommer.jpg"
                     lazy="loading"
                     alt="Markus Sommer"
                     title="Bild von Markus Sommer"
-                    height="500"
-                    width="667"
+                    height="667"
+                    width="500"
                     class="personalImage"
                 />
             </div>

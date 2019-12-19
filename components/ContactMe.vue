@@ -6,7 +6,6 @@
             </vue-typed-js>
             <div class="contactMe__image">
                 <img
-                    v-lazy="'/images/markus_sommer--square.jpg'"
                     src="/images/markus_sommer--square.jpg"
                     lazy="loading"
                     alt="Markus Sommer"

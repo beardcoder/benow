@@ -70,7 +70,6 @@ const config: Configuration = {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '@/plugins/lazyload', mode: 'client' },
         '@/plugins/vue-typed',
         { src: '@/plugins/viewport-directive', mode: 'client' },
         '@/plugins/jsonld',

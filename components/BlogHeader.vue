@@ -2,7 +2,7 @@
     <header v-if="post" class="wrapper">
         <div class="background">
             <div
-                v-lazy:background-image="post.fields.image.fields.file.url + '?fm=webp'"
+                :style="`background-image: ${post.fields.image.fields.file.url}?fm=webp`"
                 role="presentation"
                 class="background__image"
             />
