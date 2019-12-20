@@ -1,29 +1,29 @@
 <template>
     <div class="container">
-        <LazyHydrate when-visible>
+        <v-lazy when-visible>
             <p-header />
-        </LazyHydrate>
+        </v-lazy>
         <main class="main">
-            <LazyHydrate when-visible>
+            <v-lazy when-visible>
                 <personal />
-            </LazyHydrate>
-            <LazyHydrate when-visible>
+            </v-lazy>
+            <v-lazy when-visible>
                 <projects :repos="repos" :snippets="snippets" />
-            </LazyHydrate>
-            <LazyHydrate when-visible>
+            </v-lazy>
+            <v-lazy when-visible>
                 <blog :posts="blog.items" />
-            </LazyHydrate>
+            </v-lazy>
         </main>
         <contact-me />
-        <LazyHydrate ssr-only>
+        <v-lazy ssr-only>
             <p-footer />
-        </LazyHydrate>
+        </v-lazy>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import LazyHydrate from 'vue-lazy-hydration';
+    import VLazy from 'vue-lazy-hydration';
     import { GithubItem } from '@/types';
     import client from '~/plugins/contentful';
     import { reposFetch, snippetsFetch } from '~/api/github';
@@ -31,7 +31,7 @@
     @Component({
         name: 'Index',
         components: {
-            LazyHydrate,
+            VLazy,
             ContactMe: () => import(/* webpackChunkName: "home" */ '@/components/ContactMe.vue'),
             PHeader: () => import(/* webpackChunkName: "home" */ '@/components/PHeader.vue'),
             Projects: () => import(/* webpackChunkName: "projects" */ '@/components/Projects.vue'),

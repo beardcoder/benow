@@ -70,6 +70,7 @@ const config: Configuration = {
      ** Plugins to load before mounting the App
      */
     plugins: [
+        '@/plugins/lazyload',
         '@/plugins/vue-typed',
         { src: '@/plugins/viewport-directive', mode: 'client' },
         '@/plugins/jsonld',
@@ -147,6 +148,7 @@ const config: Configuration = {
     router: {
         // Doc: https://nuxtjs.org/api/configuration-router/#trailingslash
         trailingSlash: true,
+        prefetchLinks: false,
     },
 
     pageTransition: {

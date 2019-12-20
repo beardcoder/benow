@@ -30,6 +30,7 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
+    import LazyHydrate from 'vue-lazy-hydration';
     import { Jsonld } from 'nuxt-jsonld';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
@@ -39,6 +40,7 @@
     @Component({
         name: 'Slug',
         components: {
+            LazyHydrate,
             Shape: () => import(/* webpackChunkName: "article" */ '@/components/Shape.vue'),
             BackLink: () => import(/* webpackChunkName: "article" */ '@/components/BackLink.vue'),
             BlogHeader: () =>

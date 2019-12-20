@@ -2,7 +2,8 @@
     <card v-if="post" v-in-viewport.once class="article">
         <div class="image">
             <img
-                :src="`${post.fields.image.fields.file.url}?fm=webp&w=600&h=337`"
+                v-lazy="`${post.fields.image.fields.file.url}?fm=webp&w=600&h=337`"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAFRCAQAAAACiBsCAAADSklEQVR42u3UMQ0AAAzDsJU/6SEogEo2hBzJAYyIBIBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYlAWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBVA8IDABUgzSsTgAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
                 width="600"
@@ -17,7 +18,11 @@
             <p class="description">{{ post.fields.description }}</p>
         </div>
         <div class="footer">
-            <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.fields.slug } }" class="btn">
+            <nuxt-link
+                :prefetch="false"
+                :to="{ name: 'blog-slug', params: { slug: post.fields.slug } }"
+                class="btn"
+            >
                 Lesen
             </nuxt-link>
         </div>
