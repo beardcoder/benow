@@ -55,12 +55,13 @@
     import { Jsonld } from 'nuxt-jsonld';
     import Shape from '@/components/Shape.vue';
     import personSchema from '@/utils/schema/person';
+    import Skill from '@/components/Skill.vue';
 
     @Jsonld
     @Component({
         components: {
             Shape,
-            Skill: () => import(/* webpackChunkName: "component.skill" */ '@/components/Skill.vue'),
+            Skill,
         },
     })
     export default class Personal extends Vue {

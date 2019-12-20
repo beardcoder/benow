@@ -14,11 +14,11 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import { IPost } from '@/types/contentful';
+    import Post from '@/components/Post.vue';
 
     @Component({
         components: {
-            Post: () =>
-                import(/* webpackChunkName: "component.blogPost" */ '@/components/Post.vue'),
+            Post,
         },
     })
     export default class Blog extends Vue {

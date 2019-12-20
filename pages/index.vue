@@ -34,10 +34,10 @@
             VLazy,
             ContactMe: () => import(/* webpackChunkName: "home" */ '@/components/ContactMe.vue'),
             PHeader: () => import(/* webpackChunkName: "home" */ '@/components/PHeader.vue'),
-            Projects: () => import(/* webpackChunkName: "projects" */ '@/components/Projects.vue'),
-            Personal: () => import(/* webpackChunkName: "personal" */ '@/components/Personal.vue'),
-            Blog: () => import(/* webpackChunkName: "blog" */ '@/components/Blog.vue'),
-            PFooter: () => import(/* webpackChunkName: "global" */ '@/components/PFooter.vue'),
+            Projects: () => import(/* webpackChunkName: "home" */ '@/components/Projects.vue'),
+            Personal: () => import(/* webpackChunkName: "home" */ '@/components/Personal.vue'),
+            Blog: () => import(/* webpackChunkName: "home" */ '@/components/Blog.vue'),
+            PFooter: () => import(/* webpackChunkName: "home" */ '@/components/PFooter.vue'),
         },
     })
     export default class Index extends Vue {

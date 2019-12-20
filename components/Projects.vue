@@ -29,13 +29,11 @@
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import Shape from '@/components/Shape.vue';
     import { GithubItem } from '~/types';
+    import GithubList from '~/components/GithubList.vue';
 
     @Component({
         components: {
-            GithubList: () =>
-                import(
-                    /* webpackChunkName: "component.githubList" */ '@/components/GithubList.vue'
-                ),
+            GithubList,
             Shape,
         },
     })

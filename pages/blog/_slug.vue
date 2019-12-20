@@ -45,7 +45,7 @@
             BackLink: () => import(/* webpackChunkName: "article" */ '@/components/BackLink.vue'),
             BlogHeader: () =>
                 import(/* webpackChunkName: "article" */ '@/components/BlogHeader.vue'),
-            PFooter: () => import(/* webpackChunkName: "global" */ '@/components/PFooter.vue'),
+            PFooter: () => import(/* webpackChunkName: "article" */ '@/components/PFooter.vue'),
         },
     })
     export default class Slug extends Vue {
