@@ -15,7 +15,6 @@
             <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
                 src="@/assets/images/shape2.svg"
-                loading="lazy"
                 alt="header shape"
                 width="182"
                 height="142"
@@ -32,7 +31,7 @@
     export default class PHeader extends Vue {}
 </script>
 
-<style scoped>
+<style>
     .wrapper {
         display: flex;
         min-height: 500px;

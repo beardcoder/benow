@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <v-lazy when-visible>
+        <v-lazy ssr-only>
             <p-header />
         </v-lazy>
         <main class="main">
