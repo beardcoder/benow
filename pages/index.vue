@@ -14,7 +14,9 @@
                 <blog :posts="blog.items" />
             </v-lazy>
         </main>
-        <contact-me />
+        <v-lazy when-idle>
+            <contact-me />
+        </v-lazy>
         <v-lazy ssr-only>
             <p-footer />
         </v-lazy>
