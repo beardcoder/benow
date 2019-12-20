@@ -33,7 +33,9 @@
     @Component({
         components: {
             GithubList: () =>
-                import(/* webpackChunkName: "githubList" */ '@/components/GithubList.vue'),
+                import(
+                    /* webpackChunkName: "component.githubList" */ '@/components/GithubList.vue'
+                ),
             Shape,
         },
     })

@@ -43,10 +43,11 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
     import { GithubItem } from '@/types';
-    import Card from '@/components/Card.vue';
 
     @Component({
-        components: { Card },
+        components: {
+            Card: () => import(/* webpackChunkName: "component.card" */ '@/components/Card.vue'),
+        },
     })
     export default class GithubList extends Vue {
         @Prop() items: GithubItem[] | undefined;

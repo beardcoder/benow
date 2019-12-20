@@ -30,12 +30,11 @@
 </template>
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import Card from '@/components/Card.vue';
     import { IPost } from '@/types/contentful';
 
     @Component({
         components: {
-            Card,
+            Card: () => import(/* webpackChunkName: "component.card" */ '@/components/Card.vue'),
         },
     })
     export default class Post extends Vue {

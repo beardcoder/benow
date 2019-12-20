@@ -54,14 +54,13 @@
     import { Component, Vue } from 'nuxt-property-decorator';
     import { Jsonld } from 'nuxt-jsonld';
     import Shape from '@/components/Shape.vue';
-    import Skill from '@/components/Skill.vue';
     import personSchema from '@/utils/schema/person';
 
     @Jsonld
     @Component({
         components: {
             Shape,
-            Skill,
+            Skill: () => import(/* webpackChunkName: "component.skill" */ '@/components/Skill.vue'),
         },
     })
     export default class Personal extends Vue {
