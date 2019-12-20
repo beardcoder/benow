@@ -31,7 +31,7 @@
     export default class PHeader extends Vue {}
 </script>
 
-<style>
+<style scoped>
     .wrapper {
         display: flex;
         min-height: 500px;
