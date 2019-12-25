@@ -1,0 +1,83 @@
+@import './variables.css';
+
+html,
+body {
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: 'Maven Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color__background);
+    min-height: 100%;
+    color: var(--color__font);
+    width: 100%;
+}
+
+strong {
+    font-weight: 700;
+}
+
+h1 {
+    font-family: 'Roboto Slab', serif;
+}
+
+h2 {
+    font-family: 'Roboto Slab', serif;
+    font-size: responsive 30px 40px; /* min-size, max-size */
+    margin-top: 0;
+    line-height: 1.4;
+}
+
+h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px; /* min-size, max-size */
+    font-weight: 300;
+    margin-top: 0;
+    line-height: 1.4;
+}
+
+h4 {
+    font-family: 'Roboto Slab', serif;
+    font-size: responsive 18px 20px; /* min-size, max-size */
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+h2 + h3 {
+    margin-top: -10px;
+}
+
+@media (min-width: 1200px) {
+    h2 + h3 {
+        margin-top: -30px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--color__secondary);
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color__primary);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+pre {
+    overflow-x: auto;
+    background-color: var(--color__card--level-2);
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+}
