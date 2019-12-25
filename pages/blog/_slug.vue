@@ -34,7 +34,6 @@
     import { Jsonld } from 'nuxt-jsonld';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
-    import client from '~/plugins/contentful';
 
     @Jsonld
     @Component({
@@ -88,20 +87,9 @@
             };
         }
 
-        async asyncData({ params, payload }) {
-            if (payload) {
-                return { post: payload };
-            } else {
-                try {
-                    const { items } = await client.getEntries({
-                        content_type: 'post',
-                        'fields.slug[in]': params.slug,
-                    });
-                    return { post: items[0] };
-                } catch (e) {
-                    console.error(e);
-                }
-            }
+        async asyncData({ params }) {
+            const post = await import(`@/.content/blog/${params.slug}.json`);
+            return { post: { ...post } };
         }
     }
 </script>

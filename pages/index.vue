@@ -11,7 +11,7 @@
                 <projects :repos="repos" :snippets="snippets" />
             </v-lazy>
             <v-lazy when-visible>
-                <blog :posts="blog.items" />
+                <blog :posts="posts" />
             </v-lazy>
         </main>
         <v-lazy when-idle>
@@ -26,9 +26,18 @@
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
     import VLazy from 'vue-lazy-hydration';
-    import { GithubItem } from '@/types';
-    import client from '~/plugins/contentful';
-    import { reposFetch, snippetsFetch } from '~/api/github';
+
+    const importPosts = () => {
+        // https://webpack.js.org/guides/dependency-management/#requirecontext
+        const articles = require('@/.content/blog/articles.json');
+
+        return Promise.all(
+            articles.map(async (slug: string) => {
+                const json = await import(`@/.content/blog/${slug}.json`);
+                return { ...json };
+            })
+        );
+    };
 
     @Component({
         name: 'Index',
@@ -45,7 +54,7 @@
     export default class Index extends Vue {
         snippets;
         repos;
-        blog;
+        posts;
 
         mounted() {
             if (window.location.hash) {
@@ -60,31 +69,15 @@
             };
         }
 
-        async asyncData({ error }) {
-            const repos = await reposFetch()
-                .then((data: GithubItem[]) => data)
-                .catch(() => {
-                    error({ statusCode: 404, message: 'Repos not found' });
-                });
-            const snippets = await snippetsFetch()
-                .then((data: GithubItem[]) => data)
-                .catch(() => {
-                    error({ statusCode: 404, message: 'Snippets not found' });
-                });
-            const blog = await client
-                .getEntries({
-                    content_type: 'post',
-                    order: '-sys.createdAt',
-                })
-                .then(response => response)
-                .catch(() => {
-                    error({ statusCode: 404, message: 'Blog not found' });
-                });
+        async asyncData() {
+            const repos = require('@/.content/github/repos.json');
+            const snippets = require('@/.content/github/snippets.json');
+            const posts = await importPosts();
 
             return {
                 repos,
                 snippets,
-                blog,
+                posts,
             };
         }
     }

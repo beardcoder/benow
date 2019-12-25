@@ -7,9 +7,11 @@
     "scripts": {
         "build": "cross-env NODE_ENV=production nuxt-ts build",
         "dev": "nuxt-ts",
-        "generate": "cross-env NODE_ENV=production nuxt-ts generate",
+        "generate": "yarn generate:blog && yarn generate:github && cross-env NODE_ENV=production nuxt-ts generate",
         "lint": "eslint --ext .js,.ts,.vue .",
-        "start": "nuxt-ts start"
+        "start": "nuxt-ts start",
+        "generate:blog": "./bin/getBlogData",
+        "generate:github": "./bin/getGithubData"
     },
     "dependencies": {
         "@nuxtjs/pwa": "^3.0.0-beta.19",

@@ -1,4 +1,3 @@
-import client from './plugins/contentful';
 import { Configuration } from '@/node_modules/@nuxt/types';
 
 require('dotenv').config();
@@ -128,19 +127,12 @@ const config: Configuration = {
 
     generate: {
         routes() {
-            return Promise.all([
-                // get all blog posts
-                client.getEntries({
-                    content_type: 'post',
-                }),
-            ]).then(entries => {
-                return entries[0].items.map(entry => {
-                    return {
-                        // @ts-ignore
-                        route: `/blog/${entry.fields.slug}/`,
-                        payload: entry,
-                    };
-                });
+            const articles = require('./.content/blog/articles.json');
+
+            return articles.map((slug: string) => {
+                return {
+                    route: `/blog/${slug}/`,
+                };
             });
         },
     },
