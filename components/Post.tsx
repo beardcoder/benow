@@ -29,7 +29,9 @@ const Post: React.FunctionComponent<Props> = ({ post }) => {
                 <p className={css.description}>{post.fields.description}</p>
             </div>
             <div className={css.footer}>
-                <Link href={`/blog/${post.fields.slug}`}>Zum Post</Link>
+                <Link href={`/blog/${post.fields.slug}`}>
+                    <a>Zum Post</a>
+                </Link>
             </div>
         </Card>
     );
