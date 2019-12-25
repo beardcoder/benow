@@ -3,6 +3,7 @@ import React from 'react';
 import { IPost } from '~/types';
 
 import Card from './Card';
+import css from './Post.module.css';
 
 type Props = {
     post: IPost;
@@ -10,24 +11,24 @@ type Props = {
 
 const Post: React.FunctionComponent<Props> = ({ post }) => {
     return (
-        <Card className="article">
-            <div className="image">
+        <Card className={css.article}>
+            <div className={css.image}>
                 <img
                     src={`${post?.fields?.image?.fields.file.url}?fm=webp&w=600&h=337`}
-                    className="articleImage"
+                    className={css.articleImage}
                     alt="Article image"
                     width="600"
                     height="337"
                 />
             </div>
-            <div className="body">
+            <div className={css.body}>
                 <h4>{post.fields.headline}</h4>
-                <time className="articleTime" dateTime={post.sys.createdAt}>
+                <time className={css.articleTime} dateTime={post.sys.createdAt}>
                     {new Date(post.sys.createdAt).toLocaleDateString()}
                 </time>
-                <p className="description">{post.fields.description}</p>
+                <p className={css.description}>{post.fields.description}</p>
             </div>
-            <div className="footer">
+            <div className={css.footer}>
                 <Link href={`/blog/${post.fields.slug}`}>Zum Post</Link>
             </div>
         </Card>
