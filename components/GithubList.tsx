@@ -49,11 +49,9 @@ const GithubList: React.FunctionComponent<Props> = ({
                                 </p>
                             </div>
                             <Button
-                                attrs={{
-                                    href: item.html_url,
-                                    rel: 'noreferrer',
-                                    target: '_blank'
-                                }}
+                                href={item.html_url}
+                                rel="noreferrer"
+                                target="_blank"
                                 secondary={gist}
                             >
                                 {linkText}

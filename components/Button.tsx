@@ -5,23 +5,33 @@ import css from './Button.module.css';
 type Props = {
     secondary?: boolean;
     tagName?: any;
-    attrs: {};
+    href?: any;
+    attrs?: {};
+    rel?: string;
+    target?: string;
+    onClick?: any;
 };
 
-const Button: React.FunctionComponent<Props> = props => {
-    const CompTagName = props.tagName;
+const Button: React.FunctionComponent<Props> = React.forwardRef(
+    ({ children, secondary, href, onClick, rel, target, tagName }, ref) => {
+        const CompTagName = tagName;
 
-    return (
-        <CompTagName
-            {...props.attrs}
-            className={[css.btn, props.secondary ? css.btnSecondary : ''].join(
-                ' '
-            )}
-        >
-            {props.children}
-        </CompTagName>
-    );
-};
+        return (
+            <CompTagName
+                ref={ref}
+                href={href}
+                onClick={onClick}
+                rel={rel}
+                tatget={target}
+                className={[css.btn, secondary ? css.btnSecondary : ''].join(
+                    ' '
+                )}
+            >
+                {children}
+            </CompTagName>
+        );
+    }
+);
 
 Button.defaultProps = {
     secondary: false,
