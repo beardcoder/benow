@@ -23,20 +23,6 @@ module.exports = withPlugins(
         [withImages]
     ],
     {
-        exportPathMap: async function() {
-            const paths = {
-                '/': { page: '/' }
-            };
-
-            articles.forEach(slug => {
-                paths[`/blog/${slug}`] = {
-                    page: '/blog/[slug]',
-                    query: { slug: slug }
-                };
-            });
-
-            return paths;
-        },
         env: {
             GITHUB_TOKEN: process.env.GITHUB_TOKEN,
             GITHUB_USERNAME: process.env.GITHUB_USERNAME
