@@ -15,7 +15,6 @@ type Props = {
     posts?: any;
 };
 
-// @ts-ignore
 const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
     return (
         <Layout title='Home | Next.js + TypeScript Example'>
@@ -52,7 +51,6 @@ const importPosts = async () => {
     );
 };
 
-// @ts-ignore
 IndexPage.getInitialProps = async () => {
     const repos = await require(`../.content/github/repos.json`);
     const snippets = await require(`../.content/github/snippets.json`);

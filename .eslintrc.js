@@ -6,6 +6,8 @@ module.exports = {
     },
     parserOptions: {
         parser: 'babel-eslint',
+        sourceType: 'module',
+        ecmaVersion: 2020,
         ecmaFeatures: {
             legacyDecorators: true,
         },

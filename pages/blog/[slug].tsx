@@ -14,15 +14,14 @@ type Props = {
 // @ts-ignore
 const Post: NextPage<Props> = ({ post }) => {
     return (
-        <Layout title="Home | Next.js + TypeScript Example">
+        <Layout title='Home | Next.js + TypeScript Example'>
             <>
                 <header className={css.header}>
                     <div className={css.headerBackground}>
-                        <div role="presentation" className="backgroundImage" />
+                        <div role='presentation' className='backgroundImage' />
                         <style jsx>{`
                             .backgroundImage {
-                                background-image: url(${post.fields.image.fields
-                                    .file.url}?fm=webp);
+                                background-image: url(${post.fields.image.fields.file.url}?fm=webp);
                                 background-position: center center;
                                 background-size: cover;
                                 position: absolute;
@@ -36,29 +35,23 @@ const Post: NextPage<Props> = ({ post }) => {
                     </div>
                     <BackLink />
                 </header>
-                <div className="container">
+                <div className='container'>
                     <div className={css.main}>
                         <article className={css.article}>
                             <h1>{post.fields.headline}</h1>
                             <div>
                                 Veröffentlicht am
                                 <time dateTime={post.sys.createdAt}>
-                                    {new Date(
-                                        post.sys.createdAt
-                                    ).toLocaleDateString()}
+                                    {new Date(post.sys.createdAt).toLocaleDateString()}
                                 </time>
                                 von Markus Sommer
                                 <br />
                                 Letzte Änderung
-                                <time dateTime="post.sys.updatedAt">
-                                    {new Date(
-                                        post.sys.updatedAt
-                                    ).toLocaleDateString()}
+                                <time dateTime='post.sys.updatedAt'>
+                                    {new Date(post.sys.updatedAt).toLocaleDateString()}
                                 </time>
                             </div>
-                            <p className="description">
-                                {post.fields.description}
-                            </p>
+                            <p className='description'>{post.fields.description}</p>
                             <ReactMarkdown source={post.fields.articleBody} />
                         </article>
                     </div>
@@ -74,9 +67,7 @@ const Post: NextPage<Props> = ({ post }) => {
 // @ts-ignore
 Post.getInitialProps = async ({ query }) => {
     const { slug } = query;
-    const post = await import(`~/.contentful/blog/${slug}.json`).catch(
-        () => null
-    );
+    const post = await import(`~/.content/blog/${slug}.json`).catch(() => null);
     return { post };
 };
 
