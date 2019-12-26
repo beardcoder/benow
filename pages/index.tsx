@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import * as React from 'react';
-import { reposFetch, snippetsFetch } from '~/api/github';
 import Blog from '~/components/Blog';
 import Footer from '~/components/Footer';
 import { GithubItem } from '~/types';
@@ -19,10 +18,10 @@ type Props = {
 // @ts-ignore
 const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
     return (
-        <Layout title="Home | Next.js + TypeScript Example">
-            <div className="container">
+        <Layout title='Home | Next.js + TypeScript Example'>
+            <div className='container'>
                 <PageHeader />
-                <main className="main">
+                <main className='main'>
                     <Personal />
                     <Projects repos={repos} snippets={snippets} />
                     <Blog posts={posts} />
@@ -43,11 +42,11 @@ const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
 
 const importPosts = async () => {
     // https://webpack.js.org/guides/dependency-management/#requirecontext
-    const articles = require('../.contentful/blog/articles.json');
+    const articles = require(`../.content/blog/articles.json`);
 
     return Promise.all(
         articles.map(async (slug: string) => {
-            const json = await import(`../.contentful/blog/${slug}.json`);
+            const json = await import(`../.content/blog/${slug}.json`);
             return { ...json };
         })
     );
@@ -55,18 +54,8 @@ const importPosts = async () => {
 
 // @ts-ignore
 IndexPage.getInitialProps = async () => {
-    const repos = await reposFetch()
-        .then((data: GithubItem[]) => data)
-        .catch(e => {
-            console.error(e);
-        });
-
-    const snippets = await snippetsFetch()
-        .then((data: GithubItem[]) => data)
-        .catch(e => {
-            console.error(e);
-        });
-
+    const repos = await require(`../.content/github/repos.json`);
+    const snippets = await require(`../.content/github/snippets.json`);
     const posts = await importPosts();
 
     return { repos, snippets, posts };

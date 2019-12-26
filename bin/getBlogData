@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const contentful = require('contentful');
+const config = require('../config.json');
+const storageDir = path.resolve(`${config.folder.content}/${config.folder.blog}`);
+// use default environment config for convenience
+// these will be set via `env` property in nuxt.config.js
+
+const client = contentful.createClient({
+    space: config.contentful.space_id,
+    accessToken: config.contentful.token,
+});
+
+const blog = client
+    .getEntries({
+        content_type: 'post',
+        order: '-sys.createdAt',
+    })
+    .then(response => response)
+    .catch(() => {
+        console.error({ statusCode: 404, message: 'Blog not found' });
+    });
+
+fs.mkdirSync(storageDir, { recursive: true });
+
+blog.then(res => {
+    const articles = [];
+    for (const item of res.items) {
+        const { slug } = item.fields;
+        // @ts-ignore
+        articles.push(slug);
+        fs.writeFile(`${storageDir}/${slug}.json`, JSON.stringify(item), function(err) {
+            if (err) {
+                return console.log(err);
+            }
+            console.log(`The file ${storageDir}/${slug}.json was saved!`);
+        });
+    }
+    fs.writeFile(`${storageDir}/articles.json`, JSON.stringify(articles), function(err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(`The file ${storageDir}/articles.json was saved!`);
+    });
+});

@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+const unfetch = require('isomorphic-unfetch');
+const fs = require('fs');
+const path = require('path');
+const config = require('../config.json');
+const storageDir = path.resolve(`${config.folder.content}/${config.folder.github}`);
+
+function reposFetch() {
+    return unfetch(`https://api.github.com/users/${config.github.username}/repos`, {
+        headers: {
+            Authorization: `token ${config.github.token}`,
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => res.json())
+        .then(data => {
+            // Only get non forked repos
+            const resReduce = data.filter(item => {
+                return !item.fork;
+            });
+
+            return resReduce.map(item => {
+                return {
+                    id: item.id,
+                    description: item.description,
+                    full_name: item.full_name,
+                    html_url: item.html_url,
+                };
+            });
+        });
+}
+
+function snippetsFetch() {
+    return unfetch(`https://api.github.com/users/${config.github.username}/gists`, {
+        headers: {
+            Authorization: `token ${config.github.token}`,
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(res => res.json())
+        .then(data =>
+            data.map(item => {
+                return {
+                    id: item.id,
+                    description: item.description,
+                    html_url: item.html_url,
+                };
+            })
+        );
+}
+
+fs.mkdirSync(storageDir, { recursive: true });
+
+reposFetch().then(res => {
+    fs.writeFile(`${storageDir}/repos.json`, JSON.stringify(res), function(err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(`The file ${storageDir}/repos.json was saved!`);
+    });
+});
+
+snippetsFetch().then(res => {
+    fs.writeFile(`${storageDir}/snippets.json`, JSON.stringify(res), function(err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(`The file ${storageDir}/snippets.json was saved!`);
+    });
+});

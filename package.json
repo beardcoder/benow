@@ -3,10 +3,10 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "next",
-        "build": "yarn run generate:blog && next build",
+        "build": "yarn run generate:data && next build",
         "export": "next build && next export",
         "start": "next start",
-        "generate:blog": "node ./helpers/getBlogData.js",
+        "generate:data": "./bin/getGithubData && ./bin/getBlogData",
         "type-check": "tsc"
     },
     "dependencies": {
@@ -30,7 +30,12 @@
         "@types/react-dom": "^16.9.4",
         "@types/webpack-env": "^1.14.1",
         "@zeit/next-css": "^1.0.1",
+        "babel-eslint": "^10.0.3",
         "cssnano": "^4.1.10",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.8.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "eslint-plugin-react": "^7.17.0",
         "next-images": "^1.2.0",
         "postcss-css-variables": "^0.14.0",
         "postcss-import": "^12.0.1",
