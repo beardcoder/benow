@@ -59,3 +59,8 @@
 .backLink:hover:after {
     transform: scale(0);
 }
+
+.backLinkFooter {
+    bottom: auto;
+    top: -60px;
+}

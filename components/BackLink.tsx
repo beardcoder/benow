@@ -3,12 +3,18 @@ import React from 'react';
 
 import css from './Backlink.module.css';
 
-interface Props {}
+interface Props {
+    footer?: boolean;
+}
 
-const BackLink: React.FC<Props> = () => {
+const BackLink: React.FC<Props> = ({ footer }) => {
     return (
         <Link href="/">
-            <a className={css.backLink}>
+            <a
+                className={[css.backLink, css.backLinkFooter ?? footer].join(
+                    ' '
+                )}
+            >
                 <span className={css.backLinkText}>Zurück</span>
             </a>
         </Link>

@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import BackLink from '~/components/BackLink';
+import Footer from '~/components/Footer';
 import Layout from '~/components/Layout';
 
 import css from './[slug].module.css';
@@ -14,7 +15,7 @@ type Props = {
 const Post: NextPage<Props> = ({ post }) => {
     return (
         <Layout title="Home | Next.js + TypeScript Example">
-            <div>
+            <>
                 <header className={css.header}>
                     <div className={css.headerBackground}>
                         <div role="presentation" className="backgroundImage" />
@@ -58,15 +59,14 @@ const Post: NextPage<Props> = ({ post }) => {
                             <p className="description">
                                 {post.fields.description}
                             </p>
-                            <div>
-                                <ReactMarkdown
-                                    source={post.fields.articleBody}
-                                />
-                            </div>
+                            <ReactMarkdown source={post.fields.articleBody} />
                         </article>
                     </div>
+                    <Footer>
+                        <BackLink footer />
+                    </Footer>
                 </div>
-            </div>
+            </>
         </Layout>
     );
 };
