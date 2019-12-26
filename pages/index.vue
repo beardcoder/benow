@@ -69,7 +69,12 @@
             };
         }
 
-        async asyncData() {
+        async asyncData({ $axios, $payloadURL, route }) {
+            if (process.static && process.client && $payloadURL) {
+                const payload = await $axios.$get($payloadURL(route));
+                return payload;
+            }
+
             const repos = require('@/.content/github/repos.json');
             const snippets = require('@/.content/github/snippets.json');
             const posts = await importPosts();

@@ -87,7 +87,12 @@
             };
         }
 
-        async asyncData({ params }) {
+        async asyncData({ $axios, $payloadURL, route, params }) {
+            if (process.static && process.client && $payloadURL) {
+                const payload = await $axios.$get($payloadURL(route));
+                return payload;
+            }
+
             const post = await import(`@/.content/blog/${params.slug}.json`);
             return { post: { ...post } };
         }

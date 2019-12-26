@@ -88,12 +88,14 @@ const config: Configuration = {
      */
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
+        '@nuxtjs/axios',
         'nuxt-webfontloader',
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
         '@nuxtjs/pwa',
+        'nuxt-payload-extractor',
     ],
 
     /**
