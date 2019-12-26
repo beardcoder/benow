@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import css from './Backlink.module.css';
+import css from './BackLink.module.css';
 
 interface Props {
     footer?: boolean;
