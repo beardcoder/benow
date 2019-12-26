@@ -11,14 +11,19 @@ const BackLink: React.FC<Props> = ({ footer }) => {
     return (
         <Link href="/">
             <a
-                className={[css.backLink, css.backLinkFooter ?? footer].join(
-                    ' '
-                )}
+                className={[
+                    css.backLink,
+                    footer ? css.backLinkFooter : null
+                ].join(' ')}
             >
                 <span className={css.backLinkText}>Zurück</span>
             </a>
         </Link>
     );
+};
+
+BackLink.defaultProps = {
+    footer: false
 };
 
 export default BackLink;
