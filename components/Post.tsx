@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { IPost } from '~/types';
 
 import Button from './Button';
@@ -14,12 +15,13 @@ const Post: React.FunctionComponent<Props> = ({ post }) => {
     return (
         <Card className={css.article}>
             <div className={css.image}>
-                <img
+                <LazyLoadImage
                     src={`${post?.fields?.image?.fields.file.url}?fm=webp&w=600&h=337`}
+                    alt='Article Bild'
+                    title={post.fields.headline}
+                    width={600}
+                    height={337}
                     className={css.articleImage}
-                    alt="Article image"
-                    width="600"
-                    height="337"
                 />
             </div>
             <div className={css.body}>
@@ -33,10 +35,9 @@ const Post: React.FunctionComponent<Props> = ({ post }) => {
                 <Link
                     href={{
                         pathname: '/blog/[slug]',
-                        query: { slug: post.fields.slug }
+                        query: { slug: post.fields.slug },
                     }}
-                    as={`/blog/${post.fields.slug}`}
-                >
+                    as={`/blog/${post.fields.slug}`}>
                     <Button>Zum Post</Button>
                 </Link>
             </div>

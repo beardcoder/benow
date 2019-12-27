@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import * as React from 'react';
 import Blog from '~/components/Blog';
+import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
 import { GithubItem } from '~/types';
 
@@ -20,6 +21,7 @@ const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
         <Layout title='Home | Next.js + TypeScript Example'>
             <div className='container'>
                 <PageHeader />
+                <Contact />
                 <main className='main'>
                     <Personal />
                     <Projects repos={repos} snippets={snippets} />
