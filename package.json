@@ -28,7 +28,7 @@
     },
     "devDependencies": {
         "@contentful/rich-text-types": "^13.4.0",
-        "@nuxt/types": "^0.5.7",
+        "@nuxt/types": "^0.5.9",
         "@nuxt/typescript": "^2.8.1",
         "@nuxt/typescript-build": "^0.5.3",
         "@nuxt/typescript-runtime": "^0.3.3",
