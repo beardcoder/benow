@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import * as React from 'react';
 import Blog from '~/components/Blog';
 import Contact from '~/components/Contact';
@@ -18,7 +19,12 @@ type Props = {
 
 const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
     return (
-        <Layout title='Home | Next.js + TypeScript Example'>
+        <Layout>
+            <NextSeo 
+                title='Moderne Web Technologieren, Design und Frontendartist 🚀 — Markus Sommer' 
+                description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
+                canonical="https://creativeworkspace.de/"
+            />
             <div className='container'>
                 <PageHeader />
                 <Contact />

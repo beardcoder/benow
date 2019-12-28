@@ -10,10 +10,11 @@ type Props = {
     rel?: string;
     target?: string;
     onClick?: any;
+    type?: string;
 };
 
 const Button: React.FunctionComponent<Props> = React.forwardRef(
-    ({ children, secondary, href, onClick, rel, target, tagName }, ref) => {
+    ({ children, secondary, href, onClick, rel, target, tagName, type }, ref) => {
         const CompTagName = tagName;
 
         return (
@@ -21,12 +22,10 @@ const Button: React.FunctionComponent<Props> = React.forwardRef(
                 ref={ref}
                 href={href}
                 onClick={onClick}
+                type={type}
                 rel={rel}
                 tatget={target}
-                className={[css.btn, secondary ? css.btnSecondary : ''].join(
-                    ' '
-                )}
-            >
+                className={[css.btn, secondary ? css.btnSecondary : ''].join(' ')}>
                 {children}
             </CompTagName>
         );
@@ -35,7 +34,7 @@ const Button: React.FunctionComponent<Props> = React.forwardRef(
 
 Button.defaultProps = {
     secondary: false,
-    tagName: 'a'
+    tagName: 'a',
 };
 
 export default Button;

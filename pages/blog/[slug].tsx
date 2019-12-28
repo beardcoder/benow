@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { BlogJsonLd, NextSeo } from 'next-seo';
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import BackLink from '~/components/BackLink';
@@ -14,8 +15,22 @@ type Props = {
 // @ts-ignore
 const Post: NextPage<Props> = ({ post }) => {
     return (
-        <Layout title='Home | Next.js + TypeScript Example'>
+        <Layout>
             <>
+                <NextSeo
+                    title={`${post.fields.headline} — Markus Sommer`}
+                    description={post.fields.description}
+                    canonical={`https://creativeworkspace.de/blog/${post.slug}`}
+                />
+                <BlogJsonLd
+                    url={`https://creativeworkspace.de/blog/${post.slug}`}
+                    title={post.fields.headline}
+                    images={[post.fields.image.fields.file.url + '?fm=webp']}
+                    datePublished={post.sys.createdAt}
+                    dateModified={post.sys.updatedAt}
+                    authorName='Markus Sommer'
+                    description={post.fields.description}
+                />
                 <header className={css.header}>
                     <div className={css.headerBackground}>
                         <div role='presentation' className='backgroundImage' />
