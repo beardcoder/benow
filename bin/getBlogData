@@ -3,14 +3,13 @@
 const fs = require('fs');
 const path = require('path');
 const contentful = require('contentful');
-const config = require('../config.json');
-const storageDir = path.resolve(`${config.folder.content}/${config.folder.blog}`);
+const blogDir = path.resolve('./.content/blog');
 // use default environment config for convenience
 // these will be set via `env` property in nuxt.config.js
 
 const client = contentful.createClient({
-    space: config.contentful.space_id,
-    accessToken: config.contentful.token,
+    space: '22eos54kli61',
+    accessToken: 'tpfrb9QLpT370g5_OuEuEMCURteRzZbJ8bX_aqeevxE',
 });
 
 const blog = client
@@ -23,7 +22,7 @@ const blog = client
         console.error({ statusCode: 404, message: 'Blog not found' });
     });
 
-fs.mkdirSync(storageDir, { recursive: true });
+fs.mkdirSync(blogDir, { recursive: true });
 
 blog.then(res => {
     const articles = [];
@@ -31,17 +30,17 @@ blog.then(res => {
         const { slug } = item.fields;
         // @ts-ignore
         articles.push(slug);
-        fs.writeFile(`${storageDir}/${slug}.json`, JSON.stringify(item), function(err) {
+        fs.writeFile(`${blogDir}/${slug}.json`, JSON.stringify(item), function(err) {
             if (err) {
                 return console.log(err);
             }
-            console.log(`The file ${storageDir}/${slug}.json was saved!`);
+            console.log(`The file ${blogDir}/${slug}.json was saved!`);
         });
     }
-    fs.writeFile(`${storageDir}/articles.json`, JSON.stringify(articles), function(err) {
+    fs.writeFile(`${blogDir}/articles.json`, JSON.stringify(articles), function(err) {
         if (err) {
             return console.log(err);
         }
-        console.log(`The file ${storageDir}/articles.json was saved!`);
+        console.log(`The file ${blogDir}/articles.json was saved!`);
     });
 });

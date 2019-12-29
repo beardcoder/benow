@@ -6,16 +6,21 @@ module.exports = {
     },
     parserOptions: {
         parser: 'babel-eslint',
-        sourceType: 'module',
-        ecmaVersion: 2020,
         ecmaFeatures: {
             legacyDecorators: true,
         },
     },
-    extends: ['prettier', 'prettier/react'],
+    extends: [
+        '@nuxtjs',
+        'prettier',
+        'prettier/vue',
+        'plugin:prettier/recommended',
+        'plugin:nuxt/recommended',
+    ],
     plugins: ['prettier'],
     // add your custom rules here
     rules: {
         'no-console': 'off',
+        'vue/no-v-html': 'off',
     },
 };
