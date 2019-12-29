@@ -1,5 +1,5 @@
 <template>
-    <li v-in-viewport.once class="skill">
+    <li class="skill">
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
             <div :style="`margin-left: ${value}%`" class="skillPercentNumber">{{ value }}</div>

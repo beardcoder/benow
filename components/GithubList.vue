@@ -5,7 +5,6 @@
             <li
                 v-for="(item, index) in items"
                 :key="item.id"
-                v-in-viewport.once
                 :class="{ githubItemHidden: !open && index >= 6 }"
                 class="githubItem"
             >

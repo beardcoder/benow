@@ -1,5 +1,5 @@
 <template>
-    <card v-if="post" v-in-viewport.once class="article">
+    <card v-if="post" class="article">
         <div class="image">
             <img
                 v-lazy="`${post.fields.image.fields.file.url}?fm=webp&w=600&h=337`"
