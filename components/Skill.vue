@@ -58,10 +58,6 @@
         transition: width 0.8s;
     }
 
-    .skill:not(.in-viewport) .skillPercentIndicator {
-        width: 0 !important;
-    }
-
     .skillPercentNumber {
         background: #404040;
         width: 26px;
@@ -85,9 +81,5 @@
         border-top: 13px solid #404040;
         transform: translateX(-20px);
         bottom: -4px;
-    }
-
-    .skill:not(.in-viewport) .skillPercentNumber {
-        margin-left: 20% !important;
     }
 </style>

@@ -42,12 +42,13 @@
 
     .contactMe__message {
         display: inline;
+        color: var(--color__font);
     }
 
     .typed-element {
         position: relative;
         display: inline-block;
-        background-color: #555;
+        background-color: #3e3e3e;
         vertical-align: bottom;
         padding: 10px 20px;
         width: 200px;
@@ -65,7 +66,7 @@
         height: 0;
         border-top: 15px solid transparent;
         border-bottom: 15px solid transparent;
-        border-left: 15px solid #555;
+        border-left: 15px solid #3e3e3e;
     }
 
     .contactMe__image {

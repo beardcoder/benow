@@ -71,7 +71,6 @@ const config: Configuration = {
     plugins: [
         '@/plugins/lazyload',
         '@/plugins/vue-typed',
-        { src: '@/plugins/viewport-directive', mode: 'client' },
         '@/plugins/jsonld',
         '@/plugins/markdown',
     ],
