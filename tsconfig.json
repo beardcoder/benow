@@ -1,24 +1,29 @@
 {
     "compilerOptions": {
-        "experimentalDecorators": true,
-        "target": "esnext",
+        "allowJs": true,
+        "alwaysStrict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "lib": ["dom", "es2017"],
         "module": "esnext",
         "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "strictPropertyInitialization": false,
-        "lib": ["esnext", "esnext.asynciterable", "dom"],
-        "esModuleInterop": true,
-        "allowJs": true,
-        "sourceMap": true,
-        "strict": true,
         "noEmit": true,
-        "noImplicitAny": false,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "target": "esnext",
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "baseUrl": ".",
         "paths": {
             "~/*": ["./*"],
             "@/*": ["./*"]
-        },
-        "types": ["@types/node", "@nuxt/types", "@nuxtjs/axios", "webpack-env"]
+        }
     },
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "include": ["**/*.ts", "**/*.tsx", "helpers/getBlogData.js"]
 }
