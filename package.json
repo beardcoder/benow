@@ -16,7 +16,6 @@
     "dependencies": {
         "@nuxtjs/axios": "^5.9.0",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
-        "@types/node": "13.1.1",
         "command-line-args": "^5.1.1",
         "isomorphic-unfetch": "^3.0.0",
         "nuxt": "^2.11",
@@ -44,7 +43,6 @@
         "@types/highlight.js": "^9.12.3",
         "@types/markdown-it": "^0.0.9",
         "@types/rellax": "^1.7.2",
-        "@types/webpack-env": "^1.14.1",
         "babel-eslint": "^10.0.3",
         "contentful": "^7.11.3",
         "contentful-management": "^5.12.0",
