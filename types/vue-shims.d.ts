@@ -4,4 +4,3 @@ declare module '*.vue' {
 }
 
 declare module 'markdown-it-link-target';
-declare module 'vue-typed-js';

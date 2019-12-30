@@ -33,7 +33,6 @@
     };
 
     @Component({
-        name: 'Index',
         components: {
             ContactMe,
             PHeader,
@@ -47,12 +46,16 @@
         snippets;
         repos;
         posts;
+        browserIsReady = false;
 
         mounted() {
             if (window.location.hash) {
                 const elem = document.getElementById(window.location.hash.replace('#', ''));
                 if (elem) elem.scrollIntoView();
             }
+            setTimeout(() => {
+                this.browserIsReady = true;
+            }, 5000);
         }
 
         head() {

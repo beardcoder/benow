@@ -1,9 +1,11 @@
 <template>
     <div class="contactMe">
         <a href="mailto:creativeworkspace@sommer-online.xyz">
-            <vue-typed-js :strings="['Scheib mich an! <br /> Frong kost nix.']">
-                <div class="contactMe__message typing"></div>
-            </vue-typed-js>
+            <div class="contactMe__message">
+                Scheib mich an!
+                <br />
+                Frong kost nix.
+            </div>
             <div class="contactMe__image">
                 <img
                     src="/images/markus_sommer--square.jpg"
@@ -41,11 +43,7 @@
     }
 
     .contactMe__message {
-        display: inline;
         color: var(--color__font);
-    }
-
-    .typed-element {
         position: relative;
         display: inline-block;
         background-color: #3e3e3e;

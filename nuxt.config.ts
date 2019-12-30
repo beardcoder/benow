@@ -70,7 +70,6 @@ const config: Configuration = {
      */
     plugins: [
         '@/plugins/lazyload',
-        '@/plugins/vue-typed',
         '@/plugins/jsonld',
         '@/plugins/markdown',
         '@/plugins/vue-observe-visibility',
