@@ -73,6 +73,7 @@ const config: Configuration = {
         '@/plugins/vue-typed',
         '@/plugins/jsonld',
         '@/plugins/markdown',
+        '@/plugins/vue-observe-visibility',
     ],
     /*
      ** Nuxt.js dev-modules

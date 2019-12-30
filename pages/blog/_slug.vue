@@ -30,21 +30,22 @@
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import LazyHydrate from 'vue-lazy-hydration';
     import { Jsonld } from 'nuxt-jsonld';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
+    import Shape from '@/components/Shape.vue';
+    import BackLink from '@/components/BackLink.vue';
+    import BlogHeader from '@/components/BlogHeader.vue';
+    import PFooter from '@/components/PFooter.vue';
 
     @Jsonld
     @Component({
         name: 'Slug',
         components: {
-            LazyHydrate,
-            Shape: () => import(/* webpackChunkName: "article" */ '@/components/Shape.vue'),
-            BackLink: () => import(/* webpackChunkName: "article" */ '@/components/BackLink.vue'),
-            BlogHeader: () =>
-                import(/* webpackChunkName: "article" */ '@/components/BlogHeader.vue'),
-            PFooter: () => import(/* webpackChunkName: "article" */ '@/components/PFooter.vue'),
+            Shape,
+            BackLink,
+            BlogHeader,
+            PFooter,
         },
     })
     export default class Slug extends Vue {

@@ -1,5 +1,13 @@
 <template>
-    <li class="skill">
+    <li
+        v-observe-visibility="{
+            callback: visibilityChanged,
+            throttle: 300,
+            once: true,
+        }"
+        class="skill"
+        :class="{ 'skill--visible': isVisible, 'skill--notVisible': !isVisible }"
+    >
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
             <div :style="`margin-left: ${value}%`" class="skillPercentNumber">{{ value }}</div>
@@ -16,6 +24,11 @@
     export default class Skill extends Vue {
         @Prop() title;
         @Prop({ default: 0, type: Number }) value;
+        isVisible = false;
+
+        visibilityChanged(isVisible) {
+            this.isVisible = isVisible;
+        }
     }
 </script>
 
@@ -58,6 +71,10 @@
         transition: width 0.8s;
     }
 
+    .skill.skill--notVisible .skillPercentIndicator {
+        width: 0 !important;
+    }
+
     .skillPercentNumber {
         background: #404040;
         width: 26px;
@@ -81,5 +98,9 @@
         border-top: 13px solid #404040;
         transform: translateX(-20px);
         bottom: -4px;
+    }
+
+    .skill.skill--notVisible .skillPercentNumber {
+        margin-left: 20% !important;
     }
 </style>

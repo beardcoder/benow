@@ -1,31 +1,24 @@
 <template>
     <div class="container">
-        <v-lazy ssr-only>
-            <p-header />
-        </v-lazy>
+        <p-header />
         <main class="main">
-            <v-lazy when-visible>
-                <personal />
-            </v-lazy>
-            <v-lazy when-visible>
-                <projects :repos="repos" :snippets="snippets" />
-            </v-lazy>
-            <v-lazy when-visible>
-                <blog :posts="posts" />
-            </v-lazy>
+            <personal />
+            <projects :repos="repos" :snippets="snippets" />
+            <blog :posts="posts" />
         </main>
-        <v-lazy when-idle>
-            <contact-me />
-        </v-lazy>
-        <v-lazy ssr-only>
-            <p-footer />
-        </v-lazy>
+        <contact-me />
+        <p-footer />
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import VLazy from 'vue-lazy-hydration';
+    import ContactMe from '@/components/ContactMe.vue';
+    import PHeader from '@/components/PHeader.vue';
+    import Projects from '@/components/Projects.vue';
+    import Personal from '@/components/Personal.vue';
+    import Blog from '@/components/Blog.vue';
+    import PFooter from '@/components/PFooter.vue';
 
     const importPosts = () => {
         // https://webpack.js.org/guides/dependency-management/#requirecontext
@@ -42,13 +35,12 @@
     @Component({
         name: 'Index',
         components: {
-            VLazy,
-            ContactMe: () => import(/* webpackChunkName: "home" */ '@/components/ContactMe.vue'),
-            PHeader: () => import(/* webpackChunkName: "home" */ '@/components/PHeader.vue'),
-            Projects: () => import(/* webpackChunkName: "home" */ '@/components/Projects.vue'),
-            Personal: () => import(/* webpackChunkName: "home" */ '@/components/Personal.vue'),
-            Blog: () => import(/* webpackChunkName: "home" */ '@/components/Blog.vue'),
-            PFooter: () => import(/* webpackChunkName: "home" */ '@/components/PFooter.vue'),
+            ContactMe,
+            PHeader,
+            Projects,
+            Personal,
+            Blog,
+            PFooter,
         },
     })
     export default class Index extends Vue {
