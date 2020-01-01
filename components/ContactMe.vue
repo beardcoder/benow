@@ -1,10 +1,12 @@
 <template>
-    <div class="contactMe">
+    <div ref="contactMe" class="contactMe">
         <a href="mailto:creativeworkspace@sommer-online.xyz">
             <div class="contactMe__message">
-                Scheib mich an!
-                <br />
-                Frong kost nix.
+                <div class="contactMe__text">
+                    Scheib mich an!
+                    <br />
+                    Frong kost nix.
+                </div>
             </div>
             <div class="contactMe__image">
                 <img
@@ -25,7 +27,26 @@
     import { Component, Vue } from 'nuxt-property-decorator';
 
     @Component
-    export default class ContactMe extends Vue {}
+    export default class ContactMe extends Vue {
+        activeClass = 'contactMe--fold';
+        handleScroll() {
+            if (window.pageYOffset >= 50) {
+                // @ts-ignore
+                this.$refs.contactMe.classList.add(this.activeClass);
+            } else {
+                // @ts-ignore
+                this.$refs.contactMe.classList.remove(this.activeClass);
+            }
+        }
+
+        mounted() {
+            document.addEventListener('scroll', this.handleScroll, true);
+        }
+
+        destroyed() {
+            document.removeEventListener('scroll', this.handleScroll, true);
+        }
+    }
 </script>
 
 <style scoped>
@@ -48,11 +69,22 @@
         display: inline-block;
         background-color: #3e3e3e;
         vertical-align: bottom;
-        padding: 10px 20px;
         width: 200px;
+        transition: width 0.2s 0.1s;
         height: 80px;
         border-radius: 4px;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        overflow: hidden;
+    }
+
+    .contactMe--fold .contactMe__message {
+        width: 0;
+    }
+
+    .contactMe__text {
+        padding: 10px 20px;
+        display: block;
+        width: 200px;
     }
 
     .contactMe__message:before {
