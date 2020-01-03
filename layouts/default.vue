@@ -7,16 +7,12 @@
 <script lang="ts">
     import FontFaceObserver from 'fontfaceobserver';
     import Vue from 'vue';
-    import loadCSS from '../node_modules/fg-loadcss/dist/loadCSS.js';
 
     const fontA = new FontFaceObserver('Roboto Slab');
     const fontB = new FontFaceObserver('Maven Pro');
 
     export default Vue.extend({
         mounted() {
-            loadCSS(
-                '//fonts.googleapis.com/css?family=Maven+Pro:400,700|Roboto+Slab:300,400&display=swap'
-            );
             Promise.all([fontA.load(), fontB.load()]).then(function() {
                 document.body.classList.add('fonts--loaded');
             });
