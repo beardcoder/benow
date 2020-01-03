@@ -14,7 +14,7 @@
         "generate:github": "./bin/getGithubData"
     },
     "dependencies": {
-        "@nuxtjs/axios": "^5.9.0",
+        "@nuxtjs/axios": "^5.9.2",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
         "command-line-args": "^5.1.1",
         "isomorphic-unfetch": "^3.0.0",
