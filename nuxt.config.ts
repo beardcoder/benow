@@ -31,12 +31,6 @@ const config: Configuration = {
         ],
         link: [
             {
-                rel: 'preload stylesheet',
-                as: 'style',
-                href:
-                    '//fonts.googleapis.com/css?family=Maven+Pro:400,700|Roboto+Slab:300,400&display=swap',
-            },
-            {
                 hid: 'canonical',
                 rel: 'canonical',
                 href: 'https://creativeworkspace.de',
