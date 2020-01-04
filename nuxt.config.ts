@@ -43,6 +43,11 @@ const config: Configuration = {
             },
             {
                 rel: 'preconnect',
+                href: 'https://d33wubrfki0l68.cloudfront.net/',
+                crossorigin: true,
+            },
+            {
+                rel: 'preconnect',
                 href: 'https://fonts.googleapis.com',
                 crossorigin: true,
             },
