@@ -93,6 +93,7 @@ const config: Configuration = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
+        'nuxt-webfontloader',
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
@@ -159,6 +160,12 @@ const config: Configuration = {
         defaultImageLoader: 'img-loader',
         webp: {
             quality: 85,
+        },
+    },
+
+    webfontloader: {
+        google: {
+            families: ['Maven+Pro:400,700', 'Roboto+Slab:300,400&display=swap'],
         },
     },
 
