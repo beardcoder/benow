@@ -16,9 +16,6 @@
     "dependencies": {
         "@nuxtjs/axios": "^5.9.2",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
-        "command-line-args": "^5.1.1",
-        "fg-loadcss": "^2.1.0",
-        "fontfaceobserver": "^2.1.0",
         "isomorphic-unfetch": "^3.0.0",
         "lazy-hydration": "^1.0.4",
         "nuxt": "^2.11",
@@ -50,7 +47,6 @@
         "@types/rellax": "^1.7.2",
         "babel-eslint": "^10.0.3",
         "contentful": "^7.11.3",
-        "contentful-management": "^5.12.0",
         "cross-env": "^6.0.3",
         "cssnano": "^4.1.10",
         "eslint": "^6.8.0",
