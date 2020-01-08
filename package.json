@@ -75,6 +75,7 @@
     },
     "husky": {
         "hooks": {
+            "pre-commit": "npm run lint",
             "post-merge": "(git-branch-is master && npm version minor || (git-branch-is dev && npm --no-git-tag-version version patch)"
         }
     }
