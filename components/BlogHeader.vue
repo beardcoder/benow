@@ -1,9 +1,11 @@
 <template>
-    <header class="wrapper">
-        <div class="backgroundWrapper">
-            <div class="backgroundParallax rellax" data-rellax-speed="-5">
-                <div v-lazy:background-image="post.image" role="presentation" class="background" />
-            </div>
+    <header v-if="post" class="wrapper">
+        <div class="background">
+            <div
+                :style="`background-image: url(${post.fields.image.fields.file.url}?fm=webp)`"
+                role="presentation"
+                class="background__image"
+            />
         </div>
         <back-link />
     </header>
@@ -11,14 +13,14 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import BackLink from '~/components/BackLink.vue';
-    import { Post } from '~/types';
+    import BackLink from '@/components/BackLink.vue';
+    import { IPost } from '@/types/contentful';
 
     @Component({
         components: { BackLink },
     })
     export default class BlogHeader extends Vue {
-        @Prop() post!: Post;
+        @Prop() post: IPost | undefined;
     }
 </script>
 
@@ -39,8 +41,8 @@
         }
     }
 
-    .backgroundWrapper,
-    .backgroundParallax {
+    .background,
+    .background__parallax {
         position: absolute;
         top: 0;
         right: 0;
@@ -49,7 +51,7 @@
         overflow: hidden;
     }
 
-    .background {
+    .background__image {
         background-position: center center;
         background-size: cover;
         position: absolute;

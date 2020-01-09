@@ -1,18 +1,8 @@
-import path from 'path';
-import glob from 'glob';
+import { Configuration } from '@/node_modules/@nuxt/types';
 
-// in the articles directory
-const files = glob.sync('**/*.md', { cwd: 'content/articles' });
+require('dotenv').config();
 
-// We define a function to trim the '.md' from the filename
-// and return the correct path.
-// This function will be used later
-function getSlugs(post) {
-    const slug = post.substr(0, post.lastIndexOf('.'));
-    return `/article/${slug}`;
-}
-
-const config = {
+const config: Configuration = {
     mode: 'universal',
 
     /*
@@ -36,7 +26,7 @@ const config = {
                 hid: 'description',
                 name: 'description',
                 content:
-                    'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologieren, Design und Frontend',
+                    'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend',
             },
         ],
         link: [
@@ -46,47 +36,24 @@ const config = {
                 href: 'https://creativeworkspace.de',
             },
             {
-                rel: 'shortcut icon',
-                type: 'image/x-icon',
-                href: '/favicon.ico',
-            },
-            {
-                rel: 'apple-touch-icon',
-                sizes: '180x180',
-                href: '/apple-touch-icon.png?v=NmP44eAp5E',
-            },
-            {
-                rel: 'icon',
-                type: 'image/png',
-                sizes: '32x32',
-                href: '/favicon-32x32.png?v=NmP44eAp5E',
-            },
-            {
-                rel: 'icon',
-                type: 'image/png',
-                sizes: '16x16',
-                href: '/favicon-16x16.png?v=NmP44eAp5E',
-            },
-            {
-                rel: 'manifest',
-                href: '/site.webmanifest?v=NmP44eAp5E',
-            },
-            {
-                rel: 'mask-icon',
-                href: '/safari-pinned-tab.svg?v=NmP44eAp5E',
-                color: '#202025',
+                rel: 'preconnect',
+                href: 'https://d33wubrfki0l68.cloudfront.net/',
+                crossorigin: true,
             },
             {
                 rel: 'preconnect',
                 href: 'https://fonts.googleapis.com',
+                crossorigin: true,
             },
             {
                 rel: 'preconnect',
                 href: 'https://fonts.gstatic.com',
+                crossorigin: true,
             },
             {
                 rel: 'preconnect',
                 href: 'https://www.google-analytics.com',
+                crossorigin: true,
             },
         ],
     },
@@ -94,21 +61,23 @@ const config = {
     /*
      ** Customize the progress-bar color
      */
-    loading: { color: '#32f0d1', height: '4px' },
+    loading: {
+        color: '#121212',
+        height: '5px',
+    },
 
     /*
      ** Global CSS
      */
-    css: ['sanitize.css'],
+    css: ['sanitize.css', '@/assets/css/variables.css', '@/assets/css/global.css'],
     /*
      ** Plugins to load before mounting the App
      */
     plugins: [
-        { src: '~/plugins/rellax', mode: 'client' },
-        { src: '~/plugins/lazyload', mode: 'client' },
-        { src: '~/plugins/viewport-directive', mode: 'client' },
-        { src: '~/plugins/carousel', mode: 'client' },
-        { src: '~/plugins/jsonld' },
+        '@/plugins/lazyload',
+        '@/plugins/jsonld',
+        '@/plugins/markdown',
+        '@/plugins/vue-observe-visibility',
     ],
     /*
      ** Nuxt.js dev-modules
@@ -124,22 +93,36 @@ const config = {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@bazzite/nuxt-optimized-images',
         'nuxt-webfontloader',
         ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
-        '@nuxtjs/markdownit',
+        '@nuxtjs/pwa',
+        'nuxt-payload-extractor',
     ],
 
-    markdownit: {
-        injected: true,
+    /**
+     * PWA Settings
+     * See doc: https://pwa.nuxtjs.org/
+     */
+    pwa: {
+        meta: {
+            lang: 'de',
+            theme_color: '#121212',
+        },
+    },
+
+    typescript: {
+        typeCheck: {
+            eslint: true,
+        },
     },
 
     sitemap: {
         hostname: 'https://creativeworkspace.de',
         gzip: true,
+        trailingSlash: true,
     },
 
     /*
@@ -150,8 +133,25 @@ const config = {
 
     generate: {
         routes() {
-            return files.map(getSlugs);
+            const articles = require('./.content/blog/articles.json');
+
+            return articles.map((slug: string) => {
+                return {
+                    route: `/blog/${slug}/`,
+                };
+            });
         },
+    },
+
+    router: {
+        // Doc: https://nuxtjs.org/api/configuration-router/#trailingslash
+        trailingSlash: true,
+        prefetchLinks: false,
+    },
+
+    pageTransition: {
+        name: 'page',
+        mode: 'out-in',
     },
 
     optimizedImages: {
@@ -165,7 +165,7 @@ const config = {
 
     webfontloader: {
         google: {
-            families: ['Titillium+Web:300,400,700', 'Roboto+Slab:300,400&display=swap'],
+            families: ['Maven+Pro:400,700', 'Roboto+Slab:300,400&display=swap'],
         },
     },
 
@@ -174,18 +174,7 @@ const config = {
      */
     build: {
         cache: true,
-        watch: ['~/api/*'],
-        extend(config, { isClient, loaders: { vue } }) {
-            config.module.rules.push({
-                test: /\.md$/,
-                include: path.resolve(__dirname, 'content'),
-                loader: 'frontmatter-markdown-loader',
-            });
-            if (isClient) {
-                vue.transformAssetUrls.img = ['data-src', 'src'];
-                vue.transformAssetUrls.source = ['data-srcset', 'srcset'];
-            }
-        },
+        watch: ['@/api/*'],
         babel: {
             plugins: [
                 ['@babel/plugin-proposal-decorators', { legacy: true }],
@@ -197,13 +186,10 @@ const config = {
             // Install them before as dependencies with npm or yarn
             plugins: {
                 'postcss-responsive-type': {},
+                cssnano: {},
+                'postcss-css-variables': {},
             },
-            preset: {
-                // Change the postcss-preset-env settings
-                autoprefixer: {
-                    grid: true,
-                },
-            },
+            preset: {},
         },
     },
 };

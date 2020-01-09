@@ -1,5 +1,13 @@
 <template>
-    <li v-in-viewport.once class="skill">
+    <li
+        v-observe-visibility="{
+            callback: visibilityChanged,
+            throttle: 300,
+            once: true,
+        }"
+        class="skill"
+        :class="{ 'skill--visible': isVisible, 'skill--notVisible': !isVisible }"
+    >
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
             <div :style="`margin-left: ${value}%`" class="skillPercentNumber">{{ value }}</div>
@@ -12,17 +20,29 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
 
-    @Component
-    export default class Shape extends Vue {
-        @Prop() title!: string;
-        @Prop({ default: 0, type: Number }) value!: number;
+    @Component({})
+    export default class Skill extends Vue {
+        @Prop() title;
+        @Prop({ default: 0, type: Number }) value;
+        isVisible = false;
+
+        visibilityChanged(isVisible) {
+            this.isVisible = isVisible;
+        }
     }
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
+    .skill {
+        margin-bottom: 30px;
+    }
+
     .skillTitle {
         font-family: 'Roboto Slab', serif;
-        margin-bottom: -20px;
+        margin-bottom: -35px;
+        color: var(--color__font--secondary);
     }
 
     .skillPercent {
@@ -35,6 +55,7 @@
         background-color: #404040;
         height: 6px;
         margin-top: 20px;
+        border-radius: 3px;
     }
 
     .skillPercentIndicator {
@@ -46,10 +67,11 @@
         height: 6px;
         position: relative;
         top: -6px;
+        border-radius: 3px;
         transition: width 0.8s;
     }
 
-    .skill:not(.in-viewport) .skillPercentIndicator {
+    .skill.skill--notVisible .skillPercentIndicator {
         width: 0 !important;
     }
 
@@ -78,7 +100,7 @@
         bottom: -4px;
     }
 
-    .skill:not(.in-viewport) .skillPercentNumber {
+    .skill.skill--notVisible .skillPercentNumber {
         margin-left: 20% !important;
     }
 </style>

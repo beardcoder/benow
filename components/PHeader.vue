@@ -1,20 +1,11 @@
 <template>
     <header class="wrapper">
         <div class="backgroundWrapper">
-            <div class="backgroundParallax rellax" data-rellax-speed="-5">
-                <div
-                    v-lazy:background-image="`${require('~/assets/images/header.jpg?webp')}`"
-                    :style="
-                        `background-color: ${require('~/assets/images/header.jpg?lqip-colors')[0]}`
-                    "
-                    role="presentation"
-                    class="background"
-                />
-            </div>
+            <div role="presentation" class="background" />
         </div>
         <div class="headerContent">
             <h1 class="h1">
-                Webentwicker
+                Webentwickler
                 <br />
                 Frontend Artist
                 <br />
@@ -23,8 +14,7 @@
             </h1>
             <h3 class="h3">Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
-                :src="require('~/assets/images/shape2.svg')"
-                loading="lazy"
+                src="@/assets/images/shape2.svg"
                 alt="header shape"
                 width="182"
                 height="142"
@@ -37,7 +27,7 @@
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
 
-    @Component
+    @Component({})
     export default class PHeader extends Vue {}
 </script>
 
@@ -51,14 +41,7 @@
         position: relative;
     }
 
-    @media (min-width: 768px) {
-        .header {
-            background-size: cover;
-        }
-    }
-
-    .backgroundWrapper,
-    .backgroundParallax {
+    .backgroundWrapper {
         position: absolute;
         top: 0;
         right: 0;
@@ -76,6 +59,19 @@
         left: 0;
         right: 0;
         will-change: transform;
+        background-image: url('/images/header--xs.jpg');
+    }
+
+    @media (min-width: 420px) {
+        .background {
+            background-image: url('/images/header--sm.jpg');
+        }
+    }
+
+    @media (min-width: 768px) {
+        .background {
+            background-image: url('/images/header.jpg');
+        }
     }
 
     .h1 {
@@ -125,24 +121,5 @@
         width: calc(1200px + 100 * ((100vw - 420px) / 860));
         top: calc(-100px + -100 * ((100vw - 420px) / 860));
         left: calc(-600px);
-    }
-
-    .nav {
-        position: fixed;
-        z-index: 999;
-        width: 100%;
-        background: #000;
-        text-align: center;
-    }
-
-    .scrollactive-item {
-        color: #fff;
-        text-decoration: none;
-        display: inline-block;
-        padding: 10px;
-    }
-
-    .scrollactive-item.is-active {
-        color: #32f0d1;
     }
 </style>

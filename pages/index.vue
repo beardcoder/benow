@@ -3,41 +3,59 @@
         <p-header />
         <main class="main">
             <personal />
-            <projects />
+            <projects :repos="repos" :snippets="snippets" />
             <blog :posts="posts" />
         </main>
+        <contact-me />
         <p-footer />
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
-    import { namespace } from 'vuex-class';
-    import Personal from '~/components/Personal.vue';
-    import Projects from '~/components/Projects.vue';
-    import Blog from '~/components/Blog.vue';
-    import PFooter from '~/components/PFooter.vue';
-    import PHeader from '~/components/PHeader.vue';
-    import { Post } from '~/types';
+    import ContactMe from '@/components/ContactMe.vue';
+    import PHeader from '@/components/PHeader.vue';
+    import Projects from '@/components/Projects.vue';
+    import Personal from '@/components/Personal.vue';
+    import Blog from '@/components/Blog.vue';
+    import PFooter from '@/components/PFooter.vue';
 
-    const blog = namespace('blog');
+    const importPosts = () => {
+        // https://webpack.js.org/guides/dependency-management/#requirecontext
+        const articles = require('@/.content/blog/articles.json');
+
+        return Promise.all(
+            articles.map(async (slug: string) => {
+                const json = await import(`@/.content/blog/${slug}.json`);
+                return { ...json };
+            })
+        );
+    };
 
     @Component({
         components: {
+            ContactMe,
             PHeader,
-            PFooter,
             Projects,
             Personal,
             Blog,
+            PFooter,
         },
-        transition: 'slide-right',
     })
     export default class Index extends Vue {
+        snippets;
+        repos;
+        posts;
+        browserIsReady = false;
+
         mounted() {
             if (window.location.hash) {
                 const elem = document.getElementById(window.location.hash.replace('#', ''));
                 if (elem) elem.scrollIntoView();
             }
+            setTimeout(() => {
+                this.browserIsReady = true;
+            }, 5000);
         }
 
         head() {
@@ -46,15 +64,26 @@
             };
         }
 
-        @blog.State('posts') posts!: Post[];
+        async asyncData({ $axios, $payloadURL, route }) {
+            if (process.static && process.client && $payloadURL) {
+                const payload = await $axios.$get($payloadURL(route));
+                return payload;
+            }
 
-        async fetch({ store }) {
-            await Promise.all([store.dispatch('github/fetch'), store.dispatch('blog/fetch')]);
+            const repos = require('@/.content/github/repos.json');
+            const snippets = require('@/.content/github/snippets.json');
+            const posts = await importPosts();
+
+            return {
+                repos,
+                snippets,
+                posts,
+            };
         }
     }
 </script>
 
-<style>
+<style scoped>
     .main {
         position: relative;
         z-index: 20;

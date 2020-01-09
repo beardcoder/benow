@@ -1,16 +1,16 @@
 <template>
-    <div data-rellax-speed="-3" :class="{ wrapper: true, rellax: true, wrapperBottom: bottom }">
-        <div :class="{ shape: true, shapeLeft: direction === 'left' }" />
+    <div :class="{ wrapperBottom: bottom }" class="wrapper">
+        <div :class="{ shapeLeft: direction === 'left' }" class="shape" />
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
 
-    @Component
+    @Component({})
     export default class Shape extends Vue {
-        @Prop({ default: 'left' }) direction!: string;
-        @Prop({ default: false, type: Boolean }) bottom!: boolean;
+        @Prop({ default: 'left' }) direction;
+        @Prop({ default: false, type: Boolean }) bottom;
     }
 </script>
 

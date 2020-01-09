@@ -7,17 +7,20 @@
 <script lang="ts">
     import { Component, Vue } from 'nuxt-property-decorator';
 
-    @Component({
-        name: 'card',
-    })
+    @Component({})
     export default class Card extends Vue {}
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .card {
-        background-image: linear-gradient(45deg, #1c1e20, #303537);
+        background-color: var(--color__card--level-1);
         padding: 1rem;
         box-sizing: border-box;
         height: 100%;
+        position: relative;
+        border-radius: var(--border-radius);
+        overflow: hidden;
     }
 </style>

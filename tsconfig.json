@@ -4,6 +4,8 @@
         "target": "esnext",
         "module": "esnext",
         "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "strictPropertyInitialization": false,
         "lib": ["esnext", "esnext.asynciterable", "dom"],
         "esModuleInterop": true,
         "allowJs": true,

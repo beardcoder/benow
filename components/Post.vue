@@ -1,8 +1,9 @@
 <template>
-    <card class="article">
+    <card v-if="post" class="article">
         <div class="image">
             <img
-                :src="post.thumbnail"
+                v-lazy="`${post.fields.image.fields.file.url}?fm=webp&w=600&h=337`"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAFRCAQAAAACiBsCAAADSklEQVR42u3UMQ0AAAzDsJU/6SEogEo2hBzJAYyIBIBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYlAWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBVA8IDABUgzSsTgAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
                 width="600"
@@ -10,13 +11,17 @@
             />
         </div>
         <div class="body">
-            <h4>{{ post.title }}</h4>
-            <p class="description">{{ post.description }}</p>
+            <h4>{{ post.fields.headline }}</h4>
+            <time class="articleTime" :datetime="post.sys.createdAt">
+                {{ new Date(post.sys.createdAt).toLocaleDateString() }}
+            </time>
+            <p class="description">{{ post.fields.description }}</p>
         </div>
-        <div class="footer" style="text-align: right">
+        <div class="footer">
             <nuxt-link
-                :to="{ name: 'post-slug', params: { slug: post.slug } }"
-                :class="{ btn: true }"
+                :prefetch="false"
+                :to="{ name: 'blog-slug', params: { slug: post.fields.slug } }"
+                class="btn"
             >
                 Lesen
             </nuxt-link>
@@ -25,8 +30,8 @@
 </template>
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import Card from '~/components/Card.vue';
-    import { Post as PostType } from '~/types';
+    import { IPost } from '@/types/contentful';
+    import Card from '@/components/Card.vue';
 
     @Component({
         components: {
@@ -34,10 +39,40 @@
         },
     })
     export default class Post extends Vue {
-        @Prop() post!: PostType;
+        @Prop() post: IPost | undefined;
     }
 </script>
 <style scoped>
+    @import '../assets/css/variables.css';
+
+    h4 {
+        margin-bottom: 0;
+    }
+
+    time {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .article {
+        opacity: 1;
+        transition: opacity 0.5s, transform 0.8s;
+    }
+
+    .below-viewport {
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1);
+    }
+
+    .article.in-viewport {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+
+    .articleTime {
+        color: var(--color__font--secondary);
+    }
+
     .image {
         position: relative;
         padding-bottom: 56.25%;

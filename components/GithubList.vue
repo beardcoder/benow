@@ -1,30 +1,15 @@
 <template>
     <div class="github">
         <h3>{{ title }}</h3>
-        <ul class="githubList">
-            <li
+        <ul v-if="items" class="githubList">
+            <GithubItem
                 v-for="(item, index) in items"
                 :key="item.id"
-                v-in-viewport.once
-                :class="{ githubItem: true, githubItemHidden: !open && index >= 6 }"
-            >
-                <card>
-                    <div>
-                        <h4>{{ gist ? item.description : item.full_name }}</h4>
-                        <p v-if="!gist">{{ item.description }}</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <a
-                            :href="item.html_url"
-                            rel="noreferrer"
-                            target="_blank"
-                            :class="{ btn: true, btnSecondary: gist }"
-                        >
-                            {{ linkText }}
-                        </a>
-                    </div>
-                </card>
-            </li>
+                :gist="gist"
+                :open="!open && index <= 5"
+                :item="item"
+                :link-text="linkText"
+            />
         </ul>
         <div style="text-align: center;">
             <button :class="{ btn: true, btnSecondary: gist }" @click="open = !open">
@@ -36,28 +21,28 @@
 
 <script lang="ts">
     import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { GithubItem } from '~/types';
-    import Card from '~/components/Card.vue';
+    import { GithubItem as IGithubItem } from '@/types';
+    import GithubItem from '~/components/GithubItem.vue';
 
     @Component({
-        components: { Card },
-        data() {
-            return {
-                open: false,
-            };
+        components: {
+            GithubItem,
         },
     })
     export default class GithubList extends Vue {
-        @Prop() items!: GithubItem[];
-        @Prop({ default: false, type: Boolean }) gist!: boolean;
-        @Prop() linkText!: string;
-        @Prop() title!: string;
+        @Prop() items: IGithubItem[] | undefined;
+        @Prop({ default: false, type: Boolean }) gist: boolean | undefined;
+        @Prop() linkText;
+        @Prop() title;
+        open = false;
     }
 </script>
 
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .github {
-        margin-top: 50px;
+        margin-top: 100px;
     }
 
     .github h3 {
@@ -65,59 +50,18 @@
         margin-bottom: 0;
     }
 
-    .githubItem,
     .githubList {
         list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .githubList {
         display: flex;
         flex-flow: row wrap;
-        margin-left: -1rem;
-        margin-right: -1rem;
+        margin: 0 -1rem;
         padding: 1rem;
-    }
-
-    .githubItem {
-        margin: 1rem;
-        min-width: calc((100% / 1) - 2rem);
-        max-width: calc((100% / 1) - 2rem);
-        transition: opacity 0.5s, transform 0.8s;
-    }
-
-    .githubItem.below-viewport {
-        opacity: 0;
-        transform: scale3d(0.1, 0.1, 0.1);
-    }
-
-    .githubItemHidden {
-        display: none;
-    }
-
-    .githubItem.in-viewport {
-        opacity: 1;
-        transform: scale3d(1, 1, 1);
-    }
-
-    @media (min-width: 40em) {
-        .githubItem {
-            min-width: calc((100% / 2) - 2rem);
-            max-width: calc((100% / 2) - 2rem);
-        }
-    }
-
-    @media (min-width: 60em) {
-        .githubItem {
-            min-width: calc((100% / 3) - 2rem);
-            max-width: calc((100% / 3) - 2rem);
-        }
     }
 
     h4 {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        margin-bottom: 10px;
     }
 </style>

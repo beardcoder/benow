@@ -3,12 +3,17 @@
         <span class="backLink__text">Zurück</span>
     </nuxt-link>
 </template>
+
 <script lang="ts">
-    export default {
-        name: 'BackLink',
-    };
+    import { Component, Vue } from 'nuxt-property-decorator';
+
+    @Component({})
+    export default class BackLink extends Vue {}
 </script>
+
 <style scoped>
+    @import '../assets/css/variables.css';
+
     .backLink {
         --size: 100px;
 
@@ -21,7 +26,7 @@
         height: var(--size);
         text-decoration: none;
         margin: 15px;
-        color: #fff;
+        color: var(--color__font);
         border-radius: calc(var(--size) / 2);
         justify-content: center;
         align-items: center;
@@ -55,7 +60,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: var(--color__footer);
+        background: var(--color__background);
         z-index: 2;
         transform: scale(1);
         transition: transform 0.3s;

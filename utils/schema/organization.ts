@@ -4,7 +4,7 @@ export default {
     name: 'Markus Sommer',
     logo: {
         '@type': 'ImageObject',
-        url: 'https://creativeworkspace.de' + require('~/assets/images/logo_no_boarder.png'),
+        url: 'https://creativeworkspace.de' + require('@/assets/images/logo_no_boarder.png'),
     },
     url: 'http://www.creativeworkspace.de',
     sameAs: [
