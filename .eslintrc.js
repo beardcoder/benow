@@ -4,8 +4,9 @@ module.exports = {
         browser: true,
         node: true,
     },
+    parser: 'vue-eslint-parser',
     parserOptions: {
-        parser: 'babel-eslint',
+        parser: '@typescript-eslint/parser',
         ecmaFeatures: {
             legacyDecorators: true,
         },
@@ -17,10 +18,11 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:nuxt/recommended',
     ],
-    plugins: ['prettier'],
+    plugins: ['prettier', '@typescript-eslint', 'eslint-plugin-vue'],
     // add your custom rules here
     rules: {
         'no-console': 'off',
         'vue/no-v-html': 'off',
+        'no-unused-vars': 'off',
     },
 };

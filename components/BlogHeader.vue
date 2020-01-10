@@ -12,16 +12,18 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { createComponent } from '@vue/composition-api';
     import BackLink from '@/components/BackLink.vue';
-    import { IPost } from '@/types/contentful';
 
-    @Component({
+    export default createComponent({
         components: { BackLink },
-    })
-    export default class BlogHeader extends Vue {
-        @Prop() post: IPost | undefined;
-    }
+        props: {
+            post: {
+                type: Object,
+                required: true,
+            },
+        },
+    });
 </script>
 
 <style scoped>

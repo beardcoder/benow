@@ -12,18 +12,20 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
-    import { IPost } from '@/types/contentful';
+    import { createComponent } from '@vue/composition-api';
     import Post from '@/components/Post.vue';
 
-    @Component({
+    export default createComponent({
         components: {
             Post,
         },
-    })
-    export default class Blog extends Vue {
-        @Prop() posts: IPost[] | undefined;
-    }
+        props: {
+            posts: {
+                type: Array,
+                required: true,
+            },
+        },
+    });
 </script>
 
 <style scoped>

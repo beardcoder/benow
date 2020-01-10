@@ -36,29 +36,47 @@
     </li>
 </template>
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { createComponent, ref } from '@vue/composition-api';
     import { GithubItem as IGithubItem } from '@/types';
     import Card from '@/components/Card.vue';
-    import GithubItem from '~/components/GithubItem.vue';
+    import GithubItem from '@/components/GithubItem.vue';
 
-    @Component({
+    export default createComponent({
         components: {
             GithubItem,
             Card,
         },
-    })
-    export default class GithubList extends Vue {
-        @Prop() item: IGithubItem;
-        @Prop() gist: boolean;
-        @Prop() linkText: string;
-        @Prop() open;
+        props: {
+            item: {
+                type: Object as () => IGithubItem,
+                default: () => {},
+            },
+            gist: {
+                type: Boolean,
+                default: false,
+            },
+            linkText: {
+                type: String,
+                default: '',
+            },
+            open: {
+                type: Boolean,
+                default: false,
+            },
+        },
+        setup() {
+            const isVisible = ref(false);
 
-        isVisible = false;
+            function visibilityChanged(visibleValue) {
+                isVisible.value = visibleValue;
+            }
 
-        visibilityChanged(isVisible) {
-            this.isVisible = isVisible;
-        }
-    }
+            return {
+                isVisible,
+                visibilityChanged,
+            };
+        },
+    });
 </script>
 <style scoped>
     @import '../assets/css/variables.css';

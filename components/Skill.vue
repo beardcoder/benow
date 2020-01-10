@@ -18,18 +18,33 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { createComponent, ref } from '@vue/composition-api';
 
-    @Component({})
-    export default class Skill extends Vue {
-        @Prop() title;
-        @Prop({ default: 0, type: Number }) value;
-        isVisible = false;
+    export default createComponent({
+        props: {
+            title: {
+                type: String,
+                default: '',
+            },
+            value: {
+                type: Number,
+                default: 20,
+            },
+        },
 
-        visibilityChanged(isVisible) {
-            this.isVisible = isVisible;
-        }
-    }
+        setup(props) {
+            const isVisible = ref(false);
+
+            function visibilityChanged(visibleValue) {
+                isVisible.value = visibleValue;
+            }
+
+            return {
+                isVisible,
+                visibilityChanged,
+            };
+        },
+    });
 </script>
 
 <style scoped>

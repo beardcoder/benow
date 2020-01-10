@@ -78,6 +78,7 @@ const config: Configuration = {
         '@/plugins/jsonld',
         '@/plugins/markdown',
         '@/plugins/vue-observe-visibility',
+        '@/plugins/composition-api',
     ],
     /*
      ** Nuxt.js dev-modules
@@ -175,6 +176,7 @@ const config: Configuration = {
     build: {
         cache: true,
         watch: ['@/api/*'],
+        transpile: ['countup.js', 'vue-countup-v2/dist/countup.min.js'],
         babel: {
             plugins: [
                 ['@babel/plugin-proposal-decorators', { legacy: true }],

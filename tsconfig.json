@@ -18,7 +18,7 @@
             "~/*": ["./*"],
             "@/*": ["./*"]
         },
-        "types": ["@types/node", "@nuxt/types", "@nuxtjs/axios", "webpack-env"]
+        "types": ["@types/node", "@nuxt/vue-app", "@nuxtjs/axios"]
     },
     "exclude": ["node_modules"]
 }

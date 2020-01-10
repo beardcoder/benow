@@ -5,13 +5,20 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { createComponent } from '@vue/composition-api';
 
-    @Component({})
-    export default class Shape extends Vue {
-        @Prop({ default: 'left' }) direction;
-        @Prop({ default: false, type: Boolean }) bottom;
-    }
+    export default createComponent({
+        props: {
+            direction: {
+                type: String,
+                default: '',
+            },
+            bottom: {
+                type: Boolean,
+                default: false,
+            },
+        },
+    });
 </script>
 
 <style scoped>

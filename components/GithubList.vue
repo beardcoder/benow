@@ -20,22 +20,37 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { ref, createComponent } from '@vue/composition-api';
     import { GithubItem as IGithubItem } from '@/types';
     import GithubItem from '~/components/GithubItem.vue';
 
-    @Component({
+    export default createComponent({
         components: {
             GithubItem,
         },
-    })
-    export default class GithubList extends Vue {
-        @Prop() items: IGithubItem[] | undefined;
-        @Prop({ default: false, type: Boolean }) gist: boolean | undefined;
-        @Prop() linkText;
-        @Prop() title;
-        open = false;
-    }
+        props: {
+            items: {
+                type: Array as () => IGithubItem[],
+                default: () => [],
+            },
+            gist: {
+                type: Boolean,
+                default: false,
+            },
+            linkText: {
+                type: String,
+                default: '',
+            },
+            title: {
+                type: String,
+                default: '',
+            },
+        },
+        setup() {
+            const open = ref(false);
+            return { open };
+        },
+    });
 </script>
 
 <style scoped>

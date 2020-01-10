@@ -24,29 +24,25 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
+    import { createComponent, onMounted } from '@vue/composition-api';
 
-    @Component
-    export default class ContactMe extends Vue {
-        activeClass = 'contactMe--fold';
-        handleScroll() {
-            if (window.pageYOffset >= 50) {
+    export default createComponent({
+        setup(props, setupContext) {
+            const activeClass = 'contactMe--fold';
+            onMounted(() => {
                 // @ts-ignore
-                this.$refs.contactMe.classList.add(this.activeClass);
-            } else {
-                // @ts-ignore
-                this.$refs.contactMe.classList.remove(this.activeClass);
-            }
-        }
-
-        mounted() {
-            document.addEventListener('scroll', this.handleScroll, true);
-        }
-
-        destroyed() {
-            document.removeEventListener('scroll', this.handleScroll, true);
-        }
-    }
+                const refs = setupContext.refs;
+                const handleScroll = () => {
+                    if (window.pageYOffset >= 50) {
+                        refs.contactMe.classList.add(activeClass);
+                    } else {
+                        refs.contactMe.classList.remove(activeClass);
+                    }
+                };
+                document.addEventListener('scroll', handleScroll, true);
+            });
+        },
+    });
 </script>
 
 <style scoped>
