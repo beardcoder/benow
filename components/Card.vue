@@ -4,13 +4,6 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
-
-    @Component({})
-    export default class Card extends Vue {}
-</script>
-
 <style scoped>
     @import '../assets/css/variables.css';
 

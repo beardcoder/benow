@@ -4,13 +4,6 @@
     </nuxt-link>
 </template>
 
-<script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
-
-    @Component({})
-    export default class BackLink extends Vue {}
-</script>
-
 <style scoped>
     @import '../assets/css/variables.css';
 

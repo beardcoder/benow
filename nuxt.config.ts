@@ -78,6 +78,7 @@ const config: Configuration = {
         '@/plugins/jsonld',
         '@/plugins/markdown',
         '@/plugins/vue-observe-visibility',
+        '@/plugins/composition-api',
     ],
     /*
      ** Nuxt.js dev-modules

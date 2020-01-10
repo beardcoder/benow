@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
+    import { createComponent, onMounted } from '@vue/composition-api';
+    import getPosts from '../utils/getPosts';
     import ContactMe from '@/components/ContactMe.vue';
     import PHeader from '@/components/PHeader.vue';
     import Projects from '@/components/Projects.vue';
@@ -20,19 +21,7 @@
     import Blog from '@/components/Blog.vue';
     import PFooter from '@/components/PFooter.vue';
 
-    const importPosts = () => {
-        // https://webpack.js.org/guides/dependency-management/#requirecontext
-        const articles = require('@/.content/blog/articles.json');
-
-        return Promise.all(
-            articles.map(async (slug: string) => {
-                const json = await import(`@/.content/blog/${slug}.json`);
-                return { ...json };
-            })
-        );
-    };
-
-    @Component({
+    export default createComponent({
         components: {
             ContactMe,
             PHeader,
@@ -41,30 +30,20 @@
             Blog,
             PFooter,
         },
-    })
-    export default class Index extends Vue {
-        snippets;
-        repos;
-        posts;
-        browserIsReady = false;
 
-        mounted() {
-            if (window.location.hash) {
-                const elem = document.getElementById(window.location.hash.replace('#', ''));
-                if (elem) elem.scrollIntoView();
-            }
-            setTimeout(() => {
-                this.browserIsReady = true;
-            }, 5000);
-        }
+        setup(props) {
+            onMounted(() => {
+                if (window.location.hash) {
+                    const elem = document.getElementById(window.location.hash.replace('#', ''));
+                    if (elem) elem.scrollIntoView();
+                }
+            });
+        },
 
-        head() {
-            return {
-                title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
-            };
-        }
+        // @ts-ignore
+        async asyncData(context) {
+            const { $axios, route, $payloadURL } = context;
 
-        async asyncData({ $axios, $payloadURL, route }) {
             if (process.static && process.client && $payloadURL) {
                 const payload = await $axios.$get($payloadURL(route));
                 return payload;
@@ -72,15 +51,29 @@
 
             const repos = require('@/.content/github/repos.json');
             const snippets = require('@/.content/github/snippets.json');
-            const posts = await importPosts();
+            const posts = await getPosts();
 
             return {
                 repos,
                 snippets,
                 posts,
             };
-        }
-    }
+        },
+
+        data() {
+            return {
+                snippets: [],
+                repos: [],
+                posts: [],
+            };
+        },
+
+        head() {
+            return {
+                title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
+            };
+        },
+    });
 </script>
 
 <style scoped>
