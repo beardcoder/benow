@@ -37,6 +37,7 @@
 </template>
 <script lang="ts">
     import { createComponent, ref } from '@vue/composition-api';
+    import { GithubItem as IGithubItem } from '@/types';
     import Card from '@/components/Card.vue';
     import GithubItem from '@/components/GithubItem.vue';
 
@@ -47,7 +48,7 @@
         },
         props: {
             item: {
-                type: Object,
+                type: Object as () => IGithubItem,
                 default: () => {},
             },
             gist: {
@@ -64,7 +65,7 @@
             },
         },
         setup() {
-            const isVisible = ref(0);
+            const isVisible = ref(false);
 
             function visibilityChanged(visibleValue) {
                 isVisible.value = visibleValue;

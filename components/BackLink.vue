@@ -4,6 +4,12 @@
     </nuxt-link>
 </template>
 
+<script lang="ts">
+    import { createComponent } from '@vue/composition-api';
+
+    export default createComponent({});
+</script>
+
 <style scoped>
     @import '../assets/css/variables.css';
 

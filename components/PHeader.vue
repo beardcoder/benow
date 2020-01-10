@@ -25,10 +25,9 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
+    import { createComponent } from '@vue/composition-api';
 
-    @Component({})
-    export default class PHeader extends Vue {}
+    export default createComponent({});
 </script>
 
 <style scoped>

@@ -29,8 +29,7 @@
 </template>
 
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
-    import { Jsonld } from 'nuxt-jsonld';
+    import { createComponent } from '@vue/composition-api';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
     import Shape from '@/components/Shape.vue';
@@ -38,19 +37,21 @@
     import BlogHeader from '@/components/BlogHeader.vue';
     import PFooter from '@/components/PFooter.vue';
 
-    @Jsonld
-    @Component({
-        name: 'Slug',
+    export default createComponent({
         components: {
             Shape,
             BackLink,
             BlogHeader,
             PFooter,
         },
-    })
-    export default class Slug extends Vue {
-        post;
-        $route;
+
+        setup() {},
+
+        data() {
+            return {
+                post: {},
+            };
+        },
 
         head() {
             return {
@@ -70,7 +71,7 @@
                     },
                 ],
             };
-        }
+        },
 
         jsonld() {
             return {
@@ -86,9 +87,10 @@
                     'https://creativeworkspace.de/blog/' + this.$route.params.slug + '/',
                 image: [this.post.fields.image.fields.file.url + '?fm=webp'],
             };
-        }
+        },
 
-        async asyncData({ $axios, $payloadURL, route, params }) {
+        async asyncData(context) {
+            const { $axios, $payloadURL, route, params } = context;
             if (process.static && process.client && $payloadURL) {
                 const payload = await $axios.$get($payloadURL(route));
                 return payload;
@@ -96,8 +98,8 @@
 
             const post = await import(`@/.content/blog/${params.slug}.json`);
             return { post: { ...post } };
-        }
-    }
+        },
+    });
 </script>
 
 <style scoped>

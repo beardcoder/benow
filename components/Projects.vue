@@ -26,21 +26,27 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'nuxt-property-decorator';
+    import { createComponent } from '@vue/composition-api';
     import Shape from '@/components/Shape.vue';
     import { GithubItem } from '~/types';
     import GithubList from '~/components/GithubList.vue';
 
-    @Component({
+    export default createComponent({
         components: {
             GithubList,
             Shape,
         },
-    })
-    export default class Projects extends Vue {
-        @Prop() repos: GithubItem[];
-        @Prop() snippets: GithubItem[];
-    }
+        props: {
+            repos: {
+                type: Array as () => GithubItem[],
+                default: () => {},
+            },
+            snippets: {
+                type: Array as () => GithubItem[],
+                default: () => {},
+            },
+        },
+    });
 </script>
 
 <style scoped>

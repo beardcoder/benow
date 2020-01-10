@@ -31,7 +31,7 @@
             PFooter,
         },
 
-        setup(props) {
+        setup() {
             onMounted(() => {
                 if (window.location.hash) {
                     const elem = document.getElementById(window.location.hash.replace('#', ''));
@@ -40,7 +40,6 @@
             });
         },
 
-        // @ts-ignore
         async asyncData(context) {
             const { $axios, route, $payloadURL } = context;
 
