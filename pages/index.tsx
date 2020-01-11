@@ -4,6 +4,7 @@ import * as React from 'react';
 import Blog from '~/components/Blog';
 import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
+import getPosts from '~/helper/getPosts';
 import { GithubItem } from '~/types';
 
 import PageHeader from '../components/Header';
@@ -20,10 +21,10 @@ type Props = {
 const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
     return (
         <Layout>
-            <NextSeo 
-                title='Moderne Web Technologieren, Design und Frontendartist 🚀 — Markus Sommer' 
+            <NextSeo
+                title='Moderne Web Technologieren, Design und Frontendartist 🚀 — Markus Sommer'
                 description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
-                canonical="https://creativeworkspace.de/"
+                canonical='https://creativeworkspace.de/'
             />
             <div className='container'>
                 <PageHeader />
@@ -47,22 +48,10 @@ const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
     );
 };
 
-const importPosts = async () => {
-    // https://webpack.js.org/guides/dependency-management/#requirecontext
-    const articles = require(`../.content/blog/articles.json`);
-
-    return Promise.all(
-        articles.map(async (slug: string) => {
-            const json = await import(`../.content/blog/${slug}.json`);
-            return { ...json };
-        })
-    );
-};
-
 IndexPage.getInitialProps = async () => {
     const repos = await require(`../.content/github/repos.json`);
     const snippets = await require(`../.content/github/snippets.json`);
-    const posts = await importPosts();
+    const posts = await getPosts();
 
     return { repos, snippets, posts };
 };
