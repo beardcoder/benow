@@ -28,7 +28,7 @@
 <script lang="ts">
     import { createComponent } from '@vue/composition-api';
     import Shape from '@/components/Shape.vue';
-    import { GithubItem } from '~/types';
+    import { IGithubItem } from '~/types';
     import GithubList from '~/components/GithubList.vue';
 
     export default createComponent({
@@ -38,11 +38,11 @@
         },
         props: {
             repos: {
-                type: Array as () => GithubItem[],
+                type: Array as () => IGithubItem[],
                 default: () => {},
             },
             snippets: {
-                type: Array as () => GithubItem[],
+                type: Array as () => IGithubItem[],
                 default: () => {},
             },
         },

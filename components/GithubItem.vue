@@ -2,13 +2,13 @@
     <li
         v-observe-visibility="{
             callback: visibilityChanged,
-            throttle: 300,
+            throttle: 100,
             once: true,
         }"
         :class="{
             'githubItem--hidden': !open,
-            'githubItem--visible': isVisible,
-            'githubItem--notVisible': !isVisible,
+            'githubItem--visible': data.isVisible,
+            'githubItem--notVisible': !data.isVisible,
         }"
         class="githubItem"
     >
@@ -36,8 +36,8 @@
     </li>
 </template>
 <script lang="ts">
-    import { createComponent, ref } from '@vue/composition-api';
-    import { GithubItem as IGithubItem } from '@/types';
+    import { createComponent, reactive } from '@vue/composition-api';
+    import { IGithubItem } from '@/types';
     import Card from '@/components/Card.vue';
     import GithubItem from '@/components/GithubItem.vue';
 
@@ -65,14 +65,16 @@
             },
         },
         setup() {
-            const isVisible = ref(false);
+            const data = reactive({
+                isVisible: false,
+            });
 
             function visibilityChanged(visibleValue) {
-                isVisible.value = visibleValue;
+                data.isVisible = visibleValue;
             }
 
             return {
-                isVisible,
+                data,
                 visibilityChanged,
             };
         },

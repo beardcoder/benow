@@ -13,16 +13,17 @@ module.exports = {
     },
     extends: [
         '@nuxtjs',
+        '@nuxtjs/eslint-config-typescript',
         'prettier',
         'prettier/vue',
         'plugin:prettier/recommended',
         'plugin:nuxt/recommended',
     ],
-    plugins: ['prettier', '@typescript-eslint', 'eslint-plugin-vue'],
+    plugins: ['prettier'],
     // add your custom rules here
     rules: {
         'no-console': 'off',
         'vue/no-v-html': 'off',
-        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['error', { args: 'none', argsIgnorePattern: '_' }],
     },
 };

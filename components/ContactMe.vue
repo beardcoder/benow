@@ -1,5 +1,5 @@
 <template>
-    <div ref="contactMe" class="contactMe">
+    <div ref="contactMe" class="contactMe" :class="{ 'contactMe--fold': data.hidden }">
         <a href="mailto:creativeworkspace@sommer-online.xyz">
             <div class="contactMe__message">
                 <div class="contactMe__text">
@@ -24,23 +24,25 @@
 </template>
 
 <script lang="ts">
-    import { createComponent, onMounted } from '@vue/composition-api';
+    import { createComponent, onMounted, reactive } from '@vue/composition-api';
 
     export default createComponent({
-        setup(props, setupContext) {
-            const activeClass = 'contactMe--fold';
+        setup() {
+            const data = reactive({
+                hidden: false,
+            });
             onMounted(() => {
-                // @ts-ignore
-                const refs = setupContext.refs;
                 const handleScroll = () => {
                     if (window.pageYOffset >= 50) {
-                        refs.contactMe.classList.add(activeClass);
+                        data.hidden = true;
                     } else {
-                        refs.contactMe.classList.remove(activeClass);
+                        data.hidden = false;
                     }
                 };
                 document.addEventListener('scroll', handleScroll, true);
             });
+
+            return { data };
         },
     });
 </script>

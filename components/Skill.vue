@@ -2,11 +2,11 @@
     <li
         v-observe-visibility="{
             callback: visibilityChanged,
-            throttle: 300,
+            throttle: 100,
             once: true,
         }"
         class="skill"
-        :class="{ 'skill--visible': isVisible, 'skill--notVisible': !isVisible }"
+        :class="{ 'skill--visible': data.visible, 'skill--notVisible': !data.visible }"
     >
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-    import { createComponent, ref } from '@vue/composition-api';
+    import { createComponent, reactive } from '@vue/composition-api';
 
     export default createComponent({
         props: {
@@ -32,15 +32,17 @@
             },
         },
 
-        setup(props) {
-            const isVisible = ref(false);
+        setup() {
+            const data = reactive({
+                visible: true,
+            });
 
-            function visibilityChanged(visibleValue) {
-                isVisible.value = visibleValue;
+            function visibilityChanged(visible) {
+                data.visible = visible;
             }
 
             return {
-                isVisible,
+                data,
                 visibilityChanged,
             };
         },

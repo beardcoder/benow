@@ -1,7 +1,5 @@
 /* eslint-disable camelcase */
-export * from './state';
-
-export type GithubItem = {
+export type IGithubItem = {
     id: string;
     full_name?: string;
     description: string;

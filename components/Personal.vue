@@ -35,7 +35,7 @@
                 </p>
                 <ul class="personalSkills">
                     <skill
-                        v-for="skill in skills"
+                        v-for="skill in data.skills"
                         :key="
                             skill.title
                                 .toLowerCase()
@@ -51,9 +51,7 @@
     </section>
 </template>
 <script lang="ts">
-    import { Component, Vue } from 'nuxt-property-decorator';
-    import { Jsonld } from 'nuxt-jsonld';
-    import { createComponent, reactive, ref } from '@vue/composition-api';
+    import { createComponent, reactive } from '@vue/composition-api';
     import Shape from '@/components/Shape.vue';
     import personSchema from '@/utils/schema/person';
     import Skill from '@/components/Skill.vue';
@@ -64,19 +62,19 @@
             Skill,
         },
         setup() {
-            const skills = ref<any[]>([]);
+            const data = reactive<{ skills: any[] }>({
+                skills: [
+                    { title: 'CSS', value: 90 },
+                    { title: 'HTML', value: 95 },
+                    { title: 'JavaScript', value: 70 },
+                    { title: 'PHP', value: 80 },
+                    { title: 'Vue', value: 80 },
+                    { title: 'Nuxt (SSR JavaScript)', value: 70 },
+                    { title: 'Docker', value: 70 },
+                ],
+            });
 
-            skills.value = [
-                { title: 'CSS', value: 90 },
-                { title: 'HTML', value: 95 },
-                { title: 'JavaScript', value: 70 },
-                { title: 'PHP', value: 80 },
-                { title: 'Vue', value: 80 },
-                { title: 'Nuxt (SSR JavaScript)', value: 70 },
-                { title: 'Docker', value: 70 },
-            ];
-
-            return { skills };
+            return { data };
         },
 
         jsonld() {

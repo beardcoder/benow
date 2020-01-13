@@ -6,22 +6,22 @@
                 v-for="(item, index) in items"
                 :key="item.id"
                 :gist="gist"
-                :open="!open && index <= 5"
+                :open="!data.open && index <= 5"
                 :item="item"
                 :link-text="linkText"
             />
         </ul>
         <div style="text-align: center;">
-            <button :class="{ btn: true, btnSecondary: gist }" @click="open = !open">
-                {{ open ? 'Verbergen' : 'Alle anzeigen' }}
+            <button :class="{ btn: true, btnSecondary: gist }" @click="data.open = !data.open">
+                {{ data.open ? 'Verbergen' : 'Alle anzeigen' }}
             </button>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import { ref, createComponent } from '@vue/composition-api';
-    import { GithubItem as IGithubItem } from '@/types';
+    import { createComponent, reactive } from '@vue/composition-api';
+    import { IGithubItem } from '@/types';
     import GithubItem from '~/components/GithubItem.vue';
 
     export default createComponent({
@@ -47,8 +47,10 @@
             },
         },
         setup() {
-            const open = ref(false);
-            return { open };
+            const data = reactive({
+                open: false,
+            });
+            return { data };
         },
     });
 </script>
