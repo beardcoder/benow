@@ -100,7 +100,6 @@ const config: Configuration = {
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
         '@nuxtjs/pwa',
-        'nuxt-payload-extractor',
     ],
 
     /**

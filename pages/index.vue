@@ -3,8 +3,8 @@
         <p-header />
         <main class="main">
             <personal />
-            <projects :repos="repos" :snippets="snippets" />
-            <blog :posts="posts" />
+            <projects :repos="state.repos" :snippets="state.snippets" />
+            <blog :posts="state.posts" />
         </main>
         <contact-me />
         <p-footer />
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-    import { createComponent, onMounted } from '@vue/composition-api';
+    import { createComponent, onMounted, reactive, computed } from '@vue/composition-api';
     import getPosts from '../utils/getPosts';
     import ContactMe from '@/components/ContactMe.vue';
     import PHeader from '@/components/PHeader.vue';
@@ -32,38 +32,21 @@
         },
 
         setup() {
+            const state = reactive({
+                repos: computed(() => require('@/.content/github/repos.json')),
+                snippets: computed(() => require('@/.content/github/snippets.json')),
+                posts: computed(() => getPosts()),
+            });
+
             onMounted(() => {
                 if (window.location.hash) {
                     const elem = document.getElementById(window.location.hash.replace('#', ''));
                     if (elem) elem.scrollIntoView();
                 }
             });
-        },
-
-        async asyncData(context) {
-            const { $axios, route, $payloadURL } = context;
-
-            if (process.static && process.client && $payloadURL) {
-                const payload = await $axios.$get($payloadURL(route));
-                return payload;
-            }
-
-            const repos = require('@/.content/github/repos.json');
-            const snippets = require('@/.content/github/snippets.json');
-            const posts = await getPosts();
 
             return {
-                repos,
-                snippets,
-                posts,
-            };
-        },
-
-        data() {
-            return {
-                snippets: [],
-                repos: [],
-                posts: [],
+                state,
             };
         },
 

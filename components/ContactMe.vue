@@ -31,14 +31,16 @@
             const data = reactive({
                 hidden: false,
             });
+
+            function handleScroll() {
+                if (window.pageYOffset >= 50) {
+                    data.hidden = true;
+                } else {
+                    data.hidden = false;
+                }
+            }
+
             onMounted(() => {
-                const handleScroll = () => {
-                    if (window.pageYOffset >= 50) {
-                        data.hidden = true;
-                    } else {
-                        data.hidden = false;
-                    }
-                };
                 document.addEventListener('scroll', handleScroll, true);
             });
 

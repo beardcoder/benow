@@ -89,14 +89,10 @@
             };
         },
 
-        async asyncData(context) {
-            const { $axios, $payloadURL, route, params } = context;
-            if (process.static && process.client && $payloadURL) {
-                const payload = await $axios.$get($payloadURL(route));
-                return payload;
-            }
+        asyncData(context) {
+            const { params } = context;
 
-            const post = await import(`@/.content/blog/${params.slug}.json`);
+            const post = require(`@/.content/blog/${params.slug}.json`);
             return { post: { ...post } };
         },
     });
