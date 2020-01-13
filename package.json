@@ -14,7 +14,7 @@
         "generate:github": "./bin/getGithubData"
     },
     "dependencies": {
-        "@nuxtjs/axios": "^5.9.2",
+        "@nuxtjs/axios": "^5.9.3",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
         "@vue/composition-api": "^0.3.4",
         "countup.js": "^2.0.4",
@@ -36,7 +36,7 @@
         "@contentful/rich-text-types": "^13.4.0",
         "@nuxt/types": "^0.6.0",
         "@nuxt/typescript": "^2.8.1",
-        "@nuxt/typescript-build": "^0.5.5",
+        "@nuxt/typescript-build": "^0.5.6",
         "@nuxt/typescript-runtime": "^0.3.6",
         "@nuxtjs/dotenv": "^1.4.1",
         "@nuxtjs/eslint-config": "^2.0.0",
@@ -62,7 +62,7 @@
         "eslint-plugin-prettier": "^3.1.2",
         "glob": "^7.1.6",
         "highlight.js": "^9.17.1",
-        "husky": "^4.0.5",
+        "husky": "^4.0.7",
         "markdown-it": "^10.0.0",
         "markdown-it-link-target": "^1.0.2",
         "nuxt-jsonld": "^1.4.5",
@@ -73,7 +73,7 @@
         "postcss-css-variables": "^0.14.0",
         "postcss-responsive-type": "^1.0.0",
         "prettier": "^1.19.1",
-        "stylelint": "^12.0.1",
+        "stylelint": "^13.0.0",
         "stylelint-config-recommended": "^3.0.0",
         "stylelint-config-standard": "^19.0.0"
     },
