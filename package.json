@@ -14,7 +14,7 @@
         "generate:github": "./bin/getGithubData"
     },
     "dependencies": {
-        "@nuxtjs/axios": "^5.9.2",
+        "@nuxtjs/axios": "^5.9.3",
         "@nuxtjs/pwa": "^3.0.0-beta.19",
         "@vue/composition-api": "^0.3.4",
         "countup.js": "^2.0.4",
