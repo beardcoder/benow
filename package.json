@@ -67,7 +67,6 @@
         "markdown-it-link-target": "^1.0.2",
         "nuxt-jsonld": "^1.4.5",
         "nuxt-payload-extractor": "^0.0.14",
-        "nuxt-property-decorator": "^2.5.0",
         "nuxt-seo": "^1.2.2",
         "nuxt-webfontloader": "^1.1.0",
         "postcss-css-variables": "^0.14.0",
