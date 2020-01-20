@@ -13,11 +13,10 @@
 
 <script lang="ts">
     import { createComponent } from '@vue/composition-api';
-    import BackLink from '@/components/BackLink.vue';
 
     export default createComponent({
         name: 'BlogHeader',
-        components: { BackLink },
+        components: { BackLink: () => import('@/components/BackLink.vue') },
         props: {
             post: {
                 type: Object,

@@ -52,15 +52,13 @@
 </template>
 <script lang="ts">
     import { createComponent, reactive } from '@vue/composition-api';
-    import Shape from '@/components/Shape.vue';
     import personSchema from '@/utils/schema/person';
-    import Skill from '@/components/Skill.vue';
 
     export default createComponent({
         name: 'Personal',
         components: {
-            Shape,
-            Skill,
+            Shape: () => import('@/components/Shape.vue'),
+            Skill: () => import('@/components/Skill.vue'),
         },
         setup() {
             const data = reactive<{ skills: any[] }>({

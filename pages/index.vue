@@ -13,22 +13,16 @@
 
 <script lang="ts">
     import { createComponent, onMounted } from '@vue/composition-api';
-    import ContactMe from '@/components/ContactMe.vue';
-    import PHeader from '@/components/PHeader.vue';
-    import Projects from '@/components/Projects.vue';
-    import Personal from '@/components/Personal.vue';
-    import Blog from '@/components/Blog.vue';
-    import PFooter from '@/components/PFooter.vue';
 
     export default createComponent({
         name: 'PageIndex',
         components: {
-            ContactMe,
-            PHeader,
-            Projects,
-            Personal,
-            Blog,
-            PFooter,
+            ContactMe: () => import('@/components/ContactMe.vue'),
+            PHeader: () => import('@/components/PHeader.vue'),
+            Projects: () => import('@/components/Projects.vue'),
+            Personal: () => import('@/components/Personal.vue'),
+            Blog: () => import('@/components/Blog.vue'),
+            PFooter: () => import('@/components/PFooter.vue'),
         },
 
         setup() {

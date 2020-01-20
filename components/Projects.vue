@@ -27,15 +27,13 @@
 
 <script lang="ts">
     import { createComponent, reactive, ref } from '@vue/composition-api';
-    import Shape from '@/components/Shape.vue';
     import { IGithubItem } from '~/types';
-    import GithubList from '~/components/GithubList.vue';
 
     export default createComponent({
         name: 'Project',
         components: {
-            GithubList,
-            Shape,
+            GithubList: () => import('@/components/GithubList.vue'),
+            Shape: () => import('@/components/Shape.vue'),
         },
         setup() {
             const state = reactive({

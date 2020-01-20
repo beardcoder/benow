@@ -31,12 +31,11 @@
 <script lang="ts">
     import { createComponent } from '@vue/composition-api';
     import { IPost } from '@/types/contentful';
-    import Card from '@/components/Card.vue';
 
     export default createComponent({
         name: 'Post',
         components: {
-            Card,
+            Card: () => import('@/components/Card.vue'),
         },
         props: {
             post: {

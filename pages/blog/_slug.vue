@@ -32,18 +32,14 @@
     import { createComponent } from '@vue/composition-api';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
-    import Shape from '@/components/Shape.vue';
-    import BackLink from '@/components/BackLink.vue';
-    import BlogHeader from '@/components/BlogHeader.vue';
-    import PFooter from '@/components/PFooter.vue';
 
     export default createComponent({
         name: 'PageBlogSlug',
         components: {
-            Shape,
-            BackLink,
-            BlogHeader,
-            PFooter,
+            Shape: () => import('@/components/Shape.vue'),
+            BackLink: () => import('@/components/BackLink.vue'),
+            BlogHeader: () => import('@/components/BlogHeader.vue'),
+            PFooter: () => import('@/components/PFooter.vue'),
         },
 
         setup() {},

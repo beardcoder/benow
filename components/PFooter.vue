@@ -22,10 +22,9 @@
 
 <script lang="ts">
     import { createComponent, ref } from '@vue/composition-api';
-    import BackLink from '@/components/BackLink.vue';
     export default createComponent({
         name: 'PFooter',
-        components: { BackLink },
+        components: { BackLink: () => import('@/components/BackLink.vue') },
         setup() {
             const socialLinks = ref<any[]>([]);
             socialLinks.value = [
