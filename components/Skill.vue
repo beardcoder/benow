@@ -21,6 +21,7 @@
     import { createComponent, reactive } from '@vue/composition-api';
 
     export default createComponent({
+        name: 'Skill',
         props: {
             title: {
                 type: String,

@@ -42,6 +42,7 @@
     import GithubItem from '@/components/GithubItem.vue';
 
     export default createComponent({
+        name: 'GithubItem',
         components: {
             GithubItem,
             Card,

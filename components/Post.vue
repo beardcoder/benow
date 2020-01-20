@@ -34,6 +34,7 @@
     import Card from '@/components/Card.vue';
 
     export default createComponent({
+        name: 'Post',
         components: {
             Card,
         },

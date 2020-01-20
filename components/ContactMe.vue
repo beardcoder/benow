@@ -27,6 +27,7 @@
     import { createComponent, onMounted, reactive } from '@vue/composition-api';
 
     export default createComponent({
+        name: 'ContactMe',
         setup() {
             const data = reactive({
                 hidden: false,

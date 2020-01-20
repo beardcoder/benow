@@ -8,6 +8,7 @@
     import { createComponent } from '@vue/composition-api';
 
     export default createComponent({
+        name: 'Shape',
         props: {
             direction: {
                 type: String,

@@ -16,6 +16,7 @@
     import BackLink from '@/components/BackLink.vue';
 
     export default createComponent({
+        name: 'BlogHeader',
         components: { BackLink },
         props: {
             post: {

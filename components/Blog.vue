@@ -1,29 +1,35 @@
 <template>
-    <div v-if="posts" id="blog" class="blog">
+    <div id="blog" class="blog">
         <div
             class="shape_wrapper"
             :style="`background-image:url(${require('@/assets/images/shape_3.svg')});`"
         ></div>
         <h2 class="blog__header">Blog</h2>
         <div class="articles">
-            <post v-for="(post, index) in posts" :key="index" :post="post" />
+            <post v-for="(post, index) in state.posts" :key="index" :post="post" />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-    import { createComponent } from '@vue/composition-api';
+    import { createComponent, reactive, ref } from '@vue/composition-api';
+    import { IPost } from '@/types/contentful';
     import Post from '@/components/Post.vue';
+    import getPosts from '@/utils/getPosts';
 
     export default createComponent({
+        name: 'Blog',
         components: {
             Post,
         },
-        props: {
-            posts: {
-                type: Array,
-                required: true,
-            },
+        setup() {
+            const state = reactive({
+                posts: ref<IPost[]>(getPosts()),
+            });
+
+            return {
+                state,
+            };
         },
     });
 </script>

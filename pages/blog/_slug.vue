@@ -38,6 +38,7 @@
     import PFooter from '@/components/PFooter.vue';
 
     export default createComponent({
+        name: 'PageBlogSlug',
         components: {
             Shape,
             BackLink,

@@ -57,6 +57,7 @@
     import Skill from '@/components/Skill.vue';
 
     export default createComponent({
+        name: 'Personal',
         components: {
             Shape,
             Skill,

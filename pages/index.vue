@@ -3,8 +3,8 @@
         <p-header />
         <main class="main">
             <personal />
-            <projects :repos="state.repos" :snippets="state.snippets" />
-            <blog :posts="state.posts" />
+            <projects />
+            <blog />
         </main>
         <contact-me />
         <p-footer />
@@ -12,8 +12,7 @@
 </template>
 
 <script lang="ts">
-    import { createComponent, onMounted, reactive, computed } from '@vue/composition-api';
-    import getPosts from '../utils/getPosts';
+    import { createComponent, onMounted } from '@vue/composition-api';
     import ContactMe from '@/components/ContactMe.vue';
     import PHeader from '@/components/PHeader.vue';
     import Projects from '@/components/Projects.vue';
@@ -22,6 +21,7 @@
     import PFooter from '@/components/PFooter.vue';
 
     export default createComponent({
+        name: 'PageIndex',
         components: {
             ContactMe,
             PHeader,
@@ -32,22 +32,12 @@
         },
 
         setup() {
-            const state = reactive({
-                repos: computed(() => require('@/.content/github/repos.json')),
-                snippets: computed(() => require('@/.content/github/snippets.json')),
-                posts: computed(() => getPosts()),
-            });
-
             onMounted(() => {
                 if (window.location.hash) {
                     const elem = document.getElementById(window.location.hash.replace('#', ''));
                     if (elem) elem.scrollIntoView();
                 }
             });
-
-            return {
-                state,
-            };
         },
 
         head() {

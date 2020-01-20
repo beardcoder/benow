@@ -25,6 +25,7 @@
     import GithubItem from '~/components/GithubItem.vue';
 
     export default createComponent({
+        name: 'GithubList',
         components: {
             GithubItem,
         },

@@ -17,34 +17,35 @@
             </p>
         </header>
         <div id="repositories">
-            <github-list :items="repos" link-text="zum Repo" title="Repositories" />
+            <github-list :items="state.repos" link-text="zum Repo" title="Repositories" />
         </div>
         <div id="snippets" class="snippets">
-            <github-list :items="snippets" gist link-text="zum Snippet" title="Snippets" />
+            <github-list :items="state.snippets" gist link-text="zum Snippet" title="Snippets" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
-    import { createComponent } from '@vue/composition-api';
+    import { createComponent, reactive, ref } from '@vue/composition-api';
     import Shape from '@/components/Shape.vue';
     import { IGithubItem } from '~/types';
     import GithubList from '~/components/GithubList.vue';
 
     export default createComponent({
+        name: 'Project',
         components: {
             GithubList,
             Shape,
         },
-        props: {
-            repos: {
-                type: Array as () => IGithubItem[],
-                default: () => {},
-            },
-            snippets: {
-                type: Array as () => IGithubItem[],
-                default: () => {},
-            },
+        setup() {
+            const state = reactive({
+                repos: ref<IGithubItem[]>(require('@/.content/github/repos.json')),
+                snippets: ref<IGithubItem[]>(require('@/.content/github/snippets.json')),
+            });
+
+            return {
+                state,
+            };
         },
     });
 </script>
