@@ -36,10 +36,10 @@
     export default createComponent({
         name: 'PageBlogSlug',
         components: {
-            Shape: () => import('@/components/Shape.vue'),
-            BackLink: () => import('@/components/BackLink.vue'),
-            BlogHeader: () => import('@/components/BlogHeader.vue'),
-            PFooter: () => import('@/components/PFooter.vue'),
+            Shape: () => import(/* webpackPrefetch: true */ '@/components/Shape.vue'),
+            BackLink: () => import(/* webpackPrefetch: true */ '@/components/BackLink.vue'),
+            BlogHeader: () => import(/* webpackPrefetch: true */ '@/components/BlogHeader.vue'),
+            PFooter: () => import(/* webpackPrefetch: true */ '@/components/PFooter.vue'),
         },
 
         setup() {},

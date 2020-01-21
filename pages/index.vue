@@ -1,28 +1,42 @@
 <template>
     <div class="container">
-        <p-header />
+        <LazyHydrate when-idle>
+            <p-header />
+        </LazyHydrate>
         <main class="main">
-            <personal />
-            <projects />
-            <blog />
+            <LazyHydrate when-visible>
+                <personal />
+            </LazyHydrate>
+            <LazyHydrate when-visible>
+                <projects />
+            </LazyHydrate>
+            <LazyHydrate when-visible>
+                <blog />
+            </LazyHydrate>
         </main>
-        <contact-me />
-        <p-footer />
+        <LazyHydrate when-idle>
+            <contact-me />
+        </LazyHydrate>
+        <LazyHydrate ssr-only>
+            <p-footer />
+        </LazyHydrate>
     </div>
 </template>
 
 <script lang="ts">
     import { createComponent, onMounted } from '@vue/composition-api';
+    import LazyHydrate from 'vue-lazy-hydration';
 
     export default createComponent({
         name: 'PageIndex',
         components: {
-            ContactMe: () => import('@/components/ContactMe.vue'),
-            PHeader: () => import('@/components/PHeader.vue'),
-            Projects: () => import('@/components/Projects.vue'),
-            Personal: () => import('@/components/Personal.vue'),
-            Blog: () => import('@/components/Blog.vue'),
-            PFooter: () => import('@/components/PFooter.vue'),
+            LazyHydrate,
+            ContactMe: () => import(/* webpackPrefetch: true */ '@/components/ContactMe.vue'),
+            PHeader: () => import(/* webpackPrefetch: true */ '@/components/PHeader.vue'),
+            Projects: () => import(/* webpackPrefetch: true */ '@/components/Projects.vue'),
+            Personal: () => import(/* webpackPrefetch: true */ '@/components/Personal.vue'),
+            Blog: () => import(/* webpackPrefetch: true */ '@/components/Blog.vue'),
+            PFooter: () => import(/* webpackPrefetch: true */ '@/components/PFooter.vue'),
         },
 
         setup() {
