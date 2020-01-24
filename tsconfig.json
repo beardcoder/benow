@@ -1,24 +1,46 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "strictPropertyInitialization": false,
-        "lib": ["esnext", "esnext.asynciterable", "dom"],
-        "esModuleInterop": true,
-        "allowJs": true,
-        "sourceMap": true,
-        "strict": true,
-        "noEmit": true,
-        "noImplicitAny": false,
-        "baseUrl": ".",
-        "paths": {
-            "~/*": ["./*"],
-            "@/*": ["./*"]
-        },
-        "types": ["@types/node", "@nuxt/vue-app", "@nuxtjs/axios"]
-    },
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "preserve",
+    "target": "esnext",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "helpers/getBlogData.js"
+  ]
 }

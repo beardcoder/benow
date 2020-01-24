@@ -1,0 +1,72 @@
+@import '../assets/css/variables.css';
+
+.github {
+    margin-top: 100px;
+}
+
+.github h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.githubItem,
+.githubList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.githubList {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem;
+}
+
+.githubItem {
+    margin: 1rem;
+    min-width: calc((100% / 1) - 2rem);
+    max-width: calc((100% / 1) - 2rem);
+    transition: opacity 0.5s, transform 0.8s;
+}
+
+.githubItem.notVisible {
+    opacity: 0;
+    transform: scale3d(0.1, 0.1, 0.1);
+}
+
+.githubItemHidden {
+    display: none;
+}
+
+.githubItem.isVisible {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+}
+
+@media (min-width: 40em) {
+    .githubItem {
+        min-width: calc((100% / 2) - 2rem);
+        max-width: calc((100% / 2) - 2rem);
+    }
+}
+
+@media (min-width: 60em) {
+    .githubItem {
+        min-width: calc((100% / 3) - 2rem);
+        max-width: calc((100% / 3) - 2rem);
+    }
+}
+
+.githubItemDescription {
+    color: var(--color__font--secondary);
+    margin-top: 0;
+}
+
+.h4 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 10px;
+}

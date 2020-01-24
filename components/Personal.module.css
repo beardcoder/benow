@@ -1,0 +1,77 @@
+@import '../assets/css/variables.css';
+
+.personal {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    position: relative;
+    margin-top: 150px;
+}
+
+.personalImage[lazy='loading'] {
+    filter: blur(5px);
+}
+
+.personalImage {
+    position: relative;
+}
+
+.personalImageWrapper {
+    max-width: 420px;
+    display: inline-block;
+    position: relative;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.personalImageWrapper:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 40px;
+    right: -40px;
+    border: 0 solid;
+    border-image: linear-gradient(
+        135deg,
+        var(--color__primary) 0%,
+        var(--color__primary--dark) 100%
+    );
+    border-image-slice: 5;
+    transition: border-width 0.6s linear;
+}
+
+.personalImageWrapper:after {
+    border-width: 5px;
+}
+
+.personalSkills {
+    list-style: none;
+    margin: 60px 0 0 0;
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    max-width: 900px;
+    margin: auto auto 50px;
+}
+
+@media (min-width: 768px) {
+    .personalContent {
+        max-width: 750px;
+        margin-left: 150px;
+    }
+
+    .personal {
+        margin-top: 250px;
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-flow: row;
+    }
+}

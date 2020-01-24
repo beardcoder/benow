@@ -4,26 +4,18 @@ module.exports = {
         browser: true,
         node: true,
     },
-    parser: 'vue-eslint-parser',
     parserOptions: {
-        parser: '@typescript-eslint/parser',
+        parser: 'babel-eslint',
+        sourceType: 'module',
+        ecmaVersion: 2020,
         ecmaFeatures: {
             legacyDecorators: true,
         },
     },
-    extends: [
-        '@nuxtjs',
-        '@nuxtjs/eslint-config-typescript',
-        'prettier',
-        'prettier/vue',
-        'plugin:prettier/recommended',
-        'plugin:nuxt/recommended',
-    ],
+    extends: ['prettier', 'prettier/react'],
     plugins: ['prettier'],
     // add your custom rules here
     rules: {
         'no-console': 'off',
-        'vue/no-v-html': 'off',
-        '@typescript-eslint/no-unused-vars': ['error', { args: 'none', argsIgnorePattern: '_' }],
     },
 };
