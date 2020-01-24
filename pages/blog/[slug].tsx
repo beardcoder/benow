@@ -67,7 +67,7 @@ const Post: NextPage<Props> = ({ post }) => {
                                 </time>
                             </div>
                             <p className='description'>{post.fields.description}</p>
-                            <ReactMarkdown source={post.fields.articleBody} />
+                            <ReactMarkdown linkTarget="_blank" source={post.fields.articleBody} />
                         </article>
                     </div>
                     <Footer>
@@ -79,7 +79,6 @@ const Post: NextPage<Props> = ({ post }) => {
     );
 };
 
-// @ts-ignore
 Post.getInitialProps = async ({ query }) => {
     const { slug } = query;
     const post = await import(`~/.content/blog/${slug}.json`).catch(() => null);

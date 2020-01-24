@@ -1,6 +1,7 @@
 const withCSS = require('@zeit/next-css');
 const path = require('path');
 const withImages = require('next-images');
+const articleSlugs = require('./.content/blog/articles.json');
 
 require('dotenv').config();
 
@@ -21,6 +22,24 @@ module.exports = withPlugins(
         [withImages],
     ],
     {
+        // exportPathMap() {
+        //     const pages = {};
+        //     articleSlugs.forEach(articleSlug => {
+        //         const post = require(`./.content/blog/${articleSlug}.json`);
+        //         pages[`/blog/${articleSlug}`] = {
+        //             page: '/blog/[slug]',
+        //             slug: articleSlug,
+        //             query: {
+        //                 ...post,
+        //             },
+        //         };
+        //     });
+
+        //     // combine the map of post pages with the home
+        //     return Object.assign({}, pages, {
+        //         '/': { page: '/' },
+        //     });
+        // },
         env: {
             GITHUB_TOKEN: process.env.GITHUB_TOKEN,
             GITHUB_USERNAME: process.env.GITHUB_USERNAME,

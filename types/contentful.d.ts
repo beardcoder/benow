@@ -7,7 +7,7 @@ export interface IPostFields {
     slug?: string | undefined;
 
     /** Headline */
-    headline?: string | undefined;
+    headline: string | undefined;
 
     /** Description */
     description?: string | undefined;
@@ -16,7 +16,7 @@ export interface IPostFields {
     dateModified?: string | undefined;
 
     /** Image */
-    image?: Asset | undefined;
+    image: Asset | undefined;
 
     /** Article body */
     articleBody?: string | undefined;
