@@ -7,8 +7,8 @@
         }"
         :class="{
             'githubItem--hidden': !open,
-            'githubItem--visible': data.isVisible,
-            'githubItem--notVisible': !data.isVisible,
+            'githubItem--visible': state.isVisible,
+            'githubItem--notVisible': !state.isVisible,
         }"
         class="githubItem"
     >
@@ -64,16 +64,16 @@
             },
         },
         setup() {
-            const data = reactive({
+            const state = reactive({
                 isVisible: false,
             });
 
             function visibilityChanged(visibleValue) {
-                data.isVisible = visibleValue;
+                state.isVisible = visibleValue;
             }
 
             return {
-                data,
+                state,
                 visibilityChanged,
             };
         },

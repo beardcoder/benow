@@ -6,14 +6,14 @@
                 v-for="(item, index) in items"
                 :key="item.id"
                 :gist="gist"
-                :open="!data.open && index <= 5"
+                :open="state.open || index <= 5"
                 :item="item"
                 :link-text="linkText"
             />
         </ul>
         <div style="text-align: center;">
-            <button :class="{ btn: true, btnSecondary: gist }" @click="data.open = !data.open">
-                {{ data.open ? 'Verbergen' : 'Alle anzeigen' }}
+            <button :class="{ btn: true, btnSecondary: gist }" @click="state.open = !state.open">
+                {{ state.open ? 'Verbergen' : 'Alle anzeigen' }}
             </button>
         </div>
     </div>
@@ -47,10 +47,10 @@
             },
         },
         setup() {
-            const data = reactive({
+            const state = reactive({
                 open: false,
             });
-            return { data };
+            return { state };
         },
     });
 </script>
