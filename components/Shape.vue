@@ -1,4 +1,4 @@
-<template>
+<template functional>
     <div :class="{ wrapperBottom: bottom }" class="wrapper">
         <div :class="{ shapeLeft: direction === 'left' }" class="shape" />
     </div>

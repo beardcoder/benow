@@ -29,21 +29,20 @@
     </card>
 </template>
 <script lang="ts">
-    import { createComponent } from '@vue/composition-api';
-    import { IPost } from '@/types/contentful';
+    import Card from '@/components/Card.vue';
 
-    export default createComponent({
+    export default {
         name: 'Post',
         components: {
-            Card: () => import('@/components/Card.vue'),
+            Card,
         },
         props: {
             post: {
-                type: Object as () => IPost,
+                type: Object,
                 default: () => {},
             },
         },
-    });
+    };
 </script>
 <style scoped>
     @import '../assets/css/variables.css';

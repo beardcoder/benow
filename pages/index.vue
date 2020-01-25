@@ -1,42 +1,34 @@
 <template>
     <div class="container">
-        <LazyHydrate when-idle>
-            <p-header />
-        </LazyHydrate>
+        <p-header />
         <main class="main">
-            <LazyHydrate when-visible>
-                <personal />
-            </LazyHydrate>
-            <LazyHydrate when-visible>
-                <projects />
-            </LazyHydrate>
-            <LazyHydrate when-visible>
-                <blog />
-            </LazyHydrate>
+            <personal />
+            <projects />
+            <blog />
         </main>
-        <LazyHydrate when-idle>
-            <contact-me />
-        </LazyHydrate>
-        <LazyHydrate ssr-only>
-            <p-footer />
-        </LazyHydrate>
+        <contact-me />
+        <p-footer />
     </div>
 </template>
 
 <script lang="ts">
     import { createComponent, onMounted } from '@vue/composition-api';
-    import LazyHydrate from 'vue-lazy-hydration';
+    import ContactMe from '@/components/ContactMe.vue';
+    import PHeader from '@/components/PHeader.vue';
+    import Projects from '@/components/Projects.vue';
+    import Personal from '@/components/Personal.vue';
+    import Blog from '@/components/Blog.vue';
+    import PFooter from '@/components/PFooter.vue';
 
     export default createComponent({
         name: 'PageIndex',
         components: {
-            LazyHydrate,
-            ContactMe: () => import(/* webpackPrefetch: true */ '@/components/ContactMe.vue'),
-            PHeader: () => import(/* webpackPrefetch: true */ '@/components/PHeader.vue'),
-            Projects: () => import(/* webpackPrefetch: true */ '@/components/Projects.vue'),
-            Personal: () => import(/* webpackPrefetch: true */ '@/components/Personal.vue'),
-            Blog: () => import(/* webpackPrefetch: true */ '@/components/Blog.vue'),
-            PFooter: () => import(/* webpackPrefetch: true */ '@/components/PFooter.vue'),
+            ContactMe,
+            PHeader,
+            Projects,
+            Personal,
+            Blog,
+            PFooter,
         },
 
         setup() {

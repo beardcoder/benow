@@ -17,35 +17,35 @@
             </p>
         </header>
         <div id="repositories">
-            <github-list :items="state.repos" link-text="zum Repo" title="Repositories" />
+            <github-list :items="repos" link-text="zum Repo" title="Repositories" />
         </div>
         <div id="snippets" class="snippets">
-            <github-list :items="state.snippets" gist link-text="zum Snippet" title="Snippets" />
+            <github-list :items="snippets" gist link-text="zum Snippet" title="Snippets" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
-    import { createComponent, reactive, ref } from '@vue/composition-api';
-    import { IGithubItem } from '~/types';
+    import GithubList from '@/components/GithubList.vue';
+    import Shape from '@/components/Shape.vue';
 
-    export default createComponent({
+    export default {
         name: 'Project',
         components: {
-            GithubList: () => import('@/components/GithubList.vue'),
-            Shape: () => import('@/components/Shape.vue'),
+            GithubList,
+            Shape,
         },
-        setup() {
-            const state = reactive({
-                repos: ref<IGithubItem[]>(require('@/.content/github/repos.json')),
-                snippets: ref<IGithubItem[]>(require('@/.content/github/snippets.json')),
-            });
-
-            return {
-                state,
-            };
+        props: {
+            repos: {
+                type: Array,
+                default: () => require('@/.content/github/snippets.json'),
+            },
+            snippets: {
+                type: Array,
+                default: () => require('@/.content/github/snippets.json'),
+            },
         },
-    });
+    };
 </script>
 
 <style scoped>

@@ -1,10 +1,10 @@
-<template>
+<template functional>
     <footer class="footer">
         <div class="content">
             <slot />
             <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
             <ul class="social">
-                <li v-for="(item, index) in socialLinks" :key="index" class="socialItem">
+                <li v-for="(item, index) in props.socialLinks" :key="index" class="socialItem">
                     <a
                         :href="item.link"
                         :title="item.title"
@@ -21,53 +21,51 @@
 </template>
 
 <script lang="ts">
-    import { createComponent, ref } from '@vue/composition-api';
-    export default createComponent({
+    export default {
         name: 'PFooter',
-        components: { BackLink: () => import('@/components/BackLink.vue') },
-        setup() {
-            const socialLinks = ref<any[]>([]);
-            socialLinks.value = [
-                {
-                    icon: require('@/assets/icons/mailbox-duotone.svg'),
-                    link: 'mailto:creativeworkspace@sommer-online.xyz',
-                    title: 'E-Mail Markus Sommer',
-                },
-                {
-                    icon: require('@/assets/icons/github-brands.svg'),
-                    link: 'https://github.com/beardcoder',
-                    title: 'Github Profil von Markus Sommer',
-                },
-                {
-                    icon: require('@/assets/icons/twitter-brands.svg'),
-                    link: 'https://twitter.com/beardcoder',
-                    title: 'Twitter Profil von Markus Sommer',
-                },
-                {
-                    icon: require('@/assets/icons/neos-brands.svg'),
-                    link: 'https://www.neos.io/',
-                    title: 'Neos Website',
-                },
-                {
-                    icon: require('@/assets/icons/typo3-brands.svg'),
-                    link: 'https://forge.typo3.org/users/41461',
-                    title: 'TYPO3 Forge',
-                },
-                {
-                    icon: require('@/assets/icons/xing-brands.svg'),
-                    link: 'https://www.xing.com/profile/Markus_Sommer30',
-                    title: 'Xing Profil von Markus Sommer',
-                },
-                {
-                    icon: require('@/assets/icons/linkedin-in-brands.svg'),
-                    link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
-                    title: 'linkedin Profil von Markus Sommer',
-                },
-            ];
-
-            return { socialLinks };
+        props: {
+            socialLinks: {
+                type: Array,
+                default: () => [
+                    {
+                        icon: require('@/assets/icons/mailbox-duotone.svg'),
+                        link: 'mailto:creativeworkspace@sommer-online.xyz',
+                        title: 'E-Mail Markus Sommer',
+                    },
+                    {
+                        icon: require('@/assets/icons/github-brands.svg'),
+                        link: 'https://github.com/beardcoder',
+                        title: 'Github Profil von Markus Sommer',
+                    },
+                    {
+                        icon: require('@/assets/icons/twitter-brands.svg'),
+                        link: 'https://twitter.com/beardcoder',
+                        title: 'Twitter Profil von Markus Sommer',
+                    },
+                    {
+                        icon: require('@/assets/icons/neos-brands.svg'),
+                        link: 'https://www.neos.io/',
+                        title: 'Neos Website',
+                    },
+                    {
+                        icon: require('@/assets/icons/typo3-brands.svg'),
+                        link: 'https://forge.typo3.org/users/41461',
+                        title: 'TYPO3 Forge',
+                    },
+                    {
+                        icon: require('@/assets/icons/xing-brands.svg'),
+                        link: 'https://www.xing.com/profile/Markus_Sommer30',
+                        title: 'Xing Profil von Markus Sommer',
+                    },
+                    {
+                        icon: require('@/assets/icons/linkedin-in-brands.svg'),
+                        link: 'https://www.linkedin.com/in/markus-sommer-9040649b/',
+                        title: 'linkedin Profil von Markus Sommer',
+                    },
+                ],
+            },
         },
-    });
+    };
 </script>
 
 <style scoped>

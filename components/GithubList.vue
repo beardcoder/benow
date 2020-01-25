@@ -22,11 +22,12 @@
 <script lang="ts">
     import { createComponent, reactive } from '@vue/composition-api';
     import { IGithubItem } from '@/types';
+    import GithubItem from '@/components/GithubItem.vue';
 
     export default createComponent({
         name: 'GithubList',
         components: {
-            GithubItem: () => import('@/components/GithubItem.vue'),
+            GithubItem,
         },
         props: {
             items: {

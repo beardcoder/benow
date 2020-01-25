@@ -35,7 +35,7 @@
                 </p>
                 <ul class="personalSkills">
                     <skill
-                        v-for="skill in data.skills"
+                        v-for="skill in skills"
                         :key="
                             skill.title
                                 .toLowerCase()
@@ -51,18 +51,20 @@
     </section>
 </template>
 <script lang="ts">
-    import { createComponent, reactive } from '@vue/composition-api';
     import personSchema from '@/utils/schema/person';
+    import Shape from '@/components/Shape.vue';
+    import Skill from '@/components/Skill.vue';
 
-    export default createComponent({
+    export default {
         name: 'Personal',
         components: {
-            Shape: () => import('@/components/Shape.vue'),
-            Skill: () => import('@/components/Skill.vue'),
+            Shape,
+            Skill,
         },
-        setup() {
-            const data = reactive<{ skills: any[] }>({
-                skills: [
+        props: {
+            skills: {
+                type: Array,
+                default: () => [
                     { title: 'CSS', value: 90 },
                     { title: 'HTML', value: 95 },
                     { title: 'JavaScript', value: 70 },
@@ -71,15 +73,13 @@
                     { title: 'Nuxt (SSR JavaScript)', value: 70 },
                     { title: 'Docker', value: 70 },
                 ],
-            });
-
-            return { data };
+            },
         },
 
         jsonld() {
             return personSchema;
         },
-    });
+    };
 </script>
 
 <style scoped>

@@ -1,4 +1,4 @@
-<template>
+<template functional>
     <header class="wrapper">
         <div class="backgroundWrapper">
             <div role="presentation" class="background" />
@@ -23,14 +23,6 @@
         </div>
     </header>
 </template>
-
-<script lang="ts">
-    import { createComponent } from '@vue/composition-api';
-
-    export default createComponent({
-        name: 'PHeader',
-    });
-</script>
 
 <style scoped>
     .wrapper {

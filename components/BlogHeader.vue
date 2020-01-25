@@ -1,8 +1,8 @@
-<template>
-    <header v-if="post" class="wrapper">
+<template functional>
+    <header class="wrapper">
         <div class="background">
             <div
-                :style="`background-image: url(${post.fields.image.fields.file.url}?fm=webp)`"
+                :style="`background-image: url(${props.post.fields.image.fields.file.url}?fm=webp)`"
                 role="presentation"
                 class="background__image"
             />
@@ -12,11 +12,12 @@
 </template>
 
 <script lang="ts">
-    import { createComponent } from '@vue/composition-api';
+    import Vue from 'vue';
+    import BackLink from '@/components/BackLink.vue';
 
-    export default createComponent({
+    export default Vue.extend({
         name: 'BlogHeader',
-        components: { BackLink: () => import('@/components/BackLink.vue') },
+        components: { BackLink },
         props: {
             post: {
                 type: Object,

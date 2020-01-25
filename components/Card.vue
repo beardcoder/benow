@@ -1,17 +1,14 @@
-<template>
+<template functional>
     <div class="card">
         <slot />
     </div>
 </template>
 
 <script lang="ts">
-    import { createComponent } from '@vue/composition-api';
-
-    export default createComponent({
+    export default {
         name: 'Card',
-    });
+    };
 </script>
-
 <style scoped>
     @import '../assets/css/variables.css';
 

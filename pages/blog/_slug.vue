@@ -23,7 +23,7 @@
             </article>
         </div>
         <p-footer>
-            <back-link class="backLink--footer" />
+            <back-link top />
         </p-footer>
     </div>
 </template>
@@ -32,14 +32,18 @@
     import { createComponent } from '@vue/composition-api';
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
+    import Shape from '@/components/Shape.vue';
+    import BackLink from '@/components/BackLink.vue';
+    import BlogHeader from '@/components/BlogHeader.vue';
+    import PFooter from '@/components/PFooter.vue';
 
     export default createComponent({
         name: 'PageBlogSlug',
         components: {
-            Shape: () => import(/* webpackPrefetch: true */ '@/components/Shape.vue'),
-            BackLink: () => import(/* webpackPrefetch: true */ '@/components/BackLink.vue'),
-            BlogHeader: () => import(/* webpackPrefetch: true */ '@/components/BlogHeader.vue'),
-            PFooter: () => import(/* webpackPrefetch: true */ '@/components/PFooter.vue'),
+            Shape,
+            BackLink,
+            BlogHeader,
+            PFooter,
         },
 
         setup() {},

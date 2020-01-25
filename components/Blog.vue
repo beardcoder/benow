@@ -15,11 +15,12 @@
     import { createComponent, reactive, ref } from '@vue/composition-api';
     import { IPost } from '@/types/contentful';
     import getPosts from '@/utils/getPosts';
+    import Post from '@/components/Post.vue';
 
     export default createComponent({
         name: 'Blog',
         components: {
-            Post: () => import('@/components/Post.vue'),
+            Post,
         },
         setup() {
             const state = reactive({

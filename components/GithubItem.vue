@@ -38,12 +38,14 @@
 <script lang="ts">
     import { createComponent, reactive } from '@vue/composition-api';
     import { IGithubItem } from '@/types';
+    import GithubItem from '@/components/GithubItem.vue';
+    import Card from '@/components/Card.vue';
 
     export default createComponent({
         name: 'GithubItem',
         components: {
-            GithubItem: () => import('@/components/GithubItem.vue'),
-            Card: () => import('@/components/Card.vue'),
+            GithubItem,
+            Card,
         },
         props: {
             item: {

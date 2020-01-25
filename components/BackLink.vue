@@ -1,18 +1,24 @@
-<template>
-    <nuxt-link class="backLink" to="/#blog">
-        <span class="backLink__text">Zurück</span>
-    </nuxt-link>
+<template functional>
+    <div>
+        <nuxt-link class="backLink" :class="{ 'backLink--top': props.top }" to="/#blog">
+            <span class="backLink__text">Zurück</span>
+        </nuxt-link>
+    </div>
 </template>
 
 <script lang="ts">
-    import { createComponent } from '@vue/composition-api';
-
-    export default createComponent({
-        name: 'BackLink',
-    });
+    export default {
+        name: 'Card',
+        props: {
+            top: {
+                type: Boolean,
+                default: false,
+            },
+        },
+    };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
     @import '../assets/css/variables.css';
 
     .backLink {
@@ -69,5 +75,10 @@
 
     .backLink:hover:after {
         transform: scale(0);
+    }
+
+    .backLink--top {
+        bottom: auto;
+        top: -60px;
     }
 </style>
