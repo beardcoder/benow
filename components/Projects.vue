@@ -38,7 +38,7 @@
         props: {
             repos: {
                 type: Array,
-                default: () => require('@/.content/github/snippets.json'),
+                default: () => require('@/.content/github/repos.json'),
             },
             snippets: {
                 type: Array,
