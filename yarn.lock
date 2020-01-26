@@ -6809,10 +6809,10 @@ react-is@^16.6.3, react-is@^16.8.1, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
-react-lazy-load-image-component@1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.4.0.tgz#10c73ca46afc039864b395191d6b54a46a673b60"
-  integrity sha512-o/L93CyJVvXPuA2P/ouUZI7ZXJRrdE/eqP45AH5/SakOU0bzAk2ZP6qNT/WaaXhf+JtE7hhjXxMr7KGsLNX64w==
+react-lazy-load-image-component@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.4.1.tgz#fd4c7566ba85b9e0960876b670d7504b0ef6ec62"
+  integrity sha512-PeQh64fiZ0FwN9PComusEAWMshbJSChEKnA+31UyQ1+ioRMw/PWdUV4lTd1kV+YQHTWAG4WHjhoICTj3tSjSRw==
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
