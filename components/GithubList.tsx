@@ -7,7 +7,7 @@ import GithubItem from './GithubItem';
 
 type Props = {
     items?: IGithubItem[];
-    gist: boolean;
+    gist?: boolean;
     title: string;
     linkText: string;
 };
@@ -26,7 +26,7 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
                     <GithubItem
                         hidden={i >= 3 && !open}
                         item={item}
-                        gist={gist}
+                        gist={gist ? gist : false}
                         linkText={linkText}
                         key={i}
                     />

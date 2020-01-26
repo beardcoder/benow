@@ -31,9 +31,7 @@ const GithubItem: React.FunctionComponent<Props> = ({ gist, item, linkText, hidd
                 <Card>
                     <div>
                         <h4>{gist ? item.description : item.full_name}</h4>
-                        <p v-if='!gist' className={css.githubItemDescription}>
-                            {item.description}
-                        </p>
+                        {gist && <p className={css.githubItemDescription}>{item.description}</p>}
                     </div>
                     <Button href={item.html_url} rel='noreferrer' target='_blank' secondary={gist}>
                         {linkText}
