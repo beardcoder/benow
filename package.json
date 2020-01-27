@@ -22,7 +22,7 @@
         "isomorphic-unfetch": "3.0.0",
         "lazy-hydration": "1.0.4",
         "nuxt": "2.11.0",
-        "rellax": "1.10.0",
+        "rellax": "1.12.0",
         "sanitize.css": "11.0.0",
         "vue-countup-v2": "4.0.0",
         "vue-eslint-parser": "7.0.0",
