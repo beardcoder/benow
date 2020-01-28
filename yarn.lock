@@ -768,10 +768,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@contentful/rich-text-types@13.4.0":
-  version "13.4.0"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz#a59c311ebd1b801ee00edbc08663c8d78da26171"
-  integrity sha512-YPdYqGmWiGAood7ri2BUXfPQKNthkQYV1rmQdaq4UAxWK5NLB5NXckaUYLbohqhHKtrq4tnfzVn+ePWID7Dzbg==
+"@contentful/rich-text-types@14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-14.0.0.tgz#c2e1d04f64df8a7cbfae6dda07163ff8002b39da"
+  integrity sha512-RGekzvW58pDkFZDgIJqXsxM8pRt61vWjF6sIToMmBgW4T4xBoDRKmlHGsKWUTbUbuj49DiXvVhFYhM6j8E8xRQ==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
