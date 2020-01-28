@@ -6,7 +6,7 @@
             once: true,
         }"
         class="skill"
-        :class="{ 'skill--visible': data.visible, 'skill--notVisible': !data.visible }"
+        :class="{ 'skill--visible': state.visible, 'skill--notVisible': !state.visible }"
     >
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
@@ -34,16 +34,16 @@
         },
 
         setup() {
-            const data = reactive({
+            const state = reactive({
                 visible: true,
             });
 
             function visibilityChanged(visible) {
-                data.visible = visible;
+                state.visible = visible;
             }
 
             return {
-                data,
+                state,
                 visibilityChanged,
             };
         },
@@ -111,11 +111,11 @@
         content: '';
         width: 0;
         height: 0;
-        border-left: 13px solid transparent;
-        border-right: 13px solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
         border-top: 13px solid #404040;
-        transform: translateX(-20px);
-        bottom: -4px;
+        left: 3px;
+        bottom: -8px;
     }
 
     .skill.skill--notVisible .skillPercentNumber {
