@@ -33,7 +33,7 @@
         "vue-typer": "1.2.0"
     },
     "devDependencies": {
-        "@contentful/rich-text-types": "14.0.0",
+        "@contentful/rich-text-types": "14.0.1",
         "@nuxt/types": "0.6.1",
         "@nuxt/typescript": "2.8.1",
         "@nuxt/typescript-build": "0.5.6",
