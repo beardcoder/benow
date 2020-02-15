@@ -6,32 +6,26 @@
         ></div>
         <h2 class="blog__header">Blog</h2>
         <div class="articles">
-            <post v-for="(post, index) in state.posts" :key="index" :post="post" />
+            <post v-for="(post, index) in posts" :key="index" :post="post" />
         </div>
     </div>
 </template>
 
-<script lang="ts">
-    import { createComponent, reactive, ref } from '@vue/composition-api';
-    import { IPost } from '@/types/contentful';
+<script>
     import getPosts from '@/utils/getPosts';
     import Post from '@/components/Post.vue';
 
-    export default createComponent({
+    export default {
         name: 'Blog',
         components: {
             Post,
         },
-        setup() {
-            const state = reactive({
-                posts: ref<IPost[]>(getPosts()),
-            });
-
+        data() {
             return {
-                state,
+                posts: getPosts(),
             };
         },
-    });
+    };
 </script>
 
 <style scoped>

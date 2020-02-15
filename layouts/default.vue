@@ -4,12 +4,10 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { createComponent } from '@vue/composition-api';
-
-    export default createComponent({
-        name: 'LayoutDefault',
-    });
+<script>
+    export default {
+        name: 'DefaultLayout',
+    };
 </script>
 
 <style>

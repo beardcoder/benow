@@ -6,14 +6,12 @@ module.exports = {
     },
     parser: 'vue-eslint-parser',
     parserOptions: {
-        parser: '@typescript-eslint/parser',
         ecmaFeatures: {
             legacyDecorators: true,
         },
     },
     extends: [
         '@nuxtjs',
-        '@nuxtjs/eslint-config-typescript',
         'prettier',
         'prettier/vue',
         'plugin:prettier/recommended',
@@ -24,6 +22,5 @@ module.exports = {
     rules: {
         'no-console': 'off',
         'vue/no-v-html': 'off',
-        '@typescript-eslint/no-unused-vars': ['error', { args: 'none', argsIgnorePattern: '_' }],
     },
 };

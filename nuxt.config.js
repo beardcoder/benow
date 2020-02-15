@@ -1,8 +1,6 @@
-import { Configuration } from '@/node_modules/@nuxt/types';
-
 require('dotenv').config();
 
-const config: Configuration = {
+const config = {
     mode: 'universal',
 
     /*
@@ -83,7 +81,6 @@ const config: Configuration = {
         '@/plugins/jsonld',
         '@/plugins/markdown',
         '@/plugins/vue-observe-visibility',
-        '@/plugins/composition-api',
     ],
     /*
      ** Nuxt.js dev-modules
@@ -91,7 +88,6 @@ const config: Configuration = {
     buildModules: [
         // Doc: https://github.com/nuxt-community/eslint-module
         '@nuxtjs/eslint-module',
-        '@nuxt/typescript-build',
     ],
     /*
      ** Nuxt.js modules
@@ -118,12 +114,6 @@ const config: Configuration = {
         },
     },
 
-    typescript: {
-        typeCheck: {
-            eslint: true,
-        },
-    },
-
     sitemap: {
         hostname: 'https://creativeworkspace.de',
         gzip: true,
@@ -140,7 +130,7 @@ const config: Configuration = {
         routes() {
             const articles = require('./.content/blog/articles.json');
 
-            return articles.map((slug: string) => {
+            return articles.map(slug => {
                 return {
                     route: `/blog/${slug}/`,
                 };

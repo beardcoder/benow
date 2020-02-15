@@ -4,10 +4,8 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { createComponent } from '@vue/composition-api';
-
-    export default createComponent({
+<script>
+    export default {
         name: 'Shape',
         props: {
             direction: {
@@ -19,7 +17,7 @@
                 default: false,
             },
         },
-    });
+    };
 </script>
 
 <style scoped>

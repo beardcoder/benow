@@ -6,32 +6,30 @@
                 v-for="(item, index) in items"
                 :key="item.id"
                 :gist="gist"
-                :open="state.open || index <= 5"
+                :open="open || index <= 5"
                 :item="item"
                 :link-text="linkText"
             />
         </ul>
         <div style="text-align: center;">
-            <button :class="{ btn: true, btnSecondary: gist }" @click="state.open = !state.open">
-                {{ state.open ? 'Verbergen' : 'Alle anzeigen' }}
+            <button :class="{ btn: true, btnSecondary: gist }" @click="open = !open">
+                {{ open ? 'Verbergen' : 'Alle anzeigen' }}
             </button>
         </div>
     </div>
 </template>
 
-<script lang="ts">
-    import { createComponent, reactive } from '@vue/composition-api';
-    import { IGithubItem } from '@/types';
+<script>
     import GithubItem from '@/components/GithubItem.vue';
 
-    export default createComponent({
+    export default {
         name: 'GithubList',
         components: {
             GithubItem,
         },
         props: {
             items: {
-                type: Array as () => IGithubItem[],
+                type: Array,
                 default: () => [],
             },
             gist: {
@@ -47,13 +45,12 @@
                 default: '',
             },
         },
-        setup() {
-            const state = reactive({
+        data() {
+            return {
                 open: false,
-            });
-            return { state };
+            };
         },
-    });
+    };
 </script>
 
 <style scoped>

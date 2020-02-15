@@ -7,8 +7,8 @@
         }"
         :class="{
             'githubItem--hidden': !open,
-            'githubItem--visible': state.isVisible,
-            'githubItem--notVisible': !state.isVisible,
+            'githubItem--visible': isVisible,
+            'githubItem--notVisible': !isVisible,
         }"
         class="githubItem"
     >
@@ -35,21 +35,17 @@
         </card>
     </li>
 </template>
-<script lang="ts">
-    import { createComponent, reactive } from '@vue/composition-api';
-    import { IGithubItem } from '@/types';
-    import GithubItem from '@/components/GithubItem.vue';
+<script>
     import Card from '@/components/Card.vue';
 
-    export default createComponent({
+    export default {
         name: 'GithubItem',
         components: {
-            GithubItem,
             Card,
         },
         props: {
             item: {
-                type: Object as () => IGithubItem,
+                type: Object,
                 default: () => {},
             },
             gist: {
@@ -65,21 +61,18 @@
                 default: false,
             },
         },
-        setup() {
-            const state = reactive({
-                isVisible: false,
-            });
-
-            function visibilityChanged(visibleValue) {
-                state.isVisible = visibleValue;
-            }
-
+        data() {
             return {
-                state,
-                visibilityChanged,
+                isVisible: false,
             };
         },
-    });
+
+        methods: {
+            visibilityChanged(visibleValue) {
+                this.isVisible = visibleValue;
+            },
+        },
+    };
 </script>
 <style scoped>
     @import '../assets/css/variables.css';

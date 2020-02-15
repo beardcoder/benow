@@ -11,8 +11,7 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { createComponent, onMounted } from '@vue/composition-api';
+<script>
     import ContactMe from '@/components/ContactMe.vue';
     import PHeader from '@/components/PHeader.vue';
     import Projects from '@/components/Projects.vue';
@@ -20,7 +19,7 @@
     import Blog from '@/components/Blog.vue';
     import PFooter from '@/components/PFooter.vue';
 
-    export default createComponent({
+    export default {
         name: 'PageIndex',
         components: {
             ContactMe,
@@ -31,13 +30,11 @@
             PFooter,
         },
 
-        setup() {
-            onMounted(() => {
-                if (window.location.hash) {
-                    const elem = document.getElementById(window.location.hash.replace('#', ''));
-                    if (elem) elem.scrollIntoView();
-                }
-            });
+        mounted() {
+            if (window.location.hash) {
+                const elem = document.getElementById(window.location.hash.replace('#', ''));
+                if (elem) elem.scrollIntoView();
+            }
         },
 
         head() {
@@ -45,7 +42,7 @@
                 title: 'Moderne Web Technologieren, Design und Frontendartist 🚀',
             };
         },
-    });
+    };
 </script>
 
 <style scoped>

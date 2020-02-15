@@ -25,7 +25,7 @@
     </section>
 </template>
 
-<script lang="ts">
+<script>
     import GithubList from '@/components/GithubList.vue';
     import Shape from '@/components/Shape.vue';
 

@@ -11,11 +11,10 @@
     </header>
 </template>
 
-<script lang="ts">
-    import Vue from 'vue';
-    import BackLink from '@/components/BackLink.vue';
+<script>
+    import BackLink from '@/components/BackLink';
 
-    export default Vue.extend({
+    export default {
         name: 'BlogHeader',
         components: { BackLink },
         props: {
@@ -24,7 +23,7 @@
                 required: true,
             },
         },
-    });
+    };
 </script>
 
 <style scoped>

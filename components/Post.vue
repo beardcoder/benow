@@ -28,8 +28,8 @@
         </div>
     </card>
 </template>
-<script lang="ts">
-    import Card from '@/components/Card.vue';
+<script>
+    import Card from '@/components/Card';
 
     export default {
         name: 'Post',

@@ -50,7 +50,7 @@
         </div>
     </section>
 </template>
-<script lang="ts">
+<script>
     import personSchema from '@/utils/schema/person';
     import Shape from '@/components/Shape.vue';
     import Skill from '@/components/Skill.vue';

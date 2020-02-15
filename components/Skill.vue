@@ -6,7 +6,7 @@
             once: true,
         }"
         class="skill"
-        :class="{ 'skill--visible': state.visible, 'skill--notVisible': !state.visible }"
+        :class="{ 'skill--visible': visible, 'skill--notVisible': !visible }"
     >
         <div class="skillTitle">{{ title }}</div>
         <div class="skillPercent">
@@ -17,10 +17,8 @@
     </li>
 </template>
 
-<script lang="ts">
-    import { createComponent, reactive } from '@vue/composition-api';
-
-    export default createComponent({
+<script>
+    export default {
         name: 'Skill',
         props: {
             title: {
@@ -32,22 +30,17 @@
                 default: 20,
             },
         },
-
-        setup() {
-            const state = reactive({
-                visible: true,
-            });
-
-            function visibilityChanged(visible) {
-                state.visible = visible;
-            }
-
+        data() {
             return {
-                state,
-                visibilityChanged,
+                visible: true,
             };
         },
-    });
+        methods: {
+            visibilityChanged(visible) {
+                this.visible = visible;
+            },
+        },
+    };
 </script>
 
 <style scoped>

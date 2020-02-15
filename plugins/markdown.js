@@ -10,7 +10,7 @@ hljs.registerLanguage('javascript', require(`highlight.js/lib/languages/javascri
 hljs.registerLanguage('bash', require(`highlight.js/lib/languages/bash`));
 hljs.registerLanguage('typescript', require(`highlight.js/lib/languages/typescript`));
 
-export default ({ app }: any, inject: any) => {
+export default ({ app }, inject) => {
     const md = new MarkdownIt({
         html: true,
         linkify: true,

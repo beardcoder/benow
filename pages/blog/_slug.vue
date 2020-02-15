@@ -28,8 +28,7 @@
     </div>
 </template>
 
-<script lang="ts">
-    import { createComponent } from '@vue/composition-api';
+<script>
     import personSchema from '@/utils/schema/person';
     import organizationSchema from '@/utils/schema/organization';
     import Shape from '@/components/Shape.vue';
@@ -37,7 +36,7 @@
     import BlogHeader from '@/components/BlogHeader.vue';
     import PFooter from '@/components/PFooter.vue';
 
-    export default createComponent({
+    export default {
         name: 'PageBlogSlug',
         components: {
             Shape,
@@ -46,7 +45,12 @@
             PFooter,
         },
 
-        setup() {},
+        asyncData(context) {
+            const { params } = context;
+
+            const post = require(`@/.content/blog/${params.slug}.json`);
+            return { post: { ...post } };
+        },
 
         data() {
             return {
@@ -89,14 +93,7 @@
                 image: [this.post.fields.image.fields.file.url + '?fm=webp'],
             };
         },
-
-        asyncData(context) {
-            const { params } = context;
-
-            const post = require(`@/.content/blog/${params.slug}.json`);
-            return { post: { ...post } };
-        },
-    });
+    };
 </script>
 
 <style scoped>
