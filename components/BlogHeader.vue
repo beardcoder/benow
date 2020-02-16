@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    import BackLink from '@/components/BackLink';
+    import BackLink from '@/components/BackLink.vue';
 
     export default {
         name: 'BlogHeader',
