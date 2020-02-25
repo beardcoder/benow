@@ -32,12 +32,7 @@ const Post: React.FunctionComponent<Props> = ({ post }) => {
                 <p className={css.description}>{post.fields.description}</p>
             </div>
             <div className={css.footer}>
-                <Link
-                    href={{
-                        pathname: '/blog/[slug]',
-                        query: { slug: post.fields.slug },
-                    }}
-                    as={`/blog/${post.fields.slug}`}>
+                <Link passHref href='/blog/[slug]' as={`/blog/${post.fields.slug}`}>
                     <Button>Zum Post</Button>
                 </Link>
             </div>

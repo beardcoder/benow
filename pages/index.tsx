@@ -7,10 +7,10 @@ import Footer from '~/components/Footer';
 import getPosts from '~/helper/getPosts';
 import { GithubItem } from '~/types';
 
-import PageHeader from '../components/Header';
-import Layout from '../components/Layout';
-import Personal from '../components/Personal';
-import Projects from '../components/Projects';
+import PageHeader from '~/components/Header';
+import Layout from '~/components/Layout';
+import Personal from '~/components/Personal';
+import Projects from '~/components/Projects';
 
 type Props = {
     repos?: GithubItem[];
