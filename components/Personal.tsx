@@ -35,9 +35,8 @@ const Personal: React.FunctionComponent = () => {
                 <div className={css.personalContent}>
                     <h3>Webentwickler, Frontend Artist und Designer</h3>
                     <p>
-                        Brauchst du Hilfe z. B.
-                        <strong>um deine Website in neuem Glanz</strong>
-                        erstrahlen zu lassen oder mal einen Tipp wie du eine
+                        Brauchst du Hilfe z. B. <strong>um deine Website in neuem Glanz</strong>{' '}
+                        erstrahlen zu lassen oder mal einen Tipp wie du eine{' '}
                         <strong>Sitemap einrichtest?</strong>
                     </p>
                     <p>
@@ -47,9 +46,9 @@ const Personal: React.FunctionComponent = () => {
                         Ich stehe gerne mit Rat und Tat zur Seite.
                     </p>
                     <ul className={css.personalSkills}>
-                        {skills.map((skill, i) => {
-                            return <Skill key={i} value={skill.value} title={skill.title} />;
-                        })}
+                        {skills.map((skill, i) => (
+                            <Skill key={i} value={skill.value} title={skill.title} />
+                        ))}
                     </ul>
                 </div>
             </div>
