@@ -1,8 +1,17 @@
 import { SocialProfileJsonLd } from 'next-seo';
 import App from 'next/app';
 import React from 'react';
+import TagManager from 'react-gtm-module';
+
+const tagManagerArgs = {
+    gtmId: 'GTM-NT4CRWW',
+};
 
 export default class MyApp extends App {
+    componentDidMount() {
+        TagManager.initialize(tagManagerArgs);
+    }
+
     render() {
         const { Component, pageProps } = this.props;
         return (
