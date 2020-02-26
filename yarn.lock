@@ -1077,10 +1077,10 @@
     consola "^2.10.1"
     eslint-loader "^3.0.0"
 
-"@nuxtjs/google-tag-manager@2.3.1":
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/google-tag-manager/-/google-tag-manager-2.3.1.tgz#5b0a908b6651d4f0a090736114d407896e9ff787"
-  integrity sha512-3NzHqJ8yDG/RnovAITcJIVYXjWqY80ml9rdyKjsv9wXFb0YD7/RZHltzAsDFaTYYOZV0FgFPa0jw7fSTvJJRHg==
+"@nuxtjs/google-tag-manager@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/google-tag-manager/-/google-tag-manager-2.3.2.tgz#4f625225cba19912ccac2a0d4e3d7282c6684b38"
+  integrity sha512-i2rpIy6ekH1Wv2jAoEZ9q5e16jQM/OG4xgC9mi0yVFxnrXv2N93+ca04wWMESP6tekuy7FxpDdoN2vlrBLTqrw==
 
 "@nuxtjs/markdownit-loader@^1.1.1":
   version "1.1.1"
