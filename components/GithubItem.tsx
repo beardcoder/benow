@@ -5,6 +5,7 @@ import { GithubItem as IGithubItem } from '~/types';
 
 import Button from './Button';
 import Card from './Card';
+import classNames from 'classnames';
 
 type Props = {
     item: IGithubItem;
@@ -22,11 +23,11 @@ const GithubItem: React.FunctionComponent<Props> = ({ gist, item, linkText, hidd
     return (
         <Waypoint onEnter={handleEnter}>
             <li
-                className={[
+                className={classNames(
                     css.githubItem,
-                    hidden ? css.githubItemHidden : '',
-                    visible ? css.isVisible : css.notVisible,
-                ].join(' ')}
+                    hidden ? css.githubItemHidden : null,
+                    visible ? css.isVisible : css.notVisible
+                )}
                 aria-hidden={hidden}>
                 <Card>
                     <div>

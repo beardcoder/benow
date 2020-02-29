@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 
 import css from './Skill.module.css';
+import classNames from 'classnames';
 
 type Props = {
     title: string;
@@ -16,7 +17,7 @@ const Skill: React.FunctionComponent<Props> = ({ title, value }) => {
 
     return (
         <Waypoint onEnter={handleEnter}>
-            <li className={`${css.skill} ${active ? css.inViewport : ''}`}>
+            <li className={classNames(css.skill, active ? css.inViewport : null)}>
                 <div className={css.skillTitle}>{title}</div>
                 <div className={css.skillPercent}>
                     <div style={{ marginLeft: `${value}%` }} className={css.skillPercentNumber}>

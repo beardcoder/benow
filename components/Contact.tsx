@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
                         options={{
                             strings: 'Scheib mich an! <br /> Frong kost nix.',
                             autoStart: true,
-                            delay: 100,
+                            delay: 80,
                         }}
                     />
                 </div>

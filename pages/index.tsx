@@ -5,20 +5,19 @@ import Blog from '~/components/Blog';
 import Contact from '~/components/Contact';
 import Footer from '~/components/Footer';
 import getPosts from '~/helper/getPosts';
-import { GithubItem } from '~/types';
 
 import PageHeader from '~/components/Header';
 import Layout from '~/components/Layout';
 import Personal from '~/components/Personal';
 import Projects from '~/components/Projects';
+import reposJson from '~/.content/github/repos.json';
+import snippetsJson from '~/.content/github/snippets.json';
 
 type Props = {
-    repos?: GithubItem[];
-    snippets?: GithubItem[];
     posts?: any;
 };
 
-const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
+const IndexPage: NextPage<Props> = ({ posts }) => {
     return (
         <Layout>
             <NextSeo
@@ -31,7 +30,7 @@ const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
                 <Contact />
                 <main className='main'>
                     <Personal />
-                    <Projects repos={repos} snippets={snippets} />
+                    <Projects repos={reposJson} snippets={snippetsJson} />
                     <Blog posts={posts} />
                 </main>
                 <Footer />
@@ -49,11 +48,9 @@ const IndexPage: NextPage<Props> = ({ repos, snippets, posts }) => {
 };
 
 IndexPage.getInitialProps = async () => {
-    const repos = await require(`../.content/github/repos.json`);
-    const snippets = await require(`../.content/github/snippets.json`);
     const posts = await getPosts();
 
-    return { repos, snippets, posts };
+    return { posts };
 };
 
 export default IndexPage;

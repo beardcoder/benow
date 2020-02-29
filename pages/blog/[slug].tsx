@@ -79,7 +79,6 @@ const Post: NextPage<Props> = ({ post }) => {
     );
 };
 
-// @ts-ignore
 Post.getInitialProps = async ({ query }) => {
     const { slug } = query;
     const post = await import(`~/.content/blog/${slug}.json`).catch(() => null);

@@ -2,8 +2,8 @@
 export * from './contentful';
 
 export type GithubItem = {
-    id: string;
+    id: number | string;
     full_name?: string;
-    description: string;
+    description: string | null;
     html_url: string;
 };
