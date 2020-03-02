@@ -1,6 +1,3 @@
-import '../assets/css/global.css';
-import 'sanitize.css';
-
 import Head from 'next/head';
 import * as React from 'react';
 

@@ -1,15 +1,15 @@
 import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
-import Blog from '~/components/Blog';
-import Contact from '~/components/Contact';
-import Footer from '~/components/Footer';
-import getPosts from '~/helper/getPosts';
+import Blog from '~/src/components/Blog';
+import Contact from '~/src/components/Contact';
+import Footer from '~/src/components/Footer';
+import getPosts from '~/src/helper/getPosts';
 
-import PageHeader from '~/components/Header';
-import Layout from '~/components/Layout';
-import Personal from '~/components/Personal';
-import Projects from '~/components/Projects';
+import PageHeader from '~/src/components/Header';
+import Layout from '~/src/components/Layout';
+import Personal from '~/src/components/Personal';
+import Projects from '~/src/components/Projects';
 import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
 
@@ -47,9 +47,8 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
     );
 };
 
-IndexPage.getInitialProps = async () => {
-    const posts = await getPosts();
-
+IndexPage.getInitialProps = () => {
+    const posts = getPosts();
     return { posts };
 };
 

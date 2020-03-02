@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import css from '~/components/GithubList.module.css';
+import css from './GithubList.module.css';
 import { GithubItem as IGithubItem } from '~/types';
 
 import Button from './Button';

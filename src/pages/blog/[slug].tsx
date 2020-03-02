@@ -2,14 +2,16 @@ import { NextPage } from 'next';
 import { BlogJsonLd, NextSeo } from 'next-seo';
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import BackLink from '~/components/BackLink';
-import Footer from '~/components/Footer';
-import Layout from '~/components/Layout';
+import BackLink from '~/src/components/BackLink';
+import Footer from '~/src/components/Footer';
+import Layout from '~/src/components/Layout';
+import matter from 'gray-matter';
 
 import css from './[slug].module.css';
+import { IPost } from '~/types';
 
 type Props = {
-    post?: any;
+    post: IPost;
 };
 
 // @ts-ignore
@@ -18,25 +20,25 @@ const Post: NextPage<Props> = ({ post }) => {
         <Layout>
             <>
                 <NextSeo
-                    title={`${post.fields.headline} — Markus Sommer`}
-                    description={post.fields.description}
-                    canonical={`https://creativeworkspace.de/blog/${post.slug}`}
+                    title={`${post.data.title} — Markus Sommer`}
+                    description={post.data.description}
+                    canonical={`https://creativeworkspace.de/blog/${post.data.slug}`}
                 />
                 <BlogJsonLd
-                    url={`https://creativeworkspace.de/blog/${post.slug}`}
-                    title={post.fields.headline}
-                    images={[post.fields.image.fields.file.url + '?fm=webp']}
-                    datePublished={post.sys.createdAt}
-                    dateModified={post.sys.updatedAt}
+                    url={`https://creativeworkspace.de/blog/${post.data.slug}`}
+                    title={post.data.title}
+                    images={[post.data.image]}
+                    datePublished={post.data.date}
+                    dateModified={post.data.date}
                     authorName='Markus Sommer'
-                    description={post.fields.description}
+                    description={post.data.description}
                 />
                 <header className={css.header}>
                     <div className={css.headerBackground}>
                         <div role='presentation' className='backgroundImage' />
                         <style jsx>{`
                             .backgroundImage {
-                                background-image: url(${post.fields.image.fields.file.url}?fm=webp);
+                                background-image: url(${post.data.image});
                                 background-position: center center;
                                 background-size: cover;
                                 position: absolute;
@@ -53,21 +55,21 @@ const Post: NextPage<Props> = ({ post }) => {
                 <div className='container'>
                     <div className={css.main}>
                         <article className={css.article}>
-                            <h1>{post.fields.headline}</h1>
+                            <h1>{post.data.title}</h1>
                             <div>
                                 Veröffentlicht am
-                                <time dateTime={post.sys.createdAt}>
-                                    {new Date(post.sys.createdAt).toLocaleDateString()}
+                                <time dateTime={post.data.date}>
+                                    {new Date(post.data.date).toLocaleDateString()}
                                 </time>
                                 von Markus Sommer
                                 <br />
                                 Letzte Änderung
-                                <time dateTime='post.sys.updatedAt'>
-                                    {new Date(post.sys.updatedAt).toLocaleDateString()}
+                                <time dateTime={post.data.date}>
+                                    {new Date(post.data.date).toLocaleDateString()}
                                 </time>
                             </div>
-                            <p className='description'>{post.fields.description}</p>
-                            <ReactMarkdown source={post.fields.articleBody} />
+                            <p className='description'>{post.data.description}</p>
+                            <ReactMarkdown source={post.content} />
                         </article>
                     </div>
                     <Footer>
@@ -81,7 +83,9 @@ const Post: NextPage<Props> = ({ post }) => {
 
 Post.getInitialProps = async ({ query }) => {
     const { slug } = query;
-    const post = await import(`~/.content/blog/${slug}.json`).catch(() => null);
+    const content = await import(`~/src/content/posts/${slug}.md`);
+
+    const post: any = matter(content.default);
     return { post };
 };
 

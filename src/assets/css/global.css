@@ -81,3 +81,7 @@ pre {
     padding: 15px 25px;
     border-radius: var(--border-radius);
 }
+
+code {
+    font-size: 0.9em;
+}

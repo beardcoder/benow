@@ -1,6 +1,7 @@
 const withCSS = require('@zeit/next-css');
 const path = require('path');
 const withImages = require('next-images');
+const jdown = require('jdown');
 
 require('dotenv').config();
 
@@ -27,7 +28,12 @@ module.exports = withPlugins(
         },
         webpack(config) {
             config.resolve.alias['~'] = path.join(__dirname);
+            config.module.rules.push({
+                test: /\.md$/,
+                use: 'raw-loader',
+            });
             return config;
         },
+        exportTrailingSlash: true,
     }
 );

@@ -3,18 +3,19 @@ import { IPost } from '~/types';
 export default (blogPosts: IPost[]) => {
     let latestPost = '';
     let postsXml = '';
-    blogPosts.map(post => {
-        const postDate = post.sys.createdAt;
+    Object.keys(blogPosts).map((key: any) => {
+        const postDate = blogPosts[key].data.date;
         if (
             !latestPost ||
-            new Date(post.sys.createdAt).getTime() >= new Date(post.sys.createdAt).getTime()
+            new Date(blogPosts[key].data.date).getTime() >=
+                new Date(blogPosts[key].data.date).getTime()
         ) {
             latestPost = postDate;
         }
         postsXml += `
             <url>
-                <loc>/blog/${post.fields.slug}</loc>
-                <lastmod>${post.sys.createdAt}</lastmod>
+                <loc>/blog/${blogPosts[key].data.slug}/</loc>
+                <lastmod>${blogPosts[key].data.date}</lastmod>
                 <priority>0.80</priority>
             </url>`;
     });

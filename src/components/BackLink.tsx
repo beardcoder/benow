@@ -10,7 +10,7 @@ interface Props {
 
 const BackLink: React.FC<Props> = ({ footer }) => {
     return (
-        <Link href='/'>
+        <Link href='/#blog'>
             <a className={classNames(css.backLink, footer ? css.backLinkFooter : null)}>
                 <span className={css.backLinkText}>Zurück</span>
             </a>

@@ -12,8 +12,8 @@ const Blog: React.FunctionComponent<Props> = ({ posts }) => {
         <div id='blog' className={css.blog}>
             <h2 className={css.blogHeader}>Blog</h2>
             <div className={css.articles}>
-                {posts.map((post, i) => (
-                    <Post key={i} post={post} />
+                {Object.keys(posts).map((key: any) => (
+                    <Post key={key} post={posts[key]} />
                 ))}
             </div>
         </div>
