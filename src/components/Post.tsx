@@ -19,8 +19,8 @@ const Post: React.FunctionComponent<Props> = ({ post }) => {
                     src={post.data.thumbnail}
                     alt='Article Bild'
                     title={post.data.title}
-                    width={600}
-                    height={337}
+                    width={480}
+                    height={300}
                     className={css.articleImage}
                 />
             </div>

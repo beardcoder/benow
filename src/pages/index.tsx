@@ -30,8 +30,8 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
                 <Contact />
                 <main className='main'>
                     <Personal />
-                    <Projects repos={reposJson} snippets={snippetsJson} />
                     <Blog posts={posts} />
+                    <Projects repos={reposJson} snippets={snippetsJson} />
                 </main>
                 <Footer />
             </div>
