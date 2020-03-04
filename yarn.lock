@@ -8431,6 +8431,11 @@ react-is@^16.6.3, react-is@^16.8.1, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
 
+react-lazy-hydration@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/react-lazy-hydration/-/react-lazy-hydration-0.0.8.tgz#ee39d21325ec7cf14ae54acef657743498d34d31"
+  integrity sha512-J4i6tcsOUehUkfYjyI+Ef34EenUwW0REjvyZi04jkd52f/fKhQgjSkAgkMT3lQmbGUrz4cX2fmqP4f5F+zQ1ig==
+
 react-lazy-load-image-component@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.4.1.tgz#fd4c7566ba85b9e0960876b670d7504b0ef6ec62"

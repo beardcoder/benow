@@ -5,13 +5,13 @@ import Blog from '~/src/components/Blog';
 import Contact from '~/src/components/Contact';
 import Footer from '~/src/components/Footer';
 import getPosts from '~/src/helper/getPosts';
-
 import PageHeader from '~/src/components/Header';
 import Layout from '~/src/components/Layout';
 import Personal from '~/src/components/Personal';
 import Projects from '~/src/components/Projects';
 import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
+import LazyHydrate from 'react-lazy-hydration';
 
 type Props = {
     posts?: any;
@@ -29,11 +29,19 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
                 <PageHeader />
                 <Contact />
                 <main className='main'>
-                    <Personal />
-                    <Blog posts={posts} />
-                    <Projects repos={reposJson} snippets={snippetsJson} />
+                    <LazyHydrate whenVisible>
+                        <Personal />
+                    </LazyHydrate>
+                    <LazyHydrate whenVisible>
+                        <Blog posts={posts} />
+                    </LazyHydrate>
+                    <LazyHydrate whenVisible>
+                        <Projects repos={reposJson} snippets={snippetsJson} />
+                    </LazyHydrate>
                 </main>
-                <Footer />
+                <LazyHydrate ssrOnly>
+                    <Footer />
+                </LazyHydrate>
             </div>
             <style jsx>{`
                 .main {
