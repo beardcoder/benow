@@ -1259,7 +1259,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/webfontloader@^1.6.29":
+"@types/webfontloader@1.6.29":
   version "1.6.29"
   resolved "https://registry.yarnpkg.com/@types/webfontloader/-/webfontloader-1.6.29.tgz#c6b5f6eb8ca31d0aae6b02b6c1300349dd93ea8e"
   integrity sha512-wobuM+LvpkzU296NsFVRGDAFWw3X2XEhrLHuvV+VGSbok6aOxQcymmopUFwNB69qy5oudHt9lYC0JF+z+DxFLw==
@@ -4692,6 +4692,16 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
+gray-matter@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/gray-matter/-/gray-matter-4.0.2.tgz#9aa379e3acaf421193fce7d2a28cebd4518ac454"
+  integrity sha512-7hB/+LxrOjq/dd8APlK0r24uL/67w7SkYnfwhNFwg/VDIGWGmduTDYf3WNstLW2fbbmRwrDGCVSJ2isuf2+4Hw==
+  dependencies:
+    js-yaml "^3.11.0"
+    kind-of "^6.0.2"
+    section-matter "^1.0.0"
+    strip-bom-string "^1.0.0"
+
 gray-matter@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/gray-matter/-/gray-matter-2.1.1.tgz#3042d9adec2a1ded6a7707a9ed2380f8a17a430e"
@@ -4702,16 +4712,6 @@ gray-matter@^2.0.0:
     extend-shallow "^2.0.1"
     js-yaml "^3.8.1"
     toml "^2.3.2"
-
-gray-matter@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/gray-matter/-/gray-matter-4.0.2.tgz#9aa379e3acaf421193fce7d2a28cebd4518ac454"
-  integrity sha512-7hB/+LxrOjq/dd8APlK0r24uL/67w7SkYnfwhNFwg/VDIGWGmduTDYf3WNstLW2fbbmRwrDGCVSJ2isuf2+4Hw==
-  dependencies:
-    js-yaml "^3.11.0"
-    kind-of "^6.0.2"
-    section-matter "^1.0.0"
-    strip-bom-string "^1.0.0"
 
 gzip-size@5.1.1:
   version "5.1.1"
@@ -5628,7 +5628,7 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
-jdown@^1.0.3:
+jdown@1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/jdown/-/jdown-1.0.3.tgz#271c40f9c2656503bed365415b0b467f05eada5f"
   integrity sha512-VeLHsVObN0PeL21XHpTkxlq9CXFOScxOgRjzLaccahMErEYrbt2R5QCjmYEwI7gyigmCM+2zHmdJfd5aGnHU3A==
@@ -8393,7 +8393,7 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-raw-loader@^4.0.0:
+raw-loader@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-4.0.0.tgz#d639c40fb9d72b5c7f8abc1fb2ddb25b29d3d540"
   integrity sha512-iINUOYvl1cGEmfoaLjnZXt4bKfT2LJnZZib5N/LLyAphC+Dd11vNP9CNVb38j+SAJpFI1uo8j9frmih53ASy7Q==
@@ -8431,7 +8431,7 @@ react-is@^16.6.3, react-is@^16.8.1, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.0.tgz#0f37c3613c34fe6b37cd7f763a0d6293ab15c527"
   integrity sha512-GFMtL0vHkiBv9HluwNZTggSn/sCyEt9n02aM0dSAjGGyqyNlAyftYm4phPxdvCigG15JreC5biwxCgTAJZ7yAA==
 
-react-lazy-hydration@^0.0.8:
+react-lazy-hydration@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/react-lazy-hydration/-/react-lazy-hydration-0.0.8.tgz#ee39d21325ec7cf14ae54acef657743498d34d31"
   integrity sha512-J4i6tcsOUehUkfYjyI+Ef34EenUwW0REjvyZi04jkd52f/fKhQgjSkAgkMT3lQmbGUrz4cX2fmqP4f5F+zQ1ig==
@@ -10304,7 +10304,7 @@ wcwidth@^1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-webfontloader@^1.6.28:
+webfontloader@1.6.28:
   version "1.6.28"
   resolved "https://registry.yarnpkg.com/webfontloader/-/webfontloader-1.6.28.tgz#db786129253cb6e8eae54c2fb05f870af6675bae"
   integrity sha1-23hhKSU8tujq5UwvsF+HCvZnW64=
