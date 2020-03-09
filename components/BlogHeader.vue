@@ -2,7 +2,7 @@
     <header class="wrapper">
         <div class="background">
             <div
-                :style="`background-image: url(${props.post.fields.image.fields.file.url}?fm=webp)`"
+                :style="`background-image: url(${props.post.attributes.image})`"
                 role="presentation"
                 class="background__image"
             />

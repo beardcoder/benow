@@ -12,7 +12,6 @@
 </template>
 
 <script>
-    import getPosts from '@/utils/getPosts';
     import Post from '@/components/Post.vue';
 
     export default {
@@ -20,10 +19,11 @@
         components: {
             Post,
         },
-        data() {
-            return {
-                posts: getPosts(),
-            };
+        props: {
+            posts: {
+                type: Array,
+                default: () => [],
+            },
         },
     };
 </script>

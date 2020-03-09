@@ -4,7 +4,7 @@
         <main class="main">
             <personal />
             <projects />
-            <blog />
+            <blog :posts="posts" />
         </main>
         <contact-me />
         <p-footer />
@@ -18,6 +18,7 @@
     import Personal from '@/components/Personal.vue';
     import Blog from '@/components/Blog.vue';
     import PFooter from '@/components/PFooter.vue';
+    import getPosts from '@/utils/getPosts';
 
     export default {
         name: 'PageIndex',
@@ -28,6 +29,17 @@
             Personal,
             Blog,
             PFooter,
+        },
+        asyncData() {
+            const posts = getPosts();
+            console.log(posts);
+            return { posts };
+        },
+
+        data() {
+            return {
+                posts: [],
+            };
         },
 
         mounted() {

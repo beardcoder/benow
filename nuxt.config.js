@@ -1,3 +1,6 @@
+import path from 'path';
+import FMMode from 'frontmatter-markdown-loader/mode';
+
 require('dotenv').config();
 
 const config = {
@@ -126,7 +129,7 @@ const config = {
      */
     axios: {},
 
-    generate: {
+    /*     generate: {
         routes() {
             const articles = require('./.content/blog/articles.json');
 
@@ -136,7 +139,7 @@ const config = {
                 };
             });
         },
-    },
+    }, */
 
     router: {
         // Doc: https://nuxtjs.org/api/configuration-router/#trailingslash
@@ -170,6 +173,19 @@ const config = {
     build: {
         cache: true,
         watch: ['@/api/*'],
+        extend(config, _ctx) {
+            config.module.rules.push({
+                test: /\.md$/,
+                loader: 'frontmatter-markdown-loader',
+                include: path.resolve(__dirname, 'content'),
+                options: {
+                    mode: [FMMode.HTML],
+                    vue: {
+                        root: 'markdown-body',
+                    },
+                },
+            });
+        },
         transpile: ['countup.js', 'vue-countup-v2/dist/countup.min.js'],
         babel: {
             plugins: [

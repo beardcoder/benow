@@ -1,8 +1,8 @@
 <template>
     <card v-if="post" class="article">
-        <div v-if="post.fields.image" class="image">
+        <div v-if="post.attributes.image" class="image">
             <img
-                v-lazy="`${post.fields.image.fields.file.url}?fm=webp&w=600&h=337`"
+                v-lazy="`${post.attributes.thumbnail}`"
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAFRCAQAAAACiBsCAAADSklEQVR42u3UMQ0AAAzDsJU/6SEogEo2hBzJAYyIBIBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYlAWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBhgVgWACGBRgWgGEBGBZgWACGBWBYgGEBGBaAYQGGBWBYAIYFGBaAYQEYFmBYAIYFYFiAYQEYFoBhAYYFYFgAhgUYFoBhAYYFYFgAhgUYFoBhARgWYFgAhgVgWIBhARgWgGEBhgVgWACGBRgWgGEBGBZgWACGBVA8IDABUgzSsTgAAAAASUVORK5CYII="
                 class="articleImage"
                 alt="Article image"
@@ -11,16 +11,16 @@
             />
         </div>
         <div class="body">
-            <h4>{{ post.fields.headline }}</h4>
-            <time class="articleTime" :datetime="post.sys.createdAt">
-                {{ new Date(post.sys.createdAt).toLocaleDateString() }}
+            <h4>{{ post.attributes.title }}</h4>
+            <time class="articleTime" :datetime="post.attributes.date">
+                {{ new Date(post.attributes.date).toLocaleDateString() }}
             </time>
-            <p class="description">{{ post.fields.description }}</p>
+            <p class="description">{{ post.attributes.description }}</p>
         </div>
         <div class="footer">
             <nuxt-link
                 :prefetch="false"
-                :to="{ name: 'blog-slug', params: { slug: post.fields.slug } }"
+                :to="{ name: 'blog-slug', params: { slug: post.attributes.slug } }"
                 class="btn"
             >
                 Lesen

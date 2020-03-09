@@ -4,21 +4,16 @@
         <div class="main">
             <article class="article">
                 <shape direction="left" />
-                <h1>{{ post.fields.headline }}</h1>
+                <h1>{{ post.attributes.title }}</h1>
                 <div class="subtitle">
                     Veröffentlicht am
-                    <time :datetime="post.sys.createdAt">
-                        {{ new Date(post.sys.createdAt).toLocaleDateString() }}
+                    <time :datetime="post.attributes.date">
+                        {{ new Date(post.attributes.date).toLocaleDateString() }}
                     </time>
                     von Markus Sommer
-                    <br />
-                    Letzte Änderung
-                    <time :datetime="post.sys.updatedAt">
-                        {{ new Date(post.sys.updatedAt).toLocaleDateString() }}
-                    </time>
                 </div>
-                <p class="description">{{ post.fields.description }}</p>
-                <div v-html="$md(post.fields.articleBody)"></div>
+                <p class="description">{{ post.attributes.description }}</p>
+                <div v-html="post.html"></div>
                 <shape direction="right" bottom />
             </article>
         </div>
@@ -48,7 +43,7 @@
         asyncData(context) {
             const { params } = context;
 
-            const post = require(`@/.content/blog/${params.slug}.json`);
+            const post = require(`~/content/posts/${params.slug}.md`);
             return { post: { ...post } };
         },
 
@@ -60,12 +55,12 @@
 
         head() {
             return {
-                title: this.post.fields.headline,
+                title: this.post.attributes.title,
                 meta: [
                     {
                         hid: 'description',
                         name: 'description',
-                        content: this.post.fields.description,
+                        content: this.post.attributes.description,
                     },
                 ],
                 link: [
@@ -82,15 +77,15 @@
             return {
                 '@context': 'http://schema.org',
                 '@type': 'BlogPosting',
-                headline: this.post.fields.headline,
-                description: this.post.fields.description,
-                datePublished: this.post.sys.createdAt,
-                dateModified: this.post.sys.updatedAt,
+                title: this.post.attributes.title,
+                description: this.post.attributes.description,
+                datePublished: this.post.attributes.date,
+                dateModified: this.post.attributes.date,
                 author: personSchema,
                 publisher: organizationSchema,
                 mainEntityOfPage:
                     'https://creativeworkspace.de/blog/' + this.$route.params.slug + '/',
-                image: [this.post.fields.image.fields.file.url + '?fm=webp'],
+                image: [this.post.attributes.image],
             };
         },
     };
