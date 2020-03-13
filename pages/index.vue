@@ -3,8 +3,8 @@
         <p-header />
         <main class="main">
             <personal />
-            <projects />
             <blog :posts="posts" />
+            <projects />
         </main>
         <contact-me />
         <p-footer />
@@ -30,9 +30,9 @@
             Blog,
             PFooter,
         },
+
         asyncData() {
             const posts = getPosts();
-            console.log(posts);
             return { posts };
         },
 

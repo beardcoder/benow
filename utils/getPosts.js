@@ -9,13 +9,3 @@ export default () => {
     });
     return posts;
 };
-
-export function getSlugs() {
-    const files = require.context('../content/posts', true, /\.md$/);
-    const slugs = [];
-    files.keys().forEach(function(key) {
-        const slug = key.replace('./', '').replace('.md', '');
-        slugs.push(slug);
-    });
-    return slugs;
-}
