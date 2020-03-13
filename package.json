@@ -38,7 +38,7 @@
         "eslint-config-prettier": "6.10.0",
         "eslint-plugin-nuxt": "0.5.1",
         "eslint-plugin-prettier": "3.1.2",
-        "glob": "^7.1.6",
+        "glob": "7.1.6",
         "husky": "4.2.3",
         "markdown-it": "10.0.0",
         "markdown-it-link-target": "1.0.2",
