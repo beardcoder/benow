@@ -1,8 +1,19 @@
 import path from 'path';
 import FMMode from 'frontmatter-markdown-loader/mode';
-import { getSlugs } from '~/utils/getPosts';
+import glob from 'glob';
 
 require('dotenv').config();
+
+function getDynamicPaths(urlFilepathTable) {
+    return [].concat(
+        ...Object.keys(urlFilepathTable).map(url => {
+            const filepathGlob = urlFilepathTable[url];
+            return glob
+                .sync(filepathGlob, { cwd: 'content' })
+                .map(filepath => `${url}/${path.basename(filepath, '.md')}/`);
+        })
+    );
+}
 
 const config = {
     mode: 'universal',
@@ -80,12 +91,7 @@ const config = {
     /*
      ** Plugins to load before mounting the App
      */
-    plugins: [
-        '@/plugins/lazyload',
-        '@/plugins/jsonld',
-        '@/plugins/markdown',
-        '@/plugins/vue-observe-visibility',
-    ],
+    plugins: ['@/plugins/lazyload', '@/plugins/jsonld', '@/plugins/vue-observe-visibility'],
     /*
      ** Nuxt.js dev-modules
      */
@@ -130,14 +136,9 @@ const config = {
     axios: {},
 
     generate: {
-        routes() {
-            const slugs = getSlugs();
-            return slugs.map(slug => {
-                return {
-                    route: `/blog/${slug}/`,
-                };
-            });
-        },
+        routes: getDynamicPaths({
+            '/blog': 'posts/*.md',
+        }),
     },
 
     router: {
