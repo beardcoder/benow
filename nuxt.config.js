@@ -1,5 +1,6 @@
 import path from 'path';
 import FMMode from 'frontmatter-markdown-loader/mode';
+import { getSlugs } from '~/utils/getPosts';
 
 require('dotenv').config();
 
@@ -99,7 +100,6 @@ const config = {
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
         'nuxt-webfontloader',
-        ['@nuxtjs/google-tag-manager', { id: 'GTM-NT4CRWW' }],
         '@nuxtjs/dotenv',
         '@nuxtjs/sitemap',
         '@nuxtjs/netlify-files',
@@ -129,17 +129,16 @@ const config = {
      */
     axios: {},
 
-    /*     generate: {
+    generate: {
         routes() {
-            const articles = require('./.content/blog/articles.json');
-
-            return articles.map(slug => {
+            const slugs = getSlugs();
+            return slugs.map(slug => {
                 return {
                     route: `/blog/${slug}/`,
                 };
             });
         },
-    }, */
+    },
 
     router: {
         // Doc: https://nuxtjs.org/api/configuration-router/#trailingslash
