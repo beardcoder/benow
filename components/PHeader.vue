@@ -1,7 +1,9 @@
 <template functional>
     <header class="wrapper">
         <div class="backgroundWrapper">
-            <div role="presentation" class="background" />
+            <div role="presentation" class="background">
+                <img src="/images/header.jpg" width="2541" height="1786" alt="" />
+            </div>
         </div>
         <div class="headerContent">
             <h1 class="h1">
@@ -56,19 +58,11 @@
         left: 0;
         right: 0;
         will-change: transform;
-        background-image: url('/images/header--xs.jpg');
+        object-fit: cover;
     }
 
-    @media (min-width: 420px) {
-        .background {
-            background-image: url('/images/header--sm.jpg');
-        }
-    }
-
-    @media (min-width: 768px) {
-        .background {
-            background-image: url('/images/header.jpg');
-        }
+    .background img {
+        object-fit: cover;
     }
 
     .h1 {
