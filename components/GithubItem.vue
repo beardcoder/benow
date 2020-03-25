@@ -29,7 +29,7 @@
                     width="15"
                     height="15"
                     alt="external link icon"
-                    style="margin-left: 5px; margin-bottom: 2px"
+                    style="margin-left: 5px; margin-bottom: 2px;"
                 />
             </a>
         </card>

@@ -9,6 +9,7 @@
         "dev": "nuxt",
         "generate": "yarn generate:github && cross-env NODE_ENV=production nuxt generate",
         "lint": "eslint --ext .js,.ts,.vue .",
+        "fix": "eslint --fix --ext .js,.ts,.vue .",
         "start": "nuxt start",
         "generate:github": "./bin/getGithubData"
     },
@@ -39,8 +40,6 @@
         "eslint-plugin-prettier": "3.1.2",
         "glob": "7.1.6",
         "husky": "4.2.3",
-        "markdown-it": "10.0.0",
-        "markdown-it-link-target": "1.0.2",
         "nuxt-jsonld": "1.4.5",
         "nuxt-payload-extractor": "1.0.0",
         "nuxt-seo": "1.2.2",
