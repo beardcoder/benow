@@ -1,4 +1,3 @@
-import { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
 import Blog from '~/src/components/Blog';
@@ -13,11 +12,7 @@ import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
 import LazyHydrate from 'react-lazy-hydration';
 
-type Props = {
-    posts?: any;
-};
-
-const IndexPage: NextPage<Props> = ({ posts }) => {
+function IndexPage({ posts }: any) {
     return (
         <Layout>
             <NextSeo
@@ -53,11 +48,16 @@ const IndexPage: NextPage<Props> = ({ posts }) => {
             `}</style>
         </Layout>
     );
-};
+}
 
-IndexPage.getInitialProps = () => {
+export function getStaticProps() {
     const posts = getPosts();
-    return { posts };
-};
+
+    return {
+        props: {
+            posts,
+        },
+    };
+}
 
 export default IndexPage;

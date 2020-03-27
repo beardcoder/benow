@@ -1,4 +1,3 @@
-import { NextPage } from 'next';
 import { BlogJsonLd, NextSeo } from 'next-seo';
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -8,14 +7,10 @@ import Layout from '~/src/components/Layout';
 import matter from 'gray-matter';
 
 import css from './[slug].module.css';
-import { IPost } from '~/types';
-
-type Props = {
-    post: IPost;
-};
+import getPosts from '~/src/helper/getPosts';
 
 // @ts-ignore
-const Post: NextPage<Props> = ({ post }) => {
+function Post({ post }: any) {
     return (
         <Layout>
             <>
@@ -79,14 +74,28 @@ const Post: NextPage<Props> = ({ post }) => {
             </>
         </Layout>
     );
-};
+}
 
-Post.getInitialProps = async ({ query }) => {
+export async function getStaticProps({ query }: any) {
     const { slug } = query;
     const content = await import(`~/src/content/posts/${slug}.md`);
 
     const post: any = matter(content.default);
-    return { post };
-};
+    return {
+        props: {
+            post,
+        },
+    };
+}
+
+export async function getStaticPaths() {
+    const posts = await getPosts();
+
+    console.log(posts);
+
+    return {
+        fallback: true,
+    };
+}
 
 export default Post;

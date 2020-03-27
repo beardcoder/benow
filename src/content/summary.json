@@ -1,0 +1,81 @@
+{
+  "fileMap": {
+    "content/2018-10-10-sitemap-für-typo3-leicht-gemacht.json": {
+      "title": "Sitemap in TYPO3 leicht gemacht",
+      "date": "2018-10-10T17:28:00.000Z",
+      "description": "Eine Sitemap hat viele Vorteile, vor allem im Bereich der Suchmaschinenoptimierung (SEO). Sie ist hilfreich um eine Seite schnell von einem Crawler indexieren zu lassen und auf neue Seiten hinzuweisen.",
+      "author": "Markus Sommer",
+      "image": "/img/2018-10-10-sitemap-fuer-typo3-leicht-gemacht-full.jpg",
+      "thumbnail": "/img/2018-10-10-sitemap-fuer-typo3-leicht-gemacht-thumbnail.jpg",
+      "preview": "Ebenfalls werden Seiten, die aktualisiert werden, schneller in den Index der Suchmaschinen (z.b. Google,",
+      "dir": "content",
+      "base": "2018-10-10-sitemap-für-typo3-leicht-gemacht.json",
+      "ext": ".json",
+      "sourceBase": "2018-10-10-sitemap-für-typo3-leicht-gemacht.md",
+      "sourceExt": ".md"
+    },
+    "content/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x.json": {
+      "title": "Eigene Inhaltselemente im TYPO3 CMS 6.2.x und 7.x",
+      "date": "2017-09-27T17:34:00.000Z",
+      "description": "Einfach und schnell eigene Inhaltselemente im TYPO3 CMS erstellen.",
+      "author": "Markus Sommer",
+      "image": "/img/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x-full.jpg",
+      "thumbnail": "/img/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x-thumbnail.jpg",
+      "preview": "Wer hat nicht schon mal das Problem gehabt das ein Kunde oder man selbst ein youtube Video oder einen Button",
+      "dir": "content",
+      "base": "2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x.json",
+      "ext": ".json",
+      "sourceBase": "2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x.md",
+      "sourceExt": ".md"
+    },
+    "content/2019-09-27-deploy-nuxt-js-static-mit-gitlab-ci.json": {
+      "title": "Deploy nuxt.js static mit gitlab-ci",
+      "date": "2019-09-27T18:31:42.478Z",
+      "description": "In diesem Artikel zeige ich euch wie ihr eine Nuxt Application mit der Gitlab-CI bauen und auf dem Server ausrollen könne.",
+      "author": "Markus Sommer",
+      "image": "/img/deploy-nuxt-js-static-with-gitlab-ci.jpg",
+      "thumbnail": "/img/deploy-nuxt-js-static-with-gitlab-ci-thumbnail.jpg",
+      "preview": "Vorbereitung\n\nDie App\n\nZuerst brauchen wir eine nuxt Applikation, die wir ausliefern möchten.\nDiese können wir",
+      "dir": "content",
+      "base": "2019-09-27-deploy-nuxt-js-static-mit-gitlab-ci.json",
+      "ext": ".json",
+      "sourceBase": "2019-09-27-deploy-nuxt-js-static-mit-gitlab-ci.md",
+      "sourceExt": ".md"
+    },
+    "content/2018-02-10-typo3-und-die-content-security-policy.json": {
+      "title": "TYPO3 und die Content Security Policy",
+      "date": "2018-02-10T18:31:00.000Z",
+      "description": "Was ist eigentlich die Content Security Policy und warum sollte ich sie einsetzen? Eine integration in TYPO3",
+      "author": "Markus Sommer",
+      "image": "/img/2018-02-10-typo3-und-die-content-security-policy-full.jpg",
+      "thumbnail": "/img/2018-02-10-typo3-und-die-content-security-policy-thumbnail.jpg",
+      "preview": "Wikipedia bescheib das Problem folgendermaßen:\n\nWebseiten können aktive Inhalte beispielsweise in Form von",
+      "dir": "content",
+      "base": "2018-02-10-typo3-und-die-content-security-policy.json",
+      "ext": ".json",
+      "sourceBase": "2018-02-10-typo3-und-die-content-security-policy.md",
+      "sourceExt": ".md"
+    },
+    "content/2019-11-30-mehrsprachigkeit-in-vuejs-und-nuxt.json": {
+      "title": "Mehrsprachigkeit in VueJS und Nuxt",
+      "date": "2019-11-30T20:22:19.227Z",
+      "description": "Wenn man eine Neue seite erstellt oder eine Bestehende Seite Neu aufbaut stellt man sich zu beginn der Arbeit meist die Frage: „Ist die Zielgruppe meiner Webseite National oder International“. Wenn die Anwort „International“ lautet oder du von beginn an Flexibel bleiben Willst dann habe ich hier genau den Richtigen Artikel für dich. Denn das Projekt vue-i18n von Kazuya Kawaguchi hat hat mitlerweile über 120 Contributors und wird stetig weiter Entwickelt.",
+      "author": "Markus Sommer",
+      "image": "/img/mehrsprachigkeit-in-vuejs-und-nuxt.jpg",
+      "thumbnail": "/img/mehrsprachigkeit-in-vuejs-und-nuxt-thumbnail.jpg",
+      "preview": "Das VueJS Plugin vue-i18n könnt ihr euch auf GitHub ansehen https://github.com/kazupon/vue-i18n.\nDort findest",
+      "dir": "content",
+      "base": "2019-11-30-mehrsprachigkeit-in-vuejs-und-nuxt.json",
+      "ext": ".json",
+      "sourceBase": "2019-11-30-mehrsprachigkeit-in-vuejs-und-nuxt.md",
+      "sourceExt": ".md"
+    }
+  },
+  "sourceFileArray": [
+    "./src/content/posts/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x.md",
+    "./src/content/posts/2018-02-10-typo3-und-die-content-security-policy.md",
+    "./src/content/posts/2018-10-10-sitemap-für-typo3-leicht-gemacht.md",
+    "./src/content/posts/2019-09-27-deploy-nuxt-js-static-mit-gitlab-ci.md",
+    "./src/content/posts/2019-11-30-mehrsprachigkeit-in-vuejs-und-nuxt.md"
+  ]
+}
