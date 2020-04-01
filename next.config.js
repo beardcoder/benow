@@ -1,7 +1,6 @@
 const withCSS = require('@zeit/next-css');
 const path = require('path');
 const withImages = require('next-images');
-const jdown = require('jdown');
 
 require('dotenv').config();
 

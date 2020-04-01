@@ -1,18 +1,11 @@
 import { SocialProfileJsonLd } from 'next-seo';
 import App from 'next/app';
 import React from 'react';
-import TagManager from 'react-gtm-module';
 import 'sanitize.css';
-import '../assets/css/global.css';
-
-const tagManagerArgs = {
-    gtmId: 'GTM-NT4CRWW',
-};
+import '~/src/assets/css/global.css';
 
 export default class MyApp extends App {
     componentDidMount() {
-        TagManager.initialize(tagManagerArgs);
-
         import('webfontloader').then(WebFont => {
             WebFont.load({
                 google: {
