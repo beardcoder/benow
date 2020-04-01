@@ -94,7 +94,9 @@ export async function getStaticProps({ params }: any) {
 
 export async function getStaticPaths() {
     const posts = await getPosts();
-    const paths = posts.map((post: any) => `/blog/${post.slug}`);
+    const paths = posts.map((post: any) => ({
+        params: { slug: post.slug },
+    }));
 
     return { paths, fallback: false };
 }
