@@ -11,29 +11,30 @@ import getPosts from '~/src/helper/getPosts';
 
 // @ts-ignore
 function Post({ post }: any) {
+    if (!post) post = { data: {} };
     return (
         <Layout>
             <>
                 <NextSeo
-                    title={`${post.data.title} — Markus Sommer`}
-                    description={post.data.description}
-                    canonical={`https://creativeworkspace.de/blog/${post.data.slug}`}
+                    title={`${post.title} — Markus Sommer`}
+                    description={post.description}
+                    canonical={`https://creativeworkspace.de/blog/${post.slug}`}
                 />
                 <BlogJsonLd
-                    url={`https://creativeworkspace.de/blog/${post.data.slug}`}
-                    title={post.data.title}
-                    images={[post.data.image]}
-                    datePublished={post.data.date}
-                    dateModified={post.data.date}
+                    url={`https://creativeworkspace.de/blog/${post.slug}`}
+                    title={post.title}
+                    images={[post.image]}
+                    datePublished={post.date}
+                    dateModified={post.date}
                     authorName='Markus Sommer'
-                    description={post.data.description}
+                    description={post.description}
                 />
                 <header className={css.header}>
                     <div className={css.headerBackground}>
                         <div role='presentation' className='backgroundImage' />
                         <style jsx>{`
                             .backgroundImage {
-                                background-image: url(${post.data.image});
+                                background-image: url(${post.image});
                                 background-position: center center;
                                 background-size: cover;
                                 position: absolute;
@@ -50,20 +51,20 @@ function Post({ post }: any) {
                 <div className='container'>
                     <div className={css.main}>
                         <article className={css.article}>
-                            <h1>{post.data.title}</h1>
+                            <h1>{post.title}</h1>
                             <div>
                                 Veröffentlicht am
-                                <time dateTime={post.data.date}>
-                                    {new Date(post.data.date).toLocaleDateString()}
+                                <time dateTime={post.date}>
+                                    {new Date(post.date).toLocaleDateString()}
                                 </time>
                                 von Markus Sommer
                                 <br />
                                 Letzte Änderung
-                                <time dateTime={post.data.date}>
-                                    {new Date(post.data.date).toLocaleDateString()}
+                                <time dateTime={post.date}>
+                                    {new Date(post.date).toLocaleDateString()}
                                 </time>
                             </div>
-                            <p className='description'>{post.data.description}</p>
+                            <p className='description'>{post.description}</p>
                             <ReactMarkdown source={post.content} />
                         </article>
                     </div>
@@ -76,11 +77,14 @@ function Post({ post }: any) {
     );
 }
 
-export async function getStaticProps({ query }: any) {
-    const { slug } = query;
-    const content = await import(`~/src/content/posts/${slug}.md`);
-
-    const post: any = matter(content.default);
+export async function getStaticProps({ params }: any) {
+    const { slug } = params;
+    const content = await require(`~/src/content/posts/${slug}.md`);
+    const markdown: any = matter(content.default);
+    const post = {
+        ...markdown.data,
+        content: markdown.content,
+    };
     return {
         props: {
             post,
@@ -90,12 +94,9 @@ export async function getStaticProps({ query }: any) {
 
 export async function getStaticPaths() {
     const posts = await getPosts();
+    const paths = posts.map((post: any) => `/blog/${post.slug}/`);
 
-    console.log(posts);
-
-    return {
-        fallback: true,
-    };
+    return { paths, fallback: false };
 }
 
 export default Post;

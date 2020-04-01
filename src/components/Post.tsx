@@ -16,23 +16,23 @@ const Post: React.FunctionComponent<Props> = ({ post }) => {
         <Card className={css.article}>
             <div className={css.image}>
                 <LazyLoadImage
-                    src={post.data.thumbnail}
+                    src={post.thumbnail}
                     alt='Article Bild'
-                    title={post.data.title}
+                    title={post.title}
                     width={480}
                     height={300}
                     className={css.articleImage}
                 />
             </div>
             <div className={css.body}>
-                <h4>{post.data.title}</h4>
-                <time className={css.articleTime} dateTime={post.data.date}>
-                    {new Date(post.data.date).toLocaleDateString()}
+                <h4>{post.title}</h4>
+                <time className={css.articleTime} dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString()}
                 </time>
-                <p className={css.description}>{post.data.description}</p>
+                <p className={css.description}>{post.description}</p>
             </div>
             <div className={css.footer}>
-                <Link passHref href='/blog/[slug]' as={`/blog/${post.data.slug}/`}>
+                <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}/`}>
                     <Button>Zum Post</Button>
                 </Link>
             </div>

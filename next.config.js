@@ -35,5 +35,6 @@ module.exports = withPlugins(
             return config;
         },
         exportTrailingSlash: true,
+        target: 'serverless'
     }
 );
