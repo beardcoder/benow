@@ -2,8 +2,6 @@ const withCSS = require('@zeit/next-css');
 const path = require('path');
 const withImages = require('next-images');
 
-require('dotenv').config();
-
 const withPlugins = require('next-compose-plugins');
 
 module.exports = withPlugins(
@@ -21,10 +19,6 @@ module.exports = withPlugins(
         [withImages],
     ],
     {
-        env: {
-            GITHUB_TOKEN: process.env.GITHUB_TOKEN,
-            GITHUB_USERNAME: process.env.GITHUB_USERNAME,
-        },
         webpack(config) {
             config.resolve.alias['~'] = path.join(__dirname);
             config.module.rules.push({
