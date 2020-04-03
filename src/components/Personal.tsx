@@ -36,12 +36,12 @@ const Personal: React.FunctionComponent = () => {
                     <h3>Webentwickler, Frontend Artist und Designer</h3>
                     <p>
                         Brauchst du Hilfe z. B. <strong>um deine Website in neuem Glanz</strong>{' '}
-                        erstrahlen zu lassen oder mal einen Tipp wie du eine{' '}
-                        <strong>Sitemap einrichtest?</strong>
+                        erstrahlen zu lassen, Moderne Web Technologieren einzusetzen oder mal einen
+                        Tipp wie du eine <strong>Sitemap einrichtest?</strong>
                     </p>
                     <p>
                         <a href='mailto:creativeworkspace@sommer-online.xyz'>
-                            Dann melde dich bei mir.
+                            Dann schreibe mich an.
                         </a>
                         Ich stehe gerne mit Rat und Tat zur Seite.
                     </p>

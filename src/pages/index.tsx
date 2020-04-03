@@ -16,7 +16,7 @@ function IndexPage({ posts }: any) {
     return (
         <Layout>
             <NextSeo
-                title='Moderne Web Technologieren, Design und Frontendartist 🚀 — Markus Sommer'
+                title='Moderne Web Technologieren, Designer und Frontend Artist 🚀 — Markus Sommer'
                 description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
                 canonical='https://creativeworkspace.de/'
             />
