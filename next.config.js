@@ -1,6 +1,6 @@
 const withCSS = require('@zeit/next-css');
 const path = require('path');
-const withImages = require('next-images');
+const optimizedImages = require('next-optimized-images');
 
 const withPlugins = require('next-compose-plugins');
 
@@ -16,7 +16,7 @@ module.exports = withPlugins(
                 },
             },
         ],
-        [withImages],
+        [optimizedImages],
     ],
     {
         webpack(config) {
