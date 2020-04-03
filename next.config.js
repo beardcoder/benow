@@ -1,6 +1,7 @@
 const withCSS = require('@zeit/next-css');
 const path = require('path');
 const optimizedImages = require('next-optimized-images');
+const webpack = require('webpack');
 
 const withPlugins = require('next-compose-plugins');
 
@@ -25,6 +26,11 @@ module.exports = withPlugins(
                 test: /\.md$/,
                 use: 'raw-loader',
             });
+            config.plugins.push(
+                new webpack.optimize.LimitChunkCountPlugin({
+                   maxChunks: 5,
+                })
+             );
             return config;
         },
         exportTrailingSlash: true,
