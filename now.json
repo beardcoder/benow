@@ -1,11 +1,11 @@
 {
     "headers": [
         {
-            "source": "/(.*)",
+            "source": "/(.html)",
             "headers": [
                 {
                     "key": "Content-Type",
-                    "value": "charset=utf-8"
+                    "value": "text/html; charset=utf-8"
                 }
             ]
         }
