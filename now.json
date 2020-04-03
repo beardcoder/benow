@@ -1,0 +1,13 @@
+{
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "charset=utf-8"
+                }
+            ]
+        }
+    ]
+}
