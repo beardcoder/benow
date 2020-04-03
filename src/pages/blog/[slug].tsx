@@ -8,6 +8,7 @@ import matter from 'gray-matter';
 
 import css from './[slug].module.css';
 import getPosts from '~/src/helper/getPosts';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 // @ts-ignore
 function Post({ post }: any) {
@@ -77,9 +78,8 @@ function Post({ post }: any) {
     );
 }
 
-export async function getStaticProps({ params }: any) {
-    const { slug } = params;
-    const content = await require(`~/src/content/posts/${slug}.md`);
+export const getStaticProps: GetStaticProps = async context => {
+    const content = await require(`~/src/content/posts/${context.params?.slug}.md`);
     const markdown: any = matter(content.default);
     const post = {
         ...markdown.data,
@@ -90,15 +90,15 @@ export async function getStaticProps({ params }: any) {
             post,
         },
     };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
     const posts = await getPosts();
     const paths = posts.map((post: any) => ({
         params: { slug: post.slug },
     }));
 
     return { paths, fallback: false };
-}
+};
 
 export default Post;

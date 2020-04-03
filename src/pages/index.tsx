@@ -10,6 +10,7 @@ import Personal from '~/src/components/Personal';
 import Projects from '~/src/components/Projects';
 import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
+import { GetStaticProps } from 'next';
 
 function IndexPage({ posts }: any) {
     return (
@@ -41,13 +42,13 @@ function IndexPage({ posts }: any) {
     );
 }
 
-export function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
     const posts = getPosts();
     return {
         props: {
             posts,
         },
     };
-}
+};
 
 export default IndexPage;
