@@ -1,7 +1,7 @@
 ---
 title: 'Mehrsprachigkeit in VueJS und Nuxt'
 date: '2019-11-30T20:22:19.227Z'
-description: 'Wenn man eine Neue seite erstellt oder eine Bestehende Seite Neu aufbaut stellt man sich zu beginn der Arbeit meist die Frage: „Ist die Zielgruppe meiner Webseite National oder International“. Wenn die Anwort „International“ lautet oder du von beginn an Flexibel bleiben Willst dann habe ich hier genau den Richtigen Artikel für dich. Denn das Projekt vue-i18n von Kazuya Kawaguchi hat hat mitlerweile über 120 Contributors und wird stetig weiter Entwickelt.'
+description: 'Wenn man eine Neue seite erstellt oder eine Bestehende Seite Neu aufbaut stellt man sich zu beginn der Arbeit meist die Frage: „Ist die Zielgruppe meiner Webseite National oder International“. Wenn die Antwort „International“ lautet oder du von beginn an Flexibel bleiben Willst dann habe ich hier genau den Richtigen Artikel für dich. Denn das Projekt vue-i18n von Kazuya Kawaguchi hat hat mittlerweile über 120 Contributors und wird stetig weiter Entwickelt.'
 author: 'Markus Sommer'
 image: '/img/mehrsprachigkeit-in-vuejs-und-nuxt.jpg'
 thumbnail: '/img/mehrsprachigkeit-in-vuejs-und-nuxt-thumbnail.jpg'
