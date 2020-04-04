@@ -7980,10 +7980,10 @@ react-lazy-hydration@0.0.8:
   resolved "https://registry.yarnpkg.com/react-lazy-hydration/-/react-lazy-hydration-0.0.8.tgz#ee39d21325ec7cf14ae54acef657743498d34d31"
   integrity sha512-J4i6tcsOUehUkfYjyI+Ef34EenUwW0REjvyZi04jkd52f/fKhQgjSkAgkMT3lQmbGUrz4cX2fmqP4f5F+zQ1ig==
 
-react-lazy-load-image-component@1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.4.1.tgz#fd4c7566ba85b9e0960876b670d7504b0ef6ec62"
-  integrity sha512-PeQh64fiZ0FwN9PComusEAWMshbJSChEKnA+31UyQ1+ioRMw/PWdUV4lTd1kV+YQHTWAG4WHjhoICTj3tSjSRw==
+react-lazy-load-image-component@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.4.3.tgz#841235111c4bbb7d69238ba7e16ded04d1461c06"
+  integrity sha512-F7SuCjqJkfRUXAcVxx3mms92mbO6W20v+utPRAQHHncT6KJF61XPo1TLL2e+9LhuA/KZkIsSr7xo7srItbVefg==
   dependencies:
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
