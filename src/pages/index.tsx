@@ -5,7 +5,6 @@ import Contact from '~/src/components/Contact';
 import Footer from '~/src/components/Footer';
 import getPosts from '~/src/helper/getPosts';
 import PageHeader from '~/src/components/Header';
-import Layout from '~/src/components/Layout';
 import Personal from '~/src/components/Personal';
 import Projects from '~/src/components/Projects';
 import reposJson from '~/.content/github/repos.json';
@@ -14,11 +13,11 @@ import { GetStaticProps } from 'next';
 
 function IndexPage({ posts }: any) {
     return (
-        <Layout>
+        <>
             <NextSeo
                 title='Moderne Web Technologieren, Designer und Frontend Artist 🚀 — Markus Sommer'
                 description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
-                canonical='https://creativeworkspace.de/'
+                canonical='https://www.creativeworkspace.de/'
             />
             <div className='container'>
                 <PageHeader />
@@ -38,7 +37,7 @@ function IndexPage({ posts }: any) {
                     padding-bottom: 100px;
                 }
             `}</style>
-        </Layout>
+        </>
     );
 }
 
