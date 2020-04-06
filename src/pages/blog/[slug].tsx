@@ -3,7 +3,6 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import BackLink from '~/src/components/BackLink';
 import Footer from '~/src/components/Footer';
-import Layout from '~/src/components/Layout';
 import matter from 'gray-matter';
 
 import css from './[slug].module.css';
@@ -14,7 +13,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 function Post({ post }: any) {
     if (!post) post = { data: {} };
     return (
-        <Layout>
+        <>
             <>
                 <NextSeo
                     title={`${post.title} — Markus Sommer`}
@@ -74,7 +73,7 @@ function Post({ post }: any) {
                     </Footer>
                 </div>
             </>
-        </Layout>
+        </>
     );
 }
 
