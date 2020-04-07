@@ -18,23 +18,10 @@ export default class MyDocument extends Document {
                     <link rel='preconnect' href='https://fonts.googleapis.com' />
                     <link rel='preconnect' href='https://fonts.gstatic.com' />
                 </Head>
-                <body className='app'>
+                <body>
                     <Main />
                     <NextScript />
                 </body>
-                <style jsx>{`
-                    .main {
-                        position: relative;
-                        z-index: 20;
-                        overflow: hidden;
-                        padding-bottom: 100px;
-                    }
-                    .app {
-                        overflow: hidden;
-                        position: relative;
-                        z-index: 10;
-                    }
-                `}</style>
             </html>
         );
     }

@@ -30,6 +30,11 @@ function IndexPage({ posts }: any) {
                 <Footer />
             </div>
             <style jsx>{`
+                .container {
+                    position: relative;
+                    overflow-x: hidden;
+                }
+
                 .main {
                     position: relative;
                     z-index: 20;
