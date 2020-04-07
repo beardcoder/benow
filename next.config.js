@@ -20,6 +20,10 @@ module.exports = withPlugins(
         [optimizedImages],
     ],
     {
+        experimental: {
+            modern: true,
+            granularChunks: true,
+        },
         webpack(config, { dev, isServer }) {
             config.resolve.alias['~'] = path.join(__dirname);
             config.module.rules.push({
