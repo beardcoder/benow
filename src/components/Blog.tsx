@@ -12,7 +12,7 @@ const Blog: React.FunctionComponent<Props> = ({ posts }) => {
         <div id='blog' className={css.blog}>
             <h2 className={css.blogHeader}>Blog</h2>
             <div className={css.articles}>
-                {Object.keys(posts).map((key: any) => (
+                {Object.keys(posts.reverse()).map((key: any) => (
                     <Post key={key} post={posts[key]} />
                 ))}
             </div>
