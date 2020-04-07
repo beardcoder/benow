@@ -7,7 +7,7 @@
         "build:content": "processmd ./src/content/**/*.md --outputDir content --preview 110 --summaryOutput ./src/content/summary.json",
         "export": "next build && next export",
         "start": "next start",
-        "generate:data": "./bin/getGithubData && ./bin/getBlogData",
+        "generate:data": "./bin/getGithubData",
         "type-check": "tsc"
     },
     "dependencies": {
