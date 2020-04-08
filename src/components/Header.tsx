@@ -1,14 +1,19 @@
 import * as React from 'react';
 import styles from './Header.module.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const multipleSizes = require('~/src/assets/images/header.jpg?resize&sizes[]=300&sizes[]=768&sizes[]=1024&sizes[]=1400&sizes[]=2560');
+const image300 = require('~/src/assets/images/header--300.jpg?webp').default;
+const image600 = require('~/src/assets/images/header--600.jpg?webp').default;
+const image800 = require('~/src/assets/images/header--800.jpg?webp').default;
+const image1200 = require('~/src/assets/images/header--1200.jpg?webp').default;
+const image1400 = require('~/src/assets/images/header--1400.jpg?webp').default;
+const image2560 = require('~/src/assets/images/header.jpg?webp').default;
 
 const PageHeader: React.FunctionComponent = () => (
     <header className={styles.wrapper}>
         <div className={styles.backgroundWrapper}>
             <LazyLoadImage
-                srcSet={multipleSizes.srcSet}
-                src={multipleSizes.src}
+                srcSet={`${image300} 300w,${image600} 600w,${image800} 800w,${image1200} 1200w,${image1400} 1400w,${image2560} 2560w`}
+                src={image300}
                 alt='Kopf Bild'
                 className={styles.background}
             />
