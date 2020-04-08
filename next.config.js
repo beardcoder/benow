@@ -22,14 +22,44 @@ module.exports = withPlugins(
     {
         experimental: {
             modern: true,
-            granularChunks: true,
+            polyfillsOptimization: true,
         },
-        webpack(config, { dev, isServer }) {
-            config.resolve.alias['~'] = path.join(__dirname);
+        webpack(config, { isServer }) {
+            if (isServer) {
+                config.externals = ['react', 'react-dom', ...config.externals];
+            }
+
+            const splitChunks = config.optimization && config.optimization.splitChunks;
+            if (splitChunks) {
+                const cacheGroups = splitChunks.cacheGroups;
+                const preactModules = /[\\/]node_modules[\\/](preact|preact-render-to-string|preact-context-provider)[\\/]/;
+                if (cacheGroups.framework) {
+                    cacheGroups.preact = Object.assign({}, cacheGroups.framework, {
+                        test: preactModules,
+                    });
+                    cacheGroups.commons.name = 'framework';
+                } else {
+                    cacheGroups.preact = {
+                        name: 'commons',
+                        chunks: 'all',
+                        test: preactModules,
+                    };
+                }
+            }
+
+            config.resolve.alias = Object.assign({}, config.resolve.alias, {
+                '~': path.join(__dirname),
+                react$: 'preact/compat',
+                'react-dom$': 'preact/compat',
+                react: 'preact/compat',
+                'react-dom': 'preact/compat',
+            });
+
             config.module.rules.push({
                 test: /\.md$/,
                 use: 'raw-loader',
             });
+
             return config;
         },
         exportTrailingSlash: true,
