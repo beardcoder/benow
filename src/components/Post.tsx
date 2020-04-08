@@ -1,43 +1,36 @@
 import Link from 'next/link';
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { IPost } from '~/types';
 
 import Button from './Button';
 import Card from './Card';
-import css from './Post.module.css';
+import styles from './Post.module.css';
 
-type Props = {
-    post: IPost;
-};
-
-const Post: React.FunctionComponent<Props> = ({ post }) => {
+export default function Post({ post }: any) {
     return (
-        <Card className={css.article}>
-            <div className={css.image}>
+        <Card className={styles.article}>
+            <div className={styles.image}>
                 <LazyLoadImage
                     src={post.thumbnail}
                     alt='Article Bild'
                     title={post.title}
                     width={480}
                     height={300}
-                    className={css.articleImage}
+                    className={styles.articleImage}
                 />
             </div>
-            <div className={css.body}>
+            <div className={styles.body}>
                 <h4>{post.title}</h4>
-                <time className={css.articleTime} dateTime={post.date}>
+                <time className={styles.articleTime} dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString()}
                 </time>
-                <p className={css.description}>{post.description}</p>
+                <p className={styles.description}>{post.description}</p>
             </div>
-            <div className={css.footer}>
-                <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}/`}>
+            <div className={styles.footer}>
+                <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}`}>
                     <Button>Zum Post</Button>
                 </Link>
             </div>
         </Card>
     );
-};
-
-export default Post;
+}

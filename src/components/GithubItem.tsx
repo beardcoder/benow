@@ -37,7 +37,7 @@ const GithubItem: React.FunctionComponent<Props> = ({ gist, item, linkText, hidd
                     <Button href={item.html_url} rel='noreferrer' target='_blank' secondary={gist}>
                         {linkText}
                         <img
-                            src='/static/icons/external-link-duotone.svg'
+                            src={require('~/src/assets/icons/external-link-duotone.svg')}
                             width='15'
                             height='15'
                             alt='external link icon'

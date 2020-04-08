@@ -24,7 +24,7 @@ const Personal: React.FunctionComponent = () => {
             <div className={css.wrapper}>
                 <div className={css.personalImageWrapper}>
                     <LazyLoadImage
-                        src='/static/images/markus_sommer.jpg'
+                        src='/images/markus_sommer.jpg'
                         alt='Markus Sommer'
                         title='Bild von Markus Sommer'
                         width={500}
@@ -42,7 +42,7 @@ const Personal: React.FunctionComponent = () => {
                     <p>
                         <a href='mailto:creativeworkspace@sommer-online.xyz'>
                             Dann schreibe mich an.
-                        </a>
+                        </a>{' '}
                         Ich stehe gerne mit Rat und Tat zur Seite.
                     </p>
                     <ul className={css.personalSkills}>

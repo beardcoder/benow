@@ -7,10 +7,6 @@
     z-index: 100;
 }
 
-a {
-    display: block;
-}
-
 .contactMe__message {
     position: relative;
     display: inline-block;

@@ -2,13 +2,13 @@ import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Typewriter from 'typewriter-effect';
 
-import css from './Contact.module.css';
+import styles from './Contact.module.css';
 
-const Contact: React.FC = () => {
+export default function Contact() {
     return (
-        <div className={css.contactMe}>
+        <div className={styles.contactMe}>
             <a href='mailto:creativeworkspace@sommer-online.xyz'>
-                <div className={css.contactMe__message}>
+                <div className={styles.contactMe__message}>
                     <Typewriter
                         options={{
                             strings: 'Scheib mich an! <br /> Frong kost nix.',
@@ -17,9 +17,9 @@ const Contact: React.FC = () => {
                         }}
                     />
                 </div>
-                <div className={css.contactMe__image}>
+                <div className={styles.contactMe__image}>
                     <LazyLoadImage
-                        src='/static/images/markus_sommer--square.jpg'
+                        src='/images/markus_sommer--square.jpg'
                         alt='Markus Sommer'
                         title='Bild von Markus Sommer'
                         width={300}
@@ -29,6 +29,4 @@ const Contact: React.FC = () => {
             </a>
         </div>
     );
-};
-
-export default Contact;
+}

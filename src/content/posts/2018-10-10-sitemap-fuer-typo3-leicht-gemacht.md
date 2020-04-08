@@ -3,8 +3,8 @@ title: 'Sitemap in TYPO3 leicht gemacht'
 date: '2018-10-10T17:28:00.000Z'
 description: 'Eine Sitemap hat viele Vorteile, vor allem im Bereich der Suchmaschinenoptimierung (SEO). Sie ist hilfreich um eine Seite schnell von einem Crawler indexieren zu lassen und auf neue Seiten hinzuweisen.'
 author: 'Markus Sommer'
-image: '/img/2018-10-10-sitemap-fuer-typo3-leicht-gemacht-full.jpg'
-thumbnail: '/img/2018-10-10-sitemap-fuer-typo3-leicht-gemacht-thumbnail.jpg'
+image: '/images/blog/2018-10-10-sitemap-fuer-typo3-leicht-gemacht-full.jpg'
+thumbnail: '/images/blog/2018-10-10-sitemap-fuer-typo3-leicht-gemacht-thumbnail.jpg'
 ---
 
 Ebenfalls werden Seiten, die aktualisiert werden, schneller in den Index der Suchmaschinen (z.b. Google, Yahoo, DuckDuckGo, usw.) aufgenommen.

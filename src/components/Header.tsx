@@ -21,7 +21,7 @@ const PageHeader: React.FunctionComponent = () => (
             </h1>
             <h3 className={css.h3}>Innovation, Inspiration, Technik und Leidenschaft</h3>
             <img
-                src='/static/images/shape2.svg'
+                src='/images/shape2.svg'
                 alt='header shape'
                 width='182'
                 height='142'

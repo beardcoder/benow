@@ -25,7 +25,7 @@
         "next-seo": "4.4.0",
         "preact": "10.4.0",
         "preact-render-to-string": "5.1.5",
-        "preact-ssr-prepass": "1.0.1",
+        "preact-ssr-prepass": "npm:preact-ssr-prepass@1.0.1",
         "processmd": "4.5.0",
         "raw-loader": "4.0.0",
         "react": "github:preact-compat/react#1.0.0",

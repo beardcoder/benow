@@ -3,8 +3,8 @@ title: 'Eigene Inhaltselemente im TYPO3 CMS 6.2.x und 7.x'
 date: '2017-09-27T17:34:00.000Z'
 description: 'Einfach und schnell eigene Inhaltselemente im TYPO3 CMS erstellen.'
 author: 'Markus Sommer'
-image: '/img/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x-full.jpg'
-thumbnail: '/img/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x-thumbnail.jpg'
+image: '/images/blog/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x-full.jpg'
+thumbnail: '/images/blog/2017-09-27-eigene-inhaltselemente-im-typo3-cms-6-2-x-und-7-x-thumbnail.jpg'
 ---
 
 Wer hat nicht schon mal das Problem gehabt das ein Kunde oder man selbst ein youtube Video oder einen Button gebraucht hat. Dafür aber gleich eine Extension einbauen? Sein TYPO3 CMS mit zusätzlichen Features belasten, obwohl man diese vielleicht gar nicht braucht?

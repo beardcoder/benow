@@ -3,8 +3,8 @@ title: 'TYPO3 und die Content Security Policy'
 date: '2018-02-10T18:31:00.000Z'
 description: 'Was ist eigentlich die Content Security Policy und warum sollte ich sie einsetzen? Eine integration in TYPO3'
 author: 'Markus Sommer'
-image: '/img/2018-02-10-typo3-und-die-content-security-policy-full.jpg'
-thumbnail: '/img/2018-02-10-typo3-und-die-content-security-policy-thumbnail.jpg'
+image: '/images/blog/2018-02-10-typo3-und-die-content-security-policy-full.jpg'
+thumbnail: '/images/blog/2018-02-10-typo3-und-die-content-security-policy-thumbnail.jpg'
 ---
 
 Wikipedia bescheib das Problem folgendermaßen:

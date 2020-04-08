@@ -3,8 +3,8 @@ title: 'Deploy nuxt.js static mit gitlab-ci'
 date: '2019-09-27T18:31:42.478Z'
 description: 'In diesem Artikel zeige ich euch wie ihr eine Nuxt Application mit der Gitlab-CI bauen und auf dem Server ausrollen könne.'
 author: 'Markus Sommer'
-image: '/img/deploy-nuxt-js-static-with-gitlab-ci.jpg'
-thumbnail: '/img/deploy-nuxt-js-static-with-gitlab-ci-thumbnail.jpg'
+image: '/images/blog/deploy-nuxt-js-static-with-gitlab-ci.jpg'
+thumbnail: '/images/blog/deploy-nuxt-js-static-with-gitlab-ci-thumbnail.jpg'
 ---
 
 ## Vorbereitung
