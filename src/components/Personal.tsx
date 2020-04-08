@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import css from './Personal.module.css';
+import styles from './Personal.module.css';
 import Skill from './Skill';
 
 const skills = [
@@ -16,23 +16,23 @@ const skills = [
 
 const Personal: React.FunctionComponent = () => {
     return (
-        <section id='about-me' className={css.personal}>
-            <h2 className={css.header}>
+        <section id='about-me' className={styles.personal}>
+            <h2 className={styles.header}>
                 Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience)
                 gerichtet
             </h2>
-            <div className={css.wrapper}>
-                <div className={css.personalImageWrapper}>
+            <div className={styles.wrapper}>
+                <div className={styles.personalImageWrapper}>
                     <LazyLoadImage
                         src='/images/markus_sommer.jpg'
                         alt='Markus Sommer'
                         title='Bild von Markus Sommer'
                         width={500}
                         height={667}
-                        className={css.personalImage}
+                        className={styles.personalImage}
                     />
                 </div>
-                <div className={css.personalContent}>
+                <div className={styles.personalContent}>
                     <h3>Webentwickler, Frontend Artist und Designer</h3>
                     <p>
                         Brauchst du Hilfe z. B. <strong>um deine Website in neuem Glanz</strong>{' '}
@@ -45,7 +45,7 @@ const Personal: React.FunctionComponent = () => {
                         </a>{' '}
                         Ich stehe gerne mit Rat und Tat zur Seite.
                     </p>
-                    <ul className={css.personalSkills}>
+                    <ul className={styles.personalSkills}>
                         {skills.map((skill, i) => (
                             <Skill key={i} value={skill.value} title={skill.title} />
                         ))}

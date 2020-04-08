@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import css from './BackLink.module.css';
+import styles from './BackLink.module.css';
 import classNames from 'classnames';
 
 interface Props {
@@ -11,8 +11,8 @@ interface Props {
 const BackLink: React.FC<Props> = ({ footer }) => {
     return (
         <Link href='/#blog'>
-            <a className={classNames(css.backLink, footer ? css.backLinkFooter : null)}>
-                <span className={css.backLinkText}>Zurück</span>
+            <a className={classNames(styles.backLink, footer ? styles.backLinkFooter : null)}>
+                <span className={styles.backLinkText}>Zurück</span>
             </a>
         </Link>
     );

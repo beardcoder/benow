@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import css from './GithubList.module.css';
+import styles from './GithubList.module.css';
 import { GithubItem as IGithubItem } from '~/types';
 
 import Button from './Button';
@@ -15,13 +15,13 @@ type Props = {
 const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkText }) => {
     const [open, setOpen] = useState(false);
 
-    const handleClick = function() {
+    const handleClick = function () {
         setOpen(!open);
     };
     return (
-        <div className={css.github}>
+        <div className={styles.github}>
             <h3>{title}</h3>
-            <ul className={css.githubList}>
+            <ul className={styles.githubList}>
                 {items?.map((item, i) => (
                     <GithubItem
                         hidden={i >= 3 && !open}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './Button.module.css';
+import styles from './Button.module.css';
 
 type Props = {
     secondary?: boolean;
@@ -25,7 +25,7 @@ const Button: React.FunctionComponent<Props> = React.forwardRef(
                 type={type}
                 rel={rel}
                 tatget={target}
-                className={[css.btn, secondary ? css.btnSecondary : ''].join(' ')}>
+                className={[styles.btn, secondary ? styles.btnSecondary : ''].join(' ')}>
                 {children}
             </CompTagName>
         );

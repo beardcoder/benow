@@ -1,4 +1,4 @@
-import css from '~/src/components/Footer.module.css';
+import styles from '~/src/components/Footer.module.css';
 
 const Footer: React.FC = ({ children }) => {
     const socialLinks = [
@@ -39,20 +39,24 @@ const Footer: React.FC = ({ children }) => {
         },
     ];
     return (
-        <footer className={css.footer}>
-            <div className={css.content}>
+        <footer className={styles.footer}>
+            <div className={styles.content}>
                 {children}
                 <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
-                <ul className={css.social}>
+                <ul className={styles.social}>
                     {socialLinks.map((item, i) => (
-                        <li key={i} className={css.socialItem}>
+                        <li key={i} className={styles.socialItem}>
                             <a
                                 href={item.link}
                                 title={item.title}
                                 rel='noopener'
                                 target='_blank'
-                                className={css.socialLink}>
-                                <img src={item.icon} className={css.socialIcon} alt={item.title} />
+                                className={styles.socialLink}>
+                                <img
+                                    src={item.icon}
+                                    className={styles.socialIcon}
+                                    alt={item.title}
+                                />
                             </a>
                         </li>
                     ))}

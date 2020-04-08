@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
-import css from './GithubList.module.css';
+import styles from './GithubList.module.css';
 import { GithubItem as IGithubItem } from '~/types';
 
 import Button from './Button';
@@ -24,15 +24,15 @@ const GithubItem: React.FunctionComponent<Props> = ({ gist, item, linkText, hidd
         <Waypoint onEnter={handleEnter}>
             <li
                 className={classNames(
-                    css.githubItem,
-                    hidden ? css.githubItemHidden : null,
-                    visible ? css.isVisible : css.notVisible
+                    styles.githubItem,
+                    hidden ? styles.githubItemHidden : null,
+                    visible ? styles.isVisible : styles.notVisible
                 )}
                 aria-hidden={hidden}>
                 <Card>
                     <div>
                         <h4>{gist ? item.description : item.full_name}</h4>
-                        {gist && <p className={css.githubItemDescription}>{item.description}</p>}
+                        {gist && <p className={styles.githubItemDescription}>{item.description}</p>}
                     </div>
                     <Button href={item.html_url} rel='noreferrer' target='_blank' secondary={gist}>
                         {linkText}

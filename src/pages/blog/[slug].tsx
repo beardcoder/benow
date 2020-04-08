@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BlogJsonLd, NextSeo } from 'next-seo';
-import css from './[slug].module.css';
+import styles from './[slug].module.css';
 import getPosts from '~/src/helper/getPosts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
@@ -27,8 +27,8 @@ function Post({ post }: any) {
                     authorName='Markus Sommer'
                     description={post.description}
                 />
-                <header className={css.header}>
-                    <div className={css.headerBackground}>
+                <header className={styles.header}>
+                    <div className={styles.headerBackground}>
                         <div role='presentation' className='backgroundImage' />
                         <style jsx>{`
                             .backgroundImage {
@@ -47,8 +47,8 @@ function Post({ post }: any) {
                     <BackLink />
                 </header>
                 <div className='container'>
-                    <div className={css.main}>
-                        <article className={css.article}>
+                    <div className={styles.main}>
+                        <article className={styles.article}>
                             <h1>{post.title}</h1>
                             <div>
                                 Veröffentlicht am

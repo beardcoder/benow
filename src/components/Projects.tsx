@@ -2,7 +2,7 @@ import React from 'react';
 import { GithubItem } from '~/types';
 
 import GithubList from './GithubList';
-import css from './Projects.module.css';
+import styles from './Projects.module.css';
 
 type Props = {
     repos?: GithubItem[];
@@ -11,8 +11,8 @@ type Props = {
 
 const Projects: React.FunctionComponent<Props> = ({ repos, snippets }) => {
     return (
-        <section id='projects' className={css.projects}>
-            <header className={css.projectsHeader}>
+        <section id='projects' className={styles.projects}>
+            <header className={styles.projectsHeader}>
                 <h2>Projekte und Snippets die mir und vielleicht auch dir helfen können.</h2>
                 <p>
                     Hast du dich schon einmal gefragt, wie manche Menschen so schnell programmieren

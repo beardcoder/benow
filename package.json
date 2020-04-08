@@ -4,7 +4,6 @@
     "scripts": {
         "dev": "next",
         "build": "yarn run generate:data && next build",
-        "build:content": "processmd ./src/content/**/*.md --outputDir content --preview 110 --summaryOutput ./src/content/summary.json",
         "export": "next build && next export",
         "start": "next start",
         "generate:data": "./bin/getGithubData",
