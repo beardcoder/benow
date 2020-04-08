@@ -10,7 +10,6 @@ const PageHeader: React.FunctionComponent = () => (
                 srcSet={multipleSizes.srcSet}
                 src={multipleSizes.src}
                 alt='Kopf Bild'
-                effect='blur'
                 className={css.background}
             />
         </div>
