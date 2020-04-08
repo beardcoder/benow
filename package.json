@@ -24,7 +24,7 @@
         "next-runtime-dotenv": "1.2.0",
         "next-seo": "4.4.0",
         "preact": "10.3.4",
-        "preact-render-to-string": "5.1.4",
+        "preact-render-to-string": "5.1.5",
         "preact-ssr-prepass": "1.0.1",
         "processmd": "4.5.0",
         "raw-loader": "4.0.0",
