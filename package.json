@@ -39,7 +39,7 @@
         "eslint-plugin-nuxt": "0.5.2",
         "eslint-plugin-prettier": "3.1.2",
         "glob": "7.1.6",
-        "husky": "4.2.3",
+        "husky": "4.2.5",
         "nuxt-jsonld": "1.4.5",
         "nuxt-payload-extractor": "1.0.0",
         "nuxt-seo": "1.2.2",
