@@ -5,10 +5,9 @@ import classNames from 'classnames';
 
 type Props = {
     className?: string;
+    children: any;
 };
 
-const Card: React.FunctionComponent<Props> = ({ children, className }) => {
+export default function Card({ children, className }: Props) {
     return <div className={classNames(styles.card, className)}>{children}</div>;
-};
-
-export default Card;
+}

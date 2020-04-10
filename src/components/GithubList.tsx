@@ -18,6 +18,7 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
     const handleClick = function () {
         setOpen(!open);
     };
+
     return (
         <div className={styles.github}>
             <h3>{title}</h3>

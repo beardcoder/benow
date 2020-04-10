@@ -7,7 +7,7 @@ type Props = {
     posts: any[];
 };
 
-const Blog: React.FunctionComponent<Props> = ({ posts }) => {
+export default function Blog({ posts }: Props) {
     return (
         <div id='blog' className={styles.blog}>
             <h2 className={styles.blogHeader}>Blog</h2>
@@ -18,6 +18,4 @@ const Blog: React.FunctionComponent<Props> = ({ posts }) => {
             </div>
         </div>
     );
-};
-
-export default Blog;
+}

@@ -1,6 +1,6 @@
 import styles from '~/src/components/Footer.module.css';
 
-const Footer: React.FC = ({ children }) => {
+export default function Footer({ children }: any) {
     const socialLinks = [
         {
             icon: require('~/src/assets/icons/mailbox-duotone.svg'),
@@ -64,6 +64,4 @@ const Footer: React.FC = ({ children }) => {
             </div>
         </footer>
     );
-};
-
-export default Footer;
+}

@@ -8,7 +8,7 @@ interface Props {
     footer?: boolean;
 }
 
-const BackLink: React.FC<Props> = ({ footer }) => {
+function BackLink({ footer }: Props) {
     return (
         <Link href='/#blog'>
             <a className={classNames(styles.backLink, footer ? styles.backLinkFooter : null)}>
@@ -16,7 +16,7 @@ const BackLink: React.FC<Props> = ({ footer }) => {
             </a>
         </Link>
     );
-};
+}
 
 BackLink.defaultProps = {
     footer: false,

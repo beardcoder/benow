@@ -14,7 +14,7 @@ type Props = {
     linkText: string;
 };
 
-const GithubItem: React.FunctionComponent<Props> = ({ gist, item, linkText, hidden }) => {
+export default function GithubItem({ gist, item, linkText, hidden }: Props) {
     const [visible, setVisible] = useState(false);
     const handleEnter = () => {
         setVisible(true);
@@ -51,6 +51,4 @@ const GithubItem: React.FunctionComponent<Props> = ({ gist, item, linkText, hidd
             </li>
         </Waypoint>
     );
-};
-
-export default GithubItem;
+}
