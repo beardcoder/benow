@@ -10,7 +10,6 @@ import Projects from '~/src/components/Projects';
 import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
 import { GetStaticProps } from 'next';
-import LazyHydrate from 'react-lazy-hydration';
 
 function IndexPage({ posts }: any) {
     return (
@@ -26,13 +25,9 @@ function IndexPage({ posts }: any) {
                 <main className='main'>
                     <Personal />
                     <Blog posts={posts} />
-                    <LazyHydrate ssrOnly>
-                        <Projects repos={reposJson} snippets={snippetsJson} />
-                    </LazyHydrate>
+                    <Projects repos={reposJson} snippets={snippetsJson} />
                 </main>
-                <LazyHydrate ssrOnly>
-                    <Footer />
-                </LazyHydrate>
+                <Footer />
             </div>
             <style jsx>{`
                 .container {
