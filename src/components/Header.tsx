@@ -15,6 +15,8 @@ const PageHeader: React.FunctionComponent = () => (
                 srcSet={`${image300} 300w,${image600} 600w,${image800} 800w,${image1200} 1200w,${image1400} 1400w,${image2560} 2560w`}
                 src={image300}
                 alt='Kopf Bild'
+                width={2541}
+                height={1786}
                 className={styles.background}
             />
         </div>
