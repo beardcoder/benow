@@ -26,7 +26,7 @@
         "preact-render-to-string": "5.1.6",
         "preact-ssr-prepass": "npm:preact-ssr-prepass@1.0.1",
         "processmd": "4.5.0",
-        "raw-loader": "4.0.0",
+        "raw-loader": "4.0.1",
         "react": "github:preact-compat/react#1.0.0",
         "react-dom": "github:preact-compat/react-dom#1.0.0",
         "react-lazy-hydration": "0.0.8",
