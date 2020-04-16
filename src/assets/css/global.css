@@ -62,13 +62,13 @@ img {
 }
 
 a {
-    color: var(--color__secondary);
+    color: var(--color__primary);
     transition: color 0.2s;
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--color__primary);
+    color: var(--color__secondary);
 }
 
 p:last-child {

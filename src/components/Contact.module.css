@@ -39,8 +39,8 @@
     display: inline-block;
     background-image: linear-gradient(
         135deg,
-        var(--color__secondary) 0%,
-        var(--color__secondary--dark) 100%
+        var(--color__primary) 0%,
+        var(--color__primary--dark) 100%
     );
     vertical-align: bottom;
     height: 85px;

@@ -5,11 +5,12 @@ type ISection = {
     title: string;
     description?: string | any;
     children: any;
+    id?: string;
 };
 
-export default function Section({ title, children, description }: ISection) {
+export default function Section({ title, children, description, id }: ISection) {
     return (
-        <section className={styles.section}>
+        <section id={id} className={styles.section}>
             <header className={styles.header}>
                 <h2 className={styles.title}>{title}</h2>
                 <div className={styles.description}>{description}</div>

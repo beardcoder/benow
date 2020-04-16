@@ -34,7 +34,7 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
                 ))}
             </ul>
             <div style={{ textAlign: 'center' }}>
-                <Button tagName='button' onClick={handleClick} type='button' secondary={gist}>
+                <Button tagName='button' onClick={handleClick} type='button' secondary>
                     {open ? 'Verbergen' : 'Alle anzeigen'}
                 </Button>
             </div>

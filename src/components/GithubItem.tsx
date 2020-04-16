@@ -34,7 +34,7 @@ export default function GithubItem({ gist, item, linkText, hidden }: Props) {
                         <h4>{gist ? item.description : item.full_name}</h4>
                         {gist && <p className={styles.githubItemDescription}>{item.description}</p>}
                     </div>
-                    <Button href={item.html_url} rel='noreferrer' target='_blank' secondary={gist}>
+                    <Button href={item.html_url} rel='noreferrer' target='_blank'>
                         {linkText}
                         <img
                             src={require('~/src/assets/icons/external-link-duotone.svg')}

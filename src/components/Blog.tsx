@@ -10,14 +10,12 @@ type Props = {
 
 export default function Blog({ posts }: Props) {
     return (
-        <div id='blog'>
-            <Section title='Blog'>
-                <div className={styles.articles}>
-                    {Object.keys(posts.reverse()).map((key: any) => (
-                        <Post key={key} post={posts[key]} />
-                    ))}
-                </div>
-            </Section>
-        </div>
+        <Section title='Blog' id='blog'>
+            <div className={styles.articles}>
+                {Object.keys(posts.reverse()).map((key: any) => (
+                    <Post key={key} post={posts[key]} />
+                ))}
+            </div>
+        </Section>
     );
 }
