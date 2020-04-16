@@ -3,6 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import styles from './Personal.module.css';
 import Skill from './Skill';
+import Section from './Section';
 
 const skills = [
     { title: 'CSS', value: 90 },
@@ -16,11 +17,7 @@ const skills = [
 
 const Personal: React.FunctionComponent = () => {
     return (
-        <section id='about-me' className={styles.personal}>
-            <h2 className={styles.header}>
-                Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience)
-                gerichtet
-            </h2>
+        <Section title='Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience) gerichtet'>
             <div className={styles.wrapper}>
                 <div className={styles.personalImageWrapper}>
                     <LazyLoadImage
@@ -52,7 +49,7 @@ const Personal: React.FunctionComponent = () => {
                     </ul>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 };
 
