@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BlogJsonLd, NextSeo } from 'next-seo';
-import styles from './[slug].module.css';
+import styles from './slug.module.css';
 import getPosts from '~/src/helper/getPosts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';

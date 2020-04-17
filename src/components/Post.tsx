@@ -20,9 +20,9 @@ export default function Post({ post }: any) {
                 />
             </div>
             <div className={styles.body}>
-                <h4>{post.title}</h4>
+                <h4 className={styles.title}>{post.title}</h4>
                 <time className={styles.articleTime} dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString()}
+                    Veröffentlicht am: {new Date(post.date).toLocaleDateString()}
                 </time>
                 <p className={styles.description}>{post.description}</p>
             </div>
