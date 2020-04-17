@@ -39,7 +39,6 @@ function IndexPage({ posts }: any) {
                     position: relative;
                     z-index: 20;
                     overflow: hidden;
-                    padding-bottom: 100px;
                 }
             `}</style>
         </>

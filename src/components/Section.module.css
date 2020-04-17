@@ -1,5 +1,6 @@
-.section {
-    padding-top: 60px;
+@import '../assets/css/variables.css';
+
+.inner {
     max-width: 1156px;
     margin-left: auto;
     margin-right: auto;
@@ -7,14 +8,9 @@
     padding-left: 20px;
 }
 
-.section:after {
-    content: '';
-    height: 1px;
-    max-width: 400px;
-    position: relative;
-    display: block;
-    margin: auto;
-    padding-bottom: 60px;
+.section {
+    padding-top: 120px;
+    padding-bottom: 150px;
 }
 
 .title {
@@ -34,4 +30,8 @@
 
 .header {
     margin-bottom: 50px;
+}
+
+.second {
+    background-color: rgba(0, 0, 0, 0.3);
 }

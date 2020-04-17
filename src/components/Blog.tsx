@@ -10,7 +10,7 @@ type Props = {
 
 export default function Blog({ posts }: Props) {
     return (
-        <Section title='Blog' id='blog'>
+        <Section title='Blog' id='blog' second>
             <div className={styles.articles}>
                 {Object.keys(posts).map((key: any) => (
                     <Post key={key} post={posts[key]} />
