@@ -12,6 +12,12 @@ export default (): any => {
         return { ...post };
     });
 
+    posts.sort((a, b) => {
+        const dateA = new Date(a.data.date).getTime();
+        const dateB = new Date(b.data.date).getTime();
+        return dateB - dateA;
+    });
+
     return posts.map(post => {
         return {
             ...post.data,

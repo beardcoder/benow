@@ -12,7 +12,7 @@ export default function Blog({ posts }: Props) {
     return (
         <Section title='Blog' id='blog'>
             <div className={styles.articles}>
-                {Object.keys(posts.reverse()).map((key: any) => (
+                {Object.keys(posts).map((key: any) => (
                     <Post key={key} post={posts[key]} />
                 ))}
             </div>
