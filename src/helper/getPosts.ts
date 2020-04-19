@@ -22,7 +22,7 @@ export default (): IPost[] => {
     return posts.map(post => {
         return {
             ...post.data,
-            content: post.data.content,
+            content: post.content,
         };
     });
 };
