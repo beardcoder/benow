@@ -1,0 +1,4 @@
+Sitemap: https://www.creativeworkspace.de/sitemap.xml
+
+User-agent: *
+Allow: /*
