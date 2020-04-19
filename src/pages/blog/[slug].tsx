@@ -15,10 +15,10 @@ function Post({ post }: any) {
             <NextSeo
                 title={`${post.title} — Markus Sommer`}
                 description={post.description}
-                canonical={`https://creativeworkspace.de/blog/${post.slug}`}
+                canonical={`https://www.creativeworkspace.de/blog/${post.slug}`}
             />
             <BlogJsonLd
-                url={`https://creativeworkspace.de/blog/${post.slug}`}
+                url={`https://www.creativeworkspace.de/blog/${post.slug}`}
                 title={post.title}
                 images={[post.image]}
                 datePublished={post.date}
