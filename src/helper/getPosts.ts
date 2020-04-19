@@ -1,10 +1,11 @@
 import matter from 'gray-matter';
 import glob from 'glob';
+import { IPost } from '~/types';
 
-export default (): any => {
+export default (): IPost[] => {
     const files = glob.sync('*', { cwd: './src/content/posts' });
 
-    const posts = files.map(fileKey => {
+    const posts: { data: any; content: string }[] = files.map(fileKey => {
         const cleanKey: string = fileKey.replace('.md', '');
         const file = require(`~/src/content/posts/${fileKey}`);
         const post = { ...matter(file.default) };
@@ -21,7 +22,7 @@ export default (): any => {
     return posts.map(post => {
         return {
             ...post.data,
-            content: post.content,
+            content: post.data.content,
         };
     });
 };

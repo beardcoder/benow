@@ -4,12 +4,17 @@ import styles from './slug.module.css';
 import getPosts from '~/src/helper/getPosts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
+import { IPost } from '~/types';
 
 const ReactMarkdown = dynamic(() => import('react-markdown'));
 const Footer = dynamic(() => import('~/src/components/Footer'));
 const BackLink = dynamic(() => import('~/src/components/BackLink'));
 
-function Post({ post }: any) {
+type Props = {
+    post: IPost;
+};
+
+function Post({ post }: Props) {
     return (
         <>
             <NextSeo
@@ -74,7 +79,6 @@ function Post({ post }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async context => {
-    console.log(context);
     const content = await require(`~/src/content/posts/${context.params?.slug}.md`);
     const matter = await import('gray-matter');
     const markdown: any = matter.default(content.default);
