@@ -3,10 +3,11 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "next",
-        "build": "yarn run generate:data && next build",
+        "build": "yarn run generate:data && next build && yarn run postbuild",
         "export": "next build && next export",
         "start": "next start",
         "generate:data": "./bin/getGithubData",
+        "postbuild": "node nextjs_sitemap_generator.js",
         "type-check": "tsc"
     },
     "dependencies": {
@@ -59,7 +60,7 @@
         "imagemin-mozjpeg": "8.0.0",
         "imagemin-optipng": "7.1.0",
         "imagemin-svgo": "7.1.0",
-        "jimp": "0.10.1",
+        "jimp": "0.10.2",
         "next-images": "1.4.0",
         "postcss-css-variables": "0.14.0",
         "postcss-import": "12.0.1",

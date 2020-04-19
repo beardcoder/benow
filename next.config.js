@@ -5,10 +5,6 @@ const webpack = require('webpack');
 const withPlugins = require('next-compose-plugins');
 
 module.exports = withPlugins([[optimizedImages]], {
-    experimental: {
-        modern: true,
-        polyfillsOptimization: true,
-    },
     webpack(config, { isServer, dev }) {
         if (isServer) {
             config.externals = ['react', 'react-dom', ...config.externals];
@@ -58,5 +54,4 @@ module.exports = withPlugins([[optimizedImages]], {
         return config;
     },
     exportTrailingSlash: true,
-    target: 'serverless',
 });
