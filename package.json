@@ -10,7 +10,6 @@
         "type-check": "tsc"
     },
     "dependencies": {
-        "@svgr/webpack": "5.3.1",
         "@types/classnames": "2.2.10",
         "@types/glob": "7.1.1",
         "classnames": "2.2.6",
@@ -29,16 +28,14 @@
         "raw-loader": "4.0.1",
         "react": "github:preact-compat/react#1.0.0",
         "react-dom": "github:preact-compat/react-dom#1.0.0",
-        "react-lazy-hydration": "0.0.8",
         "react-lazy-load-image-component": "1.4.3",
         "react-lazyload": "2.6.7",
         "react-markdown": "4.3.1",
         "react-ssr-prepass": "npm:preact-ssr-prepass@1.0.1",
         "react-waypoint": "9.0.2",
         "sanitize.css": "11.0.0",
-        "sitemap": "6.1.1",
         "typewriter-effect": "2.13.0",
-        "webfontloader": "1.6.28"
+        "webfontloader": "^1.6.28"
     },
     "devDependencies": {
         "@types/node": "13.13.0",
