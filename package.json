@@ -35,7 +35,7 @@
         "react-waypoint": "9.0.2",
         "sanitize.css": "11.0.0",
         "typewriter-effect": "2.13.0",
-        "webfontloader": "^1.6.28"
+        "webfontloader": "1.6.28"
     },
     "devDependencies": {
         "@types/node": "13.13.0",
