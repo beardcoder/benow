@@ -21,7 +21,7 @@
         "next-optimized-images": "2.5.8",
         "next-runtime-dotenv": "1.2.0",
         "next-seo": "4.4.0",
-        "preact": "10.4.0",
+        "preact": "10.4.1",
         "preact-render-to-string": "5.1.6",
         "preact-ssr-prepass": "npm:preact-ssr-prepass@1.0.1",
         "processmd": "4.5.0",
