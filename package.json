@@ -56,7 +56,7 @@
         "imagemin-mozjpeg": "8.0.0",
         "imagemin-optipng": "7.1.0",
         "imagemin-svgo": "7.1.0",
-        "jimp": "0.10.2",
+        "jimp": "0.10.3",
         "next-images": "1.4.0",
         "postcss-css-variables": "0.14.0",
         "postcss-import": "12.0.1",
