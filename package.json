@@ -18,7 +18,7 @@
         "isomorphic-unfetch": "3.0.0",
         "next": "9.3.5",
         "next-compose-plugins": "2.2.0",
-        "next-optimized-images": "2.5.8",
+        "next-optimized-images": "2.6.0",
         "next-runtime-dotenv": "1.2.0",
         "next-seo": "4.4.0",
         "preact": "10.4.1",
