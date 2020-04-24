@@ -44,7 +44,7 @@
         "nuxt-payload-extractor": "1.0.0",
         "nuxt-seo": "1.2.2",
         "nuxt-webfontloader": "1.1.0",
-        "postcss-css-variables": "0.14.0",
+        "postcss-css-variables": "0.17.0",
         "postcss-responsive-type": "1.0.0",
         "prettier": "2.0.4",
         "stylelint": "13.2.1",
