@@ -62,7 +62,7 @@ img {
 }
 
 a {
-    color: var(--color__primary);
+    color: var(--color__secondary);
     transition: color 0.2s;
     text-decoration: none;
 }
