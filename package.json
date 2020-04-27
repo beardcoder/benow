@@ -63,7 +63,7 @@
         "postcss-responsive-type": "1.0.0",
         "responsive-loader": "1.2.0",
         "typescript": "3.8.3",
-        "typescript-plugin-css-modules": "2.2.0",
+        "typescript-plugin-css-modules": "2.3.0",
         "webp-loader": "0.6.0"
     },
     "license": "MIT"
