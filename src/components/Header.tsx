@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styles from './Header.module.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const image800 = require('~/src/assets/images/header--800.jpg?webp').default;
-const image1200 = require('~/src/assets/images/header--1200.jpg?webp').default;
-const image1400 = require('~/src/assets/images/header--1400.jpg?webp').default;
-const image2560 = require('~/src/assets/images/header.jpg?webp').default;
+const image800 = require('~/src/assets/images/header--800.jpg?webp');
+const image1200 = require('~/src/assets/images/header--1200.jpg?webp');
+const image1400 = require('~/src/assets/images/header--1400.jpg?webp');
+const image2560 = require('~/src/assets/images/header.jpg?webp');
 
 const PageHeader: React.FunctionComponent = () => (
     <header className={styles.wrapper}>
