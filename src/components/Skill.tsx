@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Waypoint } from 'react-waypoint';
+import VisibilitySensor from 'react-visibility-sensor';
 
 import styles from './Skill.module.css';
 import classNames from 'classnames';
@@ -11,12 +11,12 @@ type Props = {
 
 const Skill: React.FunctionComponent<Props> = ({ title, value }) => {
     const [active, setActive] = useState(false);
-    const handleEnter = () => {
-        setActive(true);
+    const handleEnter = (isVisible: boolean) => {
+        if (isVisible) setActive(true);
     };
 
     return (
-        <Waypoint onEnter={handleEnter}>
+        <VisibilitySensor onChange={handleEnter}>
             <li className={classNames(styles.skill, active ? styles.inViewport : null)}>
                 <div className={styles.skillTitle}>{title}</div>
                 <div className={styles.skillPercent}>
@@ -29,7 +29,7 @@ const Skill: React.FunctionComponent<Props> = ({ title, value }) => {
                         className={styles.skillPercentIndicator}></div>
                 </div>
             </li>
-        </Waypoint>
+        </VisibilitySensor>
     );
 };
 
