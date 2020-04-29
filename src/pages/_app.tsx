@@ -1,5 +1,6 @@
 import { SocialProfileJsonLd } from 'next-seo';
 import App from 'next/app';
+import 'aos/dist/aos.css';
 import React from 'react';
 import 'sanitize.css';
 import '~/src/assets/css/global.css';
@@ -11,6 +12,12 @@ export default class MyApp extends App {
                 google: {
                     families: ['Maven+Pro:400,700', 'Roboto+Slab:400,700&display=swap'],
                 },
+            });
+        });
+
+        import('aos').then(AOS => {
+            AOS.init({
+                once: true,
             });
         });
     }

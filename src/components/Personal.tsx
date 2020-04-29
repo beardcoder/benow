@@ -30,13 +30,13 @@ const Personal: React.FunctionComponent = () => {
                     />
                 </div>
                 <div className={styles.personalContent}>
-                    <h3>Webentwickler, Frontend Artist und Designer</h3>
-                    <p>
+                    <h3 data-aos='fade-up'>Webentwickler, Frontend Artist und Designer</h3>
+                    <p data-aos='fade-up' data-aos-delay='200'>
                         Brauchst du Hilfe z. B. <strong>um deine Website in neuem Glanz</strong>{' '}
                         erstrahlen zu lassen, Moderne Web Technologieren einzusetzen oder mal einen
                         Tipp wie du eine <strong>Sitemap einrichtest?</strong>
                     </p>
-                    <p>
+                    <p data-aos='fade-up' data-aos-delay='300'>
                         <a href='mailto:creativeworkspace@sommer-online.xyz'>
                             Dann schreibe mich an.
                         </a>{' '}

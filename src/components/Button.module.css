@@ -52,6 +52,15 @@
     opacity: 1;
 }
 
+.btn:focus {
+    outline: 3px solid color(var(--color__primary) a(50%));
+}
+
+.btn:active {
+    outline: none;
+    text-decoration: none;
+}
+
 .btnSecondary {
     border-image: linear-gradient(
         135deg,
@@ -59,6 +68,15 @@
         var(--color__secondary--dark) 100%
     );
     border-image-slice: 4;
+}
+
+.btnSecondary:focus {
+    outline: 3px solid color(var(--color__secondary) a(50%));
+}
+
+.btnSecondary:active {
+    outline: none;
+    text-decoration: none;
 }
 
 .btnSecondary:after {

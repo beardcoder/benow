@@ -3,6 +3,7 @@ module.exports = {
         'postcss-import': {},
         'postcss-responsive-type': {},
         cssnano: {},
-        'postcss-css-variables': {}
-    }
+        'postcss-css-variables': {},
+        'postcss-color-function': {},
+    },
 };
