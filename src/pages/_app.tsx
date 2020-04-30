@@ -7,14 +7,6 @@ import '~/src/assets/css/global.css';
 
 export default class MyApp extends App {
     componentDidMount() {
-        import('webfontloader').then(WebFont => {
-            WebFont.load({
-                google: {
-                    families: ['Maven+Pro:400,700', 'Roboto+Slab:400,700&display=swap'],
-                },
-            });
-        });
-
         import('aos').then(AOS => {
             AOS.init({
                 once: true,

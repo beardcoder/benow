@@ -19,7 +19,7 @@
 }
 
 .h1 {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Fira Code', monospace;
     font-size: responsive 40px 80px; /* min-size, max-size */
     margin-top: 0;
     font-weight: 800;

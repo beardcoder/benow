@@ -15,6 +15,10 @@ export default class MyDocument extends Document {
                     <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#f03f32' />
                     <meta name='msapplication-TileColor' content='#f03f32' />
                     <meta name='theme-color' content='#333333' />
+                    <link
+                        href='https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&family=Maven+Pro:wght@400;700&display=swap'
+                        rel='stylesheet'
+                    />
                     <link rel='preconnect' href='https://fonts.googleapis.com' />
                     <link rel='preconnect' href='https://fonts.gstatic.com' />
                 </Head>

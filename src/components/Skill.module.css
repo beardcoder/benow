@@ -5,7 +5,7 @@
 }
 
 .skillTitle {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Fira Code', monospace;
     margin-bottom: -35px;
     color: var(--color__font--secondary);
 }
