@@ -21,7 +21,7 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
 
     return (
         <div className={styles.github}>
-            <h3>{title}</h3>
+            <h3 className={styles.title}>{title}</h3>
             <ul className={styles.githubList}>
                 {items?.map((item, i) => (
                     <GithubItem

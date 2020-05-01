@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Waypoint } from 'react-waypoint';
+import React from 'react';
 import styles from './GithubList.module.css';
 import { GithubItem as IGithubItem } from '~/types';
 
@@ -15,40 +14,29 @@ type Props = {
 };
 
 export default function GithubItem({ gist, item, linkText, hidden }: Props) {
-    const [visible, setVisible] = useState(false);
-    const handleEnter = () => {
-        setVisible(true);
-    };
-
     return (
-        <Waypoint onEnter={handleEnter}>
-            <li
-                className={classNames(
-                    styles.githubItem,
-                    hidden ? styles.githubItemHidden : null,
-                    visible ? styles.isVisible : styles.notVisible
-                )}
-                aria-hidden={hidden}>
-                <Card>
-                    <div>
-                        <h4>{gist ? item.description : item.full_name}</h4>
-                        {gist && <p className={styles.githubItemDescription}>{item.description}</p>}
-                    </div>
-                    <Button href={item.html_url} rel='noreferrer' target='_blank'>
-                        {linkText}
-                        <img
-                            src={require('~/src/assets/icons/external-link-duotone.svg')}
-                            width='15'
-                            height='15'
-                            alt='external link icon'
-                            style={{
-                                marginLeft: '5px',
-                                marginBottom: '2px',
-                            }}
-                        />
-                    </Button>
-                </Card>
-            </li>
-        </Waypoint>
+        <li
+            className={classNames(styles.githubItem, hidden ? styles.githubItemHidden : null)}
+            aria-hidden={hidden}>
+            <Card>
+                <div>
+                    <h4>{gist ? item.description : item.full_name}</h4>
+                    {!gist && <p className={styles.githubItemDescription}>{item.description}</p>}
+                </div>
+                <Button href={item.html_url} rel='noreferrer' target='_blank'>
+                    {linkText}
+                    <img
+                        src={require('~/src/assets/icons/external-link-duotone.svg')}
+                        width='15'
+                        height='15'
+                        alt='external link icon'
+                        style={{
+                            marginLeft: '5px',
+                            marginBottom: '2px',
+                        }}
+                    />
+                </Button>
+            </Card>
+        </li>
     );
 }

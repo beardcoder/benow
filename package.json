@@ -12,7 +12,7 @@
     "dependencies": {
         "@types/classnames": "2.2.10",
         "@types/glob": "7.1.1",
-        "aos": "2.3.4",
+        "aos": "^2.3.4",
         "classnames": "2.2.6",
         "dotenv": "8.2.0",
         "gray-matter": "4.0.2",
@@ -34,7 +34,6 @@
         "react-markdown": "4.3.1",
         "react-ssr-prepass": "npm:preact-ssr-prepass@1.0.1",
         "react-visibility-sensor": "5.1.1",
-        "react-waypoint": "9.0.2",
         "sanitize.css": "11.0.0",
         "typewriter-effect": "2.13.0",
         "webfontloader": "1.6.28"
