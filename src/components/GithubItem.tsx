@@ -20,7 +20,7 @@ export default function GithubItem({ gist, item, linkText, hidden }: Props) {
             aria-hidden={hidden}>
             <Card>
                 <div>
-                    <h4>{gist ? item.description : item.full_name}</h4>
+                    <div className='h4'>{gist ? item.description : item.full_name}</div>
                     {!gist && <p className={styles.githubItemDescription}>{item.description}</p>}
                 </div>
                 <Button href={item.html_url} rel='noreferrer' target='_blank'>

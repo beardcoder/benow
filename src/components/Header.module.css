@@ -19,8 +19,7 @@
 }
 
 .h1 {
-    font-family: 'Fira Code', monospace;
-    font-size: responsive 40px 80px; /* min-size, max-size */
+    font-size: responsive 40px 80px;
     margin-top: 0;
     font-weight: 800;
     line-height: 1.2;
