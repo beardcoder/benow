@@ -1,19 +1,7 @@
 @import '../assets/css/variables.css';
 
 .article {
-    opacity: 1;
     font-size: 0.9rem;
-    transition: opacity 0.5s, transform 0.8s;
-}
-
-.below-viewport {
-    opacity: 0;
-    transform: scale3d(0.1, 0.1, 0.1);
-}
-
-.article.in-viewport {
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
 }
 
 .articleTime {

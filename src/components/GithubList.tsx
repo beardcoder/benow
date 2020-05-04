@@ -25,6 +25,7 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
             <ul className={styles.githubList}>
                 {items?.map((item, i) => (
                     <GithubItem
+                        index={i}
                         hidden={i >= 3 && !open}
                         item={item}
                         gist={gist ? gist : false}
