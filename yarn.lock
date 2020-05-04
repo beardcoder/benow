@@ -1324,7 +1324,7 @@
   resolved "https://registry.yarnpkg.com/@react-hook/throttle/-/throttle-2.1.2.tgz#ff2b342655896dd210246f382e156cdb2ab599cf"
   integrity sha512-AmZX4wUXHJe/jN33elneFDt5zJN6f4uB9ruTDrBaUcA+Yroh+hjqBlL4/N3IL2sf6oyDRmL2eMQUgJoJN+akIg==
 
-"@react-hook/window-size@^2.0.4":
+"@react-hook/window-size@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@react-hook/window-size/-/window-size-2.0.4.tgz#e6eb73a7c3b78f9ad79634ce47432905af830855"
   integrity sha512-7Eo44fLY1ryiL6pOjcCUTxPqsBjVrj0TpJNCGaoqMc88KWYYI6p2micKCVGqIRqTY5HontZFrlkAL3ZoOVic9Q==
@@ -7226,7 +7226,7 @@ raw-loader@^2.0.0:
     loader-utils "^1.1.0"
     schema-utils "^1.0.0"
 
-react-dom@^16.13.1:
+react-dom@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -7285,7 +7285,7 @@ react-visibility-sensor@5.1.1:
   dependencies:
     prop-types "^15.7.2"
 
-react@^16.13.1:
+react@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
