@@ -31,7 +31,7 @@
         "react-visibility-sensor": "5.1.1",
         "sanitize.css": "11.0.0",
         "typewriter-effect": "2.13.1",
-        "webfontloader": "1.6.28"
+        "webfontloader": "^1.6.28"
     },
     "devDependencies": {
         "@babel/core": "7.9.6",

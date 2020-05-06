@@ -8,6 +8,13 @@ import Head from 'next/head';
 
 export default class MyApp extends App {
     componentDidMount() {
+        import('webfontloader').then(WebFont => {
+            WebFont.load({
+                google: {
+                    families: ['Fira+Code:wght@300;400;700', 'Maven+Pro:wght@400;700&display=swap'],
+                },
+            });
+        });
         import('aos').then(AOS => {
             AOS.init({
                 once: true,
@@ -30,10 +37,6 @@ export default class MyApp extends App {
                     <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#f03f32' />
                     <meta name='msapplication-TileColor' content='#f03f32' />
                     <meta name='theme-color' content='#333333' />
-                    <link
-                        href='https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;700&family=Maven+Pro:wght@400;700&display=swap'
-                        rel='stylesheet'
-                    />
                     <link rel='preconnect' href='https://fonts.googleapis.com' />
                     <link rel='preconnect' href='https://fonts.gstatic.com' />
                 </Head>
