@@ -39,12 +39,11 @@ export default function GithubItem({ gist, item, linkText, hidden, index }: Prop
                     {linkText}
                     <img
                         src={require('~/src/assets/icons/external-link-duotone.svg')}
-                        width='15'
-                        height='15'
+                        width='14'
+                        height='14'
                         alt='external link icon'
                         style={{
-                            marginLeft: '5px',
-                            marginBottom: '2px',
+                            marginLeft: '10px',
                         }}
                     />
                 </Button>

@@ -1,12 +1,9 @@
 @import '../assets/css/variables.css';
 
-.article {
-    font-size: 0.9rem;
-}
-
 .articleTime {
     display: block;
     margin-top: 0.4rem;
+    font-size: 1rem;
     color: var(--color__font--secondary);
 }
 
@@ -36,7 +33,7 @@
 }
 
 .description {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 .title {
