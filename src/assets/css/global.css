@@ -1,4 +1,5 @@
 @import './variables.css';
+@import-normalize;
 
 html,
 body {
@@ -12,6 +13,14 @@ body {
     min-height: 100%;
     color: var(--color__font);
     width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 strong {

@@ -2,7 +2,6 @@ import { SocialProfileJsonLd } from 'next-seo';
 import App from 'next/app';
 import 'aos/dist/aos.css';
 import React from 'react';
-import 'sanitize.css';
 import '~/src/assets/css/global.css';
 import Head from 'next/head';
 
