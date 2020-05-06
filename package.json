@@ -24,8 +24,8 @@
         "next-optimized-images": "2.6.0",
         "next-runtime-dotenv": "1.2.0",
         "next-seo": "4.4.0",
-        "normalize.css": "^8.0.1",
-        "postcss-normalize": "^9.0.0",
+        "normalize.css": "8.0.1",
+        "postcss-normalize": "9.0.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "react-lazy-load-image-component": "1.4.3",
@@ -34,7 +34,7 @@
         "react-visibility-sensor": "5.1.1",
         "sanitize.css": "11.0.0",
         "typewriter-effect": "2.13.1",
-        "webfontloader": "^1.6.28"
+        "webfontloader": "1.6.28"
     },
     "devDependencies": {
         "@babel/core": "7.9.6",
