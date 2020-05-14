@@ -1,5 +1,5 @@
 ---
-title: 'TYPO3 mit webpack und Code Spliting'
+title: 'TYPO3 mit webpack und Code Splitting'
 date: '2020-05-07T23:10:00.000Z'
 description: 'Webpack Integration in TYPO3 mit Code Splitting und PostCSS. Dieser Beitrag ist vor allem für Frontend Spezialisten gedacht die selbst ein Webpack setup aufbauen möchten. Damit lassen sich viele verschiedene Setups Realisieren. React und Vue.js lassen sich einfach Integrieren und sogar AngularJS kann mit etwas aufwand zum laufen gebracht werden. In diesem Beispiel benütze ich React und TypeScript um auf die Eigenheiten von verschiedenen Technologien einzugehen.'
 author: 'Markus Sommer'
