@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next",
-        "build": "yarn run generate:data && next build",
+        "build": "npm run generate:data && next build",
         "export": "next build && next export",
         "start": "next start",
         "generate:data": "./bin/getGithubData",
@@ -39,7 +39,7 @@
     "devDependencies": {
         "@babel/core": "7.9.6",
         "@types/aos": "3.0.3",
-        "@types/node": "13.13.6",
+        "@types/node": "14.0.1",
         "@types/react": "16.9.35",
         "@types/react-dom": "16.9.8",
         "@types/react-lazy-load-image-component": "1.3.0",
