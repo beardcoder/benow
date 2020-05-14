@@ -23,17 +23,21 @@ export default function Post({ post, index }: IPostComponent) {
 
     return (
         <div data-aos='fade-up' data-aos-delay={delay}>
-            <Card className={styles.article}>
-                <div className={styles.image}>
-                    <LazyLoadImage
-                        src={post.thumbnail}
-                        alt='Article Bild'
-                        title={post.title}
-                        width={480}
-                        height={300}
-                        className={styles.articleImage}
-                    />
-                </div>
+            <Card>
+                <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}`}>
+                    <a style={{ display: 'block' }}>
+                        <div className={styles.image}>
+                            <LazyLoadImage
+                                src={post.thumbnail}
+                                alt='Article Bild'
+                                title={post.title}
+                                width={480}
+                                height={300}
+                                className={styles.articleImage}
+                            />
+                        </div>
+                    </a>
+                </Link>
                 <div className={styles.body}>
                     <h4 className={styles.title}>{post.title}</h4>
                     <time className={styles.articleTime} dateTime={post.date}>

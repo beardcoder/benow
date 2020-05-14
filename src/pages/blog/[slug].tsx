@@ -55,16 +55,12 @@ function Post({ post }: Props) {
                     <article className={styles.article}>
                         <h1>{post.title}</h1>
                         <div>
-                            Veröffentlicht am
+                            Veröffentlicht am{' '}
                             <time dateTime={post.date}>
                                 {new Date(post.date).toLocaleDateString()}
                             </time>
-                            von Markus Sommer
                             <br />
-                            Letzte Änderung
-                            <time dateTime={post.date}>
-                                {new Date(post.date).toLocaleDateString()}
-                            </time>
+                            von <b>Markus Sommer</b>
                         </div>
                         <p className='description'>{post.description}</p>
                         <ReactMarkdown source={post.content} />
