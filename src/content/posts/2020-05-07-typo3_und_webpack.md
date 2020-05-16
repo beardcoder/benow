@@ -29,7 +29,13 @@ Jetzt brauchen wir nur noch eine Datenbank die wir uns entweder Local aufsetzen 
 Ich verwende hier an dieser Stelle Docker um schnell ein Ergebnis zu erhalten. Wer mehr wissen möchte über Docker und TYPO3 wird bei https://typo3worx.eu/ fündig.
 
 Mit diesem Befehl starten wir unsere Datenbank
-`docker run --name typo3_db -e MYSQL_DATABASE=dev -e MYSQL_USER=dev -e MYSQL_PASSWORD=dev -e MYSQL_RANDOM_ROOT_PASSWORD=1 -p 13306:3306 -d mariadb --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci`
+
+```bash
+docker run --name typo3_db \
+    -e MYSQL_DATABASE=dev -e MYSQL_USER=dev -e MYSQL_PASSWORD=dev -e MYSQL_RANDOM_ROOT_PASSWORD=1 \
+    -p 13306:3306 \
+    -d mariadb --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+```
 
 ### TYPO3 Starten
 
@@ -53,7 +59,7 @@ Das Setup der Extension basiert auf dem Setup von Helmut Hummel https://github.c
 
 Diesen Bereich halte ich sehr kurz. Es geht lediglich darum das wir danach eine Möglichkeit haben unsere Daten einzubinden. Darum an dieser Stelle nur ein Minimal Setup im TypoScript
 
-```
+```js
 page = PAGE
 page {
     typeNum = 0
@@ -86,7 +92,7 @@ Die `package.json` sollte dann in etwa so aussehen.
 
 ##### package.json
 
-```
+```json
 {
     "name": "frontend",
     "version": "1.0.0",
@@ -105,7 +111,7 @@ Danach sollte die `package.json` in etwa so aussehen
 
 ##### package.json
 
-```
+```json
 {
     "name": "frontend",
     "version": "1.0.0",
@@ -145,7 +151,7 @@ Die vollständige Konfiguration sieht dann im Ende so aus
 
 ##### webpack.config.js
 
-```
+```js
 /* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack');
 const path = require('path');
@@ -232,7 +238,7 @@ Was die Plugins im Einzelnen machen kann an auf der Seite der Plugins Nachlesen.
 
 ##### postcss.config.js
 
-```
+```js
 const config = {
     plugins: [
         require('PostCSS-import'),
@@ -257,7 +263,7 @@ wir erstellen eine Datei `packages/design/Resources/Private/Frontend/tsconfig.js
 
 ##### tsconfig.json
 
-```
+```json
 {
     "compilerOptions": {
         "allowJs": true,
@@ -298,7 +304,7 @@ Konfiguration Datei `Resources/Private/Frontend/.babelrc`
 
 ##### .babelrc
 
-```
+```json
 {
     "presets": ["@babel/env", "@babel/react", "@babel/TypeScript"]
 }
@@ -311,7 +317,7 @@ Erstellen wir die Datei `packages/design/Resources/Private/Frontend/src/main.ts`
 
 ##### main.ts
 
-```
+```ts
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -319,13 +325,10 @@ const helloElement = document.getElementById('hello');
 
 // Webpack lädt diese Daten asynchron wenn das Element vorhanden ist. Damit kann man sicherstellen das die JS Dateien immer so klein wie möglich gehalten werden
 if (helloElement) {
-    import(/* webpackChunkName: "hello" */ './components/Hello').then(
-        ({ default: Hello }) => {
-            ReactDOM.render(React.createElement(Hello), helloElement);
-        }
-    );
+    import(/* webpackChunkName: "hello" */ './components/Hello').then(({ default: Hello }) => {
+        ReactDOM.render(React.createElement(Hello), helloElement);
+    });
 }
-
 ```
 
 ### Erste React App
@@ -335,7 +338,7 @@ Ich habe hier einfach mal die Ausgabe eines kleinen Strings gebaut. Natürlich k
 
 ##### Hello.tsx
 
-```
+```tsx
 import React from 'react';
 
 export default function Hello() {
@@ -349,7 +352,7 @@ Jetzt müssen wir natürlich nur noch um das Element auch ausgeben zu können un
 
 Ich habe dies einfach in der setup.txt gemacht.
 
-```
+```js
 page = PAGE
 page {
     typeNum = 0

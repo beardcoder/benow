@@ -22,7 +22,7 @@ export default function Post({ post, index }: IPostComponent) {
     });
 
     return (
-        <div data-aos='fade-up' data-aos-delay={delay}>
+        <div data-aos='fade-up' data-aos-delay={delay} data-aos-duration='400'>
             <Card>
                 <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}`}>
                     <a style={{ display: 'block' }}>

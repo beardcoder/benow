@@ -32,7 +32,7 @@ Es gibt dabei leider das Problem das es bei jedem Request eingebunden wird. Also
 TypoScript: die bessere alternative
 TypoScript erlaubt uns das ganze sehr einfach zu erstellen. Hier können wir nämlich nur unsere TYPO3 Frontendausgabe mit der Content Security Policy versehen. Ohne das unser TYPO3 Backend oder die Assets beeinflusst werden.
 
-```
+```js
 config.additionalHeaders {
     10.header = Content-Security-Policy: default-src 'none'
 }

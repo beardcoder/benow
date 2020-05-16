@@ -5,6 +5,7 @@ import getPosts from '~/src/helper/getPosts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { IPost } from '~/types';
+import CodeBlock from '~/src/components/CodeBlock';
 
 const ReactMarkdown = dynamic(() => import('react-markdown'));
 const Footer = dynamic(() => import('~/src/components/Footer'));
@@ -53,7 +54,9 @@ function Post({ post }: Props) {
             <div className='container'>
                 <div className={styles.main}>
                     <article className={styles.article}>
-                        <h1>{post.title}</h1>
+                        <h1 data-aos='fade-up' data-aos-duration='400'>
+                            {post.title}
+                        </h1>
                         <div>
                             Veröffentlicht am{' '}
                             <time dateTime={post.date}>
@@ -63,7 +66,7 @@ function Post({ post }: Props) {
                             von <b>Markus Sommer</b>
                         </div>
                         <p className='description'>{post.description}</p>
-                        <ReactMarkdown source={post.content} />
+                        <ReactMarkdown source={post.content} renderers={{ code: CodeBlock }} />
                     </article>
                 </div>
                 <Footer>

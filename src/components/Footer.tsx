@@ -4,7 +4,7 @@ export default function Footer({ children }: any) {
     const socialLinks = [
         {
             icon: require('~/src/assets/icons/mailbox-duotone.svg'),
-            link: 'mailto:creativeworkspace~sommer-online.xyz',
+            link: 'mailto:creativeworkspace@sommer-online.xyz',
             title: 'E-Mail Markus Sommer',
         },
         {
