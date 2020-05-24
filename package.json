@@ -58,7 +58,7 @@
         "eslint-plugin-react": "7.20.0",
         "glob": "7.1.6",
         "imagemin-mozjpeg": "8.0.0",
-        "imagemin-optipng": "7.1.0",
+        "imagemin-optipng": "8.0.0",
         "imagemin-svgo": "8.0.0",
         "jimp": "0.12.1",
         "next-images": "1.4.0",
