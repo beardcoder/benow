@@ -2,7 +2,24 @@ import matter from 'gray-matter';
 import glob from 'glob';
 import { IPost } from '~/types';
 
-export default (): IPost[] => {
+export function getFullPosts(): IPost[] {
+    return getPostData().map(post => {
+        return {
+            ...post.data,
+            content: post.content,
+        };
+    });
+}
+
+export function getMinimalPosts(): IPost[] {
+    return getPostData().map(post => {
+        return {
+            ...post.data,
+        };
+    });
+}
+
+function getPostData(): any[] {
     const files = glob.sync('*', { cwd: './src/content/posts' });
 
     const posts: { data: any; content: string }[] = files.map(fileKey => {
@@ -19,10 +36,5 @@ export default (): IPost[] => {
         return dateB - dateA;
     });
 
-    return posts.map(post => {
-        return {
-            ...post.data,
-            content: post.content,
-        };
-    });
-};
+    return posts;
+}

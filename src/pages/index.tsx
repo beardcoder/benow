@@ -1,15 +1,17 @@
+import dynamic from 'next/dynamic';
 import { NextSeo } from 'next-seo';
 import * as React from 'react';
-import Blog from '~/src/components/Blog';
-import Contact from '~/src/components/Contact';
-import Footer from '~/src/components/Footer';
-import getPosts from '~/src/helper/getPosts';
-import PageHeader from '~/src/components/Header';
-import Personal from '~/src/components/Personal';
-import Projects from '~/src/components/Projects';
+import { getMinimalPosts } from '~/src/helper/getPosts';
 import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
 import { GetStaticProps } from 'next';
+
+const Contact = dynamic(() => import('~/src/components/Contact'));
+const Footer = dynamic(() => import('~/src/components/Footer'));
+const PageHeader = dynamic(() => import('~/src/components/Header'));
+const Personal = dynamic(() => import('~/src/components/Personal'));
+const Projects = dynamic(() => import('~/src/components/Projects'));
+const Blog = dynamic(() => import('~/src/components/Blog'));
 
 function IndexPage({ posts }: any) {
     return (
@@ -46,7 +48,7 @@ function IndexPage({ posts }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const posts = getPosts();
+    const posts = getMinimalPosts();
     return {
         props: {
             posts,

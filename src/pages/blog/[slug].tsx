@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BlogJsonLd, NextSeo } from 'next-seo';
 import styles from './slug.module.css';
-import getPosts from '~/src/helper/getPosts';
+import { getMinimalPosts } from '~/src/helper/getPosts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import { IPost } from '~/types';
@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps = async context => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const posts = getPosts();
+    const posts = getMinimalPosts();
     const paths = posts.map((post: any) => ({
         params: { slug: post.slug },
     }));
