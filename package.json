@@ -11,7 +11,7 @@
         "type-check": "tsc"
     },
     "dependencies": {
-        "@react-hook/window-size": "2.1.1",
+        "@react-hook/window-size": "2.2.5",
         "@types/classnames": "2.2.10",
         "@types/glob": "7.1.2",
         "aos": "2.3.4",
