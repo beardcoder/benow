@@ -102,7 +102,7 @@ p:last-child {
 pre {
     font-family: 'Fira Code', monospace;
     overflow-x: auto;
-    background-color: var(--color__card--level-2);
+    background-color: var(--color__card--level-2) !important;
     padding: 15px 25px;
     border-radius: var(--border-radius);
 }
