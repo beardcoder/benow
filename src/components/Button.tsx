@@ -2,13 +2,7 @@ import { forwardRef } from 'react';
 import classnames from 'classnames';
 import styles from './Button.module.css';
 
-type Props = {
-    secondary?: boolean;
-    tagName?: any;
-    props: {} | any[];
-};
-
-const Button: React.FunctionComponent<Props> = forwardRef(
+const Button: React.FunctionComponent<any> = forwardRef(
     ({ children, secondary, tagName, ...props }, ref) => {
         const CompTagName = tagName;
 

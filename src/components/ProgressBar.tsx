@@ -15,7 +15,7 @@ type Props = {
     size: string;
 };
 
-function ProgressBar({ color, size }: Props): React.ReactNode {
+function ProgressBar({ color, size }: Props) {
     return (
         <>
             <style jsx global>{`
