@@ -1,3 +1,4 @@
+import shortid from 'shortid';
 import styles from '~/src/components/Footer.module.css';
 
 export default function Footer({ children }: any) {
@@ -44,8 +45,8 @@ export default function Footer({ children }: any) {
                 {children}
                 <h4>Erstellt mit 🍺 und 🦄 von Markus Sommer</h4>
                 <ul className={styles.social}>
-                    {socialLinks.map((item, i) => (
-                        <li key={i} className={styles.socialItem}>
+                    {socialLinks.map(item => (
+                        <li key={shortid.generate()} className={styles.socialItem}>
                             <a
                                 href={item.link}
                                 title={item.title}

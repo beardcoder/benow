@@ -1,5 +1,4 @@
-import React from 'react';
-
+import shortid from 'shortid';
 import styles from './Blog.module.css';
 import Post from './Post';
 import Section from './Section';
@@ -13,7 +12,7 @@ export default function Blog({ posts }: Props) {
         <Section title='Blog' id='blog' second>
             <div className={styles.articles}>
                 {Object.keys(posts).map((key: any, index: number) => (
-                    <Post key={key} index={index} post={posts[key]} />
+                    <Post key={shortid.generate()} index={index} post={posts[key]} />
                 ))}
             </div>
         </Section>

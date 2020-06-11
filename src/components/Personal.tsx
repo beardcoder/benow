@@ -4,6 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styles from './Personal.module.css';
 import Skill from './Skill';
 import Section from './Section';
+import shortid from 'shortid';
 
 const skills = [
     { title: 'CSS', value: 90 },
@@ -43,8 +44,12 @@ const Personal: React.FunctionComponent = () => {
                         Ich stehe gerne mit Rat und Tat zur Seite.
                     </p>
                     <ul className={styles.personalSkills}>
-                        {skills.map((skill, i) => (
-                            <Skill key={i} value={skill.value} title={skill.title} />
+                        {skills.map(skill => (
+                            <Skill
+                                key={shortid.generate()}
+                                value={skill.value}
+                                title={skill.title}
+                            />
                         ))}
                     </ul>
                 </div>

@@ -4,6 +4,7 @@ import { GithubItem as IGithubItem } from '~/types';
 
 import Button from './Button';
 import GithubItem from './GithubItem';
+import shortid from 'shortid';
 
 type Props = {
     items?: IGithubItem[];
@@ -30,7 +31,7 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
                         item={item}
                         gist={gist ? gist : false}
                         linkText={linkText}
-                        key={i}
+                        key={shortid.generate()}
                     />
                 ))}
             </ul>
