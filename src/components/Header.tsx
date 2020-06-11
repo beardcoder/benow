@@ -19,13 +19,11 @@ const PageHeader: React.FunctionComponent = () => (
             />
         </div>
         <div className={styles.headerContent}>
-            <div>
-                <h1 data-aos='fade-up' className={styles.h1}>
-                    Webentwickler <br />
-                    Frontend Artist <br />
-                    Designer <br />
-                </h1>
-            </div>
+            <h1 data-aos='fade-up' className={styles.h1}>
+                Webentwickler <br />
+                Frontend Artist <br />
+                Designer <br />
+            </h1>
             <h3 data-aos='fade-up' data-aos-delay='300' className={styles.h3}>
                 Innovation, Inspiration, Technik und Leidenschaft
                 <span data-aos='fade-right' data-aos-delay='600' className={styles.arrow}></span>

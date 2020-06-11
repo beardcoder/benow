@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import React from 'react';
 import '~/src/assets/css/global.css';
 import Head from 'next/head';
+import ProgressBar from '../components/ProgressBar';
 
 export default class MyApp extends App {
     componentDidMount() {
@@ -39,6 +40,7 @@ export default class MyApp extends App {
                     <link rel='preconnect' href='https://fonts.googleapis.com' />
                     <link rel='preconnect' href='https://fonts.gstatic.com' />
                 </Head>
+                <ProgressBar color='#f03f32' size='3px' />
                 <SocialProfileJsonLd
                     type='Person'
                     name='Markus Sommer'

@@ -20,22 +20,15 @@ function IndexPage({ posts }: any) {
                 description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
                 canonical='https://www.creativeworkspace.de/'
             />
-            <div className='container'>
-                <PageHeader />
-                <Contact />
-                <main className='main'>
-                    <Personal />
-                    <Blog posts={posts} />
-                    <Projects repos={reposJson} snippets={snippetsJson} />
-                </main>
-                <Footer />
-            </div>
+            <PageHeader />
+            <Contact />
+            <main className='main'>
+                <Personal />
+                <Blog posts={posts} />
+                <Projects repos={reposJson} snippets={snippetsJson} />
+            </main>
+            <Footer />
             <style jsx>{`
-                .container {
-                    position: relative;
-                    overflow-x: hidden;
-                }
-
                 .main {
                     position: relative;
                     z-index: 20;

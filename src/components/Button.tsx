@@ -1,31 +1,22 @@
-import React from 'react';
-
+import { forwardRef } from 'react';
+import classnames from 'classnames';
 import styles from './Button.module.css';
 
 type Props = {
     secondary?: boolean;
     tagName?: any;
-    href?: any;
-    attrs?: {};
-    rel?: string;
-    target?: string;
-    onClick?: any;
-    type?: string;
+    props: {} | any[];
 };
 
-const Button: React.FunctionComponent<Props> = React.forwardRef(
-    ({ children, secondary, href, onClick, rel, target, tagName, type }, ref) => {
+const Button: React.FunctionComponent<Props> = forwardRef(
+    ({ children, secondary, tagName, ...props }, ref) => {
         const CompTagName = tagName;
 
         return (
             <CompTagName
                 ref={ref}
-                href={href}
-                onClick={onClick}
-                type={type}
-                rel={rel}
-                tatget={target}
-                className={[styles.btn, secondary ? styles.btnSecondary : ''].join(' ')}>
+                {...props}
+                className={classnames([styles.btn, secondary ? styles.btnSecondary : ''])}>
                 {children}
             </CompTagName>
         );

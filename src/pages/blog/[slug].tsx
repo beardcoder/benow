@@ -51,28 +51,22 @@ function Post({ post }: Props) {
                 </div>
                 <BackLink />
             </header>
-            <div className='container'>
-                <div className={styles.main}>
-                    <article className={styles.article}>
-                        <h1 data-aos='fade-up' data-aos-duration='400'>
-                            {post.title}
-                        </h1>
-                        <div>
-                            Veröffentlicht am{' '}
-                            <time dateTime={post.date}>
-                                {new Date(post.date).toLocaleDateString()}
-                            </time>
-                            <br />
-                            von <b>Markus Sommer</b>
-                        </div>
-                        <p className='description'>{post.description}</p>
-                        <ReactMarkdown source={post.content} renderers={{ code: CodeBlock }} />
-                    </article>
-                </div>
-                <Footer>
-                    <BackLink footer />
-                </Footer>
+            <div className={styles.main}>
+                <article className={styles.article}>
+                    <h1 data-aos='fade-up' data-aos-duration='400'>
+                        {post.title}
+                    </h1>
+                    Veröffentlicht am{' '}
+                    <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
+                    <br />
+                    von <b>Markus Sommer</b>
+                    <p className='description'>{post.description}</p>
+                    <ReactMarkdown source={post.content} renderers={{ code: CodeBlock }} />
+                </article>
             </div>
+            <Footer>
+                <BackLink footer />
+            </Footer>
         </>
     );
 }
