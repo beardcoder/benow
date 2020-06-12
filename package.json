@@ -30,7 +30,7 @@
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "react-lazy-load-image-component": "1.4.3",
-        "react-lazyload": "2.6.7",
+        "react-lazyload": "2.6.8",
         "react-markdown": "4.3.1",
         "react-syntax-highlighter": "12.2.1",
         "react-visibility-sensor": "5.1.1",
