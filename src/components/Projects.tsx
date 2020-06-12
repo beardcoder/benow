@@ -1,4 +1,3 @@
-import React from 'react';
 import { GithubItem } from '~/types';
 
 import GithubList from './GithubList';
@@ -26,7 +25,7 @@ const description = function () {
     );
 };
 
-const Projects: React.FunctionComponent<Props> = ({ repos, snippets }) => {
+export default function Projects({ repos, snippets }: Props) {
     return (
         <Section
             title='Projekte und Snippets die mir und vielleicht auch dir helfen können.'
@@ -41,6 +40,4 @@ const Projects: React.FunctionComponent<Props> = ({ repos, snippets }) => {
             </>
         </Section>
     );
-};
-
-export default Projects;
+}

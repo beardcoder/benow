@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './GithubList.module.css';
 import { GithubItem as IGithubItem } from '~/types';
 
@@ -13,7 +13,7 @@ type Props = {
     linkText: string;
 };
 
-const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkText }) => {
+function GithubList({ title, gist, items, linkText }: Props) {
     const [open, setOpen] = useState(false);
 
     const handleClick = function () {
@@ -42,6 +42,6 @@ const GithubList: React.FunctionComponent<Props> = ({ title, gist, items, linkTe
             </div>
         </div>
     );
-};
+}
 
 export default GithubList;

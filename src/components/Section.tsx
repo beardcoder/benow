@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from '~/src/components/Section.module.css';
 import classNames from 'classnames';
 

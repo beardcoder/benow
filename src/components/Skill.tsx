@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import styles from './Skill.module.css';
@@ -9,7 +9,7 @@ type Props = {
     value: number;
 };
 
-const Skill: React.FunctionComponent<Props> = ({ title, value }) => {
+export default function Skill({ title, value }: Props) {
     const [active, setActive] = useState(false);
     const handleEnter = (isVisible: boolean) => {
         if (isVisible) setActive(true);
@@ -31,6 +31,4 @@ const Skill: React.FunctionComponent<Props> = ({ title, value }) => {
             </li>
         </VisibilitySensor>
     );
-};
-
-export default Skill;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './GithubList.module.css';
 import { GithubItem as IGithubItem } from '~/types';
 

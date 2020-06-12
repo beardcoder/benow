@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import styles from './Personal.module.css';
@@ -16,7 +15,7 @@ const skills = [
     { title: 'Docker', value: 70 },
 ];
 
-const Personal: React.FunctionComponent = () => {
+export default function Personal() {
     return (
         <Section title='Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience) gerichtet'>
             <div className={styles.wrapper}>
@@ -56,6 +55,4 @@ const Personal: React.FunctionComponent = () => {
             </div>
         </Section>
     );
-};
-
-export default Personal;
+}

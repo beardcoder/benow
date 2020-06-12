@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BlogJsonLd, NextSeo } from 'next-seo';
 import styles from './slug.module.css';
 import { getMinimalPosts } from '~/src/helper/getPosts';

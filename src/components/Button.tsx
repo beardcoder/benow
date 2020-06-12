@@ -1,8 +1,8 @@
-import { forwardRef } from 'react';
+import { forwardRef, FunctionComponent } from 'react';
 import classnames from 'classnames';
 import styles from './Button.module.css';
 
-const Button: React.FunctionComponent<any> = forwardRef(
+const Button: FunctionComponent<any> = forwardRef(
     ({ children, secondary, tagName, ...props }, ref) => {
         const CompTagName = tagName;
 

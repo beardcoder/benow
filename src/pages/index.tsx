@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-import * as React from 'react';
 import { getMinimalPosts } from '~/src/helper/getPosts';
 import reposJson from '~/.content/github/repos.json';
 import snippetsJson from '~/.content/github/snippets.json';
