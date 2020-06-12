@@ -1,6 +1,6 @@
 {
-    "name": "with-typescript",
-    "version": "1.0.0",
+    "name": "creativeworkspace",
+    "version": "2.0.0",
     "private": true,
     "scripts": {
         "dev": "next",
@@ -27,8 +27,11 @@
         "normalize.css": "8.0.1",
         "nprogress": "0.2.0",
         "postcss-normalize": "9.0.0",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
+        "preact": "^10.4.4",
+        "preact-render-to-string": "^5.1.9",
+        "react": "github:preact-compat/react#1.0.0",
+        "react-dom": "github:preact-compat/react-dom#1.0.0",
+        "react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1",
         "react-lazy-load-image-component": "1.4.3",
         "react-lazyload": "2.6.8",
         "react-markdown": "4.3.1",
@@ -73,7 +76,9 @@
         "shortid": "2.2.15",
         "typescript": "3.9.5",
         "typescript-plugin-css-modules": "2.3.0",
-        "webp-loader": "0.6.0"
+        "webp-loader": "0.6.0",
+        "@prefresh/next": "^0.3.0",
+        "react-refresh": "^0.8.3"
     },
     "browserslist": "last 2 versions"
 }
