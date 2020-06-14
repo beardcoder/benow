@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import LazyImage from './LazyImage';
 import { useWindowWidth } from '@react-hook/window-size';
 
 import Button from './Button';
@@ -27,7 +27,7 @@ export default function Post({ post, index }: IPostComponent) {
                 <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}`}>
                     <a style={{ display: 'block' }}>
                         <div className={styles.image}>
-                            <LazyLoadImage
+                            <LazyImage
                                 src={post.thumbnail}
                                 alt='Article Bild'
                                 title={post.title}

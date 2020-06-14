@@ -1,9 +1,8 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import styles from './Personal.module.css';
 import Skill from './Skill';
 import Section from './Section';
 import shortid from 'shortid';
+import LazyImage from './LazyImage';
 
 const skills = [
     { title: 'CSS', value: 90 },
@@ -20,7 +19,7 @@ export default function Personal() {
         <Section title='Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience) gerichtet'>
             <div className={styles.wrapper}>
                 <div className={styles.personalImageWrapper}>
-                    <LazyLoadImage
+                    <LazyImage
                         src='/images/markus_sommer.jpg'
                         alt='Markus Sommer'
                         title='Bild von Markus Sommer'

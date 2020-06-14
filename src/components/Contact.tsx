@@ -1,7 +1,7 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Typewriter from 'typewriter-effect';
 
 import styles from './Contact.module.css';
+import LazyImage from './LazyImage';
 
 export default function Contact() {
     return (
@@ -17,7 +17,7 @@ export default function Contact() {
                     />
                 </div>
                 <div className={styles.contactMe__image}>
-                    <LazyLoadImage
+                    <LazyImage
                         src='/images/markus_sommer--square.jpg'
                         alt='Markus Sommer'
                         title='Bild von Markus Sommer'
