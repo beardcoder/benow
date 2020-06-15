@@ -1,6 +1,6 @@
 import styles from './Header.module.css';
 import ProgressiveImage from 'react-progressive-image';
-const imageSmall = require('~/src/assets/images/header--800.jpg?resize&size=300');
+const imageSmall = require('~/src/assets/images/header--800.jpg?lqip');
 const image800 = require('~/src/assets/images/header--800.jpg?webp');
 const image1200 = require('~/src/assets/images/header--1200.jpg?webp');
 const image1400 = require('~/src/assets/images/header--1400.jpg?webp');
