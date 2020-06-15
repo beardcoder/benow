@@ -1,5 +1,6 @@
 import styles from './Header.module.css';
-import LazyImage from './LazyImage';
+import ProgressiveImage from 'react-progressive-image';
+const imageSmall = require('~/src/assets/images/header--800.jpg?resize&size=300');
 const image800 = require('~/src/assets/images/header--800.jpg?webp');
 const image1200 = require('~/src/assets/images/header--1200.jpg?webp');
 const image1400 = require('~/src/assets/images/header--1400.jpg?webp');
@@ -9,14 +10,29 @@ export default function PageHeader() {
     return (
         <header className={styles.wrapper}>
             <div className={styles.backgroundWrapper}>
-                <LazyImage
-                    srcSet={`${image800} 800w,${image1200} 1200w,${image1400} 1400w,${image2560} 2560w`}
+                <ProgressiveImage
                     src={image800}
-                    alt='Kopf Bild'
-                    width={2541}
-                    height={1786}
-                    className={styles.background}
-                />
+                    srcSetData={{
+                        srcSet: `${image800} 800w,${image1200} 1200w,${image1400} 1400w,${image2560} 2560w`,
+                        sizes: '(max-width: 2000px) 100vw, 2000px',
+                    }}
+                    placeholder={imageSmall}>
+                    {(
+                        src: string,
+                        _loading: boolean,
+                        srcSetData: { srcSet: string; sizes: string }
+                    ) => (
+                        <img
+                            src={src}
+                            srcSet={srcSetData.srcSet}
+                            sizes={srcSetData.sizes}
+                            alt='Kopf Bild'
+                            width={2541}
+                            height={1786}
+                            className={styles.background}
+                        />
+                    )}
+                </ProgressiveImage>
             </div>
             <div className={styles.headerContent}>
                 <h1 data-aos='fade-up' className={styles.h1}>
