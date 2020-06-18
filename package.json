@@ -43,7 +43,7 @@
     },
     "devDependencies": {
         "@babel/core": "7.10.2",
-        "@prefresh/next": "0.3.0",
+        "@prefresh/next": "0.3.1",
         "@types/aos": "3.0.3",
         "@types/node": "14.0.13",
         "@types/nprogress": "0.2.0",
