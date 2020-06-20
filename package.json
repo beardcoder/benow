@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next",
-        "build": "npm run generate:data && next build",
+        "build": "npm run test:ci && npm run generate:data && next build",
         "export": "next build && next export",
         "start": "next start",
         "generate:data": "./bin/getGithubData",
