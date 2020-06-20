@@ -1,10 +1,10 @@
 import styles from './Header.module.css';
 import ProgressiveImage from 'react-progressive-image';
-const imageSmall = require('~/src/assets/images/header--800.jpg?lqip');
-const image800 = require('~/src/assets/images/header--800.jpg?webp');
-const image1200 = require('~/src/assets/images/header--1200.jpg?webp');
-const image1400 = require('~/src/assets/images/header--1400.jpg?webp');
-const image2560 = require('~/src/assets/images/header.jpg?webp');
+const imageSmall = require('@/assets/images/header--800.jpg?lqip');
+const image800 = require('@/assets/images/header--800.jpg?webp');
+const image1200 = require('@/assets/images/header--1200.jpg?webp');
+const image1400 = require('@/assets/images/header--1400.jpg?webp');
+const image2560 = require('@/assets/images/header.jpg?webp');
 
 export default function PageHeader() {
     return (

@@ -24,7 +24,7 @@ function getPostData(): any[] {
 
     const posts: { data: any; content: string }[] = files.map(fileKey => {
         const cleanKey: string = fileKey.replace('.md', '');
-        const file = require(`~/src/content/posts/${fileKey}`);
+        const file = require(`@/content/posts/${fileKey}`);
         const post = { ...matter(file.default) };
         post['data']['slug'] = cleanKey;
         return { ...post };

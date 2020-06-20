@@ -36,7 +36,7 @@ export default function GithubItem({ gist, item, linkText, hidden, index }: Prop
                 <Button href={item.html_url} rel='noreferrer' target='_blank'>
                     {linkText}
                     <img
-                        src={require('~/src/assets/icons/external-link-duotone.svg')}
+                        src={require('@/assets/icons/external-link-duotone.svg')}
                         width='14'
                         height='14'
                         alt='external link icon'

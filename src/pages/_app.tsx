@@ -1,7 +1,7 @@
 import { SocialProfileJsonLd } from 'next-seo';
 import App from 'next/app';
 import 'aos/dist/aos.css';
-import '~/src/assets/css/global.css';
+import '@/assets/css/global.css';
 import Head from 'next/head';
 import ProgressBar from '../components/ProgressBar';
 

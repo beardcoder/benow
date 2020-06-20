@@ -1,15 +1,15 @@
 import { NextSeo } from 'next-seo';
-import { getMinimalPosts } from '~/src/helper/getPosts';
-import reposJson from '~/.content/github/repos.json';
-import snippetsJson from '~/.content/github/snippets.json';
+import { getMinimalPosts } from '@/helper/getPosts';
+import reposJson from '@@/.content/github/repos.json';
+import snippetsJson from '@@/.content/github/snippets.json';
 import { GetStaticProps } from 'next';
 
-import Contact from '~/src/components/Contact';
-import Footer from '~/src/components/Footer';
-import PageHeader from '~/src/components/Header';
-import Personal from '~/src/components/Personal';
-import Projects from '~/src/components/Projects';
-import Blog from '~/src/components/Blog';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import PageHeader from '@/components/Header';
+import Personal from '@/components/Personal';
+import Projects from '@/components/Projects';
+import Blog from '@/components/Blog';
 
 function IndexPage({ posts }: any) {
     return (

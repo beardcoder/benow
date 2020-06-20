@@ -1,14 +1,14 @@
 import { BlogJsonLd, NextSeo } from 'next-seo';
 import styles from './slug.module.css';
-import { getMinimalPosts } from '~/src/helper/getPosts';
+import { getMinimalPosts } from '@/helper/getPosts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
-import { IPost } from '~/types';
-import CodeBlock from '~/src/components/CodeBlock';
+import { IPost } from '@@/types';
+import CodeBlock from '@/components/CodeBlock';
 
 const ReactMarkdown = dynamic(() => import('react-markdown'));
-const Footer = dynamic(() => import('~/src/components/Footer'));
-const BackLink = dynamic(() => import('~/src/components/BackLink'));
+const Footer = dynamic(() => import('@/components/Footer'));
+const BackLink = dynamic(() => import('@/components/BackLink'));
 
 type Props = {
     post: IPost;
@@ -71,7 +71,7 @@ function Post({ post }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async context => {
-    const content = await require(`~/src/content/posts/${context.params?.slug}.md`);
+    const content = await require(`@/content/posts/${context.params?.slug}.md`);
     const matter = await import('gray-matter');
     const markdown: any = matter.default(content.default);
     const post = {

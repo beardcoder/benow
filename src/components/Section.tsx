@@ -1,4 +1,4 @@
-import styles from '~/src/components/Section.module.css';
+import styles from '@/components/Section.module.css';
 import classNames from 'classnames';
 
 type ISection = {
