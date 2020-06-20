@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './GithubList.module.css';
-import { GithubItem as IGithubItem } from '~/types';
+import { GithubItem as IGithubItem } from '@@/types';
 
 import Button from './Button';
 import Card from './Card';

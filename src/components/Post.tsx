@@ -6,7 +6,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 import Button from './Button';
 import Card from './Card';
 import styles from './Post.module.css';
-import { IPost } from '~/types';
+import { IPost } from '@@/types';
 
 type IPostComponent = {
     post: IPost;

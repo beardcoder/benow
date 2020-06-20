@@ -18,7 +18,8 @@
         "jsx": "preserve",
         "target": "esnext",
         "plugins": [{ "name": "typescript-plugin-css-modules" }],
-        "baseUrl": ".",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
         "paths": {
             "~/*": ["./src/*"],
             "~~/*": ["./*"],

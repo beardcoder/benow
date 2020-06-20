@@ -1,6 +1,6 @@
 import matter from 'gray-matter';
 import glob from 'glob';
-import { IPost } from '~/types';
+import { IPost } from '@@/types';
 
 export function getFullPosts(): IPost[] {
     return getPostData().map(post => {

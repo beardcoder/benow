@@ -1,4 +1,4 @@
-import { GithubItem } from '~/types';
+import { GithubItem } from '@@/types';
 
 import GithubList from './GithubList';
 import Section from './Section';
