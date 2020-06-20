@@ -5,7 +5,6 @@ module.exports = {
     transform: {
         '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
         '^.+\\.css$': '<rootDir>/config/jest/cssTransform.js',
-        '^.+\\.css$': '<rootDir>/config/jest/enzyme.js',
     },
     transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
     moduleNameMapper: {
