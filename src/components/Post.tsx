@@ -7,7 +7,6 @@ import Button from './Button';
 import Card from './Card';
 import styles from './Post.module.css';
 import { IPost } from '@@/types';
-import { NONAME } from 'dns';
 
 type IPostComponent = {
     post: IPost;
