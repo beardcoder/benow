@@ -7,6 +7,7 @@ import Button from './Button';
 import Card from './Card';
 import styles from './Post.module.css';
 import { IPost } from '@@/types';
+import { NONAME } from 'dns';
 
 type IPostComponent = {
     post: IPost;
@@ -25,7 +26,7 @@ export default function Post({ post, index }: IPostComponent) {
         <div data-aos='fade-up' data-aos-delay={delay} data-aos-duration='400'>
             <Card>
                 <Link passHref href='/blog/[slug]' as={`/blog/${post.slug}`}>
-                    <a style={{ display: 'block' }}>
+                    <a className={styles.link}>
                         <div className={styles.image}>
                             <LazyImage
                                 src={post.thumbnail}
