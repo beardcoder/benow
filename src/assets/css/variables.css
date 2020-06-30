@@ -3,11 +3,13 @@
     --color__primary--dark: #360940;
     --color__secondary: #32f0d1;
     --color__secondary--dark: #104f98;
-    --color__footer: #0c0c0c;
-    --color__background: #111111;
-    --color__card--level-1: rgba(255, 255, 255, 0.05);
-    --color__card--level-2: rgba(255, 255, 255, 0.1);
-    --color__font: #ececed;
-    --color__font--secondary: #a4a4a5;
-    --border-radius: 5px;
+    --color__base: #121212;
+    --color__level-1: #121212;
+    --color__footer: color(var(--color__base) tint(5));
+    --color__background: color(var(--color__base) tint(0));
+    --color__card--level-1: color(var(--color__base) tint(5));
+    --color__card--level-2: color(var(--color__base) tint(10));
+    --color__font: rgba(255, 255, 255, 0.87);
+    --color__font--secondary: rgba(255, 255, 255, 0.6);
+    --border-radius: 20px;
 }

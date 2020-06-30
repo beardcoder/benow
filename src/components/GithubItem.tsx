@@ -31,7 +31,9 @@ export default function GithubItem({ gist, item, linkText, hidden, index }: Prop
             className={classNames(styles.githubItem, hidden ? styles.githubItemHidden : null)}
             aria-hidden={hidden}>
             <Card>
-                <div className='h4'>{gist ? item.description : item.full_name}</div>
+                <div className={classNames('h4', styles.githubItemTitle)}>
+                    {gist ? item.description : item.full_name}
+                </div>
                 {!gist && <p className={styles.githubItemDescription}>{item.description}</p>}
                 <Button href={item.html_url} rel='noreferrer' target='_blank'>
                     {linkText}
