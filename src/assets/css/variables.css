@@ -3,7 +3,7 @@
     --color__primary--dark: #360940;
     --color__secondary: #32f0d1;
     --color__secondary--dark: #104f98;
-    --color__base: #121212;
+    --color__base: #1f1919;
     --color__level-1: #121212;
     --color__footer: color(var(--color__base) tint(5));
     --color__background: color(var(--color__base) tint(0));
