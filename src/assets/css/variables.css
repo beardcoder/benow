@@ -1,8 +1,8 @@
 :root {
     --color__primary: #f6c36d;
     --color__primary--dark: #e77c01;
-    --color__secondary: #32f0d1;
-    --color__secondary--dark: #104f98;
+    --color__secondary: #f6c36d;
+    --color__secondary--dark: #e77c01;
     --color__base: #252733;
     --color__level-1: #252733;
     --color__footer: color(var(--color__base) tint(5));
