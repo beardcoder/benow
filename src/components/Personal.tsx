@@ -16,7 +16,9 @@ const skills = [
 
 export default function Personal() {
     return (
-        <Section title='Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience) gerichtet'>
+        <Section
+            title='Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience) gerichtet'
+            second>
             <div className={styles.wrapper}>
                 <div className={styles.personalImageWrapper}>
                     <LazyImage

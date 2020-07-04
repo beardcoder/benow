@@ -7,6 +7,10 @@
     z-index: 100;
 }
 
+.contactMe a:hover {
+    box-shadow: none;
+}
+
 .contactMe__message {
     position: relative;
     display: inline-block;
@@ -17,7 +21,7 @@
     width: 200px;
     height: 80px;
     border-radius: 4px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: var(--shadow);
 }
 
 .contactMe__message:before {
@@ -45,7 +49,7 @@
     vertical-align: bottom;
     height: 85px;
     width: 85px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: var(--shadow);
 }
 
 .contactMe__image img {

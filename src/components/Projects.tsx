@@ -29,7 +29,8 @@ export default function Projects({ repos, snippets }: Props) {
     return (
         <Section
             title='Projekte und Snippets die mir und vielleicht auch dir helfen können.'
-            description={description()}>
+            description={description()}
+            second>
             <>
                 <div id='repositories'>
                     <GithubList items={repos} linkText='zum Repo' title='Repositories' />

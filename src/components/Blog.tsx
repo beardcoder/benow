@@ -9,7 +9,7 @@ type Props = {
 
 export default function Blog({ posts }: Props) {
     return (
-        <Section title='Blog' id='blog' second>
+        <Section title='Blog' id='blog'>
             <div className={styles.articles}>
                 {Object.keys(posts).map((key: any, index: number) => (
                     <Post key={shortid.generate()} index={index} post={posts[key]} />

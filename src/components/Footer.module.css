@@ -62,7 +62,11 @@
     bottom: -4px;
     left: -4px;
     right: -4px;
-    background: linear-gradient(135deg, #f03f32 0%, #360940 100%);
+    background-image: linear-gradient(
+        135deg,
+        var(--color__primary) 0%,
+        var(--color__primary--dark) 100%
+    );
     z-index: 1;
 }
 

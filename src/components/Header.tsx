@@ -1,34 +1,19 @@
 import styles from './Header.module.css';
 import ProgressiveImage from 'react-progressive-image';
-const imageSmall = require('@/assets/images/header--800.jpg?lqip');
-const image800 = require('@/assets/images/header--800.jpg?webp');
-const image1200 = require('@/assets/images/header--1200.jpg?webp');
-const image1400 = require('@/assets/images/header--1400.jpg?webp');
-const image2560 = require('@/assets/images/header.jpg?webp');
+const imageSmall = require('@/assets/images/template.png?lqip');
+const image = require('@/assets/images/template.png?webp');
 
 export default function PageHeader() {
     return (
         <header className={styles.wrapper}>
             <div className={styles.backgroundWrapper}>
-                <ProgressiveImage
-                    src={image800}
-                    srcSetData={{
-                        srcSet: `${image800} 800w,${image1200} 1200w,${image1400} 1400w,${image2560} 2560w`,
-                        sizes: '(max-width: 2000px) 100vw, 2000px',
-                    }}
-                    placeholder={imageSmall}>
-                    {(
-                        src: string,
-                        _loading: boolean,
-                        srcSetData: { srcSet: string; sizes: string }
-                    ) => (
+                <ProgressiveImage src={image} placeholder={imageSmall}>
+                    {(src: string, _loading: boolean) => (
                         <img
                             src={src}
-                            srcSet={srcSetData.srcSet}
-                            sizes={srcSetData.sizes}
                             alt='Kopf Bild'
-                            width={2541}
-                            height={1786}
+                            width={2560}
+                            height={1920}
                             className={styles.background}
                         />
                     )}
@@ -36,7 +21,8 @@ export default function PageHeader() {
             </div>
             <div className={styles.headerContent}>
                 <h1 data-aos='fade-up' className={styles.h1}>
-                    Webentwickler <br />
+                    Webentwickler
+                    <br />
                     Frontend Artist <br />
                     Designer <br />
                 </h1>
