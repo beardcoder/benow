@@ -100,15 +100,15 @@ p:last-child {
 }
 
 pre {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Fira Code', monospace !important;
     overflow-x: auto;
     background-color: var(--color__card--level-2) !important;
-    padding: 15px 25px;
+    padding: 0.45rem 1rem !important;
     border-radius: var(--border-radius);
 }
 
 code {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Fira Code', monospace !important;
     overflow-x: auto;
     font-size: 0.9em;
     padding: 4px 10px;
