@@ -1,0 +1,20 @@
+{
+    "title": "Webentwickler<br />Frontend Artist<br />Designer<br />",
+    "subtitle": "Innovation, Inspiration, Technik und Leidenschaft",
+    "contact": "Scheib mich an! <br /> Frong kost nix.",
+    "personal": {
+        "title": "Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User Experience) gerichtet",
+        "subtitle": "Webentwickler, Frontend Artist und Designer",
+        "description": "Brauchst du Hilfe z. B. <strong>um deine Website in neuem Glanz</strong> erstrahlen zu lassen, Moderne Web Technologieren einzusetzen oder mal einen Tipp wie du eine <strong>Sitemap einrichtest?</strong>",
+        "text": "<a href='mailto:creativeworkspace@sommer-online.xyz'>Dann schreibe mich an.</a> Ich stehe gerne mit Rat und Tat zur Seite.",
+        "skills": [
+            { "title": "CSS", "value": 90 },
+            { "title": "HTML", "value": 95 },
+            { "title": "JavaScript", "value": 70 },
+            { "title": "PHP", "value": 80 },
+            { "title": "Vue", "value": 80 },
+            { "title": "Nuxt (SSR JavaScript", "value": 70 },
+            { "title": "Docker", "value": 70 }
+        ]
+    }
+}

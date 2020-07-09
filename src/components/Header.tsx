@@ -1,7 +1,9 @@
 import styles from './Header.module.css';
+import content from '../content/homepage.json';
 import ProgressiveImage from 'react-progressive-image';
 const imageSmall = require('@/assets/images/template.png?lqip');
 const image = require('@/assets/images/template.png?webp');
+import parse from 'html-react-parser';
 
 export default function PageHeader() {
     return (
@@ -20,19 +22,20 @@ export default function PageHeader() {
                 </ProgressiveImage>
             </div>
             <div className={styles.headerContent}>
-                <h1 data-aos='fade-up' className={styles.h1}>
-                    Webentwickler
-                    <br />
-                    Frontend Artist <br />
-                    Designer <br />
+                <h1 data-aos='fade-up' className={styles.title} id='title'>
+                    {parse(content.title)}
                 </h1>
-                <h3 data-aos='fade-up' data-aos-delay='300' className={styles.h3}>
-                    Innovation, Inspiration, Technik und Leidenschaft
+                <h2
+                    data-aos='fade-up'
+                    data-aos-delay='300'
+                    className={styles.subtitle}
+                    id='subtitle'>
+                    {parse(content.subtitle)}
                     <span
                         data-aos='fade-right'
                         data-aos-delay='600'
                         className={styles.arrow}></span>
-                </h3>
+                </h2>
             </div>
         </header>
     );

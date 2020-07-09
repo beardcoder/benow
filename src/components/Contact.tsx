@@ -1,16 +1,17 @@
 import Typewriter from 'typewriter-effect';
+import content from '../content/homepage.json';
 
 import styles from './Contact.module.css';
 import LazyImage from './LazyImage';
 
 export default function Contact() {
     return (
-        <div className={styles.contactMe}>
+        <div className={styles.contactMe} id='contact'>
             <a href='mailto:creativeworkspace@sommer-online.xyz'>
                 <div className={styles.contactMe__message}>
                     <Typewriter
                         options={{
-                            strings: 'Scheib mich an! <br /> Frong kost nix.',
+                            strings: content.contact,
                             autoStart: true,
                             delay: 80,
                         }}
