@@ -7,8 +7,8 @@
     --color__level-1: #252733;
     --color__footer: color(var(--color__base) tint(5));
     --color__background: color(var(--color__base) tint(0));
-    --color__card--level-1: color(var(--color__base) tint(5));
-    --color__card--level-2: color(var(--color__base) tint(10));
+    --color__card--level-1: color(rgba(255, 255, 255, 0.1));
+    --color__card--level-2: color(rgba(255, 255, 255, 0.2));
     --color__font: rgba(255, 255, 255, 0.87);
     --color__font--secondary: rgba(255, 255, 255, 0.6);
     --border-radius: 20px;
