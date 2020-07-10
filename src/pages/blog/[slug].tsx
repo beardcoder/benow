@@ -32,7 +32,7 @@ function Post({ post }: Props) {
                 description={post.description}
             />
             <header className={styles.header}>
-                <div className={styles.headerBackground}>
+                <div className={styles.headerBackground} data-cy='image'>
                     <div role='presentation' className='backgroundImage' />
                     <style jsx>{`
                         .backgroundImage {
@@ -48,21 +48,25 @@ function Post({ post }: Props) {
                         }
                     `}</style>
                 </div>
-                <BackLink />
+                <BackLink data-cy='back' />
             </header>
-            <div className={styles.main}>
+            <main className={styles.main} data-cy='blogpost'>
                 <article className={styles.article}>
-                    <h1 data-aos='fade-up' data-aos-duration='400'>
+                    <h1 data-aos='fade-up' data-aos-duration='400' data-cy='title'>
                         {post.title}
                     </h1>
                     Veröffentlicht am{' '}
                     <time dateTime={post.date}>{new Date(post.date).toLocaleDateString()}</time>
                     <br />
                     von <b>Markus Sommer</b>
-                    <p className='description'>{post.description}</p>
-                    <ReactMarkdown source={post.content} renderers={{ code: CodeBlock }} />
+                    <p className='description' data-cy='description'>
+                        {post.description}
+                    </p>
+                    <div data-cy='content'>
+                        <ReactMarkdown source={post.content} renderers={{ code: CodeBlock }} />
+                    </div>
                 </article>
-            </div>
+            </main>
             <Footer>
                 <BackLink footer />
             </Footer>

@@ -7,10 +7,12 @@ interface Props {
     footer?: boolean;
 }
 
-function BackLink({ footer }: Props) {
+function BackLink({ footer, ...props }: Props) {
     return (
         <Link href='/#blog'>
-            <a className={classNames(styles.backLink, footer ? styles.backLinkFooter : null)}>
+            <a
+                className={classNames(styles.backLink, footer ? styles.backLinkFooter : null)}
+                {...props}>
                 <span className={styles.backLinkText}>Zurück</span>
             </a>
         </Link>

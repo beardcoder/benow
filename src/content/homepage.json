@@ -16,5 +16,8 @@
             { "title": "Nuxt (SSR JavaScript", "value": 70 },
             { "title": "Docker", "value": 70 }
         ]
+    },
+    "blog": {
+        "title": "Blog"
     }
 }

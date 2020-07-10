@@ -8,7 +8,7 @@ import parse from 'html-react-parser';
 
 export default function Personal() {
     return (
-        <Section title={content.personal.title} second id='personal'>
+        <Section title={content.personal.title} second id='personal' data-cy='personal'>
             <div className={styles.wrapper}>
                 <div className={styles.personalImageWrapper}>
                     <LazyImage

@@ -9,9 +9,12 @@ type ISection = {
     second?: boolean;
 };
 
-export default function Section({ title, children, description, id, second }: ISection) {
+export default function Section({ title, children, description, id, second, ...props }: ISection) {
     return (
-        <section id={id} className={classNames(styles.section, second ? styles.second : null)}>
+        <section
+            {...props}
+            id={id}
+            className={classNames(styles.section, second ? styles.second : null)}>
             <div className={styles.inner}>
                 <header className={styles.header}>
                     <h3 className={styles.title}>{title}</h3>
