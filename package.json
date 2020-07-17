@@ -81,7 +81,7 @@
         "react-refresh": "^0.8.3",
         "responsive-loader": "^1.2.0",
         "shortid": "^2.2.15",
-        "typescript": "^3.9.6",
+        "typescript": "^3.9.7",
         "typescript-plugin-css-modules": "^2.4.0",
         "webp-loader": "^0.6.0"
     },
