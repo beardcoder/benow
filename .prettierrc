@@ -12,5 +12,19 @@
     "tabWidth": 4,
     "trailingComma": "es5",
     "useTabs": false,
-    "vueIndentScriptAndStyle": true
+    "vueIndentScriptAndStyle": true,
+    "overrides": [
+        {
+            "files": "*.yml",
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": "*.yaml",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
