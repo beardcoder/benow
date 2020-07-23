@@ -13,7 +13,7 @@
         "cypress": "cypress open"
     },
     "dependencies": {
-        "@react-hook/window-size": "^3.0.6",
+        "@react-hook/window-size": "^3.0.7",
         "aos": "^2.3.4",
         "gray-matter": "^4.0.2",
         "html-react-parser": "^0.13.0",
