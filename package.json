@@ -73,7 +73,7 @@
         "imagemin-optipng": "^8.0.0",
         "imagemin-svgo": "^8.0.0",
         "jimp": "^0.14.0",
-        "next-images": "^1.4.0",
+        "next-images": "^1.4.1",
         "postcss-color-function": "^4.1.0",
         "postcss-css-variables": "^0.17.0",
         "postcss-import": "^12.0.1",
