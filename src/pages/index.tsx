@@ -27,6 +27,11 @@ function IndexPage({ posts }: any) {
                 <Projects repos={reposJson} snippets={snippetsJson} />
             </main>
             <Footer />
+            <script
+                id='CookieDeclaration'
+                src='https://consent.cookiebot.com/07ed569b-466e-4e77-92e8-cdea87156613/cd.js'
+                type='text/javascript'
+                async></script>
             <style jsx>{`
                 .main {
                     position: relative;

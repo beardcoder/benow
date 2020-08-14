@@ -40,5 +40,5 @@ module.exports = withPlugins([[optimizedImages], [withTM], [withPrefresh]], {
 
         return config;
     },
-    exportTrailingSlash: true,
+    trailingSlash: true,
 });
