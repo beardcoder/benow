@@ -27,12 +27,6 @@ export default class MyApp extends App {
             <>
                 <Component {...pageProps} />
                 <Head>
-                    <script
-                        id='Cookiebot'
-                        src='https://consent.cookiebot.com/uc.js'
-                        data-cbid='07ed569b-466e-4e77-92e8-cdea87156613'
-                        data-blockingmode='auto'
-                        type='text/javascript'></script>
                     <meta charSet='utf-8' />
                     <meta name='viewport' content='initial-scale=1.0, width=device-width' />
                     <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
