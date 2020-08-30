@@ -24,6 +24,7 @@ module.exports = (on, config) => {
         rules: {
             'require-sri': 'off',
             'long-title': 'off',
+            'script-type': 'off',
         },
     };
     htmlvalidate.install(on, htmlvalidateConfig);
