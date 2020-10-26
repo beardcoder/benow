@@ -57,7 +57,7 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.21.2",
         "glob": "^7.1.6",
-        "html-validate": "^3.3.0",
+        "html-validate": "^3.5.0",
         "imagemin-mozjpeg": "^9.0.0",
         "imagemin-optipng": "^8.0.0",
         "imagemin-svgo": "^8.0.0",
