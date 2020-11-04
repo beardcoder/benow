@@ -1,16 +1,65 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write your own custom component styles here */
+@layer base {
+  body {
+    @apply bg-background text-baseWhite;
+  }
+
+  p {
+    @apply mb-4;
+  }
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-padding-top: 67px; /* set to the height of your header */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.headroom-wrapper {
+  @apply w-full absolute;
 }
 
-* {
-  box-sizing: border-box;
+.headroom {
+  @apply bg-transparent transition-background duration-200;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  position: absolute;
+  will-change: transform;
 }
+
+.headroom--unfixed {
+  position: absolute;
+  transform: translateY(0);
+}
+
+.headroom--scrolled {
+  @apply bg-black;
+
+  transition: transform 200ms ease-in-out;
+}
+
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+}
+
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */

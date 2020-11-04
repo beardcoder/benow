@@ -1,0 +1,31 @@
+.portfolio {
+  @apply py-32;
+}
+
+.portfolio__header {
+  @apply text-center max-w-2xl mx-auto leading-relaxed mb-16;
+}
+
+.portfolio__title {
+  @apply text-5xl text-white font-bold;
+}
+
+.icon {
+  stroke-width: 1;
+}
+
+.card:hover .icon {
+  @apply text-white !important;
+}
+
+.searchbar {
+  @apply bg-white bg-opacity-5 px-6 py-3 inline-block w-56 border-solid border border-transparent transition-all duration-200 outline-none rounded-xl;
+}
+
+.searchbarIcon {
+  @apply px-3 py-3 inline-block;
+}
+
+.searchbar:focus {
+  @apply outline-none border-solid border border-primary;
+}

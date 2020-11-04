@@ -8,8 +8,20 @@
     "start": "next start"
   },
   "dependencies": {
+    "@octokit/rest": "^18.0.9",
+    "classnames": "^2.2.6",
+    "fuse.js": "^6.4.3",
     "next": "10.0.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-feather": "^2.0.8",
+    "react-headroom": "^3.0.0",
+    "react-scrollspy": "^3.4.3",
+    "react-use-fuse": "^0.5.2"
+  },
+  "devDependencies": {
+    "postcss-flexbugs-fixes": "^5.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.9.6"
   }
 }

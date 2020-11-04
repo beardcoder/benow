@@ -1,0 +1,20 @@
+.tab {
+  @apply inline-block font-bold mr-10 py-3 leading-normal transition-all duration-200 text-white cursor-pointer;
+}
+
+.tab::after {
+  @apply block bg-white transition-all duration-300 mt-1;
+
+  height: 2px;
+  width: 20%;
+  content: "";
+}
+
+.tab.active,
+.tab:hover {
+  @apply text-primary;
+}
+
+.tab.active::after {
+  @apply w-full bg-primary;
+}

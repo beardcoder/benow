@@ -1,0 +1,66 @@
+.navigation {
+  @apply w-full mt-10 z-20 bg-transparent;
+
+  transform: translateY(0%);
+}
+
+.headroom {
+  will-change: transform;
+}
+
+.headroom--not-top {
+  @apply fixed bg-black mt-0 pt-4;
+}
+
+.headroom--pinned {
+  @apply block;
+}
+
+.headroom--unpinned {
+  @apply hidden;
+}
+
+.navbar {
+  @apply flex relative;
+}
+
+.link,
+.social__link {
+  @apply text-white mx-4 my-2 block transition-color duration-300;
+}
+
+.link:first-child {
+  @apply ml-0;
+}
+
+.social__link {
+  @apply mx-3;
+}
+.social__link:last-child {
+  @apply mr-0;
+}
+
+.link::after {
+  @apply block h-sm bg-white transition-all duration-300 mt-2;
+
+  width: 0%;
+  content: '';
+}
+
+.link:hover,
+.linkActive,
+.social__link:hover {
+  @apply text-primary;
+}
+
+.linkActive::after {
+  @apply w-full bg-primary;
+}
+
+.main {
+  @apply flex;
+}
+
+.social {
+  @apply flex ml-auto;
+}

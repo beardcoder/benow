@@ -1,0 +1,19 @@
+.intro {
+  @apply flex flex-col justify-center bg-cover;
+
+  background-image: url("/content/images/header.jpg");
+  background-position: 50%;
+  height: 850px;
+}
+
+.title {
+  @apply text-7xl font-bold leading-tight text-white;
+}
+
+.titleHighlight {
+  @apply text-primary;
+}
+
+.text {
+  @apply uppercase text-white opacity-50 text-xl;
+}

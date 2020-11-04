@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "react",
+    "module": "commonjs",
+    "paths": {
+      "@styles/*": ["styles/*"],
+      "@/styles/*": ["styles/*"],
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

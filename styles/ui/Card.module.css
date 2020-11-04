@@ -1,0 +1,26 @@
+.card {
+  @apply bg-white bg-opacity-5 rounded-xl block relative z-10 overflow-hidden;
+}
+
+.cardIsLink::before {
+  @apply inset-0;
+
+  z-index: -1;
+  content: '';
+  background: linear-gradient(90deg, #f61b10, #ef0963);
+  transition: opacity 0.2s;
+  opacity: 0;
+  position: absolute;
+}
+
+.cardIsLink:hover::before {
+  opacity: 1;
+}
+
+.cardContent {
+  @apply p-8;
+}
+
+.cardSmall .cardContent {
+  @apply p-5;
+}

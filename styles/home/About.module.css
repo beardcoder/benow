@@ -1,0 +1,19 @@
+.about {
+  @apply py-32 bg-white bg-opacity-5;
+}
+
+.title {
+  @apply text-5xl font-bold leading-tight text-white mb-3;
+}
+
+.text {
+  @apply leading-relaxed;
+}
+
+.text a {
+  @apply font-bold text-white;
+}
+
+.text a:hover {
+  @apply underline;
+}

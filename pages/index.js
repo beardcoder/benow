@@ -1,65 +1,69 @@
+import HomePortfolio from '@/components/home/Portfolio'
 import Head from 'next/head'
+import HomeAbout from '../components/home/About'
+import HomeIntro from '../components/home/Intro'
+import UiNavigation from '../components/ui/Navigation'
 import styles from '../styles/Home.module.css'
+import { Octokit } from '@octokit/rest'
 
-export default function Home() {
+export default function Home({ repos, gists }) {
   return (
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <header>
+        <UiNavigation />
+      </header>
+      <HomeIntro />
+      <HomeAbout />
+      <HomePortfolio repos={repos} gists={gists} />
     </div>
   )
+}
+
+export const getStaticProps = async () => {
+  const octokit = new Octokit({
+    auth: '24b695afae0050c1e79c0420906936c9c25c7c51',
+    userAgent: 'creativeworkspace',
+  })
+
+  const repos = await octokit.repos
+    .listForUser({
+      username: 'beardcoder',
+    })
+    .then(({ data }) =>
+      data
+        .filter((item) => !item.fork)
+        .map((item) => {
+          return {
+            id: item.id,
+            url: item.html_url,
+            name: item.name,
+            description: item.description,
+          }
+        })
+    )
+
+  const gists = await octokit.gists
+    .listForUser({
+      username: 'beardcoder',
+    })
+    .then(({ data }) =>
+      data.map((item) => {
+        return {
+          id: item.id,
+          url: item.html_url,
+          description: item.description,
+        }
+      })
+    )
+
+  return {
+    props: {
+      repos,
+      gists,
+    },
+  }
 }
