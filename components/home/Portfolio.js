@@ -20,10 +20,7 @@ export default function HomePortfolio({ repos, gists }) {
     >
       <header className={styles.portfolio__header}>
         <h2 className={styles.portfolio__title}>Meine Projekte auf Github</h2>
-        <p>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration.
-        </p>
+        <p>TODO: Text Schreiben</p>
       </header>
       <div className="flex flex-wrap -mx-8 justify-center">
         {repos.map((repo, index) => (
