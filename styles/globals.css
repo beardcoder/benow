@@ -17,11 +17,6 @@
   }
 }
 
-html,
-body {
-  scroll-padding-top: 67px; /* set to the height of your header */
-}
-
 .headroom-wrapper {
   @apply w-full absolute;
 }
