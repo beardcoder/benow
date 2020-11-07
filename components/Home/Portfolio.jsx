@@ -20,7 +20,7 @@ export default function HomePortfolio({ repos, gists }) {
           <h2 className={styles.title}>Meine Projekte auf Github</h2>
           <p>TODO: Text Schreiben</p>
         </header>
-        <div className="flex flex-wrap -mx-8 justify-center">
+        <div className="flex flex-wrap -mx-4 justify-center">
           {repos.map((repo, index) => (
             <div key={`${repo.name}${index}`} className="w-1/3 p-4">
               <UiCard
@@ -44,8 +44,8 @@ export default function HomePortfolio({ repos, gists }) {
             </div>
           ))}
         </div>
-        <header className={classnames(styles.portfolio__header, 'mt-20')}>
-          <h2 className={styles.portfolio__title}>Snippets und Gists</h2>
+        <header className={classnames(styles.header, 'mt-20')}>
+          <h2 className={styles.title}>Snippets und Gists</h2>
           <p>
             Meine kleine Snippet Datenbank wird stetig erweitert und
             überarbeitet, da ich sie selbst jeden Tag produktiv nutze. Wenn du
@@ -66,7 +66,7 @@ export default function HomePortfolio({ repos, gists }) {
             <Search />
           </div>
         </div>
-        <div className="flex flex-wrap -mx-8 justify-center">
+        <div className="flex flex-wrap -mx-4 justify-center">
           {result.map((item) => (
             <div key={`${item.id ?? item.item.id}`} className="w-1/4 p-4">
               <UiCard

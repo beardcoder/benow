@@ -36,6 +36,19 @@ module.exports = {
     container: {
       center: true,
     },
+    typography: {
+      default: {
+        css: {
+          color: 'rgba(0, 0, 0, 0.85)',
+          a: {
+            color: '#f9004d',
+            '&:hover': {
+              color: '#f9004d',
+            },
+          },
+        },
+      },
+    },
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],

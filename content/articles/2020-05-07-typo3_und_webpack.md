@@ -10,7 +10,7 @@ type: Tutorial
 ## TL;DR
 
 Hier ist das git Repo in dem ihr den Kompletten Code Findet der in diesem Blog Verwendet wird.
-https://github.com/beardcoder/webpack_typo3
+[beardcoder/webpack_typo3](https://github.com/beardcoder/webpack_typo3)
 
 ## Vorbereitung
 
@@ -26,7 +26,7 @@ Mit diesem Befehl installieren wir uns TYPO3
 Nach der Ausführung dieses Befehls finden wir im Ordner `webpack_typo3` unsere installation.
 
 Jetzt brauchen wir nur noch eine Datenbank die wir uns entweder Local aufsetzen können oder mittels Docker starten.
-Ich verwende hier an dieser Stelle Docker um schnell ein Ergebnis zu erhalten. Wer mehr wissen möchte über Docker und TYPO3 wird bei https://typo3worx.eu/ fündig.
+Ich verwende hier an dieser Stelle Docker um schnell ein Ergebnis zu erhalten. Wer mehr wissen möchte über Docker und TYPO3 wird bei [https://typo3worx.eu/](https://typo3worx.eu/) fündig.
 
 Mit diesem Befehl starten wir unsere Datenbank
 
@@ -86,7 +86,7 @@ Wir verwenden hierfür den Private Ordner da dieser normalerweise geschützt ist
 
 ### Initialisieren von Yarn
 
-Über den Befehl `Yarn init` in unserem neuen Ordner erstellen wir eine `package.json` die alle Abhängigkeiten enthält die wir später für unser Frontend und zum Bauen des Frontends benötigen.
+Über den Befehl `yarn init` in unserem neuen Ordner erstellen wir eine `package.json` die alle Abhängigkeiten enthält die wir später für unser Frontend und zum Bauen des Frontends benötigen.
 
 Die `package.json` sollte dann in etwa so aussehen.
 
@@ -94,15 +94,15 @@ Die `package.json` sollte dann in etwa so aussehen.
 
 ```json
 {
-    "name": "frontend",
-    "version": "1.0.0",
-    "private": true
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true
 }
 ```
 
 ### Installieren von Webpack und Webpack CLI
 
-Mit dem Befehl `Yarn add -D webpack webpack-cli cross-env` fügen wir unseren Abhängigkeiten Webpack hinzu.
+Mit dem Befehl `yarn add -D webpack webpack-cli cross-env` fügen wir unseren Abhängigkeiten Webpack hinzu.
 Ich teile meine Abhängigkeiten immer auf in Dev `-D` für den Build Prozess und Normal für Abhängigkeiten die ich im Frontend benötige.
 
 Nach der Installation fügen wir einen `scripts` Bereich in der `package.json` ein um webpack staten zu können.
@@ -113,19 +113,19 @@ Danach sollte die `package.json` in etwa so aussehen
 
 ```json
 {
-    "name": "frontend",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "private": true,
-    "scripts": {
-        "build": "cross-env NODE_ENV=production webpack",
-        "dev": "cross-env NODE_ENV=development webpack --colors --watch"
-    },
-    "devDependencies": {
-        "webpack": "^4.43.0",
-        "webpack-cli": "^3.3.11"
-    }
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development webpack --colors --watch"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
 }
 ```
 
@@ -136,12 +136,12 @@ Für Webpack brachen wir jetzt eine Konfigurationsdatei um anschließend alle Ei
 Hierfür erstellen wir eine Datei namens `webpack.config.js` im Ordner `Resources/Private/Frontend`.
 Die Konfiguration beinhaltet weitere Pakete die wir benötigen.
 
--   Das _clean-webpack-plugin_ das dafür sorgt das unser „Output“ Ordner immer sauber ist.
--   Das _mini-css-extract-plugin_ das wir dazu benützen unser CSS in eine Seperate Datei zu extrahieren.
--   Den _css-loader_ der dafür sorgt das wir innerhalb unser JS Dateien CSS importieren können
--   Den _PostCSS-loader_ den wir dazu benützen um unser CSS z.b. zu minimieren und zu Optieren
--   Den _babel-loader_ der dafür sorgt das wir TypeScript in JavaScript umwandeln können und anschließend unser JavaScript für mehrere Browser Optimieren können.
--   Das _terser-webpack-plugin_ um unser JavaScript zu minimieren.
+- Das _clean-webpack-plugin_ das dafür sorgt das unser „Output“ Ordner immer sauber ist.
+- Das _mini-css-extract-plugin_ das wir dazu benützen unser CSS in eine Seperate Datei zu extrahieren.
+- Den _css-loader_ der dafür sorgt das wir innerhalb unser JS Dateien CSS importieren können
+- Den _PostCSS-loader_ den wir dazu benützen um unser CSS z.b. zu minimieren und zu Optieren
+- Den _babel-loader_ der dafür sorgt das wir TypeScript in JavaScript umwandeln können und anschließend unser JavaScript für mehrere Browser Optimieren können.
+- Das _terser-webpack-plugin_ um unser JavaScript zu minimieren.
 
 Die Abhängigkeiten dafür installieren wir wieder über Yarn als Packetmanager
 
@@ -153,78 +153,78 @@ Die vollständige Konfiguration sieht dann im Ende so aus
 
 ```js
 /* eslint-disable @typescript-eslint/no-var-requires */
-const webpack = require('webpack');
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
 
-const isDev = process.env.NODE_ENV !== 'production';
+const isDev = process.env.NODE_ENV !== 'production'
 module.exports = {
-    mode: process.env.NODE_ENV,
-    devtool: isDev ? 'source-map' : 'cheap-source-map',
-    entry: {
-        main: './src/main.ts',
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: { sourceMap: isDev },
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            url: false,
-                            import: false,
-                            importLoaders: 1,
-                            sourceMap: isDev,
-                        },
-                    },
-                    { loader: 'PostCSS-loader', options: { sourceMap: isDev } },
-                ],
+  mode: process.env.NODE_ENV,
+  devtool: isDev ? 'source-map' : 'cheap-source-map',
+  entry: {
+    main: './src/main.ts',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { sourceMap: isDev },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              import: false,
+              importLoaders: 1,
+              sourceMap: isDev,
             },
-            {
-                test: /\.tsx?$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            extends: './.babelrc',
-                        },
-                    },
-                ],
-            },
+          },
+          { loader: 'PostCSS-loader', options: { sourceMap: isDev } },
         ],
-    },
-    output: {
-        path: path.resolve(__dirname, '../../Public/Frontend/'),
-        filename: 'Scripts/[name].js',
-        chunkFilename: 'Scripts/[name].[contenthash].js',
-        publicPath: '/typo3conf/ext/design/Resources/Public/Frontend/',
-    },
-    optimization: {
-        minimize: !isDev,
-        minimizer: [new TerserJSPlugin()],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'Styles/[name].css',
-            ignoreOrder: false, // Enable to remove warnings about conflicting order
-        }),
-        new CleanWebpackPlugin(),
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              extends: './.babelrc',
+            },
+          },
+        ],
+      },
     ],
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, 'Scripts/'),
-            '~': path.resolve(__dirname, 'Scripts/'),
-        },
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+  },
+  output: {
+    path: path.resolve(__dirname, '../../Public/Frontend/'),
+    filename: 'Scripts/[name].js',
+    chunkFilename: 'Scripts/[name].[contenthash].js',
+    publicPath: '/typo3conf/ext/design/Resources/Public/Frontend/',
+  },
+  optimization: {
+    minimize: !isDev,
+    minimizer: [new TerserJSPlugin()],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'Styles/[name].css',
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'Scripts/'),
+      '~': path.resolve(__dirname, 'Scripts/'),
     },
-};
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+  },
+}
 ```
 
 Wir haben Webpack an dieser stelle Ebenfalls gesagt wo wir unsere JavaScript und CSS Daten haben möchten. Nämlich unter `Resources/Public/Frontend`. Diesen Pfad müssen wir anschließend in Unser TYPO3 Setup integrieren.
@@ -240,15 +240,15 @@ Was die Plugins im Einzelnen machen kann an auf der Seite der Plugins Nachlesen.
 
 ```js
 const config = {
-    plugins: [
-        require('PostCSS-import'),
-        require('precss'),
-        require('PostCSS-preset-env'),
-        require('cssnano'),
-    ],
-};
+  plugins: [
+    require('PostCSS-import'),
+    require('precss'),
+    require('PostCSS-preset-env'),
+    require('cssnano'),
+  ],
+}
 
-export default config;
+export default config
 ```
 
 ### TypeScript und Babel
@@ -265,32 +265,32 @@ wir erstellen eine Datei `packages/design/Resources/Private/Frontend/tsconfig.js
 
 ```json
 {
-    "compilerOptions": {
-        "allowJs": true,
-        "alwaysStrict": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true,
-        "lib": ["dom", "es2017"],
-        "module": "esnext",
-        "moduleResolution": "node",
-        "noEmit": true,
-        "noFallthroughCasesInSwitch": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "resolveJsonModule": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "jsx": "preserve",
-        "target": "esnext",
-        "baseUrl": ".",
-        "paths": {
-            "~/*": ["./src/*"],
-            "@/*": ["./src/*"]
-        }
-    },
-    "exclude": ["node_modules"],
-    "include": ["**/*.ts", "**/*.tsx"]
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["dom", "es2017"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "preserve",
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }
 ```
 
@@ -298,7 +298,7 @@ wir erstellen eine Datei `packages/design/Resources/Private/Frontend/tsconfig.js
 
 In dieser Datei Konfigurieren wir das Verhalten von Babel. dafür benötigen wir ein par Abhängigkeiten.
 
-Diese Abhängigkeiten fügen wie wieder mit Yarn hinzu `Yarn add -D @babel/core @babel/preset-env @babel/preset-react @babel/preset-TypeScript`
+Diese Abhängigkeiten fügen wie wieder mit Yarn hinzu `yarn add -D @babel/core @babel/preset-env @babel/preset-react @babel/preset-TypeScript`
 
 Konfiguration Datei `Resources/Private/Frontend/.babelrc`
 
@@ -306,7 +306,7 @@ Konfiguration Datei `Resources/Private/Frontend/.babelrc`
 
 ```json
 {
-    "presets": ["@babel/env", "@babel/react", "@babel/TypeScript"]
+  "presets": ["@babel/env", "@babel/react", "@babel/TypeScript"]
 }
 ```
 
@@ -318,16 +318,18 @@ Erstellen wir die Datei `packages/design/Resources/Private/Frontend/src/main.ts`
 ##### main.ts
 
 ```ts
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const helloElement = document.getElementById('hello');
+const helloElement = document.getElementById('hello')
 
 // Webpack lädt diese Daten asynchron wenn das Element vorhanden ist. Damit kann man sicherstellen das die JS Dateien immer so klein wie möglich gehalten werden
 if (helloElement) {
-    import(/* webpackChunkName: "hello" */ './components/Hello').then(({ default: Hello }) => {
-        ReactDOM.render(React.createElement(Hello), helloElement);
-    });
+  import(/* webpackChunkName: "hello" */ './components/Hello').then(
+    ({ default: Hello }) => {
+      ReactDOM.render(React.createElement(Hello), helloElement)
+    }
+  )
 }
 ```
 
@@ -339,10 +341,10 @@ Ich habe hier einfach mal die Ausgabe eines kleinen Strings gebaut. Natürlich k
 ##### Hello.tsx
 
 ```tsx
-import React from 'react';
+import React from 'react'
 
 export default function Hello() {
-    return <div>TYPO3 + Webpack + ☕️ = ❤️</div>;
+  return <div>TYPO3 + Webpack + ☕️ = ❤️</div>
 }
 ```
 

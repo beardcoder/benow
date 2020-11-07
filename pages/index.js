@@ -7,21 +7,30 @@ import styles from '../styles/Home.module.css'
 import { Octokit } from '@octokit/rest'
 import HomeBlog from '@/components/Home/Blog'
 import { getAllPosts } from '@/lib/api'
+import { NextSeo } from 'next-seo'
 
 export default function Home({ repos, gists, articles }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NextSeo
+        title="Moderne Web Technologieren, Designer und Frontend Artist 🚀 — Markus Sommer"
+        description="Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend"
+        canonical="https://www.creativeworkspace.de/"
+        twitter={{
+          handle: '@beardcoder',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
       <header>
         <UiNavigation />
       </header>
-      <HomeIntro />
-      <HomeAbout />
-      <HomeBlog articles={articles} />
-      <HomePortfolio repos={repos} gists={gists} />
+      <main>
+        <HomeIntro />
+        <HomeAbout />
+        <HomeBlog articles={articles} />
+        <HomePortfolio repos={repos} gists={gists} />
+      </main>
     </div>
   )
 }

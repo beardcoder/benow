@@ -2,7 +2,7 @@
   @apply flex flex-col justify-center bg-cover relative;
 
   background-position: 50%;
-  height: 500px;
+  height: 600px;
   z-index: 1;
 }
 
@@ -14,7 +14,14 @@
 }
 
 .title {
-  @apply text-6xl font-bold leading-tight text-white text-center;
+  @apply text-6xl font-bold leading-tight text-center;
+
+  background: linear-gradient(145deg, #f81f01, #ee076e);
+  font-weight: 700;
+  line-height: 90px;
+  font-size: 72px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .titleHighlight {

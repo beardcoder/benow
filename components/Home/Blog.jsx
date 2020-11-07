@@ -10,7 +10,7 @@ export default function HomeBlog({ articles }) {
           <h2 className={styles.title}>Blog</h2>
           <p className={styles.text}>TODO: Text Schreiben</p>
         </header>
-        <div className="flex flex-wrap -mx-8 justify-center">
+        <div className="flex flex-wrap -mx-4 justify-center">
           {articles
             ? articles.map(({ title, slug, type, image }, index) => (
                 <div key={`${slug}--${index}`} className="w-1/3 p-4">

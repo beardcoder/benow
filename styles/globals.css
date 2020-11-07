@@ -53,6 +53,10 @@
   transform: translateY(0%);
 }
 
+.container {
+  @apply px-4;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
