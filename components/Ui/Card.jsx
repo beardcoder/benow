@@ -6,6 +6,8 @@ export default function UiCard({
   className,
   tagName,
   small,
+  innerClassName,
+  contentClassName,
   ...props
 }) {
   const CompTagName = tagName
@@ -14,12 +16,16 @@ export default function UiCard({
       className={classnames(
         styles.card,
         small ? styles.cardSmall : undefined,
-        className,
-        tagName === 'a' ? styles.cardIsLink : undefined
+        tagName === 'a' ? styles.cardIsLink : undefined,
+        className
       )}
       {...props}
     >
-      <div className={styles.cardContent}>{children}</div>
+      <div className={classnames(styles.cardInner, innerClassName)}>
+        <div className={classnames(styles.cardContent, contentClassName)}>
+          {children}
+        </div>
+      </div>
     </CompTagName>
   )
 }

@@ -3,7 +3,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
+  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
@@ -29,11 +29,14 @@ module.exports = {
       fontSize: {
         '7xl': '5rem',
       },
+      height: {
+        112: '28rem',
+      },
     },
     container: {
       center: true,
     },
   },
   variants: {},
-  plugins: [],
-};
+  plugins: [require('@tailwindcss/typography')],
+}

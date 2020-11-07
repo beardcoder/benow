@@ -1,12 +1,12 @@
 .portfolio {
-  @apply py-32;
+  @apply py-32 bg-white bg-opacity-5;
 }
 
-.portfolio__header {
+.header {
   @apply text-center max-w-2xl mx-auto leading-relaxed mb-16;
 }
 
-.portfolio__title {
+.title {
   @apply text-5xl text-white font-bold;
 }
 

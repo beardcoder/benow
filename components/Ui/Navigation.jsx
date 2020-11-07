@@ -4,10 +4,10 @@ import Scrollspy from 'react-scrollspy'
 import Headroom from 'react-headroom'
 
 const items = [
-  { href: '#intro', name: 'Intro' },
-  { href: '#about', name: 'Über mich' },
-  { href: '#blog', name: 'Blog' },
-  { href: '#portfolio', name: 'Portfolio' },
+  { href: '/#intro', name: 'Intro' },
+  { href: '/#about', name: 'Über mich' },
+  { href: '/#blog', name: 'Blog' },
+  { href: '/#portfolio', name: 'Portfolio' },
 ]
 
 const social = [

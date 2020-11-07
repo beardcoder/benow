@@ -1,0 +1,11 @@
+.button {
+  @apply inline-block border border-solid border-primary px-5 py-2 uppercase;
+}
+
+.buttonSmall {
+  @apply inline-block;
+}
+
+.buttonIsLink {
+  @apply inline-block;
+}

@@ -9,15 +9,26 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.0.9",
+    "@tailwindcss/typography": "^0.2.0",
     "classnames": "^2.2.6",
     "fuse.js": "^6.4.3",
+    "gray-matter": "^4.0.2",
     "next": "10.0.0",
+    "prism-themes": "^1.5.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-feather": "^2.0.8",
     "react-headroom": "^3.0.0",
     "react-scrollspy": "^3.4.3",
-    "react-use-fuse": "^0.5.2"
+    "react-use-fuse": "^0.5.2",
+    "rehype-react": "^6.1.0",
+    "remark": "^13.0.0",
+    "remark-external-links": "^8.0.0",
+    "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
+    "remark-prism": "^1.1.17",
+    "remark-react": "^8.0.0",
+    "remark-rehype": "^8.0.0"
   },
   "devDependencies": {
     "postcss-flexbugs-fixes": "^5.0.0",

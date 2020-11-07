@@ -1,0 +1,46 @@
+---
+intro:
+  title: Webentwickler<br />Frontend <span>Artist</span><br />Designer
+  subtitle: Innovation, Inspiration, Technik und Leidenschaft
+about:
+  title: Über mich
+  content: >
+    Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung (User
+    Experience) gerichtet. Brauchst du Hilfe z. B. um deine Website in neuem Glanz
+    erstrahlen zu lassen, Moderne Web Technologieren einzusetzen oder mal einen Tipp
+    wie du eine Sitemap einrichtest? <a href="mailto:info@creativeworkspace.de">Dann schreibe mich an</a>. Ich stehe gerne mit Rat
+    und Tat zur Seite.
+  tabs:
+    - title: Fähigkeiten
+      content: Geht das so?
+    - title: Erfahrung
+      content: >
+        <p>Naa Bärendreeg Voglwuid plattat kniagln. Trenzn spaat herent Lura. Eahm Paamperllodn Kaampe Lapp. Diridaari Luada Hiasl Potschaamberl schiach.</p>
+        <p>Gwihß Griffe ziahg Moh dua. Glaabt need Krampfhenna dagneisst dagneisst. Marilln dua kriag frozzln. Schlaffa Kraattler liab Lapp. Hohdan Paamperllodn Irxn Bohdawaaschl.</p>
+    - title: Ausbildung und Zertifizierung
+      content: Geht das so?
+  skills:
+    - value: CSS
+      description: Hier kommt die beschreibung rein
+    - value: HTML
+      description: Hier kommt die beschreibung rein
+    - value: JavaScript
+      description: Hier kommt die beschreibung rein
+    - value: PHP
+      description: Hier kommt die beschreibung rein
+    - value: Vue.js
+      description: Hier kommt die beschreibung rein
+    - value: Docker
+      description: Hier kommt die beschreibung rein
+
+blog:
+  title: Blog
+  subtitle: >
+    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
+portfolio:
+  repos: 
+    title: Meine Projekte auf Github
+    text: There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.
+  snippets: 
+    title: Snippets und Gists
+    text: Meine kleine Snippet Datenbank wird stetig erweitert und überarbeitet, da ich sie selbst jeden Tag produktiv nutze. Wenn du einen Fehler findest oder etwas verbessern kannst, dann nur her damit.

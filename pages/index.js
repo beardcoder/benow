@@ -1,12 +1,14 @@
-import HomePortfolio from '@/components/home/Portfolio'
+import HomePortfolio from '@/components/Home/Portfolio'
 import Head from 'next/head'
-import HomeAbout from '../components/home/About'
-import HomeIntro from '../components/home/Intro'
-import UiNavigation from '../components/ui/Navigation'
+import HomeAbout from '../components/Home/About'
+import HomeIntro from '../components/Home/Intro'
+import UiNavigation from '../components/Ui/Navigation'
 import styles from '../styles/Home.module.css'
 import { Octokit } from '@octokit/rest'
+import HomeBlog from '@/components/Home/Blog'
+import { getAllPosts } from '@/lib/api'
 
-export default function Home({ repos, gists }) {
+export default function Home({ repos, gists, articles }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -18,6 +20,7 @@ export default function Home({ repos, gists }) {
       </header>
       <HomeIntro />
       <HomeAbout />
+      <HomeBlog articles={articles} />
       <HomePortfolio repos={repos} gists={gists} />
     </div>
   )
@@ -60,10 +63,13 @@ export const getStaticProps = async () => {
       })
     )
 
+  const articles = getAllPosts(['title', 'createdAt', 'slug', 'image', 'type'])
+
   return {
     props: {
       repos,
       gists,
+      articles,
     },
   }
 }

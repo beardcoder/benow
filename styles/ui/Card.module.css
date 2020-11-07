@@ -1,8 +1,12 @@
 .card {
-  @apply bg-white bg-opacity-5 rounded-xl block relative z-10 overflow-hidden;
+  @apply block relative z-10;
 }
 
-.cardIsLink::before {
+.cardInner {
+  @apply bg-white bg-opacity-5 rounded-xl overflow-hidden transition-transform duration-200 relative h-full;
+}
+
+.cardIsLink .cardInner::before {
   @apply inset-0;
 
   z-index: -1;
@@ -13,12 +17,16 @@
   position: absolute;
 }
 
-.cardIsLink:hover::before {
+.card:hover .cardInner {
+  transform: translateY(-10px);
+}
+
+.card:hover .cardInner::before {
   opacity: 1;
 }
 
 .cardContent {
-  @apply p-8;
+  @apply p-8 w-full;
 }
 
 .cardSmall .cardContent {
