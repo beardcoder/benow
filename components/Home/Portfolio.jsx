@@ -22,7 +22,10 @@ export default function HomePortfolio({ repos, gists }) {
         </header>
         <div className="flex flex-wrap -mx-4 justify-center">
           {repos.map((repo, index) => (
-            <div key={`${repo.name}${index}`} className="w-1/3 p-4">
+            <div
+              key={`${repo.name}${index}`}
+              className="w-full sm:1/2 md:w-1/3 p-4"
+            >
               <UiCard
                 tagName="a"
                 className={classnames(styles.card, 'h-full')}
@@ -68,7 +71,10 @@ export default function HomePortfolio({ repos, gists }) {
         </div>
         <div className="flex flex-wrap -mx-4 justify-center">
           {result.map((item) => (
-            <div key={`${item.id ?? item.item.id}`} className="w-1/4 p-4">
+            <div
+              key={`${item.id ?? item.item.id}`}
+              className="w-full sm:1/2 md:w-1/3 p-4"
+            >
               <UiCard
                 small
                 tagName="a"

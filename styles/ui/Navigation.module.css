@@ -62,5 +62,11 @@
 }
 
 .social {
-  @apply flex ml-auto;
+  @apply hidden;
+}
+
+@screen md {
+  .social {
+    @apply flex ml-auto;
+  }
 }

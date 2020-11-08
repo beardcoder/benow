@@ -13,7 +13,10 @@ export default function HomeBlog({ articles }) {
         <div className="flex flex-wrap -mx-4 justify-center">
           {articles
             ? articles.map(({ title, slug, type, image }, index) => (
-                <div key={`${slug}--${index}`} className="w-1/3 p-4">
+                <div
+                  key={`${slug}--${index}`}
+                  className="w-full sm:1/2 md:w-1/3 p-4"
+                >
                   <UiCard
                     tagName="a"
                     key={slug}

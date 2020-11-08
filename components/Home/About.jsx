@@ -17,8 +17,8 @@ const tabs = [
 export default function HomeAbout() {
   return (
     <section id="about" className={styles.about}>
-      <div className="container flex">
-        <div className="w-1/2">
+      <div className="container flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 order-2">
           <img
             src="/content/images/about.jpg"
             loading="lazy"
@@ -29,7 +29,7 @@ export default function HomeAbout() {
             height="785"
           />
         </div>
-        <div className="w-1/2">
+        <div className="w-full md:w-1/2 mb-10 md:mb-0 order-1">
           <h2 className={styles.title}>Über mich</h2>
           <div className={styles.text}>
             Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung

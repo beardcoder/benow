@@ -37,7 +37,7 @@ export default function UiNavigation() {
             componentTag="nav"
             items={['intro', 'about', 'blog', 'portfolio']}
             currentClassName={styles.linkActive}
-            className={styles.navbar + ' mr-auto'}
+            className={styles.navbar + ' mx-auto md:ml-0'}
           >
             {items.map(({ href, name }) => (
               <a key={`${href}${name}`} className={styles.link} href={href}>

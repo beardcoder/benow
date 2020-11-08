@@ -38,6 +38,7 @@
     "unified": "^9.2.0"
   },
   "devDependencies": {
+    "agent-base": "^6.0.2",
     "postcss-flexbugs-fixes": "^5.0.0",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.9.6"

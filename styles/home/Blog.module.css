@@ -3,7 +3,13 @@
 }
 
 .title {
-  @apply text-5xl font-bold leading-tight text-white mb-3;
+  @apply text-3xl font-bold leading-tight text-white mb-3;
+}
+
+@screen md {
+  .title {
+    @apply text-5xl;
+  }
 }
 
 .text {
