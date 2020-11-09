@@ -1,4 +1,4 @@
-import styles from '@styles/ui/Button.module.css'
+import styles from './Button.module.css'
 import classnames from 'classnames'
 
 export default function UiButton({

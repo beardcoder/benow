@@ -29,8 +29,10 @@
   @apply text-white mx-4 my-2 block transition-color duration-300;
 }
 
-.link:first-child {
-  @apply ml-0;
+@screen md {
+  .link:first-child {
+    @apply ml-0;
+  }
 }
 
 .social__link {

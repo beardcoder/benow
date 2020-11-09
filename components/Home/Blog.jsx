@@ -1,5 +1,4 @@
-import styles from '@styles/home/Blog.module.css'
-import UiButton from '../Ui/Button'
+import styles from './Blog.module.css'
 import UiCard from '../Ui/Card'
 
 export default function HomeBlog({ articles }) {

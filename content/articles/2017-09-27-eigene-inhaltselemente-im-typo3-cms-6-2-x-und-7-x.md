@@ -27,7 +27,7 @@ eigene_inhaltselemente
     ext_emconf.php
 ```
 
-Ich beziehe mich hier auf die Extbase Struktur. Jedem ist aber selbst überlassen wie er seine Extensions aufbaut. Falls man an größeren Projekten arbeitet sollte man sich auf alle Fälle auf eine Struktur festlegen. Diese erleichtert das Arbeiten im Team ungemein. Weitere Dateien die angelegt werden können sind z.b. ext_icon.png|gif|svg und ext_tables.sql. Alle weiteren Optionen findet ihr im http://wiki.typo3.org/Extension_Developers_Guide.
+Ich beziehe mich hier auf die Extbase Struktur. Jedem ist aber selbst überlassen wie er seine Extensions aufbaut. Falls man an größeren Projekten arbeitet sollte man sich auf alle Fälle auf eine Struktur festlegen. Diese erleichtert das Arbeiten im Team ungemein. Weitere Dateien die angelegt werden können sind z.b. ext_icon.png|gif|svg und ext_tables.sql. Alle weiteren Optionen findet ihr im <http://wiki.typo3.org/Extension_Developers_Guide>.
 
 ## ext_emconf.php
 
@@ -170,13 +170,13 @@ Im FLUID Wiki von finden wir die Komplette Referenzen Hier kann man sich einfach
 
 ```html
 <div class="video-content">
-    <div class="video-content__video">
-        <a href="{data.bodytext}">{previewImage -> f:format.raw()}</a>
-    </div>
-    <div class="video-content__content">
-        <h3>{data.header}</h3>
-        <h4>{data.subheader}</h4>
-    </div>
+  <div class="video-content__video">
+    <a href="{data.bodytext}">{previewImage -> f:format.raw()}</a>
+  </div>
+  <div class="video-content__content">
+    <h3>{data.header}</h3>
+    <h4>{data.subheader}</h4>
+  </div>
 </div>
 ```
 

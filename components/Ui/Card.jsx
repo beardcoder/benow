@@ -1,4 +1,4 @@
-import styles from '@styles/ui/Card.module.css'
+import styles from './Card.module.css'
 import classnames from 'classnames'
 
 export default function UiCard({

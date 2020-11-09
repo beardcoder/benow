@@ -1,4 +1,4 @@
-import styles from "@styles/home/Intro.module.css";
+import styles from './Intro.module.css'
 
 export default function HomeIntro() {
   return (
@@ -16,5 +16,5 @@ export default function HomeIntro() {
         </h1>
       </div>
     </section>
-  );
+  )
 }

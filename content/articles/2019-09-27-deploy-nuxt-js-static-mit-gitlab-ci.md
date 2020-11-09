@@ -24,11 +24,11 @@ Um den CI Prozess von Gitlab zu nutzen, reicht ein Kostenloser Account, in dem m
 
 ![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/3j0m2pr0yn2wf6x6qt8x.jpg)
 
-Wie man ein neues Anlegt kann man auf der Seite https://docs.gitlab.com/ee/user/project/repository/#create-a-repository nachlesen
+Wie man ein neues Anlegt kann man auf der Seite <https://docs.gitlab.com/ee/user/project/repository/#create-a-repository> nachlesen
 
 Nachdem man dies erledigt hat, muss man einen Private Key hinterlegen. Die CI braucht diesen um Daten via rsync ausliefern zu können.
 
-Wie man ein Key Paar erstellt findet ihr hier. https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+Wie man ein Key Paar erstellt findet ihr hier.<> https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key>
 
 In meinem Fall wird die Variable SSH_PRIVATE_KEY genannt. Diese Bezeichnung brauchen wir später in unserer Konfiguration
 
@@ -62,13 +62,13 @@ Hier Definieren wir weitere Variablen um sie nicht immer wieder eingeben zu müs
 
 ```yaml
 variables:
-    RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
+  RSYNC: rsync -rtqx --links --safe-links --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r --delete
 
-    PROD_URL: https://creativeworkspace.de/
-    PROD_USER: web_www
-    PROD_SERVER: 159.69.21.63
-    PROD_PATH: /var/www/clients/client1/web1/web
-    PROD_PORT: '22'
+  PROD_URL: https://creativeworkspace.de/
+  PROD_USER: web_www
+  PROD_SERVER: 159.69.21.63
+  PROD_PATH: /var/www/clients/client1/web1/web
+  PROD_PORT: '22'
 ```
 
 ### Cache
@@ -77,8 +77,8 @@ Damit gitlab zwischen den Stages die Daten nicht immer neu herunterladen muss un
 
 ```yaml
 cache:
-    paths:
-        - node_modules/
+  paths:
+    - node_modules/
 ```
 
 ### Die Stages
@@ -88,8 +88,8 @@ Diese Referenzieren wir in unseren Aufgaben die, die Gitlab CI Ausführen soll
 
 ```yaml
 stages:
-    - build
-    - deploy
+  - build
+  - deploy
 ```
 
 ### Die Aufgaben
@@ -98,19 +98,19 @@ Die erste Aufgabe die Gitlab für uns erledigen soll ist das Bauen der Applicati
 
 ```yaml
 build:
-    stage: build
-    before_script:
-        - npm install
-    script:
-        - NODE_ENV=production npm run build
-        - NODE_ENV=production npm run generate
-    environment:
-        name: production
-    artifacts:
-        expire_in: 1 hour
-        name: '${CI_COMMIT_REF_NAME}'
-        paths:
-            - dist/
+  stage: build
+  before_script:
+    - npm install
+  script:
+    - NODE_ENV=production npm run build
+    - NODE_ENV=production npm run generate
+  environment:
+    name: production
+  artifacts:
+    expire_in: 1 hour
+    name: '${CI_COMMIT_REF_NAME}'
+    paths:
+      - dist/
 ```
 
 Als nächstes soll Gitlab für uns die Code Ausliefern.
@@ -120,21 +120,21 @@ Hier passiert jetzt sehr viel auf einmal. Zuerst Fügen wir unseren generierten 
 
 ```yaml
 deploy:prod:
-    stage: deploy
-    image: 1drop/php-73-docker-utils
-    environment:
-        name: production
-        url: https://creativeworkspace.de
-    before_script:
-        - eval $(ssh-agent -s)
-        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-        - mkdir -p ~/.ssh
-        - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-        - cd dist/
-    script:
-        - $RSYNC -e "ssh -p $PROD_PORT" . $PROD_USER@$PROD_SERVER:$PROD_PATH
-    only:
-        - master
+  stage: deploy
+  image: 1drop/php-73-docker-utils
+  environment:
+    name: production
+    url: https://creativeworkspace.de
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - cd dist/
+  script:
+    - $RSYNC -e "ssh -p $PROD_PORT" . $PROD_USER@$PROD_SERVER:$PROD_PATH
+  only:
+    - master
 ```
 
 ## Abschluss

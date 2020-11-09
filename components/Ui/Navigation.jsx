@@ -1,5 +1,5 @@
 import { Twitter, GitHub, Mail } from 'react-feather'
-import styles from '@styles/ui/Navigation.module.css'
+import styles from './Navigation.module.css'
 import Scrollspy from 'react-scrollspy'
 import Headroom from 'react-headroom'
 

@@ -17,6 +17,6 @@ Mit einem einfachen TypoScript kann anschließend jeder Datensatztyp eingebunden
 
 Siehe: <https://docs.typo3.org/>
 
-Die Sitemap ist danach über die URL deiner Website aufrufbar. https://www.deine.domain/index.php?id=1&type=1449874941.
+Die Sitemap ist danach über die URL deiner Website aufrufbar. <https://www.deine.domain/index.php?id=1&type=1449874941>.
 
 Man kann sich die URL auch von RealURL bauen lassen. Dann ist sie auch für Suchmaschinen sehr schön lesbar.

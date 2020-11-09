@@ -53,7 +53,7 @@ Ich nenne sie der Einfachheit halber `design`.
 Dazu erstellen wir einen Ordner im Root unseres Projektes names `packages`.
 in diesem erstellen wir eine Ordner mit dem Namen der Extension. In unserem fall `design`.
 
-Das Setup der Extension basiert auf dem Setup von Helmut Hummel https://github.com/helhum/ext_scaffold. Ich werde die hier erstellte Extension Euch am ende des Beitrags verlinken.
+Das Setup der Extension basiert auf dem Setup von Helmut Hummel <https://github.com/helhum/ext_scaffold>. Ich werde die hier erstellte Extension Euch am ende des Beitrags verlinken.
 
 ### Setup der Seite.
 
@@ -259,7 +259,7 @@ Ich verwende hier absichtlich Babel um TypeScript zu Kompilieren da wir dadurch 
 #### TypeScript Konfiguration
 
 Hier passiert nicht viel 🙂.
-wir erstellen eine Datei `packages/design/Resources/Private/Frontend/tsconfig.json` die für TypeScript eine art Konfigurationsdatei ist. Was die einzelnen Settings machen kann man auf der Seite https://www.TypeScriptlang.org/docs/handbook/tsconfig-json.html nachlesen.
+wir erstellen eine Datei `packages/design/Resources/Private/Frontend/tsconfig.json` die für TypeScript eine art Konfigurationsdatei ist. Was die einzelnen Settings machen kann man auf der Seite <https://www.TypeScriptlang.org/docs/handbook/tsconfig-json.html> nachlesen.
 
 ##### tsconfig.json
 

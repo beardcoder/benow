@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '@styles/ui/Tabs.module.css'
+import styles from './Tabs.module.css'
 import classnames from 'classnames'
 
 export default function UiTabs({ tabs }) {

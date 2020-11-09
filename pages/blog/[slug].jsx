@@ -3,7 +3,7 @@ import UiNavigation from '@/components/Ui/Navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/api'
 import markdownToHtml from '@/lib/markdownToHtml'
 import 'prism-themes/themes/prism-a11y-dark.css'
-import styles from '@styles/Article.module.css'
+import styles from './Article.module.css'
 import classnames from 'classnames'
 import { NextSeo, BlogJsonLd } from 'next-seo'
 

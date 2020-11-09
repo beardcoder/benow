@@ -15,6 +15,10 @@
   p {
     @apply mb-4;
   }
+
+  a {
+    @apply break-words;
+  }
 }
 
 .headroom-wrapper {
@@ -55,6 +59,10 @@
 
 .container {
   @apply px-4;
+}
+
+.prose code {
+  @apply break-all;
 }
 
 /* Start purging... */

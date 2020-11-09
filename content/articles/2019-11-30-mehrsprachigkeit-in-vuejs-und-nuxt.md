@@ -7,8 +7,8 @@ image: '/images/articles/mehrsprachigkeit-in-vuejs-und-nuxt.jpg'
 type: Tutorial
 ---
 
-Das VueJS Plugin vue-i18n könnt ihr euch auf GitHub ansehen https://github.com/kazupon/vue-i18n.
-Dort findest du schon mal die Dokumentation http://kazupon.github.io/vue-i18n/ und erste Informationen zu dem Projekt. Diese Sind im Repo selbst leider sehr Spärlich aber, sobald man auf die Dokumentation geht, merkt man das Hier sehr viel Zeit und Liebe hineingeflossen ist.
+Das VueJS Plugin vue-i18n könnt ihr euch auf GitHub ansehen <https://github.com/kazupon/vue-i18n>.
+Dort findest du schon mal die Dokumentation <http://kazupon.github.io/vue-i18n/> und erste Informationen zu dem Projekt. Diese Sind im Repo selbst leider sehr Spärlich aber, sobald man auf die Dokumentation geht, merkt man das Hier sehr viel Zeit und Liebe hineingeflossen ist.
 
 ## Installation
 
@@ -38,39 +38,39 @@ Du brauchst lediglich ein Plugin anzulegen mit diesem Inhalt
 
 ```js
 // plugins/vue-i18n.js
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
 
-Vue.use(VueI18n);
+Vue.use(VueI18n)
 ```
 
 Danach einfach das Plugin in Vue laden.
 
 ```js
 // ./main.js
-import '~/plugins/vue-i18n';
+import '~/plugins/vue-i18n'
 
 new Vue({
-    render: h => h(App),
-}).$mount('#app');
+  render: (h) => h(App),
+}).$mount('#app')
 ```
 
 ## Integration in Nuxt
 
-Hier geht das um einige einfacher denn ein Entwickler hat schon ein fertiges Modul bereitgestellt das wir nach der Installation einfach in der Datei nuxt.config.js integrieren können. https://github.com/nuxt-community/nuxt-i18n
+Hier geht das um einige einfacher denn ein Entwickler hat schon ein fertiges Modul bereitgestellt das wir nach der Installation einfach in der Datei nuxt.config.js integrieren können. <https://github.com/nuxt-community/nuxt-i18n>
 
 ```js
 export default {
-    /*
-     ** Nuxt.js modules
-     */
-    modules: [
-        // Doc: https://axios.nuxtjs.org/usage
-        '@nuxtjs/axios',
-        // Doc: https://github.com/nuxt-community/nuxt-i18n
-        'nuxt-i18n',
-    ],
-};
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    // Doc: https://github.com/nuxt-community/nuxt-i18n
+    'nuxt-i18n',
+  ],
+}
 ```
 
 ## Konfiguration
@@ -84,60 +84,60 @@ Zuerst erstellen wir uns eine Konfiguration für unser Projekt damit wir definie
 ```js
 // ./i18n/index.js
 export default {
-    locales: [
-        {
-            code: 'de',
-            iso: 'de-DE',
-            name: 'Deutsch',
-            file: 'de.js', // hier wird definiert wie die datei heißt aus der er die sprache importieren soll
-        },
-        {
-            code: 'en',
-            iso: 'en-US',
-            name: 'English',
-            file: 'en.js', // hier wird definiert wie die datei heißt aus der er die sprache importieren soll
-        },
-    ],
-    defaultLocale: 'de',
-    langDir: 'i18n/', // hier liegen unsere Sprachen
-    lazy: true,
-    vuex: {
-        moduleName: 'i18n',
-        mutations: {
-            setLocale: false,
-            setMessages: false,
-        },
-        preserveState: false,
+  locales: [
+    {
+      code: 'de',
+      iso: 'de-DE',
+      name: 'Deutsch',
+      file: 'de.js', // hier wird definiert wie die datei heißt aus der er die sprache importieren soll
     },
-    vueI18n: {
-        fallbackLocale: 'de',
+    {
+      code: 'en',
+      iso: 'en-US',
+      name: 'English',
+      file: 'en.js', // hier wird definiert wie die datei heißt aus der er die sprache importieren soll
     },
-};
+  ],
+  defaultLocale: 'de',
+  langDir: 'i18n/', // hier liegen unsere Sprachen
+  lazy: true,
+  vuex: {
+    moduleName: 'i18n',
+    mutations: {
+      setLocale: false,
+      setMessages: false,
+    },
+    preserveState: false,
+  },
+  vueI18n: {
+    fallbackLocale: 'de',
+  },
+}
 ```
 
 Diese Konfigurationsdatei wird nun einfach in die Integration unseres Plugins importiert. Dies sieht bei VueJS etwas anders aus als bei Nuxt.
 
 ```js
 // plugins/vue-i18n.js
-import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import i18n from '~/i18n';
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import i18n from '~/i18n'
 
-Vue.use(VueI18n, i18n);
+Vue.use(VueI18n, i18n)
 ```
 
 ```js
-import i18n from '~/i18n';
+import i18n from '~/i18n'
 export default {
-    /*
-     ** Nuxt.js modules
-     */
-    modules: [
-        // Doc: https://axios.nuxtjs.org/usage
-        '@nuxtjs/axios',
-        ['nuxt-i18n', i18n],
-    ],
-};
+  /*
+   ** Nuxt.js modules
+   */
+  modules: [
+    // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/axios',
+    ['nuxt-i18n', i18n],
+  ],
+}
 ```
 
 ## Benutzung
@@ -154,7 +154,7 @@ Wenn es aber jetzt um den Switch der Sprache geht, sieht das schon anders aus. I
 Wichtig ist zu wissen das, wenn man sich in einer Komponente befindet man `$root` aufrufen muss da ansonsten nur die Komponente in der Sprache gewechselt wird.
 
 ```js
-$root.$i18n.locale = 'de';
+$root.$i18n.locale = 'de'
 ```
 
 ### Nuxt
@@ -165,47 +165,47 @@ Einmal das Wechseln der Sprache über einen Nuxt Link
 
 ```html
 <nuxt-link
-    v-for="locale in availableLocales"
-    :key="locale.code"
-    :to="switchLocalePath(locale.code)"
+  v-for="locale in availableLocales"
+  :key="locale.code"
+  :to="switchLocalePath(locale.code)"
 >
-    {{ locale.name }}
+  {{ locale.name }}
 </nuxt-link>
 ```
 
 ```js
 export default {
-    computed: {
-        availableLocales() {
-            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
-        },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
     },
-};
+  },
+}
 ```
 
 Die andere Variante ist das Wechseln der Sprache über die Routen. Denn das Nuxt Module erweitert die Routen um einen Sprachparameter.
 
 ```js
-[
-    {
-        path: '/',
-        component: _3237362a,
-        name: 'index___de',
-    },
-    {
-        path: '/en/',
-        component: _3237362a,
-        name: 'index___en',
-    },
-    {
-        path: '/about',
-        component: _71a6ebb4,
-        name: 'about___de',
-    },
-    {
-        path: '/en/about',
-        component: _71a6ebb4,
-        name: 'about___en',
-    },
-];
+;[
+  {
+    path: '/',
+    component: _3237362a,
+    name: 'index___de',
+  },
+  {
+    path: '/en/',
+    component: _3237362a,
+    name: 'index___en',
+  },
+  {
+    path: '/about',
+    component: _71a6ebb4,
+    name: 'about___de',
+  },
+  {
+    path: '/en/about',
+    component: _71a6ebb4,
+    name: 'about___en',
+  },
+]
 ```

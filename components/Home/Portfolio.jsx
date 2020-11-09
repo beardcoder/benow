@@ -1,4 +1,4 @@
-import styles from '@styles/home/Portfolio.module.css'
+import styles from './Portfolio.module.css'
 import { GitHub, Search } from 'react-feather'
 import classnames from 'classnames'
 import UiCard from '../Ui/Card'
