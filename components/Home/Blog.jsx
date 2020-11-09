@@ -1,5 +1,6 @@
 import styles from './Blog.module.css'
 import UiCard from '../Ui/Card'
+import Image from 'next/image'
 
 export default function HomeBlog({ articles }) {
   return (
@@ -23,7 +24,11 @@ export default function HomeBlog({ articles }) {
                     innerClassName={styles.articleInner}
                     href={`/blog/${slug}`}
                   >
-                    <img className={styles.articleImage} src={image}></img>
+                    <Image
+                      className={styles.articleImage}
+                      layout="fill"
+                      src={image}
+                    ></Image>
                     <div className={styles.articleContent}>
                       <div className="text-sm mb-2">{type}</div>
                       <h4 className="text-2xl text-white">{title}</h4>

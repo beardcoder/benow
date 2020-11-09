@@ -1,6 +1,7 @@
 import UiTabs from '../Ui/Tabs'
 import styles from './About.module.css'
 import { Check } from 'react-feather'
+import Image from 'next/image'
 
 const tabs = [
   {
@@ -19,14 +20,14 @@ export default function HomeAbout() {
     <section id="about" className={styles.about}>
       <div className="container flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 order-2 md:order-1 md:pr-10">
-          <img
+          <Image
             src="/content/images/about.jpg"
             loading="lazy"
             className="h-auto max-w-full"
             alt="Webdesigner Markus Sommer"
             title="Webdesigner Markus Sommer"
-            width="495"
-            height="785"
+            width={495}
+            height={785}
           />
         </div>
         <div className="w-full md:w-1/2 mb-10 md:mb-0 order-1 md:order-2 md:pl-10">

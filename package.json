@@ -45,7 +45,6 @@
   },
   "resolutions": {
     "webpack": "^5.0.0",
-    "core-js": "^3.0.0",
     "react": "^17.0",
     "fuse.js": "^3.4"
   }
