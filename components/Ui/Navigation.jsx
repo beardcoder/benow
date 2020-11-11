@@ -32,9 +32,9 @@ export default function UiNavigation() {
   return (
     <Headroom disableInlineStyles>
       <div className={styles.navigation}>
-        <div className="container flex">
+        <div className='container flex'>
           <Scrollspy
-            componentTag="nav"
+            componentTag='nav'
             items={['intro', 'about', 'blog', 'portfolio']}
             currentClassName={styles.linkActive}
             className={styles.navbar + ' mx-auto md:ml-0'}
@@ -50,7 +50,7 @@ export default function UiNavigation() {
               {social.map(({ href, icon, title }) => (
                 <a
                   key={`${href}${title}`}
-                  target="_blank"
+                  target='_blank'
                   className={styles.social__link}
                   href={href}
                   title={title}

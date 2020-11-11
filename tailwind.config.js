@@ -6,7 +6,8 @@ module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      sans: ['Poppins', 'sans-serif'],
+      heading: ['Poppins', 'sans-serif'],
+      body: ['Ubuntu', 'sans-serif'],
     },
     extend: {
       opacity: {

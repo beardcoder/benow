@@ -12,9 +12,9 @@ export default function Home({ repos, gists, articles }) {
   return (
     <div className={styles.container}>
       <NextSeo
-        title="Moderne Web Technologieren, Designer und Frontend Artist 🚀 — Markus Sommer"
-        description="Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend"
-        canonical="https://www.creativeworkspace.de/"
+        title='Moderne Web Technologieren, Designer und Frontend Artist 🚀 — Markus Sommer'
+        description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
+        canonical='https://www.creativeworkspace.de/'
         twitter={{
           handle: '@beardcoder',
           site: '@site',

@@ -2817,6 +2817,16 @@ flatten@^1.0.2:
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.3.tgz#c1283ac9f27b368abc1e36d1ff7b04501a30356b"
   integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
 
+fontsource-poppins@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/fontsource-poppins/-/fontsource-poppins-3.0.10.tgz#42b194661b4c43eb234f683ca1616286ddb2a18c"
+  integrity sha512-3+1xBgh/HPPwvP0M7I6BEoZOqiT+kH7IUSFlKCm9r1j/Mdm/AqyeU+PMOZYt+Kpqm0OLgpDH56mqEksaycpinQ==
+
+fontsource-ubuntu@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/fontsource-ubuntu/-/fontsource-ubuntu-3.0.9.tgz#32a79a19e3dc10f6f549b21601cae0dd705479a8"
+  integrity sha512-9woIW2Xkta91wWL1Zkoo9UU8hyVojBvoDh6K15lwVUzHp3h0eFCuJVfhuvMrRF8jamkzhttZ1KX11xpG53IbMA==
+
 forever-agent@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"

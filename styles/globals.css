@@ -9,7 +9,15 @@
 /* Write your own custom component styles here */
 @layer base {
   body {
-    @apply bg-background text-baseWhite;
+    @apply bg-background text-baseWhite font-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-heading;
   }
 
   p {

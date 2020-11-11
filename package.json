@@ -12,6 +12,8 @@
     "@tailwindcss/typography": "^0.2.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.9.5",
+    "fontsource-poppins": "^3.0.10",
+    "fontsource-ubuntu": "^3.0.9",
     "fuse.js": "^6.4.3",
     "gray-matter": "^4.0.2",
     "next": "10.0.1",

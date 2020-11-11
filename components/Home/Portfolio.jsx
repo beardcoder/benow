@@ -14,26 +14,27 @@ export default function HomePortfolio({ repos, gists }) {
   })
 
   return (
-    <section id="portfolio" className={classnames(styles.portfolio)}>
-      <div className="container">
+    <section id='portfolio' className={classnames(styles.portfolio)}>
+      <div className='container'>
         <header className={styles.header}>
           <h2 className={styles.title}>Meine Projekte auf Github</h2>
           <p>TODO: Text Schreiben</p>
         </header>
-        <div className="flex flex-wrap -mx-4 justify-center">
+        <div className='flex flex-wrap -mx-4 justify-center'>
           {repos.map((repo, index) => (
             <div
               key={`${repo.name}${index}`}
-              className="w-full sm:1/2 md:w-1/3 p-4"
+              className='w-full sm:1/2 md:w-1/3 p-4'
             >
               <UiCard
-                tagName="a"
+                tagName='a'
                 className={classnames(styles.card, 'h-full')}
                 href={repo.url}
-                target="_blank"
+                target='_blank'
+                rel='noreferrer'
               >
                 <GitHub
-                  size="40"
+                  size='40'
                   className={classnames(
                     styles.icon,
                     'text-primary mb-3 transition-colors duration-200'
@@ -56,31 +57,32 @@ export default function HomePortfolio({ repos, gists }) {
             damit.
           </p>
         </header>
-        <div className="flex justify-center mb-12">
+        <div className='flex justify-center mb-12'>
           <input
             className={classnames(styles.searchbar)}
             onChange={(e) => {
               search(e.target.value)
             }}
             value={term}
-            placeholder="Suche in den Snippets..."
+            placeholder='Suche in den Snippets...'
           />
           <div className={styles.searchbarIcon}>
             <Search />
           </div>
         </div>
-        <div className="flex flex-wrap -mx-4 justify-center">
+        <div className='flex flex-wrap -mx-4 justify-center'>
           {result.map((item) => (
             <div
               key={`${item.id ?? item.item.id}`}
-              className="w-full sm:1/2 md:w-1/3 p-4"
+              className='w-full sm:1/2 md:w-1/3 p-4'
             >
               <UiCard
                 small
-                tagName="a"
+                tagName='a'
                 className={classnames(styles.card, 'h-full')}
                 href={item.url ?? item.item.url}
-                target="_blank"
+                target='_blank'
+                rel='noreferrer'
               >
                 <h4 className={classnames('text-base text-white')}>
                   {item.description ?? item.item.description}
