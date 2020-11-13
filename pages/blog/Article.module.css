@@ -1,3 +1,7 @@
 .article {
-  @apply bg-white pt-32;
+  @apply pt-24 pb-32 transition-colors duration-200;
+}
+
+.articleInner * {
+  @apply transition-colors duration-200;
 }

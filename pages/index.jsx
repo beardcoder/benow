@@ -1,12 +1,13 @@
 import HomePortfolio from '@/components/Home/Portfolio'
-import HomeAbout from '../components/Home/About'
-import HomeIntro from '../components/Home/Intro'
-import UiNavigation from '../components/Ui/Navigation'
+import HomeAbout from '@/components/Home/About'
+import HomeIntro from '@/components/Home/Intro'
+import UiNavigation from '@/components/Ui/Navigation'
 import styles from './Home.module.css'
 import { Octokit } from '@octokit/rest'
 import HomeBlog from '@/components/Home/Blog'
 import { getAllPosts } from '@/lib/api'
 import { NextSeo } from 'next-seo'
+import GlobalFooter from '@/components/Global/Footer'
 
 export default function Home({ repos, gists, articles }) {
   return (
@@ -30,6 +31,7 @@ export default function Home({ repos, gists, articles }) {
         <HomeBlog articles={articles} />
         <HomePortfolio repos={repos} gists={gists} />
       </main>
+      <GlobalFooter />
     </div>
   )
 }

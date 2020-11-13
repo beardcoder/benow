@@ -1,0 +1,7 @@
+.footer {
+  @apply bg-black py-12;
+}
+
+.highlight {
+  @apply text-primary;
+}

@@ -1,11 +1,25 @@
 .button {
-  @apply inline-block border border-solid border-primary px-5 py-2 uppercase;
+  @apply border border-solid border-primary px-6 py-3 uppercase transition-all duration-200 inline-flex justify-items-center;
+
+  transform: translateY(0);
+}
+
+.button:hover {
+  @apply bg-primary text-white;
+
+  transform: translateY(-5px);
+}
+
+.button:focus {
+  @apply outline-none;
 }
 
 .buttonSmall {
-  @apply inline-block;
 }
 
 .buttonIsLink {
-  @apply inline-block;
+}
+
+.buttonBlock {
+  @apply flex w-full;
 }

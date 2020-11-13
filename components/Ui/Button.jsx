@@ -6,6 +6,7 @@ export default function UiButton({
   className,
   tagName,
   small,
+  block,
   ...props
 }) {
   const CompTagName = tagName ? tagName : 'a'
@@ -14,6 +15,7 @@ export default function UiButton({
       className={classnames(
         styles.button,
         small ? styles.buttonSmall : undefined,
+        block ? styles.buttonBlock : undefined,
         tagName === 'a' ? styles.buttonIsLink : undefined,
         className
       )}

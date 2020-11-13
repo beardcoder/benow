@@ -73,6 +73,10 @@
   @apply break-all;
 }
 
+.header-link {
+  @apply inline-block mr-2;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

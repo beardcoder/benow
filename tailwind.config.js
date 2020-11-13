@@ -30,6 +30,10 @@ module.exports = {
       fontSize: {
         '7xl': '5rem',
       },
+      inset: {
+        24: '6rem',
+        32: '8rem',
+      },
       height: {
         112: '28rem',
       },
@@ -37,19 +41,52 @@ module.exports = {
     container: {
       center: true,
     },
-    typography: {
+    typography: (theme) => ({
       default: {
         css: {
           color: 'rgba(0, 0, 0, 0.85)',
           a: {
-            color: '#f9004d',
+            color: theme('colors.primary'),
             '&:hover': {
-              color: '#f9004d',
+              color: theme('colors.primary'),
             },
           },
         },
       },
-    },
+      dark: {
+        css: {
+          color: theme('colors.baseWhite'),
+
+          h1: {
+            color: theme('colors.white'),
+          },
+          h2: {
+            color: theme('colors.white'),
+          },
+          h3: {
+            color: theme('colors.white'),
+          },
+          h4: {
+            color: theme('colors.white'),
+          },
+          h5: {
+            color: theme('colors.white'),
+          },
+          h6: {
+            color: theme('colors.white'),
+          },
+          code: {
+            color: theme('colors.white'),
+          },
+          strong: {
+            color: theme('colors.white'),
+          },
+          figcaption: {
+            color: theme('colors.white'),
+          },
+        },
+      },
+    }),
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],

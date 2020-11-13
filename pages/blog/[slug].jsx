@@ -6,6 +6,10 @@ import 'prism-themes/themes/prism-a11y-dark.css'
 import styles from './Article.module.css'
 import classnames from 'classnames'
 import { NextSeo, BlogJsonLd } from 'next-seo'
+import GlobalFooter from '@/components/Global/Footer'
+import UiButton from '@/components/Ui/Button'
+import { ArrowLeft, Sun, Moon } from 'react-feather'
+import { useState } from 'react'
 
 export default function BlogSlug({
   title,
@@ -17,6 +21,7 @@ export default function BlogSlug({
   createdAt,
   type,
 }) {
+  const [darkMode, setDarkMode] = useState(false)
   return (
     <>
       <NextSeo
@@ -30,7 +35,7 @@ export default function BlogSlug({
         images={[image]}
         datePublished={createdAt}
         dateModified={createdAt}
-        authorName="Markus Sommer"
+        authorName='Markus Sommer'
         description={description}
       />
       <header>
@@ -43,12 +48,53 @@ export default function BlogSlug({
         author={author}
         type={type}
       />
-      <article className={classnames(styles.article)}>
-        <div
-          className="prose prose-lg container" // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: content }}
-        ></div>
+      <article
+        className={classnames(
+          styles.article,
+          darkMode ? 'bg-background' : 'bg-white'
+        )}
+      >
+        <div className='container flex items-start flex-col lg:flex-row'>
+          <div
+            className={classnames(
+              'prose prose-lg container order-2 lg:order-1',
+              darkMode ? 'prose-dark' : undefined,
+              styles.articleInner
+            )}
+            dangerouslySetInnerHTML={{ __html: content }}
+          ></div>
+          <div className='md:sticky md:top-24 order-1 lg:order-2 w-full lg:w-auto text-center mb-5 flex flex-col'>
+            <UiButton
+              className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
+              tagName='button'
+              onClick={() => setDarkMode(!darkMode)}
+            >
+              {darkMode ? <Moon /> : <Sun />}
+              <span className='px-2'>Lese Modus</span>
+            </UiButton>
+
+            <UiButton
+              className={darkMode ? 'text-white' : 'text-black'}
+              href='/#blog'
+              tagName='a'
+            >
+              <ArrowLeft className='inline-block stroke-1 mr-1' />{' '}
+              <span className='pr-2'>Zurück</span>
+            </UiButton>
+          </div>
+        </div>
+        <div className='text-center mt-12'>
+          <UiButton
+            className={darkMode ? 'text-white' : 'text-black'}
+            href='/#blog'
+            tagName='a'
+          >
+            <ArrowLeft className='inline-block stroke-1 mr-1' />{' '}
+            <span className='pr-2'>Zurück</span>
+          </UiButton>
+        </div>
       </article>
+      <GlobalFooter />
     </>
   )
 }
