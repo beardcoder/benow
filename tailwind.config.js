@@ -37,56 +37,56 @@ module.exports = {
       height: {
         112: '28rem',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: 'rgba(0, 0, 0, 0.85)',
+            a: {
+              color: theme('colors.primary'),
+              '&:hover': {
+                color: theme('colors.primary'),
+              },
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.baseWhite'),
+
+            h1: {
+              color: theme('colors.white'),
+            },
+            h2: {
+              color: theme('colors.white'),
+            },
+            h3: {
+              color: theme('colors.white'),
+            },
+            h4: {
+              color: theme('colors.white'),
+            },
+            h5: {
+              color: theme('colors.white'),
+            },
+            h6: {
+              color: theme('colors.white'),
+            },
+            code: {
+              color: theme('colors.white'),
+            },
+            strong: {
+              color: theme('colors.white'),
+            },
+            figcaption: {
+              color: theme('colors.white'),
+            },
+          },
+        },
+      }),
     },
     container: {
       center: true,
     },
-    typography: (theme) => ({
-      default: {
-        css: {
-          color: 'rgba(0, 0, 0, 0.85)',
-          a: {
-            color: theme('colors.primary'),
-            '&:hover': {
-              color: theme('colors.primary'),
-            },
-          },
-        },
-      },
-      dark: {
-        css: {
-          color: theme('colors.baseWhite'),
-
-          h1: {
-            color: theme('colors.white'),
-          },
-          h2: {
-            color: theme('colors.white'),
-          },
-          h3: {
-            color: theme('colors.white'),
-          },
-          h4: {
-            color: theme('colors.white'),
-          },
-          h5: {
-            color: theme('colors.white'),
-          },
-          h6: {
-            color: theme('colors.white'),
-          },
-          code: {
-            color: theme('colors.white'),
-          },
-          strong: {
-            color: theme('colors.white'),
-          },
-          figcaption: {
-            color: theme('colors.white'),
-          },
-        },
-      },
-    }),
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],

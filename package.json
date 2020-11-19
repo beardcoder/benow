@@ -8,8 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mapbox/rehype-prism": "^0.5.0",
     "@octokit/rest": "^18.0.9",
-    "@tailwindcss/typography": "^0.2.0",
+    "@tailwindcss/typography": "^0.3.1",
     "classnames": "^2.2.6",
     "dayjs": "^1.9.6",
     "fontsource-poppins": "^3.0.10",
@@ -17,16 +18,15 @@
     "fuse.js": "^6.4.3",
     "gray-matter": "^4.0.2",
     "hastscript": "^6.0.0",
-    "next": "^10.0.1",
+    "next": "^10.0.2",
     "next-seo": "^4.17.0",
     "prism-themes": "^1.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-feather": "^2.0.8",
+    "react-feather": "^2.0.9",
     "react-headroom": "^3.0.0",
     "react-scrollspy": "^3.4.3",
     "react-use-fuse": "^0.5.2",
-    "react-use-localstorage2": "^4.0.11",
     "rehype-autolink-headings": "^5.0.1",
     "rehype-react": "^6.1.0",
     "rehype-slug": "^4.0.1",
@@ -37,20 +37,22 @@
     "remark-html": "^13.0.1",
     "remark-inline-links": "^5.0.0",
     "remark-parse": "^9.0.0",
-    "remark-prism": "^1.1.18",
     "remark-react": "^8.0.0",
     "remark-rehype": "^8.0.0",
-    "unified": "^9.2.0"
+    "unified": "^9.2.0",
+    "webpack": "^5.6.0"
   },
   "devDependencies": {
     "agent-base": "^6.0.2",
+    "autoprefixer": "^10.0.2",
     "next-purgecss": "^4.0.0",
+    "postcss": "^8.1.8",
     "postcss-flexbugs-fixes": "^5.0.1",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^2.0.1"
   },
   "resolutions": {
-    "webpack": "^5.0.0",
+    "webpack": "^5.6.0",
     "react": "^17.0",
     "fuse.js": "^3.4"
   }
