@@ -18,7 +18,6 @@ export default function HomePortfolio({ repos, gists }) {
       <div className='container'>
         <header className={styles.header}>
           <h2 className={styles.title}>Meine Projekte auf Github</h2>
-          <p>TODO: Text Schreiben</p>
         </header>
         <div className='flex flex-wrap -mx-4 justify-center'>
           {repos.map((repo, index) => (

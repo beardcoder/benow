@@ -8,7 +8,7 @@ export default function HomeBlog({ articles }) {
       <div className='container'>
         <header className={styles.header}>
           <h2 className={styles.title}>Blog</h2>
-          <p className={styles.text}>TODO: Text Schreiben</p>
+          {/* <p className={styles.text}>TODO: Text Schreiben</p> */}
         </header>
         <div className='flex flex-wrap -mx-4 justify-center'>
           {articles

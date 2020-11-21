@@ -7,7 +7,7 @@
 }
 
 .title {
-  @apply text-3xl text-white font-bold;
+  @apply text-3xl text-white font-bold mb-4;
 }
 
 @screen md {

@@ -1,9 +1,11 @@
 .intro {
-  @apply flex flex-col justify-center bg-cover;
+  @apply flex flex-col justify-center bg-cover relative overflow-hidden z-10;
 
-  background-image: url('/content/images/header.jpg');
-  background-position: 50%;
   height: 850px;
+}
+
+.image {
+  @apply object-cover;
 }
 
 .title {
