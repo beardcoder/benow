@@ -51,6 +51,7 @@ export default function UiNavigation() {
                 <a
                   key={`${href}${title}`}
                   target='_blank'
+                  rel='noreferrer'
                   className={styles.social__link}
                   href={href}
                   title={title}
