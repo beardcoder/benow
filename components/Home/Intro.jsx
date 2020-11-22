@@ -10,7 +10,6 @@ export default function HomeIntro() {
         alt='Header Image'
         objectFit='cover'
         className={styles.image}
-        priority
         quality={60}
       ></Image>
       <div className='container z-10'>
