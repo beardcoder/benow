@@ -57,7 +57,7 @@ export default function HomePortfolio({ repos, gists }) {
           </p>
         </header>
         <div className='flex justify-center mb-12'>
-          <label for='search' className='sr-only'>
+          <label htmlFor='search' className='sr-only'>
             Suche
           </label>
           <input
