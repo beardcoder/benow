@@ -57,7 +57,11 @@ export default function HomePortfolio({ repos, gists }) {
           </p>
         </header>
         <div className='flex justify-center mb-12'>
+          <label for='search' className='sr-only'>
+            Suche
+          </label>
           <input
+            id='search'
             className={classnames(styles.searchbar)}
             onChange={(e) => {
               search(e.target.value)
