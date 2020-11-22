@@ -7,7 +7,11 @@ export default function HomeIntro() {
       <Image
         src='/content/images/header.jpg'
         layout='fill'
+        alt='Header Image'
+        objectFit='cover'
         className={styles.image}
+        priority
+        quality={60}
       ></Image>
       <div className='container z-10'>
         <div className={styles.text}>

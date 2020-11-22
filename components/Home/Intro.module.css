@@ -4,10 +4,6 @@
   height: 850px;
 }
 
-.image {
-  @apply object-cover;
-}
-
 .title {
   @apply text-4xl font-bold leading-tight text-white;
 }
