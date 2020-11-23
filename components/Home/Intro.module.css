@@ -4,14 +4,15 @@
   height: 850px;
 }
 
-.title {
-  @apply text-4xl font-bold leading-tight text-white;
+.intro::after {
+  @apply absolute inset-0 bg-black bg-opacity-80 lg:hidden;
+
+  z-index: -1;
+  content: '';
 }
 
-@screen md {
-  .title {
-    @apply text-7xl;
-  }
+.title {
+  @apply text-4xl md:text-7xl font-bold leading-tight text-white;
 }
 
 .titleHighlight {
@@ -19,11 +20,9 @@
 }
 
 .text {
-  @apply uppercase text-white opacity-50 text-base;
+  @apply uppercase text-white opacity-50 text-base md:text-xl;
 }
 
-@screen md {
-  .text {
-    @apply text-xl;
-  }
+.imageContainer {
+  z-index: -1;
 }
