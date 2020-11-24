@@ -15,7 +15,7 @@ export default function HomeBlog({ articles }) {
             ? articles.map(({ slug, headline, image, type }, index) => (
                 <div
                   key={`${slug}--${index}`}
-                  className='w-full sm:1/2 md:w-1/4 p-4'
+                  className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4'
                 >
                   <UiCard
                     tagName='a'
