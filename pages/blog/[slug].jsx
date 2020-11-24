@@ -12,29 +12,29 @@ import { ArrowLeft, Sun, Moon } from 'react-feather'
 import { useState } from 'react'
 
 export default function BlogSlug({
-  title,
-  content,
+  headline,
+  articleBody,
   description,
   image,
   slug,
   author,
-  createdAt,
+  date,
   type,
 }) {
   const [darkMode, setDarkMode] = useState(false)
   return (
     <>
       <NextSeo
-        title={`${title} — Markus Sommer`}
+        title={`${headline} — Markus Sommer`}
         description={description}
         canonical={`https://www.creativeworkspace.de/blog/${slug}`}
       />
       <BlogJsonLd
         url={`https://www.creativeworkspace.de/blog/${slug}`}
-        title={title}
+        title={headline}
         images={[image]}
-        datePublished={createdAt}
-        dateModified={createdAt}
+        datePublished={date}
+        dateModified={date}
         authorName='Markus Sommer'
         description={description}
       />
@@ -42,9 +42,9 @@ export default function BlogSlug({
         <UiNavigation />
       </header>
       <BlogIntro
-        title={title}
-        image={image}
-        createdAt={createdAt}
+        title={headline}
+        image={`${image.fields.file.url}?w=2560&h=600&fit=thumb`}
+        date={date}
         author={author}
         type={type}
       />
@@ -61,7 +61,7 @@ export default function BlogSlug({
               darkMode ? 'prose-dark' : undefined,
               styles.articleInner
             )}
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: articleBody }}
           ></div>
           <div className='md:sticky md:top-24 order-1 lg:order-2 w-full lg:w-auto text-center mb-5 flex flex-col'>
             <UiButton
@@ -100,12 +100,12 @@ export default function BlogSlug({
 }
 
 export const getStaticPaths = async () => {
-  const posts = getAllPosts(['slug'])
+  const posts = await getAllPosts()
 
   return {
     paths: posts.map((post) => ({
       params: {
-        slug: post.slug,
+        slug: post.fields.slug,
       },
     })),
     fallback: false,
@@ -113,17 +113,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'createdAt',
-    'description',
-    'author',
-    'image',
-    'type',
-    'slug',
-    'content',
-  ])
-  post.content = await markdownToHtml(post.content || '')
+  const post = (await getPostBySlug(params.slug)).fields
+  post.articleBody = await markdownToHtml(post.articleBody || '')
 
   return {
     props: {

@@ -12,7 +12,7 @@ export default function HomeBlog({ articles }) {
         </header>
         <div className='flex flex-wrap -mx-4 justify-center'>
           {articles
-            ? articles.map(({ title, slug, type, image }, index) => (
+            ? articles.map(({ slug, headline, image, type }, index) => (
                 <div
                   key={`${slug}--${index}`}
                   className='w-full sm:1/2 md:w-1/3 p-4'
@@ -24,14 +24,14 @@ export default function HomeBlog({ articles }) {
                     innerClassName={styles.articleInner}
                     href={`/blog/${slug}`}
                   >
-                    <Image
+                    <img
                       className={styles.articleImage}
-                      layout='fill'
-                      src={image}
-                    ></Image>
+                      alt={headline}
+                      src={`https:${image.fields.file.url}?w=480&h=480&fit=fill`}
+                    ></img>
                     <div className={styles.articleContent}>
                       <div className='text-sm mb-2'>{type}</div>
-                      <h4 className='text-2xl text-white'>{title}</h4>
+                      <h4 className='text-2xl text-white'>{headline}</h4>
                     </div>
                   </UiCard>
                 </div>

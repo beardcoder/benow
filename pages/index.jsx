@@ -36,7 +36,7 @@ export default function Home({ repos, gists, articles }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ preview = false }) => {
   const octokit = new Octokit({
     auth: '24b695afae0050c1e79c0420906936c9c25c7c51',
     userAgent: 'creativeworkspace',
@@ -73,10 +73,11 @@ export const getStaticProps = async () => {
       })
     )
 
-  const articles = getAllPosts(['title', 'createdAt', 'slug', 'image', 'type'])
+  const articles = (await getAllPosts()).map((post) => post.fields)
 
   return {
     props: {
+      preview,
       repos,
       gists,
       articles,
