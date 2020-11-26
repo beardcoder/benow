@@ -12,7 +12,7 @@
     "@octokit/rest": "^18.0.9",
     "@tailwindcss/typography": "^0.3.1",
     "classnames": "^2.2.6",
-    "contentful": "^7.14.14",
+    "contentful": "^7.15.0",
     "dayjs": "^1.9.6",
     "fontsource-poppins": "^3.0.10",
     "fontsource-ubuntu": "^3.0.9",
@@ -25,7 +25,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-feather": "^2.0.9",
-    "react-headroom": "^3.0.0",
+    "react-headroom": "^3.0.1",
     "react-scrollspy": "^3.4.3",
     "react-use-fuse": "^0.5.2",
     "rehype-autolink-headings": "^5.0.1",
@@ -41,7 +41,7 @@
     "remark-react": "^8.0.0",
     "remark-rehype": "^8.0.0",
     "unified": "^9.2.0",
-    "webpack": "^5.6.0"
+    "webpack": "^5.8.0"
   },
   "devDependencies": {
     "agent-base": "^6.0.2",
@@ -53,7 +53,7 @@
     "tailwindcss": "^2.0.1"
   },
   "resolutions": {
-    "webpack": "^5.6.0",
+    "webpack": "^5.8.0",
     "react": "^17.0",
     "fuse.js": "^3.4"
   }
