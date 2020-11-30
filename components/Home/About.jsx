@@ -2,7 +2,7 @@ import UiTabs from '../Ui/Tabs'
 import styles from './About.module.css'
 import { Code } from 'react-feather'
 import Image from 'next/image'
-import uniqid from 'uniqid'
+import { generate as uniqid } from 'shortid'
 
 const skills = [
   ['HTML', 'CSS', 'JavaScript', 'React (Next.js)', 'Vue.js (Nuxt)'],

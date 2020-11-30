@@ -40,8 +40,8 @@
     "remark-parse": "^9.0.0",
     "remark-react": "^8.0.0",
     "remark-rehype": "^8.0.0",
+    "shortid": "^2.2.16",
     "unified": "^9.2.0",
-    "uniqid": "^5.2.0",
     "webpack": "^5.8.0"
   },
   "devDependencies": {
