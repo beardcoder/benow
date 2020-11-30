@@ -1,5 +1,9 @@
-.footer {
-  @apply bg-black py-12;
+.footer1 {
+  @apply bg-white bg-opacity-10 py-20;
+}
+
+.footer2 {
+  @apply py-6;
 }
 
 .highlight {

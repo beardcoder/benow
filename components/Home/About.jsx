@@ -1,18 +1,30 @@
 import UiTabs from '../Ui/Tabs'
 import styles from './About.module.css'
-import { Check } from 'react-feather'
+import { Code } from 'react-feather'
 import Image from 'next/image'
+
+const skills = [
+  ['HTML', 'CSS', 'JavaScript', 'React (Next.js)', 'Vue.js (Nuxt)'],
+  ['PHP', 'Symfony', 'TYPO3', 'Neos CMS', 'Shopware'],
+]
 
 const tabs = [
   {
-    title: 'Fähigkeiten',
+    title: 'Fertigkeiten',
     content: (
-      <div>
-        <Check /> Hallo
+      <div className='flex'>
+        {skills.map((skillSection) => (
+          <ul className='w-1/3'>
+            {skillSection.map((skill) => (
+              <li>
+                <Code className='inline-block mr-2 stroke-1' /> {skill}
+              </li>
+            ))}
+          </ul>
+        ))}
       </div>
     ),
   },
-  { title: 'Erfahrung', content: 'Haus' },
 ]
 
 export default function HomeAbout() {
@@ -41,7 +53,7 @@ export default function HomeAbout() {
             <a href='mailto:info@creativeworkspace.de'>Dann schreibe mich an</a>
             . Ich stehe gerne mit Rat und Tat zur Seite.
           </div>
-          {/* <UiTabs tabs={tabs}></UiTabs> */}
+          <UiTabs tabs={tabs}></UiTabs>
         </div>
       </div>
     </section>

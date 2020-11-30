@@ -26,6 +26,7 @@ module.exports = {
       },
       fontSize: {
         '7xl': '5rem',
+        inherit: ['inherit', 'inherit'],
       },
       inset: {
         24: '6rem',

@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "agent-base": "^6.0.2",
-    "autoprefixer": "^10.0.2",
+    "autoprefixer": "^10.0.4",
     "next-purgecss": "^4.0.0",
     "postcss": "^8.1.10",
     "postcss-flexbugs-fixes": "^5.0.2",
