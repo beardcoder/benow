@@ -2,6 +2,7 @@ import UiTabs from '../Ui/Tabs'
 import styles from './About.module.css'
 import { Code } from 'react-feather'
 import Image from 'next/image'
+import uniqid from 'uniqid'
 
 const skills = [
   ['HTML', 'CSS', 'JavaScript', 'React (Next.js)', 'Vue.js (Nuxt)'],
@@ -14,9 +15,9 @@ const tabs = [
     content: (
       <div className='flex'>
         {skills.map((skillSection) => (
-          <ul className='w-1/3'>
+          <ul className='w-1/3' key={uniqid()}>
             {skillSection.map((skill) => (
-              <li>
+              <li key={uniqid()}>
                 <Code className='inline-block mr-2 stroke-1' /> {skill}
               </li>
             ))}
