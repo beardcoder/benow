@@ -20,10 +20,13 @@
     "gray-matter": "^4.0.2",
     "hastscript": "^6.0.0",
     "next": "^10.0.3",
+    "next-plugin-preact": "^3.0.3",
     "next-seo": "^4.17.0",
+    "preact": "^10.5.7",
+    "preact-render-to-string": "^5.1.12",
     "prism-themes": "^1.5.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat",
     "react-feather": "^2.0.9",
     "react-headroom": "^3.0.1",
     "react-scrollspy": "^3.4.3",
@@ -55,7 +58,9 @@
   },
   "resolutions": {
     "webpack": "^5.9.0",
-    "react": "^17.0",
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat",
+    "react-ssr-prepass": "npm:preact-ssr-prepass",
     "fuse.js": "^3.4"
   }
 }
