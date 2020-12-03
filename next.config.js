@@ -1,6 +1,5 @@
-const withPreact = require('next-plugin-preact')
-module.exports = withPreact({
+module.exports = {
   images: {
     domains: ['images.ctfassets.net'],
   },
-})
+}
