@@ -7,7 +7,7 @@ export default function UiTabs({ tabs }) {
   return (
     <div className='flex flex-wrap'>
       <div className='w-full'>
-        <ul className='flex mb-0 list-none flex-wrap pt-3 flex-row'>
+        <ul className='flex flex-row flex-wrap pt-3 mb-0 list-none'>
           {tabs.map(({ title }, index) => (
             <li key={`tab-${index}__title`}>
               <a
@@ -23,7 +23,7 @@ export default function UiTabs({ tabs }) {
           ))}
         </ul>
         <div className='relative'>
-          <div className='py-3 flex-auto'>
+          <div className='flex-auto py-3'>
             <div className='tab-content tab-space'>
               {tabs.map(({ content }, index) => (
                 <div

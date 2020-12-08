@@ -32,7 +32,7 @@ export default function HomeAbout() {
   return (
     <section id='about' className={styles.about}>
       <div className='container flex flex-col md:flex-row'>
-        <div className='w-full md:w-1/3 order-2 md:order-1 md:pr-10'>
+        <div className='order-2 w-full md:w-1/3 md:order-1 md:pr-10'>
           <Image
             src='/content/images/about.jpg'
             loading='lazy'
@@ -43,7 +43,7 @@ export default function HomeAbout() {
             height={785}
           />
         </div>
-        <div className='w-full md:w-2/3 mb-10 md:mb-0 order-1 md:order-2 md:pl-10 max-w-2xl'>
+        <div className='order-1 w-full max-w-2xl mb-10 md:w-2/3 md:mb-0 md:order-2 md:pl-10'>
           <h2 className={styles.title}>Über mich</h2>
           <div className={styles.text}>
             Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung

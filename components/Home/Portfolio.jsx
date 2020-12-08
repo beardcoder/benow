@@ -19,11 +19,11 @@ export default function HomePortfolio({ repos, gists }) {
         <header className={styles.header}>
           <h2 className={styles.title}>Meine Projekte auf Github</h2>
         </header>
-        <div className='flex flex-wrap -mx-4 justify-center'>
+        <div className='flex flex-wrap justify-center -mx-4'>
           {repos.map((repo, index) => (
             <div
               key={`${repo.name}${index}`}
-              className='w-full sm:1/2 md:w-1/3 p-4'
+              className='w-full p-4 sm:1/2 md:w-1/3'
             >
               <UiCard
                 tagName='a'
@@ -73,11 +73,11 @@ export default function HomePortfolio({ repos, gists }) {
             <Search />
           </div>
         </div>
-        <div className='flex flex-wrap -mx-4 justify-center'>
+        <div className='flex flex-wrap justify-center -mx-4'>
           {result.map((item) => (
             <div
               key={`${item.id ?? item.item.id}`}
-              className='w-full sm:1/2 md:w-1/3 p-4'
+              className='w-full p-4 sm:1/2 md:w-1/3'
             >
               <UiCard
                 small

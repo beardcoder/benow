@@ -55,7 +55,7 @@ export default function BlogSlug({
           darkMode ? 'bg-background' : 'bg-white'
         )}
       >
-        <div className='container flex items-start flex-col lg:flex-row'>
+        <div className='container flex flex-col items-start lg:flex-row'>
           <div
             className={classnames(
               'prose prose-lg container order-2 lg:order-1',
@@ -64,7 +64,7 @@ export default function BlogSlug({
             )}
             dangerouslySetInnerHTML={{ __html: articleBody }}
           ></div>
-          <div className='md:sticky md:top-24 order-1 lg:order-2 w-full lg:w-auto text-center mb-5 flex flex-col'>
+          <div className='flex flex-col order-1 w-full mb-5 text-center md:sticky md:top-24 lg:order-2 lg:w-auto'>
             <UiButton
               className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
               tagName='button'
@@ -78,19 +78,19 @@ export default function BlogSlug({
                 className={darkMode ? 'text-white' : 'text-black'}
                 tagName='a'
               >
-                <ArrowLeft className='inline-block stroke-1 mr-1' />{' '}
+                <ArrowLeft className='inline-block mr-1 stroke-1' />{' '}
                 <span className='pr-2'>Zurück</span>
               </UiButton>
             </Link>
           </div>
         </div>
-        <div className='text-center mt-12'>
+        <div className='mt-12 text-center'>
           <UiButton
             className={darkMode ? 'text-white' : 'text-black'}
             href='/#blog'
             tagName='a'
           >
-            <ArrowLeft className='inline-block stroke-1 mr-1' />{' '}
+            <ArrowLeft className='inline-block mr-1 stroke-1' />{' '}
             <span className='pr-2'>Zurück</span>
           </UiButton>
         </div>

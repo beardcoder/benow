@@ -7,7 +7,7 @@ const Unicon = (...props) => (
     data-prefix='far'
     data-icon='unicorn'
     style={{ bottom: '2px' }}
-    className='inline-block w-5 h-5 mx-1 relative'
+    className='relative inline-block w-5 h-5 mx-1'
     role='img'
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 640 512'
@@ -24,7 +24,7 @@ export default function GlobalFooter() {
     <footer>
       {/* <div className={styles.footer1}>
         <div className='container flex justify-center'>
-          <div className='w-80 mr-4'>
+          <div className='mr-4 w-80'>
             <h4 className='mb-2'>Headline noch schreiben</h4>
             <p>
               Kiah Bratzn Bisgurn Butzelküah Diridaari Dockal Wihsch. Ebban Bua
@@ -33,7 +33,7 @@ export default function GlobalFooter() {
               liab boid grohskopfat z’ weng.
             </p>
           </div>
-          <div className='w-80 ml-4'>
+          <div className='ml-4 w-80'>
             <h4 className='mb-2'>Headline noch schreiben</h4>
             <p>
               Kiah Bratzn Bisgurn Butzelküah Diridaari Dockal Wihsch. Ebban Bua
@@ -50,7 +50,7 @@ export default function GlobalFooter() {
           <Coffee
             height='17'
             style={{ bottom: '2px' }}
-            className='inline-block relative'
+            className='relative inline-block'
           />{' '}
           and <Unicon />
           in <span className={styles.highlight}>Bavaria</span>

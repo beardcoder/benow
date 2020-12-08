@@ -11,15 +11,15 @@ export default function BlogIntro({ title, image, createdAt, author, type }) {
     >
       <div className='container mt-10'>
         <h1 className={styles.title}>{title}</h1>
-        <div className='flex justify-center mt-16 flex-row flex-wrap'>
+        <div className='flex flex-row flex-wrap justify-center mt-16'>
           <div className='flex justify-center mb-4'>
             <Calendar className='mr-3' />{' '}
             {dayjs(createdAt).locale('de-DE').format('DD.MM.YYYY')}
           </div>
-          <div className='ml-10 flex justify-center'>
+          <div className='flex justify-center ml-10'>
             <User className='mr-3' /> {author}
           </div>
-          <div className='ml-10 flex justify-center'>
+          <div className='flex justify-center ml-10'>
             <Tag className='mr-3' /> {type}
           </div>
         </div>
