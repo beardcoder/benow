@@ -6,6 +6,7 @@ import 'prism-themes/themes/prism-a11y-dark.css'
 import styles from './Article.module.css'
 import classnames from 'classnames'
 import { NextSeo, BlogJsonLd } from 'next-seo'
+import Link from 'next/link'
 import GlobalFooter from '@/components/Global/Footer'
 import UiButton from '@/components/Ui/Button'
 import { ArrowLeft, Sun, Moon } from 'react-feather'
@@ -72,15 +73,15 @@ export default function BlogSlug({
               {darkMode ? <Moon /> : <Sun />}
               <span className='px-2'>Lese Modus</span>
             </UiButton>
-
-            <UiButton
-              className={darkMode ? 'text-white' : 'text-black'}
-              href='/#blog'
-              tagName='a'
-            >
-              <ArrowLeft className='inline-block stroke-1 mr-1' />{' '}
-              <span className='pr-2'>Zurück</span>
-            </UiButton>
+            <Link href={`/#blog`} passHref>
+              <UiButton
+                className={darkMode ? 'text-white' : 'text-black'}
+                tagName='a'
+              >
+                <ArrowLeft className='inline-block stroke-1 mr-1' />{' '}
+                <span className='pr-2'>Zurück</span>
+              </UiButton>
+            </Link>
           </div>
         </div>
         <div className='text-center mt-12'>
