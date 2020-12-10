@@ -1,5 +1,5 @@
 import styles from './Intro.module.css'
-import { Calendar, User, Tag } from 'react-feather'
+import { Calendar, User, Tag } from 'react-icons/fi'
 import dayjs from 'dayjs'
 
 export default function BlogIntro({ title, image, createdAt, author, type }) {

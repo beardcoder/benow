@@ -9,7 +9,7 @@ import { NextSeo, BlogJsonLd } from 'next-seo'
 import Link from 'next/link'
 import GlobalFooter from '@/components/Global/Footer'
 import UiButton from '@/components/Ui/Button'
-import { ArrowLeft, Sun, Moon } from 'react-feather'
+import { FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi'
 import { useState } from 'react'
 
 export default function BlogSlug({
@@ -70,7 +70,7 @@ export default function BlogSlug({
               tagName='button'
               onClick={() => setDarkMode(!darkMode)}
             >
-              {darkMode ? <Moon /> : <Sun />}
+              {darkMode ? <FiMoon /> : <FiSun />}
               <span className='px-2'>Lese Modus</span>
             </UiButton>
             <Link href={`/#blog`} passHref>
@@ -78,7 +78,7 @@ export default function BlogSlug({
                 className={darkMode ? 'text-white' : 'text-black'}
                 tagName='a'
               >
-                <ArrowLeft className='inline-block mr-1 stroke-1' />{' '}
+                <FiArrowLeft className='inline-block mr-1 stroke-1' />{' '}
                 <span className='pr-2'>Zurück</span>
               </UiButton>
             </Link>
@@ -90,7 +90,7 @@ export default function BlogSlug({
             href='/#blog'
             tagName='a'
           >
-            <ArrowLeft className='inline-block mr-1 stroke-1' />{' '}
+            <FiArrowLeft className='inline-block mr-1 stroke-1' />{' '}
             <span className='pr-2'>Zurück</span>
           </UiButton>
         </div>

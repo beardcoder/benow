@@ -1,5 +1,5 @@
 import styles from './Portfolio.module.css'
-import { GitHub, Search } from 'react-feather'
+import { FiSearch, FiGithub } from 'react-icons/fi'
 import classnames from 'classnames'
 import UiCard from '../Ui/Card'
 import useFuse from 'react-use-fuse'
@@ -32,7 +32,7 @@ export default function HomePortfolio({ repos, gists }) {
                 target='_blank'
                 rel='noreferrer'
               >
-                <GitHub
+                <FiGithub
                   size='40'
                   className={classnames(
                     styles.icon,
@@ -70,7 +70,7 @@ export default function HomePortfolio({ repos, gists }) {
             placeholder='Suche in den Snippets...'
           />
           <div className={styles.searchbarIcon}>
-            <Search />
+            <FiSearch />
           </div>
         </div>
         <div className='flex flex-wrap justify-center -mx-4'>

@@ -1,4 +1,4 @@
-import { Twitter, GitHub, Mail } from 'react-feather'
+import { FiTwitter, FiGithub, FiMail } from 'react-icons/fi'
 import styles from './Navigation.module.css'
 import Scrollspy from 'react-scrollspy'
 import Headroom from 'react-headroom'
@@ -14,17 +14,17 @@ const items = [
 const social = [
   {
     href: 'https://twitter.com/beardcoder',
-    icon: <Twitter />,
+    icon: <FiTwitter />,
     title: 'twitter',
   },
   {
     href: 'https://github.com/beardcoder',
-    icon: <GitHub />,
+    icon: <FiGithub />,
     title: 'github',
   },
   {
     href: 'mailto:info@creativeworkspace.de',
-    icon: <Mail />,
+    icon: <FiMail />,
     title: 'mail',
   },
 ]

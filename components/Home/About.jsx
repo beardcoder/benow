@@ -1,6 +1,6 @@
 import UiTabs from '../Ui/Tabs'
 import styles from './About.module.css'
-import { Code } from 'react-feather'
+import { FiCode } from 'react-icons/fi'
 import Image from 'next/image'
 import { generate as uniqid } from 'shortid'
 
@@ -18,7 +18,7 @@ const tabs = [
           <ul className='w-1/3' key={uniqid()}>
             {skillSection.map((skill) => (
               <li key={uniqid()}>
-                <Code className='inline-block mr-2 stroke-1' /> {skill}
+                <FiCode className='inline-block mr-2 stroke-1' /> {skill}
               </li>
             ))}
           </ul>
