@@ -12,7 +12,7 @@
     "@octokit/rest": "^18.0.12",
     "@tailwindcss/typography": "^0.3.1",
     "classnames": "^2.2.6",
-    "contentful": "^8.1.1",
+    "contentful": "^8.1.4",
     "dayjs": "^1.9.7",
     "fontsource-poppins": "^3.1.5",
     "fontsource-ubuntu": "^3.1.5",
@@ -43,7 +43,7 @@
     "remark-rehype": "^8.0.0",
     "shortid": "^2.2.16",
     "unified": "^9.2.0",
-    "webpack": "^5.10.0"
+    "webpack": "^5.11.0"
   },
   "devDependencies": {
     "agent-base": "^6.0.2",
@@ -52,10 +52,10 @@
     "postcss": "^8.2.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.2"
   },
   "resolutions": {
-    "webpack": "^5.10.0",
+    "webpack": "^5.11.0",
     "react": "^17",
     "fuse.js": "^3.4"
   }
