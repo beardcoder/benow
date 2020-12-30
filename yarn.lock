@@ -95,12 +95,12 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@fontsource/poppins@^4.0.0":
+"@fontsource/poppins@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-4.0.1.tgz#c81d4b544b14dccc752d2e687d1e3ceec71779ca"
   integrity sha512-25MwQJYwm/EW+eEIZocQxMKrFcBZAGw0I6uv7qa5DiRZr71jZyZwjem60QUddEFrzSu433p8q9OXzyERXyCViw==
 
-"@fontsource/ubuntu@^4.0.0":
+"@fontsource/ubuntu@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@fontsource/ubuntu/-/ubuntu-4.0.1.tgz#16ea8caa356edad096d6473655dde4babe88854e"
   integrity sha512-oWXllIVi08s+/ci4FoNNFMsjhtBx8s9wsO3PRXmS9jKWfMOuKEdP6X0LvXIXKQ20JYHYSiqrcdsmC1dGkbVV7A==
@@ -340,9 +340,9 @@
     "@types/unist" "*"
 
 "@types/node@*", "@types/node@>= 8":
-  version "14.14.16"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.16.tgz#3cc351f8d48101deadfed4c9e4f116048d437b4b"
-  integrity sha512-naXYePhweTi+BMv11TgioE2/FXU4fSl29HAH1ffxVciNsH3rYXjNP2yM8wqmSm7jS20gM8TIklKiTen+1iVncw==
+  version "14.14.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.17.tgz#29fab92f3986c0e379968ad3c2043683d8020dbb"
+  integrity sha512-G0lD1/7qD60TJ/mZmhog76k7NcpLWkPVGgzkRy3CTlnFu4LUQh5v2Wa661z6vnXmD8EQrnALUyf0VRtrACYztw==
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.3"
@@ -1738,10 +1738,10 @@ fuse.js@^3.4:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.6.1.tgz#7de85fdd6e1b3377c23ce010892656385fd9b10c"
   integrity sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==
 
-fuse.js@^6.4.3:
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.4.3.tgz#aadd6ac34aab5b1d6e6c60462fcb4d1c3f53bb01"
-  integrity sha512-JNgngolukIrqwayWnvy6NLH63hmwKPhm63o0uyBg51jPD0j09IvAzlV1rTXfAsgxpghI7khAo6Mv+EmvjDWXig==
+fuse.js@^6.4.4:
+  version "6.4.4"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.4.4.tgz#68b92aad73f2a00980c34afaf5a727761c314c3b"
+  integrity sha512-tw9+6zGBerQG207qz4r9TJRA4xhVWiB/4UTA8cw8b2X5v7t94YbgxZ0/9ey9X7268D28HKHlWn10Q0s+kHe+xw==
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -3220,10 +3220,10 @@ postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.26, postcss@^7.0.
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-postcss@^8.1.6, postcss@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.1.tgz#eabc5557c4558059b9d9e5b15bce7ffa9089c2a8"
-  integrity sha512-RhsqOOAQzTgh1UB/IZdca7F9WDb7SUCR2Vnv1x7DbvuuggQIpoDwjK+q0rzoPffhYvWNKX5JSwS4so4K3UC6vA==
+postcss@^8.1.6, postcss@^8.2.1, postcss@^8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.2.2.tgz#60613b62297005084fd21024a68637798864fe26"
+  integrity sha512-HM1NDNWLgglJPQQMNwvLxgH2KcrKZklKLi/xXYIOaqQB57p/pDWEJNS83PVICYsn1Dg/9C26TiejNr422/ePaQ==
   dependencies:
     colorette "^1.2.1"
     nanoid "^3.1.20"

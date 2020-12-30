@@ -8,15 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/poppins": "^4.0.0",
-    "@fontsource/ubuntu": "^4.0.0",
+    "@fontsource/poppins": "^4.0.1",
+    "@fontsource/ubuntu": "^4.0.1",
     "@mapbox/rehype-prism": "^0.5.0",
     "@octokit/rest": "^18.0.12",
     "@tailwindcss/typography": "^0.3.1",
     "classnames": "^2.2.6",
     "contentful": "^8.1.5",
     "dayjs": "^1.9.8",
-    "fuse.js": "^6.4.3",
+    "fuse.js": "^6.4.4",
     "gray-matter": "^4.0.2",
     "hastscript": "^6.0.0",
     "next": "^10.0.4",
@@ -49,7 +49,7 @@
     "agent-base": "^6.0.2",
     "autoprefixer": "^10.1.0",
     "next-purgecss": "^4.0.0",
-    "postcss": "^8.2.1",
+    "postcss": "^8.2.2",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.2"
