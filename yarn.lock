@@ -95,15 +95,15 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@fontsource/poppins@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-4.0.1.tgz#c81d4b544b14dccc752d2e687d1e3ceec71779ca"
-  integrity sha512-25MwQJYwm/EW+eEIZocQxMKrFcBZAGw0I6uv7qa5DiRZr71jZyZwjem60QUddEFrzSu433p8q9OXzyERXyCViw==
+"@fontsource/poppins@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/poppins/-/poppins-4.1.0.tgz#dc250fd1865f92bc2406d38c8cdbc0018e9c0df1"
+  integrity sha512-SMvh6J28hegBXFc+oC4dBiFcwnT3NiNo+3s+rzEfHUDewk33TpnqWnf+Phg+bYCdIu77sMQJk2pGN2Q8iiUVjw==
 
-"@fontsource/ubuntu@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/ubuntu/-/ubuntu-4.0.1.tgz#16ea8caa356edad096d6473655dde4babe88854e"
-  integrity sha512-oWXllIVi08s+/ci4FoNNFMsjhtBx8s9wsO3PRXmS9jKWfMOuKEdP6X0LvXIXKQ20JYHYSiqrcdsmC1dGkbVV7A==
+"@fontsource/ubuntu@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/ubuntu/-/ubuntu-4.1.0.tgz#e56656d11bfe915b3b475cbe60719db26615d1d2"
+  integrity sha512-wwH+sY0IpV9ETVMSqIvmkW2LFXz1wIfwvOTSDpVDsukpb8/fnvnhjgTNRO15G5HNjmA+h45Yq0YUzWnieZ18LQ==
 
 "@fullhuman/postcss-purgecss@^3.0.0":
   version "3.1.3"
@@ -1124,10 +1124,10 @@ contentful-sdk-core@^6.5.0:
     fast-copy "^2.1.0"
     qs "^6.9.4"
 
-contentful@^8.1.5:
-  version "8.1.5"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-8.1.5.tgz#920f6cc8ee0603c93e627a8a6d4e594d9e1f3f2c"
-  integrity sha512-ZYAd18XR3HW17Uc9OjTHDMg+PyevMKHUB6D6olRc4z7OkzcpmslUzsHvUIl32SI2i8JDQUsZD+1B0e/QGM3iAg==
+contentful@^8.1.6:
+  version "8.1.6"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-8.1.6.tgz#cebfa67de46194f3807cad25f925b8672632dfc1"
+  integrity sha512-Tb4SOdAXrWbe7wVKEk0HjvJ0Rz1H2z3tV4UhfuAGcQq8K1g4xmPwm0w8g1mlrLE63Nd/fb92J2YTt5+ZGpcjsA==
   dependencies:
     axios "^0.21.0"
     contentful-resolve-response "^1.3.0"

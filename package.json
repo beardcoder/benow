@@ -8,13 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/poppins": "^4.0.1",
-    "@fontsource/ubuntu": "^4.0.1",
+    "@fontsource/poppins": "^4.1.0",
+    "@fontsource/ubuntu": "^4.1.0",
     "@mapbox/rehype-prism": "^0.5.0",
     "@octokit/rest": "^18.0.12",
     "@tailwindcss/typography": "^0.3.1",
     "classnames": "^2.2.6",
-    "contentful": "^8.1.5",
+    "contentful": "^8.1.6",
     "dayjs": "^1.9.8",
     "fuse.js": "^6.4.4",
     "gray-matter": "^4.0.2",
