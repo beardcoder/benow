@@ -1,10 +1,11 @@
 import styles from './Blog.module.css'
 import UiCard from '../Ui/Card'
 import Link from 'next/link'
+import { forwardRef } from 'react'
 
-export default function HomeBlog({ articles }) {
+export const HomeBlog = forwardRef(({ articles }, ref) => {
   return (
-    <section id='blog' className={styles.blog}>
+    <section ref={ref} id='blog' className={styles.blog}>
       <div className='container'>
         <header className={styles.header}>
           <h2 className={styles.title}>Blog</h2>
@@ -42,4 +43,6 @@ export default function HomeBlog({ articles }) {
       </div>
     </section>
   )
-}
+})
+
+export default HomeBlog

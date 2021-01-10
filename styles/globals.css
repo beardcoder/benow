@@ -77,10 +77,6 @@
   @apply inline-block mr-2;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

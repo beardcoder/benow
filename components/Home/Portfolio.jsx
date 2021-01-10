@@ -3,8 +3,9 @@ import { FiSearch, FiGithub } from 'react-icons/fi'
 import classnames from 'classnames'
 import UiCard from '../Ui/Card'
 import useFuse from 'react-use-fuse'
+import { forwardRef } from 'react'
 
-export default function HomePortfolio({ repos, gists }) {
+export const HomePortfolio = forwardRef(({ repos, gists }, ref) => {
   const options = {
     keys: ['description', 'id'],
   }
@@ -14,7 +15,7 @@ export default function HomePortfolio({ repos, gists }) {
   })
 
   return (
-    <section id='portfolio' className={classnames(styles.portfolio)}>
+    <section ref={ref} id='portfolio' className={classnames(styles.portfolio)}>
       <div className='container'>
         <header className={styles.header}>
           <h2 className={styles.title}>Meine Projekte auf Github</h2>
@@ -97,4 +98,6 @@ export default function HomePortfolio({ repos, gists }) {
       </div>
     </section>
   )
-}
+})
+
+export default HomePortfolio

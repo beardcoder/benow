@@ -1,7 +1,8 @@
 import styles from './Card.module.css'
 import classnames from 'classnames'
+import { forwardRef } from 'react'
 
-export default function UiCard({
+export const UiCard = forwardRef(({
   children,
   className,
   tagName,
@@ -9,7 +10,7 @@ export default function UiCard({
   innerClassName,
   contentClassName,
   ...props
-}) {
+}, ref) => {
   const CompTagName = tagName
   return (
     <CompTagName
@@ -19,6 +20,7 @@ export default function UiCard({
         tagName === 'a' ? styles.cardIsLink : undefined,
         className
       )}
+      ref={ref}
       {...props}
     >
       <div className={classnames(styles.cardInner, innerClassName)}>
@@ -28,4 +30,6 @@ export default function UiCard({
       </div>
     </CompTagName>
   )
-}
+})
+
+export default UiCard

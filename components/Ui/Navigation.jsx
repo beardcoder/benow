@@ -1,8 +1,9 @@
+import useScrollSpy from 'react-use-scrollspy';
 import { FiTwitter, FiGithub, FiMail } from 'react-icons/fi'
 import styles from './Navigation.module.css'
-import Scrollspy from 'react-scrollspy'
 import Headroom from 'react-headroom'
 import Link from 'next/link'
+import classnames from 'classnames'
 
 const items = [
   { href: '/#intro', name: 'Intro' },
@@ -29,25 +30,27 @@ const social = [
   },
 ]
 
-export default function UiNavigation() {
+export default function UiNavigation({sections}) {
+  const activeSection = useScrollSpy({
+    sectionElementRefs: sections, // Array of References to DOM elements
+    offsetPx: -90
+  });
+
   return (
     <Headroom disableInlineStyles>
       <div className={styles.navigation}>
         <div className='container flex'>
-          <Scrollspy
-            componentTag='nav'
-            items={['intro', 'about', 'blog', 'portfolio']}
-            currentClassName={styles.linkActive}
+          <nav
             className={styles.navbar + ' mx-auto md:ml-0'}
           >
-            {items.map(({ href, name }) => (
+            {items.map(({ href, name }, i) => (
               <Link key={`${href}${name}`} href={href} passHref>
-                <a key={`${href}${name}`} className={styles.link}>
+                <a key={`${href}${name}`} className={classnames(styles.link, activeSection === i ? styles.linkActive : null)}>
                   {name}
                 </a>
               </Link>
             ))}
-          </Scrollspy>
+          </nav>
           <nav className={styles.navbar}>
             <div className={styles.social}>
               {social.map(({ href, icon, title }) => (
