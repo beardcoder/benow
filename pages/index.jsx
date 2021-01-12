@@ -1,24 +1,15 @@
 import HomePortfolio from '@/components/Home/Portfolio'
 import HomeAbout from '@/components/Home/About'
 import HomeIntro from '@/components/Home/Intro'
+import UiNavigation from '@/components/Ui/Navigation'
 import styles from './Home.module.css'
 import { Octokit } from '@octokit/rest'
 import HomeBlog from '@/components/Home/Blog'
 import { getAllPosts } from '@/lib/api'
 import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/Global/Footer'
-import { useRef } from 'react'
-import dynamic from 'next/dynamic'
-const UiNavigation = dynamic(import('@/components/Ui/Navigation'), { ssr: false }) 
-
 
 export default function Home({ repos, gists, articles }) {
-  const sections = [
-    useRef(null),
-    useRef(null),
-    useRef(null),
-    useRef(null),
-  ]
   return (
     <div className={styles.container}>
       <NextSeo
@@ -32,13 +23,13 @@ export default function Home({ repos, gists, articles }) {
         }}
       />
       <header>
-        <UiNavigation sections={sections} />
+        <UiNavigation />
       </header>
       <main>
-        <HomeIntro ref={sections[0]} />
-        <HomeAbout ref={sections[1]}/>
-        <HomeBlog ref={sections[2]} articles={articles} />
-        <HomePortfolio ref={sections[3]} repos={repos} gists={gists} />
+        <HomeIntro />
+        <HomeAbout />
+        <HomeBlog articles={articles} />
+        <HomePortfolio repos={repos} gists={gists} />
       </main>
       <GlobalFooter />
     </div>
