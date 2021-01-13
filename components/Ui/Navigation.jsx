@@ -3,6 +3,7 @@ import styles from './Navigation.module.css'
 import Scrollspy from 'react-scrollspy'
 import Headroom from 'react-headroom'
 import Link from 'next/link'
+import UiNavigationItem from './NavigationItem'
 
 const items = [
   { href: '/#intro', name: 'Intro' },
@@ -35,17 +36,14 @@ export default function UiNavigation() {
       <div className={styles.navigation}>
         <div className='container flex'>
           <Scrollspy
+            offset={-100}
             componentTag='nav'
             items={['intro', 'about', 'blog', 'portfolio']}
             currentClassName={styles.linkActive}
             className={styles.navbar + ' mx-auto md:ml-0'}
           >
             {items.map(({ href, name }) => (
-              <Link key={`${href}${name}`} href={href} passHref>
-                <a key={`${href}${name}`} className={styles.link}>
-                  {name}
-                </a>
-              </Link>
+              <UiNavigationItem key={`${href}`} href={href} name={name}></UiNavigationItem>
             ))}
           </Scrollspy>
           <nav className={styles.navbar}>
