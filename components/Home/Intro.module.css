@@ -24,7 +24,9 @@
 }
 
 .titleHighlight {
-  @apply text-primary;
+  background: linear-gradient(145deg, #f81f01, #ee076e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .text {
