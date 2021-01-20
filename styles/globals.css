@@ -10,6 +10,8 @@
 @layer base {
   body {
     @apply bg-background text-baseWhite font-body;
+    scrollbar-width: thin;
+    scollbar-color: dark;
   }
 
   h1,
