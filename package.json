@@ -12,11 +12,11 @@
     "@fontsource/poppins": "^4.1.0",
     "@fontsource/ubuntu": "^4.1.0",
     "@mapbox/rehype-prism": "^0.5.0",
-    "@octokit/rest": "^18.0.12",
+    "@octokit/rest": "^18.0.14",
     "@tailwindcss/typography": "^0.4.0",
     "classnames": "^2.2.6",
     "contentful": "^8.1.7",
-    "dayjs": "^1.10.3",
+    "dayjs": "^1.10.4",
     "fuse.js": "^6.4.6",
     "gray-matter": "^4.0.2",
     "hastscript": "^6.0.0",
@@ -44,7 +44,7 @@
     "remark-rehype": "^8.0.0",
     "shortid": "^2.2.16",
     "unified": "^9.2.0",
-    "webpack": "^5.16.0"
+    "webpack": "^5.17.0"
   },
   "devDependencies": {
     "agent-base": "^6.0.2",
@@ -57,7 +57,7 @@
     "tailwindcss": "^2.0.2"
   },
   "resolutions": {
-    "webpack": "^5.16.0",
+    "webpack": "^5.17.0",
     "react": "^17",
     "fuse.js": "^3.4"
   }
