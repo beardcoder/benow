@@ -50,7 +50,7 @@
     "agent-base": "^6.0.2",
     "autoprefixer": "^10.2.3",
     "next-purgecss": "^4.0.0",
-    "next-sitemap": "^1.4.13",
+    "next-sitemap": "^1.4.15",
     "postcss": "^8.2.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
