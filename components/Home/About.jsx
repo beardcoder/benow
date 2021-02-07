@@ -27,6 +27,35 @@ const tabs = [
       </div>
     ),
   },
+  {
+    title: 'Projekte',
+    content: (
+      <div>
+        <ul className='ml-4 list-disc'>
+          <li>
+            <a
+              href='https://www.v-o-p.com'
+              rel='noopener'
+              target='_blank'
+              className='text-primary'
+            >
+              Link zum „Vision of pearls“ Projekt
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://bavaria-ipsum.vercel.app/'
+              rel='noopener'
+              target='_blank'
+              className='text-primary'
+            >
+              Link zum „bavaria-ipsum“ Projekt
+            </a>
+          </li>
+        </ul>
+      </div>
+    ),
+  },
 ]
 
 export const HomeAbout = forwardRef((_props, ref) => {

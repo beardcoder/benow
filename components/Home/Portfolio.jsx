@@ -48,7 +48,7 @@ export const HomePortfolio = forwardRef(({ repos, gists }, ref) => {
             </div>
           ))}
         </div>
-        <header className={classnames(styles.header, 'mt-20')}>
+        <header className={classnames(styles.header, 'mt-32')}>
           <h2 className={styles.title}>Snippets und Gists</h2>
           <p>
             Meine kleine Snippet Datenbank wird stetig erweitert und
