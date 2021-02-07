@@ -9,8 +9,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/poppins": "^4.1.0",
-    "@fontsource/ubuntu": "^4.1.0",
+    "@fontsource/poppins": "^4.2.0",
+    "@fontsource/ubuntu": "^4.2.0",
     "@mapbox/rehype-prism": "^0.5.0",
     "@octokit/rest": "^18.1.0",
     "@tailwindcss/typography": "^0.4.0",
@@ -27,7 +27,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-headroom": "^3.1.0",
-    "react-icons": "^4.1.0",
+    "react-icons": "^4.2.0",
     "react-scrollspy": "^3.4.3",
     "react-use-fuse": "^0.5.2",
     "rehype-autolink-headings": "^5.0.1",
@@ -44,20 +44,20 @@
     "remark-rehype": "^8.0.0",
     "shortid": "^2.2.16",
     "unified": "^9.2.0",
-    "webpack": "^5.20.2"
+    "webpack": "^5.21.2"
   },
   "devDependencies": {
     "agent-base": "^6.0.2",
     "autoprefixer": "^10.2.4",
     "next-purgecss": "^4.0.0",
     "next-sitemap": "^1.4.17",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.5",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.2"
   },
   "resolutions": {
-    "webpack": "^5.20.2",
+    "webpack": "^5.21.2",
     "react": "^17",
     "fuse.js": "^3.4"
   }

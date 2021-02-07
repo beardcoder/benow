@@ -17,11 +17,19 @@
   position: absolute;
 }
 
-.card:hover .cardInner {
+.card:focus {
+  outline: none;
+}
+
+.card:hover .cardInner,
+.card:focus .cardInner {
+  @apply transform-gpu;
+
   transform: translateY(-10px);
 }
 
-.card:hover .cardInner::before {
+.card:hover .cardInner::before,
+.card:focus .cardInner::before {
   opacity: 1;
 }
 

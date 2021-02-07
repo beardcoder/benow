@@ -15,17 +15,17 @@ const items = [
 const social = [
   {
     href: 'https://twitter.com/beardcoder',
-    icon: <FiTwitter />,
+    icon: <FiTwitter size="25" strokeWidth="1" />,
     title: 'twitter',
   },
   {
     href: 'https://github.com/beardcoder',
-    icon: <FiGithub />,
+    icon: <FiGithub size="25" strokeWidth="1" />,
     title: 'github',
   },
   {
-    href: 'mailto:info@creativeworkspace.de',
-    icon: <FiMail />,
+    href: 'mailto:markussom+creativeworkspace@gmail.com',
+    icon: <FiMail size="25" strokeWidth="1" />,
     title: 'mail',
   },
 ]

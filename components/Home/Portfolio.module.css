@@ -7,7 +7,7 @@
 }
 
 .title {
-  @apply text-3xl text-white font-bold mb-4;
+  @apply text-3xl text-white font-bold mb-4 mt-32;
 }
 
 @screen md {
@@ -20,7 +20,8 @@
   stroke-width: 1;
 }
 
-.card:hover .icon {
+.card:hover .icon,
+.card:focus .icon {
   @apply text-white !important;
 }
 

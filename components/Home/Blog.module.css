@@ -34,7 +34,8 @@
   z-index: 10 !important;
 }
 
-.article:hover .articleInner::before {
+.article:hover .articleInner::before,
+.article:focus .articleInner::before {
   opacity: 0.8;
 }
 
@@ -44,7 +45,8 @@
   z-index: -1;
 }
 
-.article:hover .articleImage {
+.article:hover .articleImage,
+.article:focus .articleImage {
   transform: scale(1.1);
 }
 

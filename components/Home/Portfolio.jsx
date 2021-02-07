@@ -1,5 +1,5 @@
 import styles from './Portfolio.module.css'
-import { FiSearch, FiGithub } from 'react-icons/fi'
+import { FiSearch, FiGithub, FiX } from 'react-icons/fi'
 import classnames from 'classnames'
 import UiCard from '../Ui/Card'
 import useFuse from 'react-use-fuse'
@@ -71,7 +71,8 @@ export const HomePortfolio = forwardRef(({ repos, gists }, ref) => {
             placeholder='Suche in den Snippets...'
           />
           <div className={styles.searchbarIcon}>
-            <FiSearch />
+            {term.length >= 1 && <FiX size="25" strokeWidth="1" className="transition-all duration-200 cursor-pointer hover:text-primary" onClick={reset} />}
+            {term.length == 0 && <FiSearch size="25" strokeWidth="1" />}
           </div>
         </div>
         <div className='flex flex-wrap justify-center -mx-4'>
