@@ -1,9 +1,12 @@
-import { FiTwitter, FiGithub, FiMail } from 'react-icons/fi'
 import styles from './Navigation.module.css'
 import Scrollspy from 'react-scrollspy'
 import Headroom from 'react-headroom'
 import Link from 'next/link'
 import UiNavigationItem from './NavigationItem'
+import UseAnimations from 'react-useanimations'
+import github from 'react-useanimations/lib/github'
+import twitter from 'react-useanimations/lib/twitter'
+import mail from 'react-useanimations/lib/mail'
 
 const items = [
   { href: '/#intro', name: 'Intro' },
@@ -15,17 +18,23 @@ const items = [
 const social = [
   {
     href: 'https://twitter.com/beardcoder',
-    icon: <FiTwitter size="25" strokeWidth="1" />,
+    icon: (
+      <UseAnimations size='30' strokeColor='#ffffff' loop animation={twitter} />
+    ),
     title: 'twitter',
   },
   {
     href: 'https://github.com/beardcoder',
-    icon: <FiGithub size="25" strokeWidth="1" />,
+    icon: (
+      <UseAnimations size='30' strokeColor='#ffffff' loop animation={github} />
+    ),
     title: 'github',
   },
   {
     href: 'mailto:markussom+creativeworkspace@gmail.com',
-    icon: <FiMail size="25" strokeWidth="1" />,
+    icon: (
+      <UseAnimations size='30' strokeColor='#ffffff' loop animation={mail} />
+    ),
     title: 'mail',
   },
 ]
@@ -43,7 +52,11 @@ export default function UiNavigation() {
             className={styles.navbar + ' mx-auto md:ml-0'}
           >
             {items.map(({ href, name }) => (
-              <UiNavigationItem key={`${href}`} href={href} name={name}></UiNavigationItem>
+              <UiNavigationItem
+                key={`${href}`}
+                href={href}
+                name={name}
+              ></UiNavigationItem>
             ))}
           </Scrollspy>
           <nav className={styles.navbar}>
@@ -52,7 +65,7 @@ export default function UiNavigation() {
                 <Link key={`${href}${title}`} href={href} passHref>
                   <a
                     target='_blank'
-                    rel='noreferrer'
+                    rel='noopener'
                     className={styles.social__link}
                     title={title}
                   >

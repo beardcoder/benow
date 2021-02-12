@@ -31,7 +31,7 @@ export const HomePortfolio = forwardRef(({ repos, gists }, ref) => {
                 className={classnames(styles.card, 'h-full')}
                 href={repo.url}
                 target='_blank'
-                rel='noreferrer'
+                rel='noopener'
               >
                 <FiGithub
                   size='40'
@@ -71,8 +71,15 @@ export const HomePortfolio = forwardRef(({ repos, gists }, ref) => {
             placeholder='Suche in den Snippets...'
           />
           <div className={styles.searchbarIcon}>
-            {term.length >= 1 && <FiX size="25" strokeWidth="1" className="transition-all duration-200 cursor-pointer hover:text-primary" onClick={reset} />}
-            {term.length == 0 && <FiSearch size="25" strokeWidth="1" />}
+            {term.length >= 1 && (
+              <FiX
+                size='25'
+                strokeWidth='1'
+                className='transition-all duration-200 cursor-pointer hover:text-primary'
+                onClick={reset}
+              />
+            )}
+            {term.length == 0 && <FiSearch size='25' strokeWidth='1' />}
           </div>
         </div>
         <div className='flex flex-wrap justify-center -mx-4'>
@@ -87,7 +94,7 @@ export const HomePortfolio = forwardRef(({ repos, gists }, ref) => {
                 className={classnames(styles.card, 'h-full')}
                 href={item.url ?? item.item.url}
                 target='_blank'
-                rel='noreferrer'
+                rel='noopener'
               >
                 <h4 className={classnames('text-base text-white')}>
                   {item.description ?? item.item.description}
