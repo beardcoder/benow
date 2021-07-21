@@ -69,8 +69,8 @@ export const HomeAbout = forwardRef((_props, ref) => {
             className='h-auto max-w-full'
             alt='Webdesigner Markus Sommer'
             title='Webdesigner Markus Sommer'
-            width={495}
-            height={785}
+            width={800}
+            height={1067}
           />
         </div>
         <div className='order-1 w-full max-w-2xl mb-10 md:w-2/3 md:mb-0 md:order-2 md:pl-10'>
