@@ -3,10 +3,10 @@ import classnames from 'classnames'
 
 export default function UiButton({
   children,
-  className,
+  className = '',
   tagName,
-  small,
-  block,
+  small = false,
+  block = false,
   ...props
 }) {
   const CompTagName = tagName ? tagName : 'a'

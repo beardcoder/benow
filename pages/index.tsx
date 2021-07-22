@@ -1,13 +1,14 @@
-import HomePortfolio from '@/components/Home/Portfolio'
-import HomeAbout from '@/components/Home/About'
-import HomeIntro from '@/components/Home/Intro'
-import UiNavigation from '@/components/Ui/Navigation'
+import HomePortfolio from '../components/Home/Portfolio'
+import HomeAbout from '../components/Home/About'
+import HomeIntro from '../components/Home/Intro'
+import UiNavigation from '../components/Ui/Navigation'
 import styles from './Home.module.css'
 import { Octokit } from '@octokit/rest'
-import HomeBlog from '@/components/Home/Blog'
-import { getAllPosts } from '@/lib/api'
+import HomeBlog from '../components/Home/Blog'
+import { getAllPosts } from '../lib/api'
 import { NextSeo } from 'next-seo'
-import GlobalFooter from '@/components/Global/Footer'
+import GlobalFooter from '../components/Global/Footer'
+import { GetStaticProps } from 'next'
 
 export default function Home({ repos, gists, articles }) {
   return (
@@ -36,7 +37,7 @@ export default function Home({ repos, gists, articles }) {
   )
 }
 
-export const getStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const octokit = new Octokit({
     auth: '24b695afae0050c1e79c0420906936c9c25c7c51',
     userAgent: 'creativeworkspace',

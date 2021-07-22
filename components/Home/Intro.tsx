@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import { forwardRef } from 'react'
 import styles from './Intro.module.css'
 
-export const HomeIntro = forwardRef((_props, ref) => {
+export function HomeIntro() {
   return (
-    <section ref={ref} id='intro' className={styles.intro}>
+    <section id='intro' className={styles.intro}>
       <div className={styles.imageContainer}>
         <Image
           src='/content/images/header.jpg'
@@ -29,6 +28,6 @@ export const HomeIntro = forwardRef((_props, ref) => {
       </div>
     </section>
   )
-})
+}
 
 export default HomeIntro

@@ -1,16 +1,20 @@
-import BlogIntro from '@/components/Blog/Intro'
-import UiNavigation from '@/components/Ui/Navigation'
-import { getAllPosts, getPostBySlug } from '@/lib/api'
-import markdownToHtml from '@/lib/markdownToHtml'
+import BlogIntro from '../../components/Blog/Intro'
+import UiNavigation from '../../components/Ui/Navigation'
+import { getAllPosts, getPostBySlug } from '../../lib/api'
+import ReactMarkdown from 'react-markdown'
 import 'prism-themes/themes/prism-a11y-dark.css'
 import styles from './Article.module.css'
 import classnames from 'classnames'
 import { NextSeo, BlogJsonLd } from 'next-seo'
 import Link from 'next/link'
-import GlobalFooter from '@/components/Global/Footer'
-import UiButton from '@/components/Ui/Button'
+import GlobalFooter from '../../components/Global/Footer'
+import UiButton from '../../components/Ui/Button'
 import { FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi'
 import { useState } from 'react'
+import { IPostFields } from '@/@types/generated/contentful'
+import links from 'remark-inline-links'
+import link from 'rehype-autolink-headings'
+import rehypePrism from '@mapbox/rehype-prism'
 
 export default function BlogSlug({
   headline,
@@ -21,7 +25,7 @@ export default function BlogSlug({
   author,
   date,
   type,
-}) {
+}: IPostFields) {
   const [darkMode, setDarkMode] = useState(false)
   return (
     <>
@@ -33,7 +37,7 @@ export default function BlogSlug({
       <BlogJsonLd
         url={`https://www.creativeworkspace.de/blog/${slug}`}
         title={headline}
-        images={[image]}
+        images={[image.fields.file.url]}
         datePublished={date}
         dateModified={date}
         authorName='Markus Sommer'
@@ -45,7 +49,7 @@ export default function BlogSlug({
       <BlogIntro
         title={headline}
         image={`${image.fields.file.url}?w=2560&h=600&fit=thumb`}
-        date={date}
+        createdAt={date}
         author={author}
         type={type}
       />
@@ -62,8 +66,15 @@ export default function BlogSlug({
               darkMode ? 'prose-dark' : undefined,
               styles.articleInner
             )}
-            dangerouslySetInnerHTML={{ __html: articleBody }}
-          ></div>
+          >
+            <ReactMarkdown
+              linkTarget='_target'
+              rehypePlugins={[links, link, rehypePrism]}
+            >
+              {articleBody}
+            </ReactMarkdown>
+          </div>
+
           <div className='flex flex-col order-1 w-full mb-5 text-center md:sticky md:top-24 lg:order-2 lg:w-auto'>
             <UiButton
               className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
@@ -115,7 +126,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const post = (await getPostBySlug(params.slug)).fields
-  post.articleBody = await markdownToHtml(post.articleBody || '')
 
   return {
     props: {

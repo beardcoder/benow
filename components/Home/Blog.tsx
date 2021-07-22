@@ -1,15 +1,14 @@
 import styles from './Blog.module.css'
 import UiCard from '../Ui/Card'
 import Link from 'next/link'
-import { forwardRef } from 'react'
+import { IPostFields } from '@/@types/generated/contentful'
 
-export const HomeBlog = forwardRef(({ articles }, ref) => {
+export default function HomeBlog({ articles }: { articles: IPostFields[] }) {
   return (
-    <section ref={ref} id='blog' className={styles.blog}>
+    <section id='blog' className={styles.blog}>
       <div className='container'>
         <header className={styles.header}>
           <h2 className={styles.title}>Blog</h2>
-          {/* <p className={styles.text}>TODO: Text Schreiben</p> */}
         </header>
         <div className='flex flex-wrap justify-center -mx-4'>
           {articles
@@ -43,6 +42,4 @@ export const HomeBlog = forwardRef(({ articles }, ref) => {
       </div>
     </section>
   )
-})
-
-export default HomeBlog
+}

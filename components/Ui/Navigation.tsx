@@ -19,21 +19,21 @@ const social = [
   {
     href: 'https://twitter.com/beardcoder',
     icon: (
-      <UseAnimations size='30' strokeColor='#ffffff' loop animation={twitter} />
+      <UseAnimations size={30} strokeColor='#ffffff' loop animation={twitter} />
     ),
     title: 'twitter',
   },
   {
     href: 'https://github.com/beardcoder',
     icon: (
-      <UseAnimations size='30' strokeColor='#ffffff' loop animation={github} />
+      <UseAnimations size={30} strokeColor='#ffffff' loop animation={github} />
     ),
     title: 'github',
   },
   {
     href: 'mailto:markussom+creativeworkspace@gmail.com',
     icon: (
-      <UseAnimations size='30' strokeColor='#ffffff' loop animation={mail} />
+      <UseAnimations size={30} strokeColor='#ffffff' loop animation={mail} />
     ),
     title: 'mail',
   },

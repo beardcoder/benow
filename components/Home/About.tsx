@@ -3,7 +3,6 @@ import styles from './About.module.css'
 import { FiCode } from 'react-icons/fi'
 import Image from 'next/image'
 import { generate as uniqid } from 'shortid'
-import { forwardRef } from 'react'
 
 const skills = [
   ['HTML', 'CSS', 'JavaScript', 'React (Next.js)', 'Vue.js (Nuxt)'],
@@ -58,9 +57,9 @@ const tabs = [
   },
 ]
 
-export const HomeAbout = forwardRef((_props, ref) => {
+export default function HomeAbout() {
   return (
-    <section ref={ref} id='about' className={styles.about}>
+    <section id='about' className={styles.about}>
       <div className='container flex flex-col md:flex-row'>
         <div className='order-2 w-full md:w-1/3 md:order-1 md:pr-10'>
           <Image
@@ -89,6 +88,4 @@ export const HomeAbout = forwardRef((_props, ref) => {
       </div>
     </section>
   )
-})
-
-export default HomeAbout
+}
