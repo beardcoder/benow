@@ -32,9 +32,10 @@
     "react-scrollspy": "^3.4.3",
     "react-use-fuse": "^0.5.2",
     "react-useanimations": "^2.0.6",
-    "rehype-autolink-headings": "^6.0.0",
-    "remark-inline-links": "^6.0.0",
-    "shortid": "^2.2.16"
+    "rehype-autolink-headings": "^5.0.0",
+    "remark-inline-links": "^5.0.0",
+    "shortid": "^2.2.16",
+    "webpack": "^5.46.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.15",

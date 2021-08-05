@@ -12,7 +12,7 @@ import UiButton from '../../components/Ui/Button'
 import { FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi'
 import { useState } from 'react'
 import { IPostFields } from '@/@types/generated/contentful'
-import links from 'remark-inline-links'
+import remarkInlineLinks from 'remark-inline-links'
 import link from 'rehype-autolink-headings'
 import rehypePrism from '@mapbox/rehype-prism'
 
@@ -69,7 +69,7 @@ export default function BlogSlug({
           >
             <ReactMarkdown
               linkTarget='_target'
-              rehypePlugins={[links, link, rehypePrism]}
+              rehypePlugins={[remarkInlineLinks, link, rehypePrism]}
             >
               {articleBody}
             </ReactMarkdown>
