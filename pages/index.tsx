@@ -39,7 +39,7 @@ export default function Home({ repos, gists, articles }) {
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const octokit = new Octokit({
-    auth: '24b695afae0050c1e79c0420906936c9c25c7c51',
+    auth: process.env.GITHUB_ACCESS_TOKEN,
     userAgent: 'creativeworkspace',
   })
 
