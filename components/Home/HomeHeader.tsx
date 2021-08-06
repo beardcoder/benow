@@ -1,43 +1,48 @@
-import Image from "next/image";
-import { FunctionComponent } from "react";
-import { UiButton } from "../Ui/Button/UiButton";
+import Image from 'next/image'
+import { FunctionComponent } from 'react'
+import { UiButton } from '../Ui/Button/UiButton'
 
-type Props = {};
+type Props = {
+  id: string
+}
 
-export const HomeHeader: FunctionComponent<Props> = (): JSX.Element => {
+export const HomeHeader: FunctionComponent<Props> = ({ id }): JSX.Element => {
   return (
-    <header className="relative flex h-screen overflow-hidden min-h-240">
+    <header
+      className='relative flex h-screen overflow-hidden lg:min-h-240'
+      id={id}
+    >
       <Image
-        src="/assets/header.jpg"
-        layout="fill"
-        objectFit="cover"
-        alt="Header image"
-        className="z-0"
+        src='/assets/header.jpg'
+        layout='fill'
+        objectFit='cover'
+        alt='Header image'
+        className='z-0'
       ></Image>
-      <div className="absolute inset-0 z-0 bg-black bg-opacity-50"></div>
-      <div className="container relative z-10 flex flex-col mx-auto mt-40">
-        <p className="text-2xl text-white uppercase text-opacity-70">
+      <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
+      <div className='container relative z-10 flex flex-col px-5 mx-auto mt-40 md:px-0'>
+        <p className='text-lg text-white uppercase md:text-xl lg:text-2xl text-opacity-70'>
           Innovation, Inspiration, Technik und Leidenschaft
         </p>
-        <h1 className="font-bold text-white text-9xl">
+        <h1 className='text-4xl font-bold text-white md:text-6xl lg:text-9xl'>
           Webentwickler
           <br />
-          Frontend Artist
+          Frontend <span className='text-primary'>Artist</span>
           <br />
           Designer
         </h1>
-        <div className="mt-8">
+        <div className='mt-8'>
           <UiButton
-            className="text-xl text-white"
-            href="mailto:markussom@gmail.com"
+            className='text-white md:text-xl'
+            href='mailto:markussom@gmail.com'
           >
             Kontakt aufnehmen
           </UiButton>
         </div>
       </div>
-      <div className="absolute w-full h-48 transform scale-110 bg-white -bottom-10 -rotate-3"></div>
+      <div className='absolute w-full transform scale-110 bg-white h-28 lg:h-48 -bottom-10 -rotate-3'></div>
     </header>
-  );
-};
+  )
+}
 
-export default HomeHeader;
+export default HomeHeader
