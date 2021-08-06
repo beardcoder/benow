@@ -6,6 +6,10 @@ module.exports = {
       minHeight: {
         '240': '60rem',
       },
+      rotate: {
+        4: '4deg',
+        '-4': '-4deg'
+      },
       colors: {
         background: '#121212',
         baseWhite: 'rgba(255, 255, 255, 0.85)',

@@ -28,9 +28,9 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
   const [emblaRef] = useEmblaCarousel()
   return (
     <section className='relative overflow-hidden bg-gray-800 py-72' id={id}>
-      <div className='absolute w-full h-48 transform scale-110 bg-white -top-10 rotate-3'></div>
-      <div className='container mx-auto text-white'>
-        <h2 className='text-2xl font-bold text-center text-white md:text-5xl mb-14'>
+      <div className='absolute w-full h-48 transform scale-110 bg-white -top-20 rotate-4'></div>
+      <div className='container px-5 mx-auto text-white md:px-0'>
+        <h2 className='text-4xl font-bold text-white md:text-center md:text-5xl mb-14'>
           Meine Projekte
         </h2>
         <div className={styles.embla} ref={emblaRef}>
@@ -39,11 +39,11 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
               <div key={i} className={styles.embla__slide}>
                 <a
                   href={project.link}
-                  className='block mb-5 text-xl font-bold text-center uppercase md:text-2xl text-primary'
+                  className='block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl text-primary'
                 >
                   {project.name}
                 </a>
-                <div className='text-center'>
+                <div className='md:text-center'>
                   {project.tech.map((ele, y) => (
                     <div
                       key={y}
@@ -58,7 +58,7 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className='absolute w-full h-48 transform scale-110 bg-white -bottom-10 rotate-3'></div>
+      <div className='absolute w-full h-48 transform scale-110 bg-white -bottom-20 rotate-4'></div>
     </section>
   )
 }
