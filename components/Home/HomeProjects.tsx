@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react'
 import { useEmblaCarousel } from 'embla-carousel/react'
 import styles from './HomeProjects.module.css'
+import UiTag from '../Ui/Tag/UiTag'
 
 type Props = {
   id: string
@@ -27,12 +28,30 @@ const projects = [
 export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
   const [emblaRef] = useEmblaCarousel()
   return (
-    <section className='relative overflow-hidden bg-gray-800 py-72' id={id}>
-      <div className='absolute w-full h-48 transform scale-110 bg-white -top-20 rotate-4'></div>
-      <div className='container px-5 mx-auto text-white md:px-0'>
-        <h2 className='text-4xl font-bold text-white md:text-center md:text-5xl mb-14'>
-          Meine Projekte
-        </h2>
+    <section className='relative py-32 overflow-hidden bg-gray-800' id={id}>
+      <div className='absolute w-full transform scale-110 bg-white h-28 lg:h-48 -top-20 rotate-4'></div>
+      <div className='container px-5 py-20 mx-auto text-white md:px-0'>
+        <div className='flex mb-20'>
+          <div className='w-1/2 mr-7'>
+            <div className='mb-4 text-4xl font-bold text-right text-white md:text-5xl'>
+              100%
+            </div>
+            <p className='max-w-xl ml-auto text-right'>
+              Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
+              boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
+              Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
+              allerweil no gor Aasgem waar I Wia scho wea God Bia Jodler Luja
+              graudwiggal ausgähd Hemad waar.
+            </p>
+          </div>
+          <div className='w-1/2'>
+            <h2 className='text-4xl font-bold text-white md:text-5xl mb-14'>
+              Projekte <br />
+              „Made in Bavaria“
+            </h2>
+          </div>
+        </div>
+
         <div className={styles.embla} ref={emblaRef}>
           <div className={styles.embla__container}>
             {projects.map((project, i) => (
@@ -45,12 +64,9 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
                 </a>
                 <div className='md:text-center'>
                   {project.tech.map((ele, y) => (
-                    <div
-                      key={y}
-                      className='inline-block px-5 py-1 mb-4 mr-4 text-black bg-white rounded-full'
-                    >
+                    <UiTag light key={y}>
                       {ele}
-                    </div>
+                    </UiTag>
                   ))}
                 </div>
               </div>
@@ -58,7 +74,7 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className='absolute w-full h-48 transform scale-110 bg-white -bottom-20 rotate-4'></div>
+      <div className='absolute w-full transform scale-110 bg-white h-28 lg:h-48 -bottom-20 rotate-4'></div>
     </section>
   )
 }

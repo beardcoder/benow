@@ -9,7 +9,7 @@ type Props = {
 export const HomePersonal: FunctionComponent<Props> = ({ id }): JSX.Element => {
   return (
     <section
-      className='container relative px-5 mx-auto overflow-hidden md:flex'
+      className='container relative px-5 pt-3 mx-auto overflow-hidden md:flex'
       id={id}
     >
       <div className='w-full mr-20 md:w-3/12'>
@@ -21,12 +21,12 @@ export const HomePersonal: FunctionComponent<Props> = ({ id }): JSX.Element => {
           className='rounded-full'
         ></Image>
       </div>
-      <div className='w-full my-auto mt-10 md:w-9/12 md:mt-0'>
+      <div className='w-full my-auto mt-10 md:w-9/12 md:mt-auto'>
         <div className='relative z-10 flex flex-col mx-auto'>
           <h2 className='mb-5 text-4xl font-bold md:text-5xl'>
             Über <span className='text-primary'>Markus Sommer</span>
           </h2>
-          <p className='text-lg text-opacity-70'>
+          <p className='max-w-3xl text-lg text-opacity-70'>
             Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung
             (User Experience) gerichtet. Brauchst du Hilfe z. B. um deine
             Website in neuem Glanz erstrahlen zu lassen, Moderne Web

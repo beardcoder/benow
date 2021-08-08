@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { FunctionComponent } from 'react'
 import { IPost, IPostFields } from '../../@types/generated/contentful'
 import { UiButton } from '../Ui/Button/UiButton'
+import UiTag from '../Ui/Tag/UiTag'
 
 type Props = {
   id: string
@@ -17,25 +19,39 @@ export const HomeBlog: FunctionComponent<Props> = ({
       <h2 className='mb-5 text-4xl font-bold md:text-5xl'>Blog</h2>
       <div className='flex flex-wrap -mx-8'>
         {posts.map(({ image, headline, type, slug }, i) => (
-          <div key={i} className='w-1/4 p-8'>
-            <div className='shadow-xl'>
-              <Image
-                src={`https:${image?.fields.file.url}?w=480&h=280&fit=fill`}
-                width='480'
-                height='280'
-                alt='adf'
-              />
+          <div key={i} className='w-full p-8 md:w-1/2 lg:w-1/4'>
+            <Link href={`/blog/${slug}`}>
+              <a className='flex transition-shadow duration-200 shadow-xl hover:shadow-2xl md:block'>
+                <div className='hidden md:mr-0 md:block'>
+                  <Image
+                    src={`https:${image?.fields.file.url}?w=480&h=280&fit=fill`}
+                    width='480'
+                    height='280'
+                    className=''
+                    alt={headline}
+                  />
+                </div>
+                <div className='mr-5 md:hidden'>
+                  <div className='w-44'>
+                    <Image
+                      src={`https:${image?.fields.file.url}?w=300&h=400&fit=fill`}
+                      width='300'
+                      height='400'
+                      layout='responsive'
+                      className='md:hidden'
+                      alt={headline}
+                    />
+                  </div>
+                </div>
 
-              <div className='p-4'>
-                <h3 className='mb-4 text-xl font-bold'>{headline}</h3>
-                <div className='inline-block px-5 py-1 mb-4 mr-4 text-white bg-black rounded-full'>
-                  {type}
+                <div className='p-4'>
+                  <UiTag>{type}</UiTag>
+                  <h3 className='mb-4 text-lg font-bold md:text-xl'>
+                    {headline}
+                  </h3>
                 </div>
-                <div>
-                  <UiButton href={`/blog/${slug}`}>Artikel Lesen</UiButton>
-                </div>
-              </div>
-            </div>
+              </a>
+            </Link>
           </div>
         ))}
       </div>
