@@ -28,15 +28,15 @@ const projects = [
 export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
   const [emblaRef] = useEmblaCarousel()
   return (
-    <section className='relative py-32 overflow-hidden bg-gray-800' id={id}>
+    <section className='relative py-32 bg-gray-800' id={id}>
       <div className='absolute w-full transform scale-110 bg-white h-28 lg:h-48 -top-20 rotate-4'></div>
       <div className='container px-5 py-20 mx-auto text-white md:px-0'>
-        <div className='flex mb-20'>
-          <div className='w-1/2 mr-7'>
-            <div className='mb-4 text-4xl font-bold text-right text-white md:text-5xl'>
+        <div className='flex flex-col mb-20 md:flex-row'>
+          <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
+            <div className='hidden mb-4 text-4xl font-bold text-right text-white md:text-5xl md:block'>
               100%
             </div>
-            <p className='max-w-xl ml-auto text-right'>
+            <p className='max-w-xl ml-auto md:text-right'>
               Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
               boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
               Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
@@ -44,8 +44,8 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
               graudwiggal ausgähd Hemad waar.
             </p>
           </div>
-          <div className='w-1/2'>
-            <h2 className='text-4xl font-bold text-white md:text-5xl mb-14'>
+          <div className='order-1 w-full md:order-2 md:w-1/2'>
+            <h2 className='mb-8 text-4xl font-bold text-white md:text-5xl md:mb-14'>
               Projekte <br />
               „Made in Bavaria“
             </h2>

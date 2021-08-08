@@ -9,7 +9,7 @@ type Props = {
 export const HomePersonal: FunctionComponent<Props> = ({ id }): JSX.Element => {
   return (
     <section
-      className='container relative px-5 pt-3 mx-auto overflow-hidden md:flex'
+      className='container relative z-30 px-5 pt-3 mx-auto md:flex'
       id={id}
     >
       <div className='w-full mr-20 md:w-3/12'>

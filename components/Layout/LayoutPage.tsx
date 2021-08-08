@@ -7,10 +7,10 @@ export const LayoutPage: FunctionComponent<Props> = ({
   children,
 }): JSX.Element => {
   return (
-    <>
+    <div className='relative w-full overflow-x-hidden'>
       <UiMenu />
       {children}
-    </>
+    </div>
   )
 }
 
