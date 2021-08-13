@@ -3,9 +3,28 @@ import { FunctionComponent } from 'react'
 import Link from 'next/link'
 import { useMenu } from '../../../hooks/useApp'
 import { UiMenuButton } from './UiMenuButton'
-import Router from 'next/router'
+import { UiMenuLink } from './UiMenuLink/UiMenuLink'
 
 type Props = {}
+
+const nav = [
+  {
+    title: 'Intro',
+    id: 'intro',
+  },
+  {
+    title: 'Über mich',
+    id: 'me',
+  },
+  {
+    title: 'Projekte',
+    id: 'projects',
+  },
+  {
+    title: 'Blog',
+    id: 'blog',
+  },
+]
 
 export const UiMenu: FunctionComponent<Props> = (): JSX.Element => {
   const { open, toggleOpen } = useMenu(false)
@@ -19,14 +38,9 @@ export const UiMenu: FunctionComponent<Props> = (): JSX.Element => {
         )}
       >
         <nav className='mx-auto my-auto text-center'>
-          <Link href='/#intro'>
-            <a
-              onClick={() => toggleOpen(false)}
-              className='text-4xl font-bold text-white uppercase'
-            >
-              Intro
-            </a>
-          </Link>
+          {nav.map((link, i) => (
+            <UiMenuLink key={i} link={link} toggleOpen={toggleOpen} />
+          ))}
         </nav>
       </div>
     </div>

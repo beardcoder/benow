@@ -1,3 +1,7 @@
+import '@fontsource/oswald/700.css'
+import '@fontsource/roboto'
+import '@fontsource/roboto/700.css'
+
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 

@@ -23,7 +23,7 @@ export default function Home({ posts }: Props) {
       />
       <HomeHeader id='intro' />
       <main>
-        <HomePersonal id='personal' />
+        <HomePersonal id='me' />
         <HomeProjects id='projects' />
         <HomeBlog id='blog' posts={posts} />
       </main>
