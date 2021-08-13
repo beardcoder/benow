@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { FunctionComponent } from 'react'
-import { UiButton } from '../Ui/Button/UiButton'
 
 type Props = {
   id: string

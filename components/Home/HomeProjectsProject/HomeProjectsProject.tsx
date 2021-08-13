@@ -2,7 +2,7 @@ import IProject from '../../../@types/project'
 import UiTag from '../../Ui/Tag/UiTag'
 interface Props {
   project: IProject
-  className: string
+  className?: string
 }
 
 export const HomeProjectsProject = ({ project, className }: Props) => {

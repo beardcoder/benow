@@ -1,20 +1,25 @@
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import { Octokit } from '@octokit/rest'
-import HomeHeader from '../components/Home/HomeHeader'
-import { HomePersonal } from '../components/Home/HomePersonal'
-import HomeProjects from '../components/Home/HomeProjects'
-import LayoutPage from '../components/Layout/LayoutPage'
-import { getAllPosts } from '../lib/blog'
-import styles from '../styles/Home.module.css'
-import HomeBlog from '../components/Home/HomeBlog'
-import { IPost, IPostFields } from '../@types/generated/contentful'
+import HomeHeader from '@/components/Home/HomeHeader'
+import { HomePersonal } from '@/components/Home/HomePersonal'
+import HomeProjects from '@/components/Home/HomeProjects'
+import LayoutPage from '@/components/Layout/LayoutPage'
+import { getAllPosts } from '@/lib/blog'
+import HomeBlog from '@/components/Home/HomeBlog'
+import { IPostFields } from '@/@types/generated/contentful'
+import { IRepo } from '@/@types/repo'
+import { HomeRepos } from '@/components/Home/HomeRepos'
+import { HomeSnippets } from '@/components/Home/HomeSnippets'
+import { ISnippet } from '@/@types/snippet'
 
 type Props = {
   posts: IPostFields[]
+  repos: IRepo[]
+  snippets: ISnippet[]
 }
 
-export default function Home({ posts }: Props) {
+export default function Home({ posts, repos, snippets }: Props) {
   return (
     <LayoutPage>
       <NextSeo
@@ -26,6 +31,8 @@ export default function Home({ posts }: Props) {
         <HomePersonal id='me' />
         <HomeProjects id='projects' />
         <HomeBlog id='blog' posts={posts} />
+        <HomeRepos id='repos' repos={repos} />
+        <HomeSnippets id='snippets' snippets={snippets} />
       </main>
     </LayoutPage>
   )
@@ -37,7 +44,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     userAgent: 'creativeworkspace',
   })
 
-  const repos = await octokit.repos
+  const repos: IRepo[] = await octokit.repos
     .listForUser({
       username: 'beardcoder',
     })
@@ -54,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
         })
     )
 
-  const gists = await octokit.gists
+  const snippets = await octokit.gists
     .listForUser({
       username: 'beardcoder',
     })
@@ -73,7 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   return {
     props: {
       repos,
-      gists,
+      snippets,
       posts,
     },
   }

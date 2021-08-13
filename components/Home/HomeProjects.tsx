@@ -54,14 +54,10 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
           </div>
         </div>
 
-        <div className='w-full overflow-hidden' ref={emblaRef}>
-          <div className='flex'>
+        <div className='w-full' ref={emblaRef}>
+          <div className='grid grid-flow-col gap-6 auto-cols-4/5 md:auto-cols-1/3'>
             {projects.map((project, i) => (
-              <HomeProjectsProject
-                key={i}
-                project={project}
-                className='w-1/3'
-              />
+              <HomeProjectsProject key={i} project={project} />
             ))}
           </div>
         </div>

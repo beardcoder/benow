@@ -9,6 +9,12 @@ module.exports = {
       header: ['Oswald', ...defaultTheme.fontFamily.sans],
     },
     extend: {
+      gridAutoColumns: {
+        '1/3': '33.333%',
+        '1/2': '50%',
+        'full': '100%',
+        '4/5': '80%'
+      },
       minHeight: {
         '240': '60rem',
       },
