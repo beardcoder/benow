@@ -5,22 +5,22 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['Roboto', ...defaultTheme.fontFamily.sans],
-      header: ['Oswald', ...defaultTheme.fontFamily.sans],
+      sans: ['PT Sans', ...defaultTheme.fontFamily.sans],
+      header: ['Fira Sans', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       gridAutoColumns: {
         '1/3': '33.333%',
         '1/2': '50%',
-        'full': '100%',
-        '4/5': '80%'
+        full: '100%',
+        '4/5': '80%',
       },
       minHeight: {
-        '240': '60rem',
+        240: '60rem',
       },
       rotate: {
         4: '4deg',
-        '-4': '-4deg'
+        '-4': '-4deg',
       },
       colors: {
         background: '#121212',

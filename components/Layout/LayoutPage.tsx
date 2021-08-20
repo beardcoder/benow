@@ -10,6 +10,9 @@ export const LayoutPage: FunctionComponent<Props> = ({
     <div className='relative w-full overflow-x-hidden'>
       <UiMenu />
       {children}
+      <footer className='p-10 text-center text-white bg-gray-900'>
+        Markus Sommer since 1984, 100% Made with and in Bavaria
+      </footer>
     </div>
   )
 }

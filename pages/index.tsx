@@ -1,17 +1,18 @@
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { Octokit } from '@octokit/rest'
 import HomeHeader from '@/components/Home/HomeHeader'
 import { HomePersonal } from '@/components/Home/HomePersonal'
 import HomeProjects from '@/components/Home/HomeProjects'
 import LayoutPage from '@/components/Layout/LayoutPage'
-import { getAllPosts } from '@/lib/blog'
+import { getAllPosts } from '@/services/blog'
 import HomeBlog from '@/components/Home/HomeBlog'
 import { IPostFields } from '@/@types/generated/contentful'
 import { IRepo } from '@/@types/repo'
 import { HomeRepos } from '@/components/Home/HomeRepos'
 import { HomeSnippets } from '@/components/Home/HomeSnippets'
 import { ISnippet } from '@/@types/snippet'
+import getRepos from '@/services/repos'
+import getSnippets from '@/services/snippets'
 
 type Props = {
   posts: IPostFields[]
@@ -39,43 +40,9 @@ export default function Home({ posts, repos, snippets }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_ACCESS_TOKEN,
-    userAgent: 'creativeworkspace',
-  })
-
-  const repos: IRepo[] = await octokit.repos
-    .listForUser({
-      username: 'beardcoder',
-    })
-    .then(({ data }) =>
-      data
-        .filter((item) => !item.fork)
-        .map((item) => {
-          return {
-            id: item.id,
-            url: item.html_url,
-            name: item.name,
-            description: item.description,
-          }
-        })
-    )
-
-  const snippets = await octokit.gists
-    .listForUser({
-      username: 'beardcoder',
-    })
-    .then(({ data }: any) =>
-      data.map((item: any) => {
-        return {
-          id: item.id,
-          url: item.html_url,
-          description: item.description,
-        }
-      })
-    )
-
-  const posts = (await getAllPosts()).map((post) => post.fields)
+  const repos: IRepo[] = await getRepos()
+  const snippets: ISnippet[] = await getSnippets()
+  const posts: IPostFields[] = await getAllPosts()
 
   return {
     props: {

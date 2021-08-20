@@ -22,7 +22,7 @@ export const HomeHeader: FunctionComponent<Props> = ({ id }): JSX.Element => {
           Innovation, Inspiration, Technik und Leidenschaft
         </p>
         <h1>
-          Web&shy;entwickler
+          Web&shy;entwickler fi
           <br />
           Frontend <span className='text-primary'>Artist</span>
           <br />
@@ -37,7 +37,7 @@ export const HomeHeader: FunctionComponent<Props> = ({ id }): JSX.Element => {
           </UiButton>
         </div>
       </div>
-      <div className='absolute w-full transform scale-110 bg-white h-28 lg:h-48 -bottom-20 -rotate-4'></div>
+      <div className='absolute w-full transform scale-110 bg-gray-200 h-28 lg:h-48 -bottom-20 -rotate-4'></div>
     </header>
   )
 }
