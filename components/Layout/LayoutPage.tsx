@@ -11,7 +11,7 @@ export const LayoutPage: FunctionComponent<Props> = ({
       <UiMenu />
       {children}
       <footer className='p-10 text-center text-white bg-gray-900'>
-        Markus Sommer since 1984, 100% Made with and in Bavaria
+        Markus Sommer since 1984, 100% Made with ☕ and 🦄 in Bavaria
       </footer>
     </div>
   )
