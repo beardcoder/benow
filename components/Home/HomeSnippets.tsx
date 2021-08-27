@@ -34,7 +34,7 @@ export const HomeSnippets: FunctionComponent<Props> = ({
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
-          <h2>Snippets</h2>
+          <h2 className='text-gradient'>Snippets</h2>
           <div className='mb-8 h2 md:mb-14'>„Conscious experience“</div>
         </div>
       </div>

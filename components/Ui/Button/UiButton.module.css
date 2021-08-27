@@ -1,12 +1,18 @@
 .button {
-  @apply border border-solid border-primary px-6 py-3 uppercase transition-all duration-200 inline-flex justify-items-center;
+  @apply px-6 py-3 uppercase transition-all duration-200 inline-flex justify-items-center;
 
   transform: translateY(0);
 }
 
 .button:hover {
-  @apply bg-primary text-white;
+  @apply text-white;
 
+  background-image: linear-gradient(
+    92.05deg,
+    #bca1f7 12.09%,
+    #e577b4 42.58%,
+    #ff7170 84.96%
+  );
   transform: translateY(-5px);
 }
 

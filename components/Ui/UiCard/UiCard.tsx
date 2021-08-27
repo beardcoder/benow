@@ -22,7 +22,7 @@ export const UiCard: FunctionComponent<Props> = ({
       <Link href={href}>
         <a
           className={classNames(
-            'block h-full transition-shadow duration-200 shadow-xl hover:shadow-2xl rounded',
+            'block transition-shadow duration-200 shadow-xl hover:shadow-2xl rounded-lg overflow-hidden',
             className
           )}
           target={target}
@@ -36,7 +36,7 @@ export const UiCard: FunctionComponent<Props> = ({
   return (
     <div
       className={classNames(
-        'block h-full transition-shadow duration-200 shadow-x rounded',
+        'block transition-shadow duration-200 shadow-x rounded',
         className
       )}
       {...props}

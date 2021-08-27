@@ -23,7 +23,7 @@ export const HomePersonal: FunctionComponent<Props> = ({ id }): JSX.Element => {
       <div className='w-full my-auto mt-10 md:w-9/12 md:mt-auto'>
         <div className='relative z-10 flex flex-col mx-auto'>
           <h2 className='mb-5 text-4xl font-bold md:text-5xl'>
-            Über <span className='text-primary'>Markus Sommer</span>
+            Über <span className='text-gradient'>Markus Sommer</span>
           </h2>
           <p className='max-w-3xl text-lg text-opacity-70'>
             Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung

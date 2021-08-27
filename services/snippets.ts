@@ -7,13 +7,15 @@ export default function getSnippets(): Promise<ISnippet[]> {
       username: 'beardcoder',
     })
     .then(({ data }: any) =>
-      data.map((item: any) => {
-        return {
-          id: item.id,
-          url: item.html_url,
-          description: item.description,
-        }
-      })
+      data
+        .filter((item: any) => item.public)
+        .map((item: any) => {
+          return {
+            id: item.id,
+            url: item.html_url,
+            description: item.description,
+          }
+        })
     )
     .catch(() => [])
 }

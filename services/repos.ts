@@ -9,6 +9,7 @@ export default function getRepos(): Promise<IRepo[]> {
     .then(({ data }) =>
       data
         .filter((item) => !item.fork)
+        .filter((item) => !item.private)
         .map((item) => {
           return {
             id: item.id,

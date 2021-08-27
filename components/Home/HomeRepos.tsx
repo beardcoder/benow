@@ -33,7 +33,7 @@ export const HomeRepos: FunctionComponent<Props> = ({
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
-          <h2>Codeing</h2>
+          <h2 className='text-gradient'>Codeing</h2>
           <div className='mb-8 h2 md:mb-14'>„Made with love“</div>
         </div>
       </div>

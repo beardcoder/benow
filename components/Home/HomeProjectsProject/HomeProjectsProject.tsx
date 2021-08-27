@@ -10,7 +10,7 @@ export const HomeProjectsProject = ({ project, className }: Props) => {
     <div className={className}>
       <a
         href={project.link}
-        className='block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl text-primary'
+        className='block mb-5 text-xl font-bold text-white uppercase md:text-center md:text-2xl'
       >
         {project.name}
       </a>

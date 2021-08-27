@@ -10,7 +10,7 @@ export const UiMenuLink = ({ link, toggleOpen }: Props) => {
     <Link href={`/#${link.id}`}>
       <a
         onClick={() => toggleOpen(false)}
-        className='block py-5 text-4xl font-bold text-white uppercase'
+        className='block py-5 text-4xl font-bold text-white uppercase hover:text-gradient'
       >
         {link.title}
       </a>

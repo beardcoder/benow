@@ -33,11 +33,11 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
   })
   return (
     <section className='relative py-40 bg-gray-800' id={id}>
-      <div className='absolute w-full transform scale-110 bg-gray-200 h-28 lg:h-48 -top-20 rotate-4'></div>
+      <div className='absolute w-full transform scale-110 bg-gray-100 h-28 lg:h-48 -top-20 rotate-4'></div>
       <div className='container px-5 py-20 mx-auto text-white md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-            <div className='hidden mb-4 text-right text-white h2 md:text-5xl md:block'>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
               100%
             </div>
             <p className='max-w-xl ml-auto md:text-right'>
@@ -49,7 +49,7 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
-            <h2 className='text-4xl font-bold md:text-5xl'>Projekte</h2>
+            <h2 className='text-gradient'>Projekte</h2>
             <div className='mb-8 h2 md:mb-14'>„Made in Bavaria“</div>
           </div>
         </div>
@@ -62,7 +62,7 @@ export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className='absolute w-full transform scale-110 bg-gray-200 h-28 lg:h-48 -bottom-20 rotate-4'></div>
+      <div className='absolute w-full transform scale-110 bg-gray-100 h-28 lg:h-48 -bottom-20 rotate-4'></div>
     </section>
   )
 }
