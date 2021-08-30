@@ -1,13 +1,14 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   className?: string
   href?: string
   target?: string
   rel?: string
-}
+} & JSX.IntrinsicElements['div'] &
+  JSX.IntrinsicElements['a']
 
 export const UiCard: FunctionComponent<Props> = ({
   children,
@@ -27,6 +28,7 @@ export const UiCard: FunctionComponent<Props> = ({
           )}
           target={target}
           rel={rel}
+          {...props}
         >
           {children}
         </a>
@@ -36,7 +38,7 @@ export const UiCard: FunctionComponent<Props> = ({
   return (
     <div
       className={classNames(
-        'block transition-shadow duration-200 shadow-x rounded',
+        'block transition-shadow duration-200 shadow-xl rounded',
         className
       )}
       {...props}

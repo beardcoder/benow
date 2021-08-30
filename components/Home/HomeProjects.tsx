@@ -3,9 +3,7 @@ import { useEmblaCarousel } from 'embla-carousel/react'
 import IProject from '../../@types/project'
 import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
 
-type Props = {
-  id: string
-}
+type Props = {} & JSX.IntrinsicElements['section']
 
 const projects: IProject[] = [
   {
@@ -25,14 +23,16 @@ const projects: IProject[] = [
   },
 ]
 
-export const HomeProjects: FunctionComponent<Props> = ({ id }): JSX.Element => {
+export const HomeProjects: FunctionComponent<Props> = ({
+  ...props
+}): JSX.Element => {
   const [emblaRef] = useEmblaCarousel({
     align: 'start',
     slidesToScroll: 1,
     containScroll: 'keepSnaps',
   })
   return (
-    <section className='relative py-40 bg-gray-800' id={id}>
+    <section className='relative py-40 bg-gray-800' {...props}>
       <div className='absolute w-full transform scale-110 bg-gray-100 h-28 lg:h-48 -top-20 rotate-4'></div>
       <div className='container px-5 py-20 mx-auto text-white md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>

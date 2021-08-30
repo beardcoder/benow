@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import { FunctionComponent } from 'react'
 
-interface Props {
+type Props = {
   className?: string
-}
+} & JSX.IntrinsicElements['div']
 
 export const UiCardContent: FunctionComponent<Props> = ({
   children,

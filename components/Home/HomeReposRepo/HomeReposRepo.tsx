@@ -7,13 +7,15 @@ import { FiGithub } from 'react-icons/fi'
 
 type Props = {
   repo: IRepo
-}
+} & JSX.IntrinsicElements['div'] &
+  JSX.IntrinsicElements['a']
 
 export const HomeReposRepo: FunctionComponent<Props> = ({
   repo,
+  ...props
 }): JSX.Element => {
   return (
-    <UiCard href={`${repo.url}`} target='_blank' rel='noreferrer'>
+    <UiCard href={`${repo.url}`} target='_blank' rel='noreferrer' {...props}>
       <UiCardContent className='flex flex-row'>
         <div className='pt-1 pr-4'>
           <FiGithub

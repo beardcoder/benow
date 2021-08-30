@@ -1,17 +1,15 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { IPostFields } from '../../../@types/generated/contentful'
-import UiTag from '../../Ui/Tag/UiTag'
 import { UiCard } from '@/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/components/Ui/UiCard/UiCardContent'
 
-interface Props {
+type Props = {
   post: IPostFields
-}
+} & JSX.IntrinsicElements['div']
 
-export const HomeBlogPost = ({ post }: Props) => {
+export const HomeBlogPost = ({ post, ...props }: Props) => {
   return (
-    <div className='w-full p-4 md:w-1/2 lg:w-1/4'>
+    <div className='w-full p-4 md:w-1/2 lg:w-1/4' {...props}>
       <UiCard href={`/blog/${post.slug}`}>
         <Image
           src={`https:${post.image?.fields.file.url}?w=480&h=280&fit=fill`}

@@ -8,8 +8,7 @@ type Props = {
   small?: boolean
   block?: boolean
   [key: string]: any
-}
-
+} & JSX.IntrinsicElements['a']
 export const UiButton: FunctionComponent<Props> = ({
   children,
   className,
@@ -18,12 +17,8 @@ export const UiButton: FunctionComponent<Props> = ({
   block = false,
   ...props
 }): JSX.Element => {
-  const CompTagName = `${
-    tagName ? tagName : 'a'
-  }` as keyof JSX.IntrinsicElements
-
   return (
-    <CompTagName
+    <a
       className={classNames(
         styles.button,
         small ? styles.buttonSmall : undefined,
@@ -35,6 +30,6 @@ export const UiButton: FunctionComponent<Props> = ({
       {...props}
     >
       {children}
-    </CompTagName>
+    </a>
   )
 }

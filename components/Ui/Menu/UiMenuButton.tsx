@@ -6,17 +6,19 @@ type Props = {
   open: boolean | (() => void)
   toogle: () => void
   className: string
-}
+} & JSX.IntrinsicElements['button']
 
 export const UiMenuButton: FunctionComponent<Props> = ({
   open,
   toogle,
   className,
+  ...props
 }): JSX.Element => {
   return (
     <button
       className={classNames('w-12 mt-10 mr-10', className)}
       onClick={toogle}
+      {...props}
     >
       <div
         className={classNames(

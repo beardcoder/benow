@@ -3,14 +3,13 @@ import { useEmblaCarousel } from 'embla-carousel/react'
 import { FunctionComponent } from 'react'
 import { HomeReposRepo } from './HomeReposRepo/HomeReposRepo'
 
-interface Props {
-  id: string
+type Props = {
   repos: IRepo[]
-}
+} & JSX.IntrinsicElements['section']
 
 export const HomeRepos: FunctionComponent<Props> = ({
   repos,
-  id,
+  ...props
 }): JSX.Element => {
   const [emblaRef] = useEmblaCarousel({
     align: 'start',
@@ -18,7 +17,7 @@ export const HomeRepos: FunctionComponent<Props> = ({
     containScroll: 'keepSnaps',
   })
   return (
-    <section className='container relative px-8 py-20 mx-auto' id={id}>
+    <section className='container relative px-8 py-20 mx-auto' {...props}>
       <div className='flex flex-col mb-20 md:flex-row'>
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>

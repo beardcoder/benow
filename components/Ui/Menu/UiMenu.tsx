@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import { FunctionComponent } from 'react'
-import Link from 'next/link'
 import { useMenu } from '../../../hooks/useApp'
 import { UiMenuButton } from './UiMenuButton'
 import { UiMenuLink } from './UiMenuLink/UiMenuLink'

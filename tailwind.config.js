@@ -5,8 +5,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['PT Sans', ...defaultTheme.fontFamily.sans],
-      header: ['Fira Sans', ...defaultTheme.fontFamily.sans],
+      sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+      header: ["Work Sans", ...defaultTheme.fontFamily.sans],
     },
     extend: {
       gridAutoColumns: {

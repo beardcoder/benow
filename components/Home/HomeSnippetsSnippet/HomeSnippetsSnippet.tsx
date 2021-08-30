@@ -7,13 +7,15 @@ import { GoLightBulb } from 'react-icons/go'
 
 type Props = {
   snippet: ISnippet
-}
+} & JSX.IntrinsicElements['div'] &
+  JSX.IntrinsicElements['a']
 
 export const HomeSnippetsSnippet: FunctionComponent<Props> = ({
   snippet,
+  ...props
 }): JSX.Element => {
   return (
-    <UiCard href={`${snippet.url}`} target='_blank' rel='noreferrer'>
+    <UiCard href={`${snippet.url}`} target='_blank' rel='noreferrer' {...props}>
       <UiCardContent className='flex flex-row items-center'>
         <div className='pt-1 pr-4'>
           <GoLightBulb size='30' style={{ fill: 'url(#gradient)' }} />
