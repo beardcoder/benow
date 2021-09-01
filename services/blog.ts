@@ -12,10 +12,10 @@ export async function getAllPosts(): Promise<IPostFields[]> {
     .catch(() => [])
 }
 
-export async function getPostBySlug(slug: string): Promise<Entry<IPost>> {
+export async function getPostBySlug(slug: string): Promise<Entry<IPostFields>> {
   const entry = await client.getEntries<IPost>({
     content_type: 'post',
     'fields.slug[in]': slug,
   })
-  return entry.items[0]
+  return entry.items[0].fields
 }
