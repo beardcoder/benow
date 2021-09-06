@@ -11,7 +11,7 @@ import remarkInlineLinks from 'remark-inline-links'
 import link from 'rehype-autolink-headings'
 import rehypePrism from '@mapbox/rehype-prism'
 import { UiButton } from '@/components/Ui/Button/UiButton'
-import { GetStaticProps, GetStaticPropsContext } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import LayoutPage from '@/components/Layout/LayoutPage'
 import HomeHeader from '@/components/Home/HomeHeader'
 
@@ -101,7 +101,7 @@ export default function BlogSlug({
   )
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts: IPostFields[] = await getAllPosts()
 
   return {

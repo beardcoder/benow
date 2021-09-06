@@ -32,9 +32,8 @@ export const HomeProjects: FunctionComponent<Props> = ({
     containScroll: 'keepSnaps',
   })
   return (
-    <section className='relative py-40 bg-gray-800' {...props}>
-      <div className='absolute w-full transform scale-110 bg-gray-100 h-28 lg:h-48 -top-20 rotate-4'></div>
-      <div className='container px-5 py-20 mx-auto text-white md:px-0'>
+    <section className='relative py-36 bg-gray-800' {...props}>
+      <div className='container px-5 mx-auto text-white md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
             <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
@@ -62,7 +61,6 @@ export const HomeProjects: FunctionComponent<Props> = ({
           </div>
         </div>
       </div>
-      <div className='absolute w-full transform scale-110 bg-gray-100 h-28 lg:h-48 -bottom-20 rotate-4'></div>
     </section>
   )
 }

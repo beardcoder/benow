@@ -8,19 +8,19 @@ export const HomePersonal: FunctionComponent<Props> = ({
 }): JSX.Element => {
   return (
     <section
-      className='container relative z-30 px-5 py-20 mx-auto md:flex'
+      className='relative z-30 mx-auto md:flex max-w-screen-2xl'
       {...props}
     >
-      <div className='w-full mr-20 md:w-3/12'>
+      <div className='w-full mr-20 md:w-1/2'>
         <Image
           src='/assets/markus_sommer.jpg'
-          width='400'
-          height='400'
+          width='600'
+          height='600'
+          layout='responsive'
           alt='Markus Sommer'
-          className='rounded-full'
         ></Image>
       </div>
-      <div className='w-full my-auto mt-10 md:w-9/12 md:mt-auto'>
+      <div className='w-full px-5 my-auto mt-10 md:mt-auto md:w-1/2'>
         <div className='relative z-10 flex flex-col mx-auto'>
           <h2 className='mb-5 text-4xl font-bold md:text-5xl'>
             Hi, ich bin <span className='text-gradient'>Markus Sommer</span>

@@ -1,8 +1,5 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { FunctionComponent } from 'react'
 import { IPostFields } from '../../@types/generated/contentful'
-import UiTag from '../Ui/Tag/UiTag'
 import { HomeBlogPost } from './HomeBlogPost/HomeBlogPost'
 
 type Props = {
@@ -14,7 +11,7 @@ export const HomeBlog: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
   return (
-    <section className='container relative px-8 py-20 mx-auto' {...props}>
+    <section className='container relative px-8 mx-auto my-36' {...props}>
       <div className='flex flex-col mb-20 md:flex-row'>
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
