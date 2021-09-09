@@ -23,6 +23,14 @@ const nav = [
     title: 'Blog',
     id: 'blog',
   },
+  {
+    title: 'Repositories',
+    id: 'repos',
+  },
+  {
+    title: 'Snippets',
+    id: 'snippets',
+  },
 ]
 
 export const UiMenu: FunctionComponent<Props> = (): JSX.Element => {

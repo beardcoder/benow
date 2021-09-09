@@ -1,7 +1,9 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useRef } from 'react'
 import { useEmblaCarousel } from 'embla-carousel/react'
 import IProject from '../../@types/project'
 import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
+import { Typewriter } from 'react-simple-typewriter'
+import { useInViewport } from 'react-in-viewport'
 
 type Props = {} & JSX.IntrinsicElements['section']
 
@@ -31,8 +33,30 @@ export const HomeProjects: FunctionComponent<Props> = ({
     slidesToScroll: 1,
     containScroll: 'keepSnaps',
   })
+  const myRef = useRef(null)
+  const { inViewport, enterCount } = useInViewport(
+    myRef,
+    {},
+    { disconnectOnLeave: false },
+    props
+  )
+  let text
+  if (inViewport || enterCount >= 1) {
+    text = (
+      <>
+        <Typewriter
+          words={['„Made in Bavaria“']}
+          cursor
+          cursorStyle='_'
+          typeSpeed={100}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
+      </>
+    )
+  }
   return (
-    <section className='relative py-36 bg-gray-800' {...props}>
+    <section className='relative bg-gray-800 py-36' {...props}>
       <div className='container px-5 mx-auto text-white md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
@@ -48,8 +72,10 @@ export const HomeProjects: FunctionComponent<Props> = ({
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
-            <h2 className='text-gradient'>Projekte</h2>
-            <div className='mb-8 h2 md:mb-14'>„Made in Bavaria“</div>
+            <h2 className='text-gradient' ref={myRef}>
+              Projekte
+            </h2>
+            <div className='mb-8 h2 md:mb-14'>{text}</div>
           </div>
         </div>
 

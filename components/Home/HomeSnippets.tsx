@@ -1,8 +1,10 @@
 import { IRepo } from '@/@types/repo'
 import { ISnippet } from '@/@types/snippet'
 import { useEmblaCarousel } from 'embla-carousel/react'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useRef } from 'react'
 import { HomeSnippetsSnippet } from './HomeSnippetsSnippet/HomeSnippetsSnippet'
+import { Typewriter } from 'react-simple-typewriter'
+import { useInViewport } from 'react-in-viewport'
 
 type Props = {
   snippets: ISnippet[]
@@ -17,9 +19,31 @@ export const HomeSnippets: FunctionComponent<Props> = ({
     slidesToScroll: 1,
     containScroll: 'keepSnaps',
   })
+  const myRef = useRef(null)
+  const { inViewport, enterCount } = useInViewport(
+    myRef,
+    {},
+    { disconnectOnLeave: false },
+    props
+  )
+  let text
+  if (inViewport || enterCount >= 1) {
+    text = (
+      <>
+        <Typewriter
+          words={['„Conscious experience“']}
+          cursor
+          cursorStyle='_'
+          typeSpeed={100}
+          deleteSpeed={50}
+          delaySpeed={1000}
+        />
+      </>
+    )
+  }
   return (
     <section className='container relative px-8 py-20 mx-auto' {...props}>
-      <div className='flex flex-col mb-20 md:flex-row'>
+      <div className='flex flex-col mb-10 md:flex-row'>
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
             100%
@@ -34,7 +58,9 @@ export const HomeSnippets: FunctionComponent<Props> = ({
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
           <h2 className='text-gradient'>Snippets</h2>
-          <div className='mb-8 h2 md:mb-14'>„Conscious experience“</div>
+          <div className='mb-8 h2 md:mb-14' ref={myRef}>
+            {text}
+          </div>
         </div>
       </div>
       <div className='w-full' ref={emblaRef}>
