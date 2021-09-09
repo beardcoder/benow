@@ -14,6 +14,7 @@ import { UiButton } from '@/components/Ui/Button/UiButton'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import LayoutPage from '@/components/Layout/LayoutPage'
 import HomeHeader from '@/components/Home/HomeHeader'
+import BlogHeader from '@/components/Blog/BlogHeader'
 
 export default function BlogSlug({
   headline,
@@ -21,6 +22,8 @@ export default function BlogSlug({
   description,
   date,
   image,
+  author,
+  type,
   slug,
 }: IPostFields) {
   const [darkMode, setDarkMode] = useState(false)
@@ -44,7 +47,14 @@ export default function BlogSlug({
         authorName='Markus Sommer'
         description={description ?? ''}
       />
-      <HomeHeader id='intro' />
+      <BlogHeader
+        title={headline ?? ''}
+        image={`${image?.fields.file.url}?w=2560&h=600&fit=thumb`}
+        createdAt={date}
+        author={author}
+        type={type ?? ''}
+        id='intro'
+      />
       <article
         className={classnames(
           darkMode ? 'bg-background' : 'bg-gray-100',
