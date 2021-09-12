@@ -20,7 +20,7 @@
     "@tailwindcss/typography": "^0.4.1",
     "classnames": "^2.3.1",
     "contentful": "^8.5.7",
-    "dayjs": "^1.10.6",
+    "dayjs": "^1.10.7",
     "embla-carousel": "^4.5.3",
     "next": "11.1.2",
     "next-seo": "^4.26.0",
@@ -34,7 +34,7 @@
     "@mapbox/rehype-prism": "^0.7.0",
     "@types/react": "17.0.20",
     "autoprefixer": "^10.3.4",
-    "contentful-management": "^7.36.2",
+    "contentful-management": "^7.37.0",
     "contentful-typescript-codegen": "^3.2.2",
     "dotenv": "^10.0.0",
     "eslint": "7.32.0",
@@ -45,7 +45,7 @@
     "react-markdown": "^7.0.1",
     "rehype-autolink-headings": "^6.1.0",
     "remark-inline-links": "^6.0.0",
-    "tailwindcss": "^2.2.14",
-    "typescript": "4.4.2"
+    "tailwindcss": "^2.2.15",
+    "typescript": "4.4.3"
   }
 }

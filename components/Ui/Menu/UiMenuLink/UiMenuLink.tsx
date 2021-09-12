@@ -14,6 +14,14 @@ export const UiMenuLink = ({ link, toggleOpen, ...props }: Props) => {
         {...props}
       >
         {link.title}
+        <style jsx>{`
+          a {
+            font-size: 6vh;
+            line-height: 1;
+            padding-top: 3vh;
+            padding-bottom: 3vh;
+          }
+        `}</style>
       </a>
     </Link>
   )
