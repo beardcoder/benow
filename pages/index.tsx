@@ -1,87 +1,54 @@
-import HomePortfolio from '../components/Home/Portfolio'
-import HomeAbout from '../components/Home/About'
-import HomeIntro from '../components/Home/Intro'
-import UiNavigation from '../components/Ui/Navigation'
-import styles from './Home.module.css'
-import { Octokit } from '@octokit/rest'
-import HomeBlog from '../components/Home/Blog'
-import { getAllPosts } from '../lib/api'
-import { NextSeo } from 'next-seo'
-import GlobalFooter from '../components/Global/Footer'
 import { GetStaticProps } from 'next'
+import { NextSeo } from 'next-seo'
+import HomeHeader from '@/components/Home/HomeHeader'
+import { HomePersonal } from '@/components/Home/HomePersonal'
+import HomeProjects from '@/components/Home/HomeProjects'
+import LayoutPage from '@/components/Layout/LayoutPage'
+import { getAllPosts } from '@/services/blog'
+import HomeBlog from '@/components/Home/HomeBlog'
+import { IPostFields } from '@/@types/generated/contentful'
+import { IRepo } from '@/@types/repo'
+import { HomeRepos } from '@/components/Home/HomeRepos'
+import { HomeSnippets } from '@/components/Home/HomeSnippets'
+import { ISnippet } from '@/@types/snippet'
+import getRepos from '@/services/repos'
+import getSnippets from '@/services/snippets'
 
-export default function Home({ repos, gists, articles }) {
+type Props = {
+  posts: IPostFields[]
+  repos: IRepo[]
+  snippets: ISnippet[]
+}
+
+export default function Home({ posts, repos, snippets }: Props) {
   return (
-    <div className={styles.container}>
+    <LayoutPage>
       <NextSeo
-        title='Moderne Web Technologieren, Designer und Frontend Artist 🚀 — Markus Sommer'
+        title='Markus Sommer — Frontendartist & Webentwickler'
         description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
-        canonical='https://www.creativeworkspace.de/'
-        twitter={{
-          handle: '@beardcoder',
-          site: '@site',
-          cardType: 'summary_large_image',
-        }}
       />
-      <header>
-        <UiNavigation />
-      </header>
+      <HomeHeader id='intro' />
       <main>
-        <HomeIntro />
-        <HomeAbout />
-        <HomeBlog articles={articles} />
-        <HomePortfolio repos={repos} gists={gists} />
+        <HomePersonal id='me' />
+        <HomeProjects id='projects' />
+        <HomeBlog id='blog' posts={posts} />
+        <HomeRepos id='repos' repos={repos} />
+        <HomeSnippets id='snippets' snippets={snippets} />
       </main>
-      <GlobalFooter />
-    </div>
+    </LayoutPage>
   )
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_ACCESS_TOKEN,
-    userAgent: 'creativeworkspace',
-  })
-
-  const repos = await octokit.repos
-    .listForUser({
-      username: 'beardcoder',
-    })
-    .then(({ data }) =>
-      data
-        .filter((item) => !item.fork)
-        .map((item) => {
-          return {
-            id: item.id,
-            url: item.html_url,
-            name: item.name,
-            description: item.description,
-          }
-        })
-    )
-
-  const gists = await octokit.gists
-    .listForUser({
-      username: 'beardcoder',
-    })
-    .then(({ data }) =>
-      data.map((item) => {
-        return {
-          id: item.id,
-          url: item.html_url,
-          description: item.description,
-        }
-      })
-    )
-
-  const articles = (await getAllPosts()).map((post) => post.fields)
+  const repos: IRepo[] = await getRepos()
+  const snippets: ISnippet[] = await getSnippets()
+  const posts: IPostFields[] = await getAllPosts()
 
   return {
     props: {
-      preview,
       repos,
-      gists,
-      articles,
+      snippets,
+      posts,
     },
   }
 }

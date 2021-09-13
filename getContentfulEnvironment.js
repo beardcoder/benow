@@ -4,7 +4,7 @@ const contentfulManagement = require("contentful-management")
 
 module.exports = function () {
     const contentfulClient = contentfulManagement.createClient({
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        accessToken: process.env.CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN,
     })
 
     return contentfulClient

@@ -1,0 +1,37 @@
+.burgerBunTop,
+.burgerFilling,
+.burgerBunBottom {
+  background: #fff;
+  border-radius: 10px;
+  height: 5px;
+  margin: 7px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.burgerBunTop {
+  width: 50%;
+}
+
+.burgerFilling {
+  width: 100%;
+}
+
+.burgerBunBottom {
+  width: 75%;
+}
+
+.burgerBunTopOpen {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(3px, -1px);
+}
+
+.burgerFillingOpen {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+.burgerBunBottomOpen {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(22px, -4px) rotatez(45deg);
+}

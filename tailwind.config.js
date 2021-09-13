@@ -1,39 +1,31 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'media',
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      heading: ['Poppins', 'sans-serif'],
-      body: ['Ubuntu', 'sans-serif'],
+      sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+      header: ["Work Sans", ...defaultTheme.fontFamily.sans],
     },
     extend: {
-      opacity: {
-        5: '0.05',
-        10: '0.1',
+      gridAutoColumns: {
+        '1/3': '33.333%',
+        '1/2': '50%',
+        full: '100%',
+        '4/5': '80%',
+      },
+      minHeight: {
+        240: '60rem',
+      },
+      rotate: {
+        4: '4deg',
+        '-4': '-4deg',
       },
       colors: {
         background: '#121212',
         baseWhite: 'rgba(255, 255, 255, 0.85)',
-        primary: '#f9004d',
-      },
-      transitionProperty: {
-        width: 'width',
-        color: 'color',
-        background: 'background',
-      },
-      spacing: {
-        sm: '3px',
-      },
-      fontSize: {
-        '7xl': '5rem',
-        inherit: ['inherit', 'inherit'],
-      },
-      inset: {
-        24: '6rem',
-        32: '8rem',
-      },
-      height: {
-        112: '28rem',
+        primary: '#24c6dc',
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -82,10 +74,11 @@ module.exports = {
         },
       }),
     },
-    container: {
-      center: true,
-    },
   },
-  variants: {},
-  plugins: [require('@tailwindcss/typography')],
+  variants: {
+    extend: {},
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

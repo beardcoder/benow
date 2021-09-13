@@ -1,0 +1,27 @@
+.button {
+  @apply px-6 py-3 uppercase transition-all duration-200 inline-flex justify-items-center;
+
+  transform: translateY(0);
+}
+
+.button:hover {
+  @apply text-white;
+
+  background-image: linear-gradient(to bottom right, #24c6dc 0%, #514a9d 100%);
+  transform: translateY(-5px);
+}
+
+.button:focus {
+  @apply outline-none;
+}
+
+.buttonSmall {
+  @apply px-4 py-2;
+}
+
+.buttonIsLink {
+}
+
+.buttonBlock {
+  @apply flex w-full;
+}
