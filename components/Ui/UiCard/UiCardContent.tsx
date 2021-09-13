@@ -11,7 +11,7 @@ export const UiCardContent: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
   return (
-    <div className={classNames('p-8', className)} {...props}>
+    <div className={classNames('p-4 md:p-8', className)} {...props}>
       {children}
     </div>
   )

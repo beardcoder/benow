@@ -20,7 +20,7 @@ export const HomePersonal: FunctionComponent<Props> = ({
           alt='Markus Sommer'
         ></Image>
       </div>
-      <div className='w-full px-5 my-auto mt-10 md:mt-auto md:w-1/2'>
+      <div className='w-full px-5 my-auto mt-10 mb-20 md:mt-auto md:w-1/2 md:mb-auto'>
         <div className='relative z-10 flex flex-col mx-auto'>
           <h2 className='mb-5 text-4xl font-bold md:text-5xl'>
             Hi, ich bin <span className='text-gradient'>Markus Sommer</span>

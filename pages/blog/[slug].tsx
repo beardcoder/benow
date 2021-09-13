@@ -56,10 +56,7 @@ export default function BlogSlug({
         id='intro'
       />
       <article
-        className={classnames(
-          darkMode ? 'bg-background' : 'bg-gray-100',
-          'py-20'
-        )}
+        className={classnames(darkMode ? 'bg-background' : 'bg-white', 'py-20')}
       >
         <div className='container flex flex-col items-start mx-auto lg:flex-row'>
           <div

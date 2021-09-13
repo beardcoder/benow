@@ -14,7 +14,7 @@ export const UiTag: FunctionComponent<Props> = ({
     <div
       className={classNames(
         'inline-block px-4 py-1 mb-4 mr-4 text-sm  rounded-full',
-        !light ? 'bg-gray-600 text-white' : 'bg-gray-100 text-gray-600'
+        !light ? 'bg-gray-600 text-white' : 'bg-white text-gray-600'
       )}
       {...props}
     >

@@ -25,7 +25,7 @@ export const HomeReposRepo: FunctionComponent<Props> = ({
           />
           <HelperSvgGradient />
         </div>
-        <div>
+        <div className='overflow-hidden'>
           <h3 className='mb-4 truncate'>{repo.name}</h3>
           <p className='truncate'>{repo.description}</p>
         </div>

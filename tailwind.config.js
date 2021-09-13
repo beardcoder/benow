@@ -25,7 +25,7 @@ module.exports = {
       colors: {
         background: '#121212',
         baseWhite: 'rgba(255, 255, 255, 0.85)',
-        primary: '#f9004d',
+        primary: '#24c6dc',
       },
       typography: (theme) => ({
         DEFAULT: {
