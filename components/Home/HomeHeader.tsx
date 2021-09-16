@@ -8,7 +8,11 @@ export const HomeHeader: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
   return (
-    <header className='relative flex overflow-hidden' {...props}>
+    <header
+      className='relative flex overflow-hidden'
+      data-cy='intro'
+      {...props}
+    >
       <Image
         src='/assets/header.jpg'
         layout='fill'
@@ -27,6 +31,7 @@ export const HomeHeader: FunctionComponent<Props> = ({
         </h1>
         <div className='mt-16'>
           <UiButton
+            data-cy='contact'
             className='text-white md:text-xl'
             href='mailto:markussom@gmail.com'
           >

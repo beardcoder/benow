@@ -9,10 +9,12 @@ export const HomePersonal: FunctionComponent<Props> = ({
   return (
     <section
       className='relative z-30 mx-auto md:flex max-w-screen-2xl'
+      data-cy='personal'
       {...props}
     >
       <div className='w-full mr-20 md:w-1/2'>
         <Image
+          data-cy='personalImage'
           src='/assets/markus_sommer.jpg'
           width='600'
           height='600'
