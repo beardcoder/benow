@@ -3,7 +3,6 @@ import { useEmblaCarousel } from 'embla-carousel/react'
 import { FunctionComponent, useRef } from 'react'
 import { HomeSnippetsSnippet } from './HomeSnippetsSnippet/HomeSnippetsSnippet'
 import { Typewriter } from 'react-simple-typewriter'
-import { useInViewport } from 'react-in-viewport'
 import { useInView } from 'react-intersection-observer'
 
 type Props = {
