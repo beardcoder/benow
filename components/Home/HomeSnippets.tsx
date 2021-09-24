@@ -1,10 +1,10 @@
-import { IRepo } from '@/@types/repo'
 import { ISnippet } from '@/@types/snippet'
 import { useEmblaCarousel } from 'embla-carousel/react'
 import { FunctionComponent, useRef } from 'react'
 import { HomeSnippetsSnippet } from './HomeSnippetsSnippet/HomeSnippetsSnippet'
 import { Typewriter } from 'react-simple-typewriter'
 import { useInViewport } from 'react-in-viewport'
+import { useInView } from 'react-intersection-observer'
 
 type Props = {
   snippets: ISnippet[]
@@ -19,15 +19,12 @@ export const HomeSnippets: FunctionComponent<Props> = ({
     slidesToScroll: 1,
     containScroll: 'keepSnaps',
   })
-  const myRef = useRef(null)
-  const { inViewport, enterCount } = useInViewport(
-    myRef,
-    {},
-    { disconnectOnLeave: false },
-    props
-  )
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0,
+  })
   let text
-  if (inViewport || enterCount >= 1) {
+  if (inView) {
     text = (
       <>
         <Typewriter
@@ -62,7 +59,7 @@ export const HomeSnippets: FunctionComponent<Props> = ({
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
           <h2 className='text-gradient'>Snippets</h2>
-          <div className='mb-8 h2 md:mb-14' ref={myRef}>
+          <div className='mb-8 h2 md:mb-14' ref={ref}>
             {text}
           </div>
         </div>

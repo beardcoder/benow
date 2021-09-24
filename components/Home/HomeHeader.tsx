@@ -1,5 +1,6 @@
+import { motion, useTransform, useViewportScroll } from 'framer-motion'
 import Image from 'next/image'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { UiButton } from '../Ui/Button/UiButton'
 
 type Props = {} & JSX.IntrinsicElements['header']
@@ -7,19 +8,34 @@ type Props = {} & JSX.IntrinsicElements['header']
 export const HomeHeader: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
+  const { scrollY } = useViewportScroll()
+  const ref = useRef<HTMLDivElement>(null)
+  const [divHeight, getDivHeight] = useState<number>(0)
+
+  useEffect(() => {
+    // Gets the height of the image
+    const div = (ref.current && ref.current.clientHeight) || 0
+    getDivHeight(Number(div))
+  }, [divHeight])
+
+  const yRange = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
+
   return (
     <header
-      className='relative flex overflow-hidden'
+      className='relative flex overflow-hidden bg-gray-900'
       data-cy='intro'
+      ref={ref}
       {...props}
     >
-      <Image
-        src='/assets/header.jpg'
-        layout='fill'
-        objectFit='cover'
-        alt='Header image'
-        className='z-0'
-      ></Image>
+      <motion.div style={{ opacity: yRange }}>
+        <Image
+          src='/assets/header.jpg'
+          layout='fill'
+          objectFit='cover'
+          alt='Header image'
+          className='z-0'
+        ></Image>
+      </motion.div>
       <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
       <div className='container relative z-10 flex flex-col px-5 py-48 mx-auto text-center md:px-0'>
         <h1>

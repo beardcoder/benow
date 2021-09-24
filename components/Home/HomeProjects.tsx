@@ -3,7 +3,7 @@ import { useEmblaCarousel } from 'embla-carousel/react'
 import IProject from '../../@types/project'
 import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
 import { Typewriter } from 'react-simple-typewriter'
-import { useInViewport } from 'react-in-viewport'
+import { useInView } from 'react-intersection-observer'
 
 type Props = {} & JSX.IntrinsicElements['section']
 
@@ -33,15 +33,12 @@ export const HomeProjects: FunctionComponent<Props> = ({
     slidesToScroll: 1,
     containScroll: 'keepSnaps',
   })
-  const myRef = useRef(null)
-  const { inViewport, enterCount } = useInViewport(
-    myRef,
-    {},
-    { disconnectOnLeave: false },
-    props
-  )
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0,
+  })
   let text
-  if (inViewport || enterCount >= 1) {
+  if (inView) {
     text = (
       <>
         <Typewriter
@@ -72,7 +69,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
-            <h2 className='text-gradient' ref={myRef}>
+            <h2 className='text-gradient' ref={ref}>
               Projekte
             </h2>
             <div className='mb-8 h2 md:mb-14'>{text}</div>
