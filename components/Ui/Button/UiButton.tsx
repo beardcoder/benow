@@ -31,7 +31,7 @@ export const UiButton: FunctionComponent<Props> = ({
           small ? styles.buttonSmall : undefined,
           block ? styles.buttonBlock : undefined,
           tagName === 'a' ? styles.buttonIsLink : undefined,
-          'border-gradient flex flex-row items-center cursor-pointer',
+          'border-gradient',
           className
         )}
         {...props}

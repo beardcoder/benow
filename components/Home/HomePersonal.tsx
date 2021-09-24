@@ -27,7 +27,7 @@ export const HomePersonal: FunctionComponent<Props> = ({
           <h2 className='mb-5 text-4xl font-bold md:text-5xl'>
             Hi, ich bin <span className='text-gradient'>Markus Sommer</span>
           </h2>
-          <p className='max-w-3xl text-lg text-opacity-70'>
+          <p className='max-w-3xl text-lg prose text-opacity-70'>
             Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung
             (User Experience) gerichtet. Brauchst du Hilfe z. B. um deine
             Website in neuem Glanz erstrahlen zu lassen, Moderne Web

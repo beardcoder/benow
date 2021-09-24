@@ -48,16 +48,14 @@ export const HomeRepos: FunctionComponent<Props> = ({
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
             100%
           </div>
-          <p className='max-w-xl ml-auto md:text-right'>
-            Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
-            boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
-            Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
-            allerweil no gor Aasgem waar I Wia scho wea God Bia Jodler Luja
-            graudwiggal ausgähd Hemad waar.
+          <p className='max-w-xl ml-auto prose md:text-right'>
+            Open Source ist die Zukunft der modernen Software Entwicklung. Egal
+            ob es darum geht schneller Programme oder Webseiten zu entwickeln
+            oder sich mit Kollegen auf der Ganzen Welt auszutauschen.
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
-          <h2 className='text-gradient'>Codeing</h2>
+          <h2 className='text-gradient'>Coding</h2>
           <div className='mb-8 h2 md:mb-14' ref={myRef}>
             {text}
           </div>

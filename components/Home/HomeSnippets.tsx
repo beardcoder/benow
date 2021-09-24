@@ -48,12 +48,16 @@ export const HomeSnippets: FunctionComponent<Props> = ({
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
             100%
           </div>
-          <p className='max-w-xl ml-auto md:text-right'>
-            Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
-            boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
-            Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
-            allerweil no gor Aasgem waar I Wia scho wea God Bia Jodler Luja
-            graudwiggal ausgähd Hemad waar.
+          <p className='max-w-xl ml-auto prose md:text-right'>
+            <strong>Nachhaltigkeit beim Programmieren?</strong> Klingt seltsam
+            ist aber gar nicht so weit hergeholt. Jeden Tag verbringen wir zeit
+            immer wieder die selben Aufgaben zu erledigen. Dies verbraucht
+            Rohstoffe, Zeit und Nerven. Warum nicht einfach dinge die man oft
+            braucht abspeichern sodass man sie schnell abrufen kann. Genau das
+            sind Snippets. Kein Code Schnipsel die das leben erleichtern. Hier
+            gehe ich noch einen Schritt weiter und Teile meine Schnippsel mit
+            euch damit auch ihr schneller und Effizienter mit eueren Rohstoffen
+            umgehen könnt.
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>

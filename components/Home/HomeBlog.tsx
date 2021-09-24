@@ -41,12 +41,13 @@ export const HomeBlog: FunctionComponent<Props> = ({
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
             100%
           </div>
-          <p className='max-w-xl ml-auto md:text-right'>
-            Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
-            boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
-            Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
-            allerweil no gor Aasgem waar I Wia scho wea God Bia Jodler Luja
-            graudwiggal ausgähd Hemad waar.
+          <p className='max-w-xl ml-auto prose md:text-right'>
+            Gedanken, Ideen oder auch Tutorials findet ihr in meinem Blog. Immer
+            wenn ich etwas Neues gefunden hbe das mich fasziniert schreibe ich
+            es hier nieder. Um mein Wissen und meine Erfahrungen mit euch zu
+            Teilen. Gerne Lese ich auch Feedback zu meinen Artikeln. Schreibt
+            mit einfach eine Email an{' '}
+            <a href='mailto:markussom@gmail.com'>markussom@gmail.com</a>
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>

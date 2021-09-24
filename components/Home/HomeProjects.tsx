@@ -63,7 +63,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
             <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
               100%
             </div>
-            <p className='max-w-xl ml-auto md:text-right'>
+            <p className='max-w-xl ml-auto prose prose-dark md:text-right'>
               Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
               boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
               Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
