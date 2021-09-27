@@ -4,6 +4,7 @@ import { FunctionComponent, useRef } from 'react'
 import { HomeReposRepo } from './HomeReposRepo/HomeReposRepo'
 import { Typewriter } from 'react-simple-typewriter'
 import { useInView } from 'react-intersection-observer'
+import classNames from 'classnames'
 
 type Props = {
   repos: IRepo[]
@@ -11,6 +12,7 @@ type Props = {
 
 export const HomeRepos: FunctionComponent<Props> = ({
   repos,
+  className,
   ...props
 }): JSX.Element => {
   const [emblaRef] = useEmblaCarousel({
@@ -39,7 +41,10 @@ export const HomeRepos: FunctionComponent<Props> = ({
     )
   }
   return (
-    <section className='container relative px-8 mx-auto pb-36' {...props}>
+    <section
+      className={classNames('container relative px-8 mx-auto', className)}
+      {...props}
+    >
       <div className='flex flex-col mb-10 md:flex-row'>
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>

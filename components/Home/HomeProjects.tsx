@@ -4,6 +4,7 @@ import IProject from '../../@types/project'
 import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
 import { Typewriter } from 'react-simple-typewriter'
 import { useInView } from 'react-intersection-observer'
+import classNames from 'classnames'
 
 type Props = {} & JSX.IntrinsicElements['section']
 
@@ -26,6 +27,7 @@ const projects: IProject[] = [
 ]
 
 export const HomeProjects: FunctionComponent<Props> = ({
+  className,
   ...props
 }): JSX.Element => {
   const [emblaRef] = useEmblaCarousel({
@@ -53,7 +55,10 @@ export const HomeProjects: FunctionComponent<Props> = ({
     )
   }
   return (
-    <section className='relative bg-gray-800 py-36' {...props}>
+    <section
+      className={classNames('relative bg-gray-800 py-36', className)}
+      {...props}
+    >
       <div className='container px-5 mx-auto text-white md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
