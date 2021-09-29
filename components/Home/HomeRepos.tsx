@@ -1,5 +1,5 @@
 import { IRepo } from '@/@types/repo'
-import { useEmblaCarousel } from 'embla-carousel/react'
+import useEmblaCarousel from 'embla-carousel-react'
 import { FunctionComponent, useRef } from 'react'
 import { HomeReposRepo } from './HomeReposRepo/HomeReposRepo'
 import { Typewriter } from 'react-simple-typewriter'

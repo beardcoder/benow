@@ -1,5 +1,5 @@
 import { FunctionComponent, useRef } from 'react'
-import { useEmblaCarousel } from 'embla-carousel/react'
+import useEmblaCarousel from 'embla-carousel-react'
 import IProject from '../../@types/project'
 import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
 import { Typewriter } from 'react-simple-typewriter'

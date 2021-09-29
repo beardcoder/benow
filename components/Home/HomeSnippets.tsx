@@ -1,5 +1,5 @@
 import { ISnippet } from '@/@types/snippet'
-import { useEmblaCarousel } from 'embla-carousel/react'
+import useEmblaCarousel from 'embla-carousel-react'
 import { FunctionComponent, useRef } from 'react'
 import { HomeSnippetsSnippet } from './HomeSnippetsSnippet/HomeSnippetsSnippet'
 import { Typewriter } from 'react-simple-typewriter'
