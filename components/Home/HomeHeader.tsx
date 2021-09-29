@@ -13,12 +13,14 @@ export const HomeHeader: FunctionComponent<Props> = ({
   const [divHeight, getDivHeight] = useState<number>(0)
 
   useEffect(() => {
-    // Gets the height of the image
     const div = (ref.current && ref.current.clientHeight) || 0
     getDivHeight(Number(div))
   }, [divHeight])
 
-  const yRange = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
+  const opacity = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
+  const translateY = useTransform(scrollY, [divHeight, 0], [200, 0], {
+    clamp: false,
+  })
 
   return (
     <header
@@ -27,34 +29,40 @@ export const HomeHeader: FunctionComponent<Props> = ({
       ref={ref}
       {...props}
     >
-      <motion.div style={{ opacity: yRange }}>
-        <Image
-          src='/assets/header.jpg'
-          layout='fill'
-          objectFit='cover'
-          alt='Header image'
-          className='z-0'
-        ></Image>
-      </motion.div>
-      <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
-      <div className='container relative z-10 flex flex-col px-5 py-48 mx-auto text-center md:px-0'>
-        <h1>
-          Web&shy;entwickler
-          <br />
-          Frontend <span className='text-gradient'>Artist</span>
-          <br />
-          Designer
-        </h1>
-        <div className='mt-16'>
-          <UiButton
-            data-cy='contact'
-            className='text-white md:text-xl'
-            href='mailto:markussom@gmail.com'
-          >
-            Kontakt aufnehmen
-          </UiButton>
+      <motion.div
+        style={{ translateY }}
+        transition={{ duration: 1 }}
+        className='w-full'
+      >
+        <motion.div style={{ opacity }}>
+          <Image
+            src='/assets/header.jpg'
+            layout='fill'
+            objectFit='cover'
+            alt='Header image'
+            className='z-0'
+          ></Image>
+        </motion.div>
+        <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
+        <div className='container relative z-10 flex flex-col px-5 py-48 mx-auto text-center md:px-0'>
+          <h1>
+            Web&shy;entwickler
+            <br />
+            Frontend <span className='text-gradient'>Artist</span>
+            <br />
+            Designer
+          </h1>
+          <div className='mt-16'>
+            <UiButton
+              data-cy='contact'
+              className='text-white md:text-xl'
+              href='mailto:markussom@gmail.com'
+            >
+              Kontakt aufnehmen
+            </UiButton>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   )
 }
