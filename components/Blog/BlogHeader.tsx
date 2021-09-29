@@ -25,15 +25,18 @@ export const BlogHeader: FunctionComponent<Props> = ({
   const [divHeight, getDivHeight] = useState<number>(0)
 
   useEffect(() => {
-    // Gets the height of the image
     const div = (ref.current && ref.current.clientHeight) || 0
     getDivHeight(Number(div))
   }, [divHeight])
 
-  const yRange = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
+  const opacity = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
+  const translateY = useTransform(scrollY, [divHeight, 0], [200, 0], {
+    clamp: false,
+  })
+
   return (
     <header className='relative overflow-hidden bg-black' {...props} ref={ref}>
-      <motion.div style={{ opacity: yRange }}>
+      <motion.div style={{ opacity }}>
         <Image
           src={`https:${image}`}
           layout='fill'
@@ -43,21 +46,27 @@ export const BlogHeader: FunctionComponent<Props> = ({
         ></Image>
       </motion.div>
       <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
-      <div className='container relative z-10 flex flex-col max-w-4xl px-5 pt-48 pb-8 mx-auto text-center md:px-0'>
-        <h1>{title}</h1>
-      </div>
-      <div className='container relative z-10 flex justify-center pb-48 mx-auto text-white'>
-        <div className='flex justify-center mb-4'>
-          <FiCalendar size='24' className='mr-3' />{' '}
-          {dayjs(createdAt).locale('de-DE').format('DD.MM.YYYY')}
+      <motion.div
+        style={{ translateY }}
+        transition={{ duration: 1 }}
+        className='w-full'
+      >
+        <div className='container relative z-10 flex flex-col max-w-4xl px-5 pt-48 pb-8 mx-auto text-center md:px-0'>
+          <h1>{title}</h1>
         </div>
-        <div className='flex justify-center ml-10'>
-          <FiUser size='24' className='mr-3' /> {author}
+        <div className='container relative z-10 flex justify-center pb-48 mx-auto text-white'>
+          <div className='flex justify-center mb-4'>
+            <FiCalendar size='24' className='mr-3' />{' '}
+            {dayjs(createdAt).locale('de-DE').format('DD.MM.YYYY')}
+          </div>
+          <div className='flex justify-center ml-10'>
+            <FiUser size='24' className='mr-3' /> {author}
+          </div>
+          <div className='flex justify-center ml-10'>
+            <FiTag size='24' className='mr-3' /> {type}
+          </div>
         </div>
-        <div className='flex justify-center ml-10'>
-          <FiTag size='24' className='mr-3' /> {type}
-        </div>
-      </div>
+      </motion.div>
     </header>
   )
 }
