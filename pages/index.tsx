@@ -23,10 +23,6 @@ type Props = {
 export default function Home({ posts, repos, snippets }: Props) {
   return (
     <LayoutPage>
-      <NextSeo
-        title='Markus Sommer — Frontendartist & Webentwickler'
-        description='Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend'
-      />
       <HomeHeader id='intro' />
       <main>
         <HomePersonal id='me' />
