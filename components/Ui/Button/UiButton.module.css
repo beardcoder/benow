@@ -5,9 +5,8 @@
 }
 
 .button:hover {
-  @apply text-white;
+  @apply text-white bg-gradient-to-br from-blue-500 to-teal-400;
 
-  background-image: linear-gradient(to bottom right, #24c6dc 0%, #514a9d 100%);
   transform: translateY(-5px);
 }
 
@@ -17,9 +16,6 @@
 
 .buttonSmall {
   @apply px-4 py-2;
-}
-
-.buttonIsLink {
 }
 
 .buttonBlock {

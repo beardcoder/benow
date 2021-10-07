@@ -5,26 +5,13 @@
 @layer utilities {
   @variants hover {
     .text-gradient {
-      background-image: linear-gradient(
-        to bottom right,
-        #24c6dc 0%,
-        #514a9d 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: inline-block;
+      @apply inline-block text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-teal-400;
     }
   }
 
   .border-gradient {
-    border: 3px solid;
+    @apply border-3 border-gradient-br-primary;
     border-image-slice: 1;
-    border-image-source: linear-gradient(
-      to bottom right,
-      #24c6dc 0%,
-      #514a9d 100%
-    );
   }
 }
 
