@@ -37,7 +37,12 @@ export const UiMenu: FunctionComponent<Props> = (): JSX.Element => {
   const { open, toggleOpen } = useMenu(false)
   return (
     <div className='absolute top-0 right-0 z-50'>
-      <UiMenuButton open={open} toogle={toggleOpen} className='relative z-50' />
+      <UiMenuButton
+        open={open}
+        toogle={toggleOpen}
+        name='open menu'
+        className='relative z-50'
+      />
       <div
         className={classNames(
           'fixed flex left-0 right-0 h-full bg-black transition-all duration-200',

@@ -33,7 +33,6 @@ module.exports = {
       colors: {
         background: '#121212',
         baseWhite: 'rgba(255, 255, 255, 0.85)',
-        primary: '#24c6dc',
         blue: {
           100: '#E6F0FD',
           200: '#CCE2FC',
@@ -62,9 +61,11 @@ module.exports = {
           css: {
             color: 'rgba(0, 0, 0, 0.85)',
             a: {
-              color: theme('colors.primary'),
+              color: theme('colors.blue.400'),
+              transition: 'color 200ms',
+              textDecoration: 'none',
               '&:hover': {
-                color: theme('colors.primary'),
+                color: theme('colors.teal.500'),
               },
             },
           },
