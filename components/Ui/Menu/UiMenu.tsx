@@ -40,7 +40,7 @@ export const UiMenu: FunctionComponent<Props> = (): JSX.Element => {
       <UiMenuButton
         open={open}
         toogle={toggleOpen}
-        name='open menu'
+        name='openMenu'
         className='relative z-50'
       />
       <div
