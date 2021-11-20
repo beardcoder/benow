@@ -39,12 +39,12 @@
     "tailwindcss-border-gradients": "^2.0.3"
   },
   "devDependencies": {
-    "@mapbox/rehype-prism": "^0.8.0",
+    "@mapbox/rehype-prism": "^0.7.0",
     "@types/react": "17.0.35",
     "autoprefixer": "^10.4.0",
     "contentful-management": "^7.45.2",
     "contentful-typescript-codegen": "^3.2.3",
-    "cypress": "^9.0.0",
+    "cypress": "^4.2.0",
     "dotenv": "^10.0.0",
     "eslint": "8.2.0",
     "eslint-config-next": "12.0.4",
