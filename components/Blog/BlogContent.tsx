@@ -13,12 +13,14 @@ type BlogContentProps = {
 const BlogContent: FunctionComponent<BlogContentProps> = ({
   darkMode,
   articleBody,
+  className,
 }): JSX.Element => {
   return (
     <div
       className={classnames(
         'prose prose-lg container order-2 lg:order-1 mx-auto',
-        darkMode ? 'prose-dark' : undefined
+        darkMode ? 'prose-dark' : undefined,
+        className
       )}
     >
       <ReactMarkdown

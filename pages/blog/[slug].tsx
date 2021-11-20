@@ -11,6 +11,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import LayoutPage from '@/components/Layout/LayoutPage'
 import BlogHeader from '@/components/Blog/BlogHeader'
 import BlogContent from '@/components/Blog/BlogContent'
+import Sticky from 'react-stickynode'
 
 export default function BlogSlug({
   headline,
@@ -56,28 +57,30 @@ export default function BlogSlug({
       >
         <div className='container flex flex-col items-start mx-auto lg:flex-row'>
           <BlogContent
+            className='lg:w-5/6'
             articleBody={articleBody ?? ''}
             darkMode={darkMode}
           ></BlogContent>
-
-          <div className='flex flex-col order-1 w-full mb-5 text-center md:sticky md:top-24 lg:order-2 lg:w-auto'>
-            <UiButton
-              className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
-              tagName='button'
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              {darkMode ? <FiMoon /> : <FiSun />}
-              <span className='px-2'>Lese Modus</span>
-            </UiButton>
-            <Link href={`/#blog`} passHref>
+          <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-auto lg:w-1/6'>
+            <Sticky enabled={true} top={50}>
               <UiButton
-                className={darkMode ? 'text-white' : 'text-black'}
-                tagName='a'
+                className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
+                tagName='button'
+                onClick={() => setDarkMode(!darkMode)}
               >
-                <FiArrowLeft className='mr-1 stroke-1' />{' '}
-                <span className='pr-2'>Zurück</span>
+                {darkMode ? <FiMoon /> : <FiSun />}
+                <span className='px-2'>Lese Modus</span>
               </UiButton>
-            </Link>
+              <Link href={`/#blog`} passHref>
+                <UiButton
+                  className={darkMode ? 'text-white' : 'text-black'}
+                  tagName='a'
+                >
+                  <FiArrowLeft className='mr-1 stroke-1' />{' '}
+                  <span className='pr-2'>Zurück</span>
+                </UiButton>
+              </Link>
+            </Sticky>
           </div>
         </div>
         <div className='mt-12 text-center'>
