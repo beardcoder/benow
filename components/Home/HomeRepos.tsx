@@ -42,32 +42,35 @@ export const HomeRepos: FunctionComponent<Props> = ({
   }
   return (
     <section
-      className={classNames('container relative px-8 mx-auto', className)}
+      className={classNames('relative px-8 overflow-x-hidden py-12', className)}
       {...props}
     >
-      <div className='flex flex-col mb-10 md:flex-row'>
-        <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-          <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
-            100%
+      <div className='container mx-auto'>
+        <div className='flex flex-col mb-10 md:flex-row'>
+          <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
+              100%
+            </div>
+            <p className='max-w-xl ml-auto prose md:text-right'>
+              Open Source ist die Zukunft der modernen Software Entwicklung.
+              Egal ob es darum geht schneller Programme oder Webseiten zu
+              entwickeln oder sich mit Kollegen auf der Ganzen Welt
+              auszutauschen.
+            </p>
           </div>
-          <p className='max-w-xl ml-auto prose md:text-right'>
-            Open Source ist die Zukunft der modernen Software Entwicklung. Egal
-            ob es darum geht schneller Programme oder Webseiten zu entwickeln
-            oder sich mit Kollegen auf der Ganzen Welt auszutauschen.
-          </p>
-        </div>
-        <div className='order-1 w-full md:order-2 md:w-1/2'>
-          <h2 className='text-gradient'>Coding</h2>
-          <div className='mb-8 h2 md:mb-14' ref={ref}>
-            {text}
+          <div className='order-1 w-full md:order-2 md:w-1/2'>
+            <h2 className='text-gradient'>Coding</h2>
+            <div className='mb-8 h2 md:mb-14' ref={ref}>
+              {text}
+            </div>
           </div>
         </div>
-      </div>
-      <div className='w-full' ref={emblaRef}>
-        <div className='grid grid-flow-col gap-6 auto-cols-4/5 md:auto-cols-1/3'>
-          {repos.map((repo, i) => (
-            <HomeReposRepo repo={repo} key={i} />
-          ))}
+        <div className='w-full' ref={emblaRef}>
+          <div className='grid grid-flow-col gap-6 auto-cols-4/5 md:auto-cols-1/3'>
+            {repos.map((repo, i) => (
+              <HomeReposRepo repo={repo} key={i} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -27,9 +27,9 @@ export default function Home({ posts, repos, snippets }: Props) {
       <main>
         <HomePersonal id='me' />
         <HomeProjects id='projects' className='mb-32' />
-        <HomeBlog id='blog' posts={posts} className='mb-32' />
-        <HomeRepos id='repos' repos={repos} className='mb-32' />
-        <HomeSnippets id='snippets' snippets={snippets} className='mb-32' />
+        <HomeBlog id='blog' posts={posts} className='mb-20' />
+        <HomeRepos id='repos' repos={repos} className='mb-20' />
+        <HomeSnippets id='snippets' snippets={snippets} className='mb-20' />
       </main>
     </LayoutPage>
   )

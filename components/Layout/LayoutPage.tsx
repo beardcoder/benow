@@ -8,7 +8,7 @@ export const LayoutPage: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
   return (
-    <div className='relative w-full overflow-x-hidden' {...props}>
+    <div className='relative w-full' {...props}>
       <UiMenu />
       {children}
       <footer className='p-10 text-center text-white bg-gray-900'>

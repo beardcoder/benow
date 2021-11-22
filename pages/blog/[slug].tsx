@@ -7,11 +7,10 @@ import { FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi'
 import { useState } from 'react'
 import { IPostFields } from '@/@types/generated/contentful'
 import { UiButton } from '@/components/Ui/Button/UiButton'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import LayoutPage from '@/components/Layout/LayoutPage'
 import BlogHeader from '@/components/Blog/BlogHeader'
 import BlogContent from '@/components/Blog/BlogContent'
-import Sticky from 'react-stickynode'
 
 export default function BlogSlug({
   headline,
@@ -55,14 +54,14 @@ export default function BlogSlug({
       <article
         className={classnames(darkMode ? 'bg-background' : 'bg-white', 'py-20')}
       >
-        <div className='container flex flex-col items-start mx-auto lg:flex-row'>
+        <div className='container flex flex-col items-start px-5 mx-auto lg:px-0 lg:flex-row'>
           <BlogContent
             className='lg:w-5/6'
             articleBody={articleBody ?? ''}
             darkMode={darkMode}
           ></BlogContent>
-          <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-auto lg:w-1/6'>
-            <Sticky enabled={true} top={50}>
+          <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-1/6'>
+            <div>
               <UiButton
                 className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
                 tagName='button'
@@ -80,7 +79,7 @@ export default function BlogSlug({
                   <span className='pr-2'>Zurück</span>
                 </UiButton>
               </Link>
-            </Sticky>
+            </div>
           </div>
         </div>
         <div className='mt-12 text-center'>
