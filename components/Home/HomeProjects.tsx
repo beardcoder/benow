@@ -56,7 +56,10 @@ export const HomeProjects: FunctionComponent<Props> = ({
   }
   return (
     <section
-      className={classNames('relative bg-gray-800 py-36', className)}
+      className={classNames(
+        'relative bg-gray-800 py-36 overflow-x-hidden',
+        className
+      )}
       {...props}
     >
       <div className='container px-5 mx-auto text-white md:px-0'>
