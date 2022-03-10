@@ -1,7 +1,7 @@
 import { getAllPosts, getPostBySlug } from '@/services/blog'
 import 'prism-themes/themes/prism-a11y-dark.css'
 import classnames from 'classnames'
-import { NextSeo, BlogJsonLd } from 'next-seo'
+import { NextSeo, ArticleJsonLd } from 'next-seo'
 import Link from 'next/link'
 import { FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi'
 import { useState } from 'react'
@@ -30,7 +30,7 @@ export default function BlogSlug({
         description={description}
         canonical={`https://www.creativeworkspace.de/blog/${slug}`}
       />
-      <BlogJsonLd
+      <ArticleJsonLd
         url={`https://www.creativeworkspace.de/blog/${slug}`}
         title={headline ?? ''}
         images={[

@@ -3,10 +3,8 @@
 @tailwind utilities;
 
 @layer utilities {
-  @variants hover {
-    .text-gradient {
-      @apply inline-block text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-teal-400;
-    }
+  .text-gradient {
+    @apply inline-block text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-teal-400;
   }
 
   .border-gradient {
