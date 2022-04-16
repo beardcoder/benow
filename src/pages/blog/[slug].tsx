@@ -1,10 +1,8 @@
 import { getAllPosts, getPostBySlug } from '@/src/services/blog'
 import 'prism-themes/themes/prism-a11y-dark.css'
-import classnames from 'classnames'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import Link from 'next/link'
-import { FiArrowLeft, FiSun, FiMoon } from 'react-icons/fi'
-import { useState } from 'react'
+import { FiArrowLeft } from 'react-icons/fi'
 import { IPostFields } from '@/@types/generated/contentful'
 import { UiButton } from '@/src/components/Ui/Button/UiButton'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -22,7 +20,6 @@ export default function BlogSlug({
   type,
   slug,
 }: IPostFields) {
-  const [darkMode, setDarkMode] = useState(false)
   return (
     <LayoutPage>
       <NextSeo
@@ -59,17 +56,15 @@ export default function BlogSlug({
           ></BlogContent>
           <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-1/6'>
             <div>
-              <Link href={`/#blog`} passHref>
-                <UiButton href='/#blog' tagName='a'>
-                  <FiArrowLeft className='mr-1 stroke-1' />{' '}
-                  <span className='pr-2'>Zurück</span>
-                </UiButton>
-              </Link>
+              <UiButton href='/#blog'>
+                <FiArrowLeft className='mr-1 stroke-1' />{' '}
+                <span className='pr-2'>Zurück</span>
+              </UiButton>
             </div>
           </div>
         </div>
         <div className='mt-12 text-center'>
-          <UiButton href='/#blog' tagName='a'>
+          <UiButton href='/#blog'>
             <FiArrowLeft className='inline-block mr-1 stroke-1' />{' '}
             <span className='pr-2'>Zurück</span>
           </UiButton>
