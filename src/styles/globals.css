@@ -43,5 +43,15 @@
 }
 
 code {
-  overflow-x: scroll;
+  overflow: auto;
+  word-break: break-all;
+}
+
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }

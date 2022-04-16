@@ -60,7 +60,7 @@ export default function BlogSlug({
           <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-1/6'>
             <div>
               <Link href={`/#blog`} passHref>
-                <UiButton tagName='a'>
+                <UiButton href='/#blog' tagName='a'>
                   <FiArrowLeft className='mr-1 stroke-1' />{' '}
                   <span className='pr-2'>Zurück</span>
                 </UiButton>
