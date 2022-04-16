@@ -1,6 +1,5 @@
 import classNames from 'classnames'
-import { FunctionComponent } from 'react'
-import { useMenu } from '../../../../hooks/useApp'
+import { FunctionComponent, useState } from 'react'
 import { UiMenuButton } from './UiMenuButton'
 import { UiMenuLink } from './UiMenuLink/UiMenuLink'
 
@@ -34,12 +33,12 @@ const nav = [
 ]
 
 export const UiMenu: FunctionComponent<Props> = (): JSX.Element => {
-  const { open, toggleOpen } = useMenu(false)
+  const [open, toggleOpen] = useState(false)
   return (
     <div className='absolute top-0 right-0 z-50'>
       <UiMenuButton
         open={open}
-        toogle={toggleOpen}
+        toogle={() => toggleOpen(!open)}
         name='openMenu'
         className='relative z-50'
       />

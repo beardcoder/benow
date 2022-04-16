@@ -1,7 +1,6 @@
-import { getAllPosts, getPostBySlug } from '@/src/services/blog'
+import { getAllPosts, getPostBySlug } from '@/src/utils/get-blog'
 import 'prism-themes/themes/prism-a11y-dark.css'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
-import Link from 'next/link'
 import { FiArrowLeft } from 'react-icons/fi'
 import { IPostFields } from '@/@types/generated/contentful'
 import { UiButton } from '@/src/components/Ui/Button/UiButton'
@@ -30,11 +29,7 @@ export default function BlogSlug({
       <ArticleJsonLd
         url={`https://www.creativeworkspace.de/blog/${slug}`}
         title={headline ?? ''}
-        images={[
-          typeof image?.fields.file.url === 'string'
-            ? image?.fields.file.url
-            : '',
-        ]}
+        images={[String(image) ?? '']}
         datePublished={date}
         dateModified={date}
         authorName='Markus Sommer'
@@ -42,7 +37,7 @@ export default function BlogSlug({
       />
       <BlogHeader
         title={headline ?? ''}
-        image={`${image?.fields.file.url}?w=2560&h=600&fit=thumb`}
+        image={`${image}?w=2560&h=600&fit=thumb`}
         createdAt={date}
         author={author}
         type={type ?? ''}
@@ -75,12 +70,12 @@ export default function BlogSlug({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts: IPostFields[] = await getAllPosts()
+  const posts = await getAllPosts(['slug'])
 
   return {
     paths: posts.map((post) => ({
       params: {
-        slug: post.slug,
+        slug: String(post.slug),
       },
     })),
     fallback: false,
@@ -90,8 +85,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   let post = {}
   post = await getPostBySlug(
-    typeof params?.slug === 'string' ? params?.slug : ''
+    typeof params?.slug === 'string' ? params?.slug : '',
+    [
+      'author',
+      'date',
+      'description',
+      'articleBody',
+      'headline',
+      'image',
+      'slug',
+      'type',
+    ]
   )
+  console.log(post)
 
   return {
     props: {

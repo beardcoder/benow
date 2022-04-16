@@ -15,13 +15,8 @@
     "test": "npm run e2e:headless"
   },
   "dependencies": {
-    "@fontsource/fira-sans": "^4.5.7",
     "@fontsource/inter": "^4.5.7",
     "@fontsource/open-sans": "^4.5.8",
-    "@fontsource/oswald": "^4.5.7",
-    "@fontsource/pt-sans": "^4.5.5",
-    "@fontsource/roboto": "^4.5.5",
-    "@fontsource/work-sans": "^4.5.7",
     "@octokit/rest": "^18.12.0",
     "classnames": "^2.3.1",
     "contentful": "^9.1.22",
@@ -35,15 +30,17 @@
     "react-icons": "^4.3.1",
     "react-intersection-observer": "^8.34.0",
     "react-simple-typewriter": "^3.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
     "start-server-and-test": "^1.14.0",
     "swiper": "^8.1.1",
-    "tailwindcss-border-gradients": "^2.0.3"
+    "tailwindcss-border-gradients": "^2.0.3",
+    "unified": "^10.1.2"
   },
   "devDependencies": {
+    "@contentful/rich-text-types": "^15.12.0",
     "@mapbox/rehype-prism": "^0.8.0",
-    "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@tailwindcss/forms": "^0.5.0",
-    "@tailwindcss/line-clamp": "^0.3.1",
     "@tailwindcss/typography": "^0.5.2",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.5",
@@ -57,7 +54,6 @@
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",
     "prism-themes": "^1.9.0",
-    "react-markdown": "^8.0.2",
     "rehype-autolink-headings": "^6.1.1",
     "remark-inline-links": "^6.0.1",
     "tailwindcss": "^3.0.24",

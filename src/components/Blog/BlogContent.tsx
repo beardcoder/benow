@@ -1,9 +1,5 @@
 import { FunctionComponent } from 'react'
 import classnames from 'classnames'
-import ReactMarkdown from 'react-markdown'
-import remarkInlineLinks from 'remark-inline-links'
-import link from 'rehype-autolink-headings'
-import rehypePrism from '@mapbox/rehype-prism'
 
 type BlogContentProps = {
   articleBody: string
@@ -20,12 +16,7 @@ const BlogContent: FunctionComponent<BlogContentProps> = ({
         className
       )}
     >
-      <ReactMarkdown
-        linkTarget='_target'
-        rehypePlugins={[remarkInlineLinks, link, rehypePrism]}
-      >
-        {articleBody}
-      </ReactMarkdown>
+      <div dangerouslySetInnerHTML={{ __html: articleBody }}></div>
     </div>
   )
 }
