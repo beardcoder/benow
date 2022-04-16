@@ -17,6 +17,9 @@ export const UiMenuButton: FunctionComponent<Props> = ({
   return (
     <button
       className={classNames('w-12 mt-10 mr-10', className)}
+      aria-label='Show Navigation Menu'
+      aria-expanded='false'
+      tabIndex={0}
       onClick={toogle}
       {...props}
     >
