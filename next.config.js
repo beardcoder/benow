@@ -1,38 +1,23 @@
+const headers = require('./headers')
+
 /**
- * Security headers used in the app
- * @see https://infosec.mozilla.org/guidelines/web_security
+ * @type {import('next').NextConfig}
  */
-module.exports = [
-  {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
+module.exports = {
+  reactStrictMode: true,
+  webpack5: true,
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers,
+      },
+    ]
   },
-  {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload',
+  generateEtags: false,
+  poweredByHeader: false,
+  images: {
+    domains: ['images.ctfassets.net'],
+    formats: ['image/avif', 'image/webp'],
   },
-  {
-    key: 'Server',
-    value: 'Apache', // phony server value
-  },
-  {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff',
-  },
-  {
-    key: 'X-Frame-Options',
-    value: 'sameorigin',
-  },
-  {
-    key: 'X-XSS-Protection',
-    value: '1; mode=block',
-  },
-  {
-    key: 'Referrer-Policy',
-    value: 'same-origin',
-  },
-  {
-    key: 'Permissions-Policy',
-    value: 'geolocation=*', // allow specified policies here
-  },
-]
+}
