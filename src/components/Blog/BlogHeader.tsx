@@ -52,7 +52,7 @@ export const BlogHeader: FunctionComponent<Props> = ({
         className='w-full'
       >
         <div className='container relative z-10 flex flex-col max-w-4xl px-5 pt-48 pb-8 mx-auto text-center md:px-0'>
-          <h1>{title}</h1>
+          <h1>{title}&nbsp;</h1>
         </div>
         <div className='container relative z-10 justify-center pb-48 mx-auto text-white md:flex'>
           <div className='flex justify-center mb-4'>

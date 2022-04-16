@@ -52,18 +52,18 @@ export const HomeProjects: FunctionComponent<Props> = ({
   return (
     <section
       className={classNames(
-        'relative bg-gray-800 py-36 overflow-x-hidden',
+        'relative bg-gray-200 dark:bg-gray-900 py-36 overflow-x-hidden',
         className
       )}
       {...props}
     >
-      <div className='container px-5 mx-auto text-white md:px-0'>
+      <div className='container px-5 mx-auto  md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
             <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
               100%
             </div>
-            <p className='max-w-xl ml-auto prose prose-dark md:text-right'>
+            <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
               Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
               boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
               Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
@@ -81,15 +81,13 @@ export const HomeProjects: FunctionComponent<Props> = ({
 
         <Swiper
           spaceBetween={32}
-          slidesPerView={3}
+          slidesPerView={1.3}
           breakpoints={{
-            0: {
-              width: 0,
-              slidesPerView: 1.5,
-            },
             460: {
-              width: 460,
-              slidesPerView: 2,
+              slidesPerView: 2.3,
+            },
+            768: {
+              slidesPerView: 3,
             },
           }}
         >

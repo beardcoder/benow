@@ -48,7 +48,7 @@ export const HomeHeader: FunctionComponent<Props> = ({
           <h1>
             Web&shy;entwickler
             <br />
-            Frontend <span className='text-gradient'>Artist</span>
+            Frontend <span className='text-gradient pb-1'>Artist&nbsp;</span>
             <br />
             Designer
           </h1>

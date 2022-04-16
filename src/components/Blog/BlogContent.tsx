@@ -6,20 +6,17 @@ import link from 'rehype-autolink-headings'
 import rehypePrism from '@mapbox/rehype-prism'
 
 type BlogContentProps = {
-  darkMode: boolean
   articleBody: string
 } & JSX.IntrinsicElements['div']
 
 const BlogContent: FunctionComponent<BlogContentProps> = ({
-  darkMode,
   articleBody,
   className,
 }): JSX.Element => {
   return (
     <div
       className={classnames(
-        'prose prose-lg container order-2 lg:order-1 mx-auto',
-        darkMode ? 'prose-dark' : undefined,
+        'prose dark:prose-invert prose-lg container order-2 lg:order-1 mx-auto',
         className
       )}
     >

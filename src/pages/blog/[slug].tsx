@@ -51,30 +51,16 @@ export default function BlogSlug({
         type={type ?? ''}
         id='intro'
       />
-      <article
-        className={classnames(darkMode ? 'bg-background' : 'bg-white', 'py-20')}
-      >
+      <article>
         <div className='container flex flex-col items-start px-5 mx-auto lg:px-0 lg:flex-row'>
           <BlogContent
             className='lg:w-5/6'
             articleBody={articleBody ?? ''}
-            darkMode={darkMode}
           ></BlogContent>
           <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-1/6'>
             <div>
-              <UiButton
-                className={darkMode ? 'text-white mb-4' : 'text-black mb-4'}
-                tagName='button'
-                onClick={() => setDarkMode(!darkMode)}
-              >
-                {darkMode ? <FiMoon /> : <FiSun />}
-                <span className='px-2'>Lese Modus</span>
-              </UiButton>
               <Link href={`/#blog`} passHref>
-                <UiButton
-                  className={darkMode ? 'text-white' : 'text-black'}
-                  tagName='a'
-                >
+                <UiButton tagName='a'>
                   <FiArrowLeft className='mr-1 stroke-1' />{' '}
                   <span className='pr-2'>Zurück</span>
                 </UiButton>
@@ -83,11 +69,7 @@ export default function BlogSlug({
           </div>
         </div>
         <div className='mt-12 text-center'>
-          <UiButton
-            className={darkMode ? 'text-white' : 'text-black'}
-            href='/#blog'
-            tagName='a'
-          >
+          <UiButton href='/#blog' tagName='a'>
             <FiArrowLeft className='inline-block mr-1 stroke-1' />{' '}
             <span className='pr-2'>Zurück</span>
           </UiButton>

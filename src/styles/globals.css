@@ -4,7 +4,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply inline-block text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-teal-400;
+    @apply inline-block text-transparent bg-clip-text bg-gradient-to-br from-sky-500 to-teal-400;
   }
 
   .border-gradient {

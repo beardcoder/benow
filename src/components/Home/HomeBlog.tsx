@@ -43,7 +43,7 @@ export const HomeBlog: FunctionComponent<Props> = ({
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
             100%
           </div>
-          <p className='max-w-xl ml-auto prose md:text-right'>
+          <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
             Gedanken, Ideen oder auch Tutorials findet ihr in meinem Blog. Immer
             wenn ich etwas Neues gefunden hbe das mich fasziniert schreibe ich
             es hier nieder. Um mein Wissen und meine Erfahrungen mit euch zu
@@ -53,7 +53,7 @@ export const HomeBlog: FunctionComponent<Props> = ({
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
-          <h2 className='text-gradient'>Blog</h2>
+          <h2 className='text-gradient pb-1'>Blog&nbsp;</h2>
           <div className='mb-8 h2 md:mb-14' ref={ref}>
             {text}
           </div>

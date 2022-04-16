@@ -45,7 +45,7 @@ export const HomeRepos: FunctionComponent<Props> = ({
             <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
               100%
             </div>
-            <p className='max-w-xl ml-auto prose md:text-right'>
+            <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
               Open Source ist die Zukunft der modernen Software Entwicklung.
               Egal ob es darum geht schneller Programme oder Webseiten zu
               entwickeln oder sich mit Kollegen auf der Ganzen Welt
@@ -53,7 +53,7 @@ export const HomeRepos: FunctionComponent<Props> = ({
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
-            <h2 className='text-gradient'>Coding</h2>
+            <h2 className='text-gradient pb-1'>Coding&nbsp;</h2>
             <div className='mb-8 h2 md:mb-14' ref={ref}>
               {text}
             </div>
@@ -61,15 +61,13 @@ export const HomeRepos: FunctionComponent<Props> = ({
         </div>
         <Swiper
           spaceBetween={32}
-          slidesPerView={3.5}
+          slidesPerView={1.3}
           breakpoints={{
-            0: {
-              width: 0,
-              slidesPerView: 1.5,
-            },
             460: {
-              width: 460,
-              slidesPerView: 2,
+              slidesPerView: 2.3,
+            },
+            768: {
+              slidesPerView: 3.5,
             },
           }}
         >
