@@ -12,10 +12,9 @@ export const HomeBlogPost = ({ post, ...props }: Props) => {
     <div className='w-full p-4 md:w-1/2 lg:w-1/4' {...props}>
       <UiCard href={`/blog/${post.slug}`}>
         <Image
-          src={`https:${post.image?.fields.file.url}?w=480&h=280&fit=fill`}
+          src={`https:${post.image}?w=480&h=280&fit=fill`}
           width='480'
           height='280'
-          className=''
           alt={post.headline}
         />
 
