@@ -53,7 +53,7 @@ export const HomeBlog: FunctionComponent<Props> = ({
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
-          <h2 className='text-gradient pb-1'>Blog&nbsp;</h2>
+          <h2 className='pb-1 text-gradient'>Blog&nbsp;</h2>
           <div className='mb-8 h2 md:mb-14' ref={ref}>
             {text}
           </div>

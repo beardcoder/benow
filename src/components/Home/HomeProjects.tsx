@@ -57,7 +57,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
       )}
       {...props}
     >
-      <div className='container px-5 mx-auto  md:px-0'>
+      <div className='container px-5 mx-auto md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
             <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
