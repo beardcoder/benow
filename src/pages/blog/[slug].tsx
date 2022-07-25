@@ -97,8 +97,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       'type',
     ]
   )
-  console.log(post)
-
   return {
     props: {
       ...post,

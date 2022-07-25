@@ -1,4 +1,4 @@
-import { motion, useTransform, useViewportScroll } from 'framer-motion'
+import { motion, useTransform, useScroll } from 'framer-motion'
 import Image from 'next/image'
 import { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { UiButton } from '../Ui/Button/UiButton'
@@ -8,7 +8,7 @@ type Props = {} & JSX.IntrinsicElements['header']
 export const HomeHeader: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const ref = useRef<HTMLDivElement>(null)
   const [divHeight, getDivHeight] = useState<number>(0)
 

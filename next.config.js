@@ -5,7 +5,7 @@ const headers = require('./headers')
  */
 module.exports = {
   reactStrictMode: true,
-  webpack5: true,
+  swcMinify: true,
   async headers() {
     return [
       {
@@ -14,8 +14,10 @@ module.exports = {
       },
     ]
   },
-  generateEtags: false,
   poweredByHeader: false,
+  experimental: {
+    serverComponents: true,
+  },
   images: {
     domains: ['images.ctfassets.net'],
     formats: ['image/avif', 'image/webp'],

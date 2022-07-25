@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { FiCalendar, FiUser, FiTag } from 'react-icons/fi'
 import dayjs from 'dayjs'
-import { useTransform, useViewportScroll, motion } from 'framer-motion'
+import { useTransform, useScroll, motion } from 'framer-motion'
 
 type Props = {
   image: string
@@ -20,7 +20,7 @@ export const BlogHeader: FunctionComponent<Props> = ({
   type,
   ...props
 }): JSX.Element => {
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const ref = useRef<HTMLDivElement>(null)
   const [divHeight, getDivHeight] = useState<number>(0)
 
