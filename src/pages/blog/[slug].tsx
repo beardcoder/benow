@@ -2,52 +2,49 @@ import { getAllPosts, getPostBySlug } from '@/src/utils/get-blog'
 import 'prism-themes/themes/prism-a11y-dark.css'
 import { NextSeo, ArticleJsonLd } from 'next-seo'
 import { FiArrowLeft } from 'react-icons/fi'
-import { IPostFields } from '@/@types/generated/contentful'
 import { UiButton } from '@/src/components/Ui/Button/UiButton'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import LayoutPage from '@/src/components/Layout/LayoutPage'
 import BlogHeader from '@/src/components/Blog/BlogHeader'
 import BlogContent from '@/src/components/Blog/BlogContent'
+import IArticle from '@/@types/article'
 
 export default function BlogSlug({
-  headline,
-  articleBody,
-  description,
-  date,
+  title,
+  content,
+  date_created,
   image,
-  author,
-  type,
+  tags,
   slug,
-}: IPostFields) {
+}: IArticle) {
   return (
     <LayoutPage>
       <NextSeo
-        title={`${headline} — Markus Sommer`}
-        description={description}
+        title={`${title} — Markus Sommer`}
         canonical={`https://www.creativeworkspace.de/blog/${slug}`}
       />
       <ArticleJsonLd
         url={`https://www.creativeworkspace.de/blog/${slug}`}
-        title={headline ?? ''}
+        title={title ?? ''}
         images={[String(image) ?? '']}
-        datePublished={date}
-        dateModified={date}
+        datePublished={date_created}
+        dateModified={date_created}
         authorName='Markus Sommer'
-        description={description ?? ''}
+        description={content ?? ''}
       />
       <BlogHeader
-        title={headline ?? ''}
-        image={`${image}?w=2560&h=600&fit=thumb`}
-        createdAt={date}
-        author={author}
-        type={type ?? ''}
+        title={title ?? ''}
+        image={`${image}?width=2560&height=600&fit=cover&transforms=[["blur", 10]]`}
+        createdAt={date_created}
+        author='Markus Sommer'
+        tags={tags ?? ''}
         id='intro'
       />
       <article>
         <div className='container flex flex-col items-start px-5 mx-auto lg:px-0 lg:flex-row'>
           <BlogContent
             className='lg:w-5/6'
-            articleBody={articleBody ?? ''}
+            articleBody={content ?? ''}
           ></BlogContent>
           <div className='flex-col order-1 w-full mb-5 md:sticky md:top-24 lg:order-2 lg:w-1/6'>
             <div>
@@ -83,19 +80,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let post = {}
+  let post: IArticle | null = null
   post = await getPostBySlug(
     typeof params?.slug === 'string' ? params?.slug : '',
-    [
-      'author',
-      'date',
-      'description',
-      'articleBody',
-      'headline',
-      'image',
-      'slug',
-      'type',
-    ]
+    ['title', 'image', 'slug', 'tags', 'date_created', 'content']
   )
   return {
     props: {

@@ -9,7 +9,7 @@ type Props = {
   title: string
   createdAt: string
   author: string
-  type: string
+  tags: string[]
 } & JSX.IntrinsicElements['header']
 
 export const BlogHeader: FunctionComponent<Props> = ({
@@ -17,7 +17,7 @@ export const BlogHeader: FunctionComponent<Props> = ({
   image,
   createdAt,
   author,
-  type,
+  tags,
   ...props
 }): JSX.Element => {
   const { scrollY } = useScroll()
@@ -38,7 +38,7 @@ export const BlogHeader: FunctionComponent<Props> = ({
     <header className='relative overflow-hidden bg-black' {...props} ref={ref}>
       <motion.div style={{ opacity }}>
         <Image
-          src={`https:${image}`}
+          src={`${image}`}
           layout='fill'
           objectFit='cover'
           alt='Header image'
@@ -63,7 +63,7 @@ export const BlogHeader: FunctionComponent<Props> = ({
             <FiUser size='24' className='mr-3' /> {author}
           </div>
           <div className='flex justify-center mb-4 md:ml-10'>
-            <FiTag size='24' className='mr-3' /> {type}
+            <FiTag size='24' className='mr-3' /> {tags}
           </div>
         </div>
       </motion.div>

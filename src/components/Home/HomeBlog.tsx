@@ -1,12 +1,12 @@
 import { FunctionComponent } from 'react'
-import { IPostFields } from '../../../@types/generated/contentful'
 import { HomeBlogPost } from './HomeBlogPost/HomeBlogPost'
 import { Typewriter } from 'react-simple-typewriter'
 import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
+import IArticle from '@/@types/article'
 
 type Props = {
-  posts: IPostFields[]
+  posts: IArticle[]
 } & JSX.IntrinsicElements['section']
 
 export const HomeBlog: FunctionComponent<Props> = ({

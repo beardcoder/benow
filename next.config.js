@@ -19,7 +19,7 @@ module.exports = {
     serverComponents: true,
   },
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['images.ctfassets.net', 'backend.viking.uber.space'],
     formats: ['image/avif', 'image/webp'],
   },
 }

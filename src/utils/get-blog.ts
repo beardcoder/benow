@@ -1,27 +1,26 @@
-import { IPost, IPostFields } from '../../@types/generated/contentful'
-import { Asset, createClient, Entry } from 'contentful'
+import IArticle from '@/@types/article'
+import { Directus } from '@directus/sdk'
 import { markdownToHtml } from './markdown-to-html'
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID ?? '', // ID of a Compose-compatible space to be used \
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ?? '', // delivery API key for the space \
-})
-
-type Field = keyof IPostFields
-
-type Post = {
-  [key in Field]?: string
-}
+const directus = new Directus('https://backend.viking.uber.space')
 
 /**
  * It returns a promise that resolves to an array of IPostFields
  * @returns An array of IPostFields
  */
-export async function getAllPosts(fields: Field[]): Promise<Post[]> {
-  const { items } = await client.getEntries<IPostFields>()
-  const posts: Post[] = []
+export async function getAllPosts(
+  fields: (keyof IArticle)[]
+): Promise<IArticle[]> {
+  const { data } = await directus.items('articles').readByQuery({
+    fields,
+  })
 
-  items.forEach((item) => {
-    const post = mapFields(fields, item.fields)
+  if (!data) {
+    return []
+  }
+  const posts: IArticle[] = []
+
+  data.forEach((item) => {
+    const post = mapFields(fields, item)
     posts.push(post)
   })
 
@@ -37,35 +36,38 @@ export async function getAllPosts(fields: Field[]): Promise<Post[]> {
  */
 export async function getPostBySlug(
   slug: string,
-  fields: Field[]
-): Promise<Post> {
-  const { items } = await client.getEntries<IPostFields>({
-    content_type: 'post',
-    'fields.slug[in]': slug,
+  fields: (keyof IArticle)[]
+): Promise<IArticle | null> {
+  const { data } = await directus.items('articles').readByQuery({
+    filter: { slug },
+    fields,
   })
+  if (!data) {
+    return null
+  }
 
-  const data = items[0].fields
+  const rawPost = data[0]
 
-  const post = mapFields(fields, data)
+  const post = mapFields(fields, rawPost)
   return post
 }
-function mapFields(fields: (keyof IPostFields)[], data: IPostFields) {
-  const post: Post = {}
+function mapFields(fields: (keyof IArticle)[], data: IArticle) {
+  const post: Partial<IArticle> = {}
   fields.forEach((field) => {
-    if (field === 'articleBody' && data.articleBody) {
-      post[field] = markdownToHtml(data.articleBody)
+    if (field === 'content' && data.content) {
+      post[field] = markdownToHtml(data.content)
       return
     }
 
     if (field === 'image' && data.image) {
-      post[field] = data.image.fields.file.url
+      post[field] = `${directus.url}/assets/${data.image}`
       return
     }
 
     if (typeof data[field] !== 'undefined') {
-      post[field] = String(data[field])
+      post[field] = data[field]
     }
   })
 
-  return post
+  return post as IArticle
 }

@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import { IPostFields } from '../../../../@types/generated/contentful'
 import { UiCard } from '@/src/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/src/components/Ui/UiCard/UiCardContent'
+import IArticle from '@/@types/article'
 
 type Props = {
-  post: IPostFields
+  post: IArticle
 } & JSX.IntrinsicElements['div']
 
 export const HomeBlogPost = ({ post, ...props }: Props) => {
@@ -12,15 +12,22 @@ export const HomeBlogPost = ({ post, ...props }: Props) => {
     <div className='w-full p-4 md:w-1/2 lg:w-1/4' {...props}>
       <UiCard href={`/blog/${post.slug}`}>
         <Image
-          src={`https:${post.image}?w=480&h=280&fit=fill`}
+          src={`${post.image}?width=480&height=280&fit=fill`}
           width='480'
           height='280'
-          alt={post.headline}
+          alt={post.title}
         />
 
         <UiCardContent className='pt-4'>
-          <p className='pb-2'>{post.type}</p>
-          <h3>{post.headline}</h3>
+          <p className='pb-2'>
+            {post.tags.map((tag, key) => (
+              <span key={key} className='mr-1'>
+                {tag}
+                {key !== post.tags.length - 1 && ', '}
+              </span>
+            ))}
+          </p>
+          <h3>{post.title}</h3>
         </UiCardContent>
       </UiCard>
     </div>
