@@ -16,7 +16,9 @@ module.exports = {
   },
   poweredByHeader: false,
   experimental: {
-    serverComponents: true,
+    images: {
+      unoptimized: true,
+    },
   },
   images: {
     domains: ['images.ctfassets.net', 'backend.viking.uber.space'],
