@@ -15,11 +15,6 @@ module.exports = {
     ]
   },
   poweredByHeader: false,
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
-  },
   images: {
     domains: ['images.ctfassets.net', 'backend.viking.uber.space'],
     formats: ['image/avif', 'image/webp'],
