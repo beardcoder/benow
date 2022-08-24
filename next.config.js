@@ -6,6 +6,14 @@ const headers = require('./headers')
 module.exports = {
   reactStrictMode: true,
   swcMinify: true,
+  redirects: async () => [
+    {
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www.creativeworkspace.de' }],
+      destination: 'https://creativeworkspace.de/:path*',
+      permanent: true,
+    },
+  ],
   async headers() {
     return [
       {
