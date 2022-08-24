@@ -46,8 +46,6 @@ jobs:
         run: pnpm i --frozen-lockfile
       - name: Build with Next.js
         run: pnpm run build
-      - name: Static HTML export with Next.js
-        run: pnpm run export
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -62,6 +60,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
         with:
           name: dist-artifact
@@ -75,3 +75,10 @@ jobs:
           remote_host: ${{ secrets.UBERSPACE_HOST }}
           remote_user: ${{ secrets.UBERSPACE_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+      - name: Post deploy
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.UBERSPACE_HOST }}
+          username: ${{ secrets.UBERSPACE_USER }}
+          key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
+          script: supervisorctl restart creativeworkspace
