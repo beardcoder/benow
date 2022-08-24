@@ -52,26 +52,12 @@ jobs:
           name: dist-artifact
           path: ./.next
 
-  # Deployment job
-  deploy:
-    environment:
-      name: production
-      url: https://creativeworkspace.de
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
-        with:
-          name: dist-artifact
-
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --delete
           path: /
-          remote_path: /var/www/virtual/${{ secrets.UBERSPACE_USER }}/html/
+          remote_path: /home/${{ secrets.UBERSPACE_USER }}/creativeworkspace/
           remote_host: ${{ secrets.UBERSPACE_HOST }}
           remote_user: ${{ secrets.UBERSPACE_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
