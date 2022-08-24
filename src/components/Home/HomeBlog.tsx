@@ -3,10 +3,10 @@ import { HomeBlogPost } from './HomeBlogPost/HomeBlogPost'
 import { Typewriter } from 'react-simple-typewriter'
 import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
-import IArticle from '@/@types/article'
+import { Article } from '@/src/utils/directus-client'
 
 type Props = {
-  posts: IArticle[]
+  posts: Article[]
 } & JSX.IntrinsicElements['section']
 
 export const HomeBlog: FunctionComponent<Props> = ({

@@ -7,7 +7,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import LayoutPage from '@/src/components/Layout/LayoutPage'
 import BlogHeader from '@/src/components/Blog/BlogHeader'
 import BlogContent from '@/src/components/Blog/BlogContent'
-import IArticle from '@/@types/article'
+import { Article } from '@/src/utils/directus-client'
 
 export default function BlogSlug({
   title,
@@ -16,7 +16,7 @@ export default function BlogSlug({
   image,
   tags,
   slug,
-}: IArticle) {
+}: Article) {
   return (
     <LayoutPage>
       <NextSeo
@@ -80,7 +80,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  let post: IArticle | null = null
+  let post: Article | null = null
   post = await getPostBySlug(
     typeof params?.slug === 'string' ? params?.slug : '',
     ['title', 'image', 'slug', 'tags', 'date_created', 'content']

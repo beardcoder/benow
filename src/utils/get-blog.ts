@@ -1,23 +1,21 @@
-import IArticle from '@/@types/article'
-import { Directus } from '@directus/sdk'
+import { Article, directusClient } from './directus-client'
 import { markdownToHtml } from './markdown-to-html'
-const directus = new Directus('https://backend.viking.uber.space')
 
 /**
  * It returns a promise that resolves to an array of IPostFields
  * @returns An array of IPostFields
  */
 export async function getAllPosts(
-  fields: (keyof IArticle)[]
-): Promise<IArticle[]> {
-  const { data } = await directus.items('articles').readByQuery({
+  fields: (keyof Article)[]
+): Promise<Article[]> {
+  const { data } = await directusClient.items('articles').readByQuery({
     fields,
   })
 
   if (!data) {
     return []
   }
-  const posts: IArticle[] = []
+  const posts: Article[] = []
 
   data.forEach((item) => {
     const post = mapFields(fields, item)
@@ -36,9 +34,9 @@ export async function getAllPosts(
  */
 export async function getPostBySlug(
   slug: string,
-  fields: (keyof IArticle)[]
-): Promise<IArticle | null> {
-  const { data } = await directus.items('articles').readByQuery({
+  fields: (keyof Article)[]
+): Promise<Article | null> {
+  const { data } = await directusClient.items('articles').readByQuery({
     filter: { slug },
     fields,
   })
@@ -51,8 +49,8 @@ export async function getPostBySlug(
   const post = mapFields(fields, rawPost)
   return post
 }
-function mapFields(fields: (keyof IArticle)[], data: IArticle) {
-  const post: Partial<IArticle> = {}
+function mapFields(fields: (keyof Article)[], data: Article) {
+  const post: Partial<Article> = {}
   fields.forEach((field) => {
     if (field === 'content' && data.content) {
       post[field] = markdownToHtml(data.content)
@@ -60,7 +58,7 @@ function mapFields(fields: (keyof IArticle)[], data: IArticle) {
     }
 
     if (field === 'image' && data.image) {
-      post[field] = `${directus.url}/assets/${data.image}`
+      post[field] = `${directusClient.url}/assets/${data.image}`
       return
     }
 
@@ -69,5 +67,5 @@ function mapFields(fields: (keyof IArticle)[], data: IArticle) {
     }
   })
 
-  return post as IArticle
+  return post as Article
 }

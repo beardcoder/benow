@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { UiCard } from '@/src/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/src/components/Ui/UiCard/UiCardContent'
-import IArticle from '@/@types/article'
+import { Article } from '@/src/utils/directus-client'
 
 type Props = {
-  post: IArticle
+  post: Article
 } & JSX.IntrinsicElements['div']
 
 export const HomeBlogPost = ({ post, ...props }: Props) => {

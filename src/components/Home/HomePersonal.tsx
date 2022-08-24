@@ -1,11 +1,13 @@
+import { directusClient } from '@/src/utils/directus-client'
 import Image from 'next/image'
 import { FunctionComponent } from 'react'
 
-type Props = {} & JSX.IntrinsicElements['section']
+type Props = { image: string } & JSX.IntrinsicElements['section']
 
 export const HomePersonal: FunctionComponent<Props> = ({
   ...props
 }): JSX.Element => {
+  const { image } = props
   return (
     <section
       className='relative z-30 mx-auto md:flex max-w-screen-2xl'
@@ -15,7 +17,7 @@ export const HomePersonal: FunctionComponent<Props> = ({
       <div className='w-full mr-20 md:w-1/2'>
         <Image
           data-cy='personalImage'
-          src='/assets/markus_sommer.jpg'
+          src={`${directusClient.url}/assets/${image}?width=600&height=600`}
           width='600'
           height='600'
           layout='responsive'
