@@ -1,6 +1,10 @@
+import getConfig from 'next/config'
+
 import { Article } from '@/@types/api'
-import { directusClient } from '@/src/utils/directus-client'
+import { getDirectusClient } from '@/src/utils/directus-client'
 import { markdownToHtml } from '@/src/utils/markdown-to-html'
+
+const { publicRuntimeConfig } = getConfig()
 
 /**
  * It returns a promise that resolves to an array of IPostFields
@@ -9,6 +13,7 @@ import { markdownToHtml } from '@/src/utils/markdown-to-html'
 export async function getAllPosts(
   fields: (keyof Article)[]
 ): Promise<Article[]> {
+  const directusClient = await getDirectusClient()
   const { data } = await directusClient.items('articles').readByQuery({
     fields,
   })
@@ -37,6 +42,7 @@ export async function getPostBySlug(
   slug: string,
   fields: (keyof Article)[]
 ): Promise<Article | null> {
+  const directusClient = await getDirectusClient()
   const { data } = await directusClient.items('articles').readByQuery({
     filter: { slug },
     fields,
@@ -55,11 +61,6 @@ function mapFields(fields: (keyof Article)[], data: Article) {
   fields.forEach((field) => {
     if (field === 'content' && data.content) {
       post[field] = markdownToHtml(data.content)
-      return
-    }
-
-    if (field === 'image' && data.image) {
-      post[field] = `${directusClient.url}/assets/${data.image}`
       return
     }
 

@@ -9,6 +9,7 @@ import { BlogContent } from '@/src/components/Blog/BlogContent'
 import { BlogHeader } from '@/src/components/Blog/BlogHeader'
 import { LayoutPage } from '@/src/components/Layout/LayoutPage'
 import { UiButton } from '@/src/components/Ui/Button/UiButton'
+import { getAssetURL } from '@/src/utils/get-asset-url'
 import { getAllPosts, getPostBySlug } from '@/src/utils/get-blog'
 
 export default function BlogSlug({
@@ -36,7 +37,9 @@ export default function BlogSlug({
       />
       <BlogHeader
         title={title}
-        image={`${image}?width=2560&height=600&fit=cover&transforms=[["blur", 10]]`}
+        image={`${getAssetURL(
+          image
+        )}?width=2560&height=600&fit=cover&transforms=[["blur", 5]]`}
         createdAt={date_created}
         author='Markus Sommer'
         tags={tags}

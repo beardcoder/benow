@@ -1,7 +1,9 @@
+import getConfig from 'next/config'
 import Image from 'next/image'
 import { FunctionComponent } from 'react'
 
-import { directusClient } from '@/src/utils/directus-client'
+import { getAssetURL } from '@/src/utils/get-asset-url'
+const { publicRuntimeConfig } = getConfig()
 
 type Props = { image: string } & JSX.IntrinsicElements['section']
 
@@ -18,7 +20,7 @@ export const HomePersonal: FunctionComponent<Props> = ({
       <div className='w-full mr-20 md:w-1/2'>
         <Image
           data-cy='personalImage'
-          src={`${directusClient.url}/assets/${image}?width=600&height=600`}
+          src={`${image}?width=600&height=600`}
           width='600'
           height='600'
           layout='responsive'

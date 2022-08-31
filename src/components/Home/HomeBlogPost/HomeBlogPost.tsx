@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Article } from '@/@types/api'
 import { UiCard } from '@/src/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/src/components/Ui/UiCard/UiCardContent'
+import { getAssetURL } from '@/src/utils/get-asset-url'
 
 type Props = {
   post: Article
@@ -13,7 +14,7 @@ export const HomeBlogPost = ({ post, ...props }: Props) => {
     <div className='w-full p-4 md:w-1/2 lg:w-1/4' {...props}>
       <UiCard href={`/blog/${post.slug}`}>
         <Image
-          src={`${post.image}?width=480&height=280&fit=fill`}
+          src={`${getAssetURL(post.image)}?width=480&height=280&fit=fill`}
           width='480'
           height='280'
           alt={post.title}

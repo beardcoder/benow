@@ -4,7 +4,7 @@ import { FunctionComponent, useEffect, useRef, useState } from 'react'
 
 import { UiButton } from '../Ui/Button/UiButton'
 
-type Props = {} & JSX.IntrinsicElements['header']
+type Props = { image: string } & JSX.IntrinsicElements['header']
 
 export const HomeHeader: FunctionComponent<Props> = ({
   ...props

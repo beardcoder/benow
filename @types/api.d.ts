@@ -1,4 +1,4 @@
-import type { ID, Field } from '@directus/sdk'
+import type { Field, ID } from '@directus/sdk'
 
 export type Article = {
   id: ID
@@ -14,6 +14,7 @@ export type Article = {
 }
 export type Home = {
   id: ID
+  image: Field
   avatar: Field
 }
 export type Project = {

@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 
-import { Article } from '@/@types/api'
+import { Article, Home } from '@/@types/api'
 import { IRepo } from '@/@types/repo'
 import { ISnippet } from '@/@types/snippet'
 import { HomeBlog } from '@/src/components/Home/HomeBlog'
@@ -10,31 +10,33 @@ import { HomeProjects } from '@/src/components/Home/HomeProjects'
 import { HomeRepos } from '@/src/components/Home/HomeRepos'
 import { HomeSnippets } from '@/src/components/Home/HomeSnippets'
 import { LayoutPage } from '@/src/components/Layout/LayoutPage'
-import { directusClient } from '@/src/utils/directus-client'
+import { getDirectusClient } from '@/src/utils/directus-client'
 import { getAllPosts } from '@/src/utils/get-blog'
 import { getRepos } from '@/src/utils/get-repos'
 import { getSnippets } from '@/src/utils/get-snippets'
 
+import { getAssetURL } from '../utils/get-asset-url'
+
 type Props = {
   posts: Article[]
+  home: Home
   repos: IRepo[]
   snippets: ISnippet[]
-  avatar: string
   projects: any
 }
 
-export default function Home({
+export default function Index({
   posts,
   repos,
   snippets,
-  avatar,
+  home,
   projects,
 }: Props) {
   return (
     <LayoutPage>
-      <HomeHeader id='intro' />
+      <HomeHeader image={getAssetURL(home.image)} id='intro' />
       <main>
-        <HomePersonal id='me' image={avatar} />
+        <HomePersonal id='me' image={getAssetURL(home.avatar)} />
         <HomeProjects projects={projects} id='projects' className='mb-32' />
         <HomeBlog id='blog' posts={posts} className='mb-20' />
         <HomeRepos id='repos' repos={repos} className='mb-20' />
@@ -44,11 +46,12 @@ export default function Home({
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps = async () => {
   const repos: IRepo[] = await getRepos()
   const snippets: ISnippet[] = await getSnippets()
   const posts = await getAllPosts(['slug', 'title', 'image', 'tags'])
 
+  const directusClient = await getDirectusClient()
   const home = await directusClient.singleton('home').read()
 
   const { data: projects } = await directusClient
@@ -60,7 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
       repos,
       snippets,
       posts,
-      avatar: home?.avatar,
+      home,
       projects,
     },
   }

@@ -5,7 +5,13 @@ import headers from './headers.mjs'
  */
 const config = {
   reactStrictMode: true,
-  swcMinify: true,
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    token: 'zLbKvsPdr_BJKh7DDtkisEroJk6nSZoX',
+  },
+  publicRuntimeConfig: {
+    url: 'https://backend.viking.uber.space',
+  },
   redirects: async () => [
     {
       source: '/:path*',
