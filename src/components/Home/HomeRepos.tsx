@@ -1,10 +1,12 @@
-import { IRepo } from '@/@types/repo'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { FunctionComponent } from 'react'
-import { HomeReposRepo } from './HomeReposRepo/HomeReposRepo'
-import { Typewriter } from 'react-simple-typewriter'
-import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
+import { FunctionComponent } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { Typewriter } from 'react-simple-typewriter'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { IRepo } from '@/@types/repo'
+
+import { HomeReposRepo } from './HomeReposRepo/HomeReposRepo'
 
 type Props = {
   repos: IRepo[]

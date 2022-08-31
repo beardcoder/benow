@@ -1,6 +1,7 @@
-import { motion, useTransform, useScroll } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { FunctionComponent, useEffect, useRef, useState } from 'react'
+
 import { UiButton } from '../Ui/Button/UiButton'
 
 type Props = {} & JSX.IntrinsicElements['header']

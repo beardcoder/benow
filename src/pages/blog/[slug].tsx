@@ -1,13 +1,15 @@
-import { getAllPosts, getPostBySlug } from '@/src/utils/get-blog'
 import 'prism-themes/themes/prism-a11y-dark.css'
-import { NextSeo, ArticleJsonLd } from 'next-seo'
-import { FiArrowLeft } from 'react-icons/fi'
-import { UiButton } from '@/src/components/Ui/Button/UiButton'
+
 import { GetStaticPaths, GetStaticProps } from 'next'
-import LayoutPage from '@/src/components/Layout/LayoutPage'
-import BlogHeader from '@/src/components/Blog/BlogHeader'
-import BlogContent from '@/src/components/Blog/BlogContent'
-import { Article } from '@/src/utils/directus-client'
+import { ArticleJsonLd, NextSeo } from 'next-seo'
+import { FiArrowLeft } from 'react-icons/fi'
+
+import { Article } from '@/@types/api'
+import { BlogContent } from '@/src/components/Blog/BlogContent'
+import { BlogHeader } from '@/src/components/Blog/BlogHeader'
+import { LayoutPage } from '@/src/components/Layout/LayoutPage'
+import { UiButton } from '@/src/components/Ui/Button/UiButton'
+import { getAllPosts, getPostBySlug } from '@/src/utils/get-blog'
 
 export default function BlogSlug({
   title,
@@ -33,11 +35,11 @@ export default function BlogSlug({
         description={content ?? ''}
       />
       <BlogHeader
-        title={title ?? ''}
+        title={title}
         image={`${image}?width=2560&height=600&fit=cover&transforms=[["blur", 10]]`}
         createdAt={date_created}
         author='Markus Sommer'
-        tags={tags ?? ''}
+        tags={tags}
         id='intro'
       />
       <article>

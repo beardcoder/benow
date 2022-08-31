@@ -1,11 +1,11 @@
-import { FunctionComponent } from 'react'
 import classnames from 'classnames'
+import { FunctionComponent } from 'react'
 
 type BlogContentProps = {
   articleBody: string
 } & JSX.IntrinsicElements['div']
 
-const BlogContent: FunctionComponent<BlogContentProps> = ({
+export const BlogContent: FunctionComponent<BlogContentProps> = ({
   articleBody,
   className,
 }): JSX.Element => {

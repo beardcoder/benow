@@ -1,10 +1,12 @@
-import { FunctionComponent, useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
-import { Typewriter } from 'react-simple-typewriter'
-import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
-import { Project } from '@/src/utils/directus-client'
+import { FunctionComponent, useRef } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { Typewriter } from 'react-simple-typewriter'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { Project } from '@/@types/api'
+
+import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
 
 type Props = {
   projects: Project[]

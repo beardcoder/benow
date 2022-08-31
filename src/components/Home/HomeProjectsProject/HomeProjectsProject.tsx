@@ -1,6 +1,7 @@
+import { Project } from '@/@types/api'
 import { UiButton } from '@/src/components/Ui/Button/UiButton'
-import { Project } from '@/src/utils/directus-client'
-import UiTag from '../../Ui/Tag/UiTag'
+import { UiTag } from '@/src/components/Ui/Tag/UiTag'
+
 type Props = {
   project: Project
   className?: string
@@ -13,9 +14,8 @@ export const HomeProjectsProject = ({ project, ...props }: Props) => {
         {project.name}
       </h3>
       <div className='md:text-center'>
-        {project.keywords.map((ele, y) => (
-          <UiTag key={y}>{ele}</UiTag>
-        ))}
+        {project.keywords &&
+          project.keywords.map((ele, y) => <UiTag key={y}>{ele}</UiTag>)}
         {project.url && (
           <UiButton
             target='_blank'

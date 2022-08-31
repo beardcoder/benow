@@ -1,5 +1,5 @@
 import { IRepo } from '@/@types/repo'
-import { octokitClient } from './octokit'
+import { octokitClient } from '@/src/utils/octokit'
 
 export async function getRepos(): Promise<IRepo[]> {
   try {

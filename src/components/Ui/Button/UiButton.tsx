@@ -1,6 +1,7 @@
 import classNames from 'classnames'
-import { FunctionComponent } from 'react'
 import Link from 'next/link'
+import { FunctionComponent } from 'react'
+
 import styles from './UiButton.module.css'
 
 type Props = {

@@ -1,5 +1,5 @@
 import { ISnippet } from '@/@types/snippet'
-import { octokitClient } from './octokit'
+import { octokitClient } from '@/src/utils/octokit'
 
 /**
  * It returns a promise that resolves to an array of objects that have an id, url, and description

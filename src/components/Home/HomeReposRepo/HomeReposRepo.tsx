@@ -1,9 +1,10 @@
+import { FunctionComponent } from 'react'
+import { FiGithub } from 'react-icons/fi'
+
 import { IRepo } from '@/@types/repo'
 import { HelperSvgGradient } from '@/src/components/Helper/HelperSvgGradient'
 import { UiCard } from '@/src/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/src/components/Ui/UiCard/UiCardContent'
-import { FunctionComponent } from 'react'
-import { FiGithub } from 'react-icons/fi'
 
 type Props = {
   repo: IRepo

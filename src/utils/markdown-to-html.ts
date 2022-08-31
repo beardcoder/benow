@@ -1,10 +1,10 @@
-import remarkInlineLinks from 'remark-inline-links'
-import link from 'rehype-autolink-headings'
 import rehypePrism from '@mapbox/rehype-prism'
-import { unified } from 'unified'
+import link from 'rehype-autolink-headings'
+import rehypeStringify from 'rehype-stringify'
+import remarkInlineLinks from 'remark-inline-links'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
+import { unified } from 'unified'
 
 /**
  * It takes a markdown string, parses it, converts it to HTML, adds syntax highlighting, adds inline

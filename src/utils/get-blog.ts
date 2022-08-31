@@ -1,5 +1,6 @@
-import { Article, directusClient } from './directus-client'
-import { markdownToHtml } from './markdown-to-html'
+import { Article } from '@/@types/api'
+import { directusClient } from '@/src/utils/directus-client'
+import { markdownToHtml } from '@/src/utils/markdown-to-html'
 
 /**
  * It returns a promise that resolves to an array of IPostFields

@@ -1,15 +1,15 @@
+import dayjs from 'dayjs'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { FunctionComponent, useEffect, useRef, useState } from 'react'
-import { FiCalendar, FiUser, FiTag } from 'react-icons/fi'
-import dayjs from 'dayjs'
-import { useTransform, useScroll, motion } from 'framer-motion'
+import { FiCalendar, FiTag, FiUser } from 'react-icons/fi'
 
 type Props = {
   image: string
   title: string
   createdAt: string
   author: string
-  tags: string[]
+  tags?: string[]
 } & JSX.IntrinsicElements['header']
 
 export const BlogHeader: FunctionComponent<Props> = ({

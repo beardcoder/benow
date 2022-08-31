@@ -1,17 +1,19 @@
 import { GetStaticProps } from 'next'
-import HomeHeader from '@/src/components/Home/HomeHeader'
-import { HomePersonal } from '@/src/components/Home/HomePersonal'
-import HomeProjects from '@/src/components/Home/HomeProjects'
-import LayoutPage from '@/src/components/Layout/LayoutPage'
-import { getAllPosts } from '@/src/utils/get-blog'
-import HomeBlog from '@/src/components/Home/HomeBlog'
+
+import { Article } from '@/@types/api'
 import { IRepo } from '@/@types/repo'
+import { ISnippet } from '@/@types/snippet'
+import { HomeBlog } from '@/src/components/Home/HomeBlog'
+import { HomeHeader } from '@/src/components/Home/HomeHeader'
+import { HomePersonal } from '@/src/components/Home/HomePersonal'
+import { HomeProjects } from '@/src/components/Home/HomeProjects'
 import { HomeRepos } from '@/src/components/Home/HomeRepos'
 import { HomeSnippets } from '@/src/components/Home/HomeSnippets'
-import { ISnippet } from '@/@types/snippet'
+import { LayoutPage } from '@/src/components/Layout/LayoutPage'
+import { directusClient } from '@/src/utils/directus-client'
+import { getAllPosts } from '@/src/utils/get-blog'
 import { getRepos } from '@/src/utils/get-repos'
 import { getSnippets } from '@/src/utils/get-snippets'
-import { Article, directusClient } from '../utils/directus-client'
 
 type Props = {
   posts: Article[]

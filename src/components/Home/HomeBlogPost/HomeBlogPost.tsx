@@ -1,7 +1,8 @@
 import Image from 'next/image'
+
+import { Article } from '@/@types/api'
 import { UiCard } from '@/src/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/src/components/Ui/UiCard/UiCardContent'
-import { Article } from '@/src/utils/directus-client'
 
 type Props = {
   post: Article
@@ -20,12 +21,13 @@ export const HomeBlogPost = ({ post, ...props }: Props) => {
 
         <UiCardContent className='pt-4'>
           <p className='pb-2'>
-            {post.tags.map((tag, key) => (
-              <span key={key} className='mr-1'>
-                {tag}
-                {key !== post.tags.length - 1 && ', '}
-              </span>
-            ))}
+            {post.tags &&
+              post.tags.map((tag, key) => (
+                <span key={key} className='mr-1'>
+                  {tag}
+                  {post.tags && key !== post.tags.length - 1 && ', '}
+                </span>
+              ))}
           </p>
           <h3>{post.title}</h3>
         </UiCardContent>

@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { FunctionComponent } from 'react'
+
 import styles from './UiMenuButton.module.css'
 
 type Props = {

@@ -1,9 +1,11 @@
-import { FunctionComponent } from 'react'
-import { HomeBlogPost } from './HomeBlogPost/HomeBlogPost'
-import { Typewriter } from 'react-simple-typewriter'
-import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
-import { Article } from '@/src/utils/directus-client'
+import { FunctionComponent } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { Typewriter } from 'react-simple-typewriter'
+
+import { Article } from '@/@types/api'
+
+import { HomeBlogPost } from './HomeBlogPost/HomeBlogPost'
 
 type Props = {
   posts: Article[]

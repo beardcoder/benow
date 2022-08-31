@@ -1,6 +1,7 @@
-import { directusClient } from '@/src/utils/directus-client'
 import Image from 'next/image'
 import { FunctionComponent } from 'react'
+
+import { directusClient } from '@/src/utils/directus-client'
 
 type Props = { image: string } & JSX.IntrinsicElements['section']
 

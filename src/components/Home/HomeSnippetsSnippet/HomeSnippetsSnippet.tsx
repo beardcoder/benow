@@ -1,9 +1,10 @@
+import { FunctionComponent } from 'react'
+import { GoLightBulb } from 'react-icons/go'
+
 import { ISnippet } from '@/@types/snippet'
 import { HelperSvgGradient } from '@/src/components/Helper/HelperSvgGradient'
 import { UiCard } from '@/src/components/Ui/UiCard/UiCard'
 import { UiCardContent } from '@/src/components/Ui/UiCard/UiCardContent'
-import { FunctionComponent } from 'react'
-import { GoLightBulb } from 'react-icons/go'
 
 type Props = {
   snippet: ISnippet

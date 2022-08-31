@@ -1,10 +1,12 @@
-import { ISnippet } from '@/@types/snippet'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { FunctionComponent } from 'react'
-import { HomeSnippetsSnippet } from './HomeSnippetsSnippet/HomeSnippetsSnippet'
-import { Typewriter } from 'react-simple-typewriter'
-import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
+import { FunctionComponent } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { Typewriter } from 'react-simple-typewriter'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { ISnippet } from '@/@types/snippet'
+
+import { HomeSnippetsSnippet } from './HomeSnippetsSnippet/HomeSnippetsSnippet'
 
 type Props = {
   snippets: ISnippet[]

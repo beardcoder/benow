@@ -2,17 +2,18 @@ import '@fontsource/inter/700.css'
 import '@fontsource/open-sans'
 import '@fontsource/open-sans/300.css'
 import '@fontsource/open-sans/700.css'
+import '@/src/styles/globals.css'
+import 'nprogress/nprogress.css'
+import 'swiper/css'
+
+import type { AppProps } from 'next/app'
+import { Router } from 'next/router'
+import nprogress from 'nprogress'
+import { useEffect } from 'react'
 
 import { HelperJsonLd } from '@/src/components/Helper/HelperJsonLd'
-import type { AppProps } from 'next/app'
-import Router from 'next/router'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-import { useEffect } from 'react'
-import 'swiper/css'
-import '../styles/globals.css'
 
-NProgress.configure({ showSpinner: false })
+nprogress.configure({ showSpinner: false })
 
 function Creativeworkspace({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -20,12 +21,12 @@ function Creativeworkspace({ Component, pageProps }: AppProps) {
     let timer: NodeJS.Timeout | null = null
     const load = () => {
       timer = setTimeout(function () {
-        NProgress.start()
+        nprogress.start()
       }, delay)
     }
     const stop = () => {
       if (timer) clearTimeout(timer)
-      NProgress.done()
+      nprogress.done()
     }
     Router.events.on('routeChangeStart', () => load())
     Router.events.on('routeChangeComplete', () => stop())
