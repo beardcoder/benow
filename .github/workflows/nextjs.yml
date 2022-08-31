@@ -44,10 +44,10 @@ jobs:
 
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
-      - name: Build sitemap
-        run: pnpm run sitemap
       - name: Build with Next.js
         run: pnpm run build
+      - name: Build sitemap
+        run: pnpm run sitemap
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
