@@ -28,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         .items(collection)
         .readOne(key, { fields: ['slug'] })
 
-      await res.revalidate(`/${directusRes.slug}`)
+      await res.revalidate(`/blog/${directusRes.slug}`)
       await res.revalidate('/')
     }
   }
