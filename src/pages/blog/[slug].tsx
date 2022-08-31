@@ -80,7 +80,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         slug: String(post.slug),
       },
     })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 
@@ -94,5 +94,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       ...post,
     },
+    revalidate: 10,
   }
 }
