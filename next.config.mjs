@@ -1,9 +1,9 @@
-const headers = require('./headers')
+import headers from './headers.mjs'
 
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = {
+const config = {
   reactStrictMode: true,
   swcMinify: true,
   redirects: async () => [
@@ -28,3 +28,5 @@ module.exports = {
     formats: ['image/avif', 'image/webp'],
   },
 }
+
+export default config

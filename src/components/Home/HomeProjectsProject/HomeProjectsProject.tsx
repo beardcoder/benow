@@ -1,27 +1,32 @@
 import { UiButton } from '@/src/components/Ui/Button/UiButton'
-import IProject from '../../../../@types/project'
+import { Project } from '@/src/utils/directus-client'
 import UiTag from '../../Ui/Tag/UiTag'
 type Props = {
-  project: IProject
+  project: Project
   className?: string
 } & JSX.IntrinsicElements['div']
 
 export const HomeProjectsProject = ({ project, ...props }: Props) => {
   return (
     <div {...props}>
-      <a
-        href={project.link}
-        className='block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl'
-      >
+      <h3 className='block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl'>
         {project.name}
-      </a>
+      </h3>
       <div className='md:text-center'>
-        {project.tech.map((ele, y) => (
+        {project.keywords.map((ele, y) => (
           <UiTag key={y}>{ele}</UiTag>
         ))}
-        <UiButton className='mt-4' tagName='a' href={project.link} small>
-          Zum {project.name} Projekt
-        </UiButton>
+        {project.url && (
+          <UiButton
+            target='_blank'
+            className='mt-4'
+            tagName='a'
+            href={project.url}
+            small
+          >
+            Zum {project.name} Projekt
+          </UiButton>
+        )}
       </div>
     </div>
   )

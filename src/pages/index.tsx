@@ -12,22 +12,28 @@ import { ISnippet } from '@/@types/snippet'
 import { getRepos } from '@/src/utils/get-repos'
 import { getSnippets } from '@/src/utils/get-snippets'
 import { Article, directusClient } from '../utils/directus-client'
-import MyApp from './_app'
 
 type Props = {
   posts: Article[]
   repos: IRepo[]
   snippets: ISnippet[]
   avatar: string
+  projects: any
 }
 
-export default function Home({ posts, repos, snippets, avatar }: Props) {
+export default function Home({
+  posts,
+  repos,
+  snippets,
+  avatar,
+  projects,
+}: Props) {
   return (
     <LayoutPage>
       <HomeHeader id='intro' />
       <main>
         <HomePersonal id='me' image={avatar} />
-        <HomeProjects id='projects' className='mb-32' />
+        <HomeProjects projects={projects} id='projects' className='mb-32' />
         <HomeBlog id='blog' posts={posts} className='mb-20' />
         <HomeRepos id='repos' repos={repos} className='mb-20' />
         <HomeSnippets id='snippets' snippets={snippets} className='mb-20' />
@@ -41,14 +47,19 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const snippets: ISnippet[] = await getSnippets()
   const posts = await getAllPosts(['slug', 'title', 'image', 'tags'])
 
-  const data = await directusClient.singleton('home').read()
+  const home = await directusClient.singleton('home').read()
+
+  const { data: projects } = await directusClient
+    .items('projects')
+    .readByQuery()
 
   return {
     props: {
       repos,
       snippets,
       posts,
-      avatar: data?.avatar,
+      avatar: home?.avatar,
+      projects,
     },
   }
 }

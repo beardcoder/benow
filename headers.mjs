@@ -2,7 +2,7 @@
  * Security headers used in the app
  * @see https://infosec.mozilla.org/guidelines/web_security
  */
-module.exports = [
+const headers = [
   {
     key: 'X-DNS-Prefetch-Control',
     value: 'on',
@@ -36,3 +36,5 @@ module.exports = [
     value: 'geolocation=*', // allow specified policies here
   },
 ]
+
+export default headers

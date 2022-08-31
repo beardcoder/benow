@@ -1,26 +1,18 @@
-import { Directus, ID } from '@directus/sdk'
+import type { components } from '@/@types/api'
+import { Directus } from '@directus/sdk'
 
-// Map your collection structure based on its fields.
-export type Article = {
-  id: ID
-  title: string
-  content: string
-  slug: string
-  image: any
-  date_created: any
-  tags: string[]
+export type Article = components['schemas']['ItemsArticles']
+export type Home = components['schemas']['ItemsHome']
+export type Project = components['schemas']['ItemsProjects'] & {
+  keywords: string[]
 }
 
-// Map your collections to its respective types. The SDK will
-// infer its types based on usage later.
-type MySite = {
+type DirectusApi = {
   articles: Article
-  home: {
-    id: ID
-    avatar: ID
-  }
+  home: Home
+  projects: Project
 }
 
-export const directusClient = new Directus<MySite>(
+export const directusClient = new Directus<DirectusApi>(
   'https://backend.viking.uber.space'
 )

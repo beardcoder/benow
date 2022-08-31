@@ -1,33 +1,18 @@
 import { FunctionComponent, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import IProject from '../../../@types/project'
 import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
 import { Typewriter } from 'react-simple-typewriter'
 import { useInView } from 'react-intersection-observer'
 import classNames from 'classnames'
+import { Project } from '@/src/utils/directus-client'
 
-type Props = {} & JSX.IntrinsicElements['section']
-
-const projects: IProject[] = [
-  {
-    name: 'Vision Of Pearls',
-    link: 'https://www.v-o-p.com/',
-    tech: ['TYPO3', 'VanillaJS', 'Webpack', 'Docker'],
-  },
-  {
-    name: 'BavariaIpsum',
-    link: 'https://bavaria-ipsum.vercel.app/',
-    tech: ['NextJS', 'React', 'Serverless'],
-  },
-  {
-    name: 'SommerSolutions',
-    link: 'https://sommersolutions.de/',
-    tech: ['Wordpress', 'Elementor', 'Server'],
-  },
-]
+type Props = {
+  projects: Project[]
+} & JSX.IntrinsicElements['section']
 
 export const HomeProjects: FunctionComponent<Props> = ({
   className,
+  projects,
   ...props
 }): JSX.Element => {
   const { ref, inView } = useInView({

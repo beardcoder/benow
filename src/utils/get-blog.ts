@@ -63,6 +63,7 @@ function mapFields(fields: (keyof Article)[], data: Article) {
     }
 
     if (typeof data[field] !== 'undefined') {
+      // @ts-ignore
       post[field] = data[field]
     }
   })

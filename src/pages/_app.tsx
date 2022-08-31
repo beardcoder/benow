@@ -14,7 +14,7 @@ import '../styles/globals.css'
 
 NProgress.configure({ showSpinner: false })
 
-function MyApp({ Component, pageProps }: AppProps) {
+function Creativeworkspace({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const delay = 500 // in milliseconds
     let timer: NodeJS.Timeout | null = null
@@ -38,4 +38,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
-export default MyApp
+export default Creativeworkspace
