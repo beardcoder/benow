@@ -24,11 +24,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const directusClient = await getDirectusClient()
 
     for (const key of keys) {
-      const res = await directusClient
+      const directusRes = await directusClient
         .items(collection)
         .readOne(key, { fields: ['slug'] })
 
-      await res.revalidate(`/${res.slug}`)
+      await res.revalidate(`/${directusRes.slug}`)
       await res.revalidate('/')
     }
   }
