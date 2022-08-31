@@ -63,7 +63,14 @@ export const BlogHeader: FunctionComponent<Props> = ({
             <FiUser size='24' className='mr-3' /> {author}
           </div>
           <div className='flex justify-center mb-4 md:ml-10'>
-            <FiTag size='24' className='mr-3' /> {tags}
+            <FiTag size='24' className='mr-3' />{' '}
+            {tags &&
+              tags.map((tag, key) => (
+                <span key={key} className='mr-1'>
+                  {tag}
+                  {tags && key !== tags.length - 1 && ', '}
+                </span>
+              ))}
           </div>
         </div>
       </motion.div>
