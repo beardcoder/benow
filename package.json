@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "sitemap": "next-sitemap --config next-sitemap.config.cjs",
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
@@ -25,6 +26,7 @@
     "framer-motion": "^7.2.1",
     "next": "^12.2.5",
     "next-seo": "^5.5.0",
+    "next-sitemap": "^3.1.21",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -34,6 +36,7 @@
     "rehype-stringify": "^9.0.3",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "sharp": "^0.30.7",
     "start-server-and-test": "^1.14.0",
     "swiper": "^8.3.2",
     "tailwindcss-border-gradients": "^2.0.3",
@@ -42,6 +45,7 @@
   "devDependencies": {
     "@directus/sdk": "^10.1.4",
     "@mapbox/rehype-prism": "^0.8.0",
+    "@next/env": "^12.2.5",
     "@tailwindcss/typography": "^0.5.4",
     "@types/node": "^18.7.14",
     "@types/nprogress": "^0.2.0",
