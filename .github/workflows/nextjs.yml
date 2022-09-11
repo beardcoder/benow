@@ -53,7 +53,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm build
+        run: npm run build
 
       - name: Build sitemap
         run: npm run sitemap
