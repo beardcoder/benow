@@ -1,7 +1,0 @@
-{
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "bookmarks.useWorkaroundForFormatters": true,
-    "eslint.format.enable": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true
-}
