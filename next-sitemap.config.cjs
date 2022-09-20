@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://creativeworkspace.de',
+  siteUrl: process.env.SITE_URL || 'https://letsbenow.de',
   generateRobotsTxt: true,
 }

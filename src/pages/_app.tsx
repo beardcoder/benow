@@ -15,7 +15,7 @@ import { HelperJsonLd } from '@/src/components/Helper/HelperJsonLd'
 
 nprogress.configure({ showSpinner: false })
 
-function Creativeworkspace({ Component, pageProps }: AppProps) {
+function Website({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const delay = 500 // in milliseconds
     let timer: NodeJS.Timeout | null = null
@@ -39,4 +39,4 @@ function Creativeworkspace({ Component, pageProps }: AppProps) {
     </>
   )
 }
-export default Creativeworkspace
+export default Website

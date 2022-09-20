@@ -11,8 +11,8 @@ export const HelperJsonLd = ({}: Props): JSX.Element => {
         openGraph={{
           type: 'website',
           locale: 'de_DE',
-          url: 'https://www.creativeworkspace.de',
-          site_name: 'CreativeWorkspace',
+          url: 'https://www.letsbenow.de',
+          site_name: 'be now',
         }}
         twitter={{
           handle: '@beardcoder',
@@ -21,13 +21,13 @@ export const HelperJsonLd = ({}: Props): JSX.Element => {
         }}
       />
       <LogoJsonLd
-        logo='https://www.creativeworkspace.de/creativeworkspace.svg'
-        url='https://www.creativeworkspace.de'
+        logo='https://www.letsbenow.de/creativeworkspace.svg'
+        url='https://www.letsbenow.de'
       />
       <SocialProfileJsonLd
         type='Person'
         name='Markus Sommer'
-        url='https://www.creativeworkspace.de'
+        url='https://www.letsbenow.de'
         sameAs={[
           'https://www.instagram.com/markus.sommer/',
           'https://github.com/beardcoder',

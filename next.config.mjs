@@ -16,7 +16,13 @@ const config = {
     {
       source: '/:path*',
       has: [{ type: 'host', value: 'www.creativeworkspace.de' }],
-      destination: 'https://creativeworkspace.de/:path*',
+      destination: 'https://letsbenow.de/:path*',
+      permanent: true,
+    },
+    {
+      source: '/:path*',
+      has: [{ type: 'host', value: 'creativeworkspace.de' }],
+      destination: 'https://letsbenow.de/:path*',
       permanent: true,
     },
   ],

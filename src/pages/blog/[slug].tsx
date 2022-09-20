@@ -24,10 +24,10 @@ export default function BlogSlug({
     <LayoutPage>
       <NextSeo
         title={`${title} — Markus Sommer`}
-        canonical={`https://www.creativeworkspace.de/blog/${slug}`}
+        canonical={`https://letsbenow.de/blog/${slug}`}
       />
       <ArticleJsonLd
-        url={`https://www.creativeworkspace.de/blog/${slug}`}
+        url={`https://letsbenow.de/blog/${slug}`}
         title={title ?? ''}
         images={[String(image) ?? '']}
         datePublished={date_created}
