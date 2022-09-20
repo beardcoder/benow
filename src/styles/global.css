@@ -1,0 +1,7 @@
+@import "@fontsource/urbanist";
+@import "@fontsource/urbanist/700";
+@import "@fontsource/urbanist/800";
+
+.text-hightlight span {
+  @apply text-transparent bg-clip-text bg-gradient-to-br from-lime-400 to-emerald-500;
+}

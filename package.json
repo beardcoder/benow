@@ -1,0 +1,28 @@
+{
+  "name": "@example/portfolio",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.7.0",
+    "@astrojs/tailwind": "^2.0.1",
+    "@directus/sdk": "^10.1.4",
+    "astro": "^1.2.6",
+    "rellax": "^1.12.1"
+  },
+  "devDependencies": {
+    "@fontsource/urbanist": "^4.5.14",
+    "@types/rellax": "^1.7.4",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
+    "eslint-plugin-astro": "^0.19.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "prettier": "2.7.1"
+  }
+}

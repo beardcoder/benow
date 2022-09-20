@@ -1,0 +1,88 @@
+---
+// Component Imports
+import { getDirectusClient } from "../utils/get-directus-client";
+import { Image } from "@astrojs/image/components";
+import { getAssetURL } from "../utils/get-asset-url";
+import Default from "../layouts/default.astro";
+import heroVideo from "../assets/hero.mp4";
+
+const directus = await getDirectusClient();
+
+const home = await directus.singleton("home").read();
+---
+
+<Default title="Home" description="Frontend artist">
+  <div
+    slot="header"
+    class="relative h-screen min-h-[600px] max-h-[800px] overflow-hidden flex justify-center items-center"
+  >
+    <div
+      class="absolute top-20 bottom-0 -z-10 after:absolute after:inset-0 after:bg-white/20 w-4/6 right-0"
+    >
+      <video
+        webkit-playsinline
+        playsinline
+        autoplay
+        loop
+        muted
+        class="absolute inset-0 h-full w-full object-cover"
+      >
+        <source type="video/mp4" src={heroVideo} />
+      </video>
+    </div>
+    <div class="z-10 relative container mx-auto pt-20">
+      <h1
+        class="text-8xl font-extrabold text-hightlight"
+        set:html={home?.title?.replace(/\n/g, "<br />")}
+      >
+      </h1>
+      <p class="mt-8 text-xl w-2/6 pr-10">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et.
+      </p>
+      <button
+        type="button"
+        class="mt-4 text-white font-bold text-base bg-gradient-to-r from-lime-500 via-green-600 to-emerald-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-emerald-300 dark:focus:ring-emerald-800 shadow-lg shadow-emerald-500/50 dark:shadow-lg dark:shadow-emerald-800/80 rounded-lg px-8 py-2.5 text-center mr-2 mb-2"
+        >Schreib mir</button
+      >
+    </div>
+  </div>
+  <div slot="content">
+    <section class="bg-neutral-100">
+      <div class="flex space-x-14 container mx-auto px-4 py-20">
+        <div class="md:w-1/3 lg:w-1/2">
+          {
+            home?.avatar && (
+              <Image
+                src={getAssetURL(home?.avatar)}
+                aspectRatio={1/1}
+                width={800}
+                sizes="(max-width: 800px) 100vw, 800px"
+                class="hidden lg:block"
+                alt="descriptive text"
+              />
+              <Image
+                src={getAssetURL(home?.avatar)}
+                width={600}
+                aspectRatio={3/4}
+                class="lg:hidden"
+                alt="descriptive text"
+              />
+            )
+          }
+        </div>
+        <div class="md:w-2/3 lg:w-1/2 flex justify-center flex-col">
+          <div>
+            <h2
+              class="text-hightlight text-4xl lg:text-5xl font-black mb-4"
+              set:html={home?.about_title}
+            >
+            </h2>
+            <div class="text-lg lg:text-xl" set:html={home?.about_text}></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Default>
