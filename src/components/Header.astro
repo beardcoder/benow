@@ -1,0 +1,46 @@
+---
+import { getAssetURL } from '../utils/get-asset-url'
+
+export type Props = {
+  hero?: string
+  title?: string
+}
+const { hero, title } = Astro.props
+---
+
+<div
+  class="relative flex h-screen max-h-[800px] min-h-[600px] items-center justify-center overflow-hidden"
+>
+  <div
+    class="absolute top-20 bottom-0 right-0 -z-10 w-7/12 after:absolute after:inset-0 after:bg-white/40 dark:after:bg-black/40"
+  >
+    <video
+      webkit-playsinline
+      playsinline
+      autoplay
+      loop
+      muted
+      class="absolute inset-0 h-full w-full object-cover"
+    >
+      {hero && <source type="video/mp4" src={getAssetURL(hero)} />}
+    </video>
+  </div>
+  <div class="container relative z-10 mx-auto pt-20">
+    {
+      title && (
+        <h1 class="text-hightlight text-8xl font-extrabold">
+          <Fragment set:html={title} />
+        </h1>
+      )
+    }
+    <p class="mt-8 w-5/12 pr-10 text-xl">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
+    </p>
+    <button
+      type="button"
+      class="mt-4 mr-2 mb-2 rounded-lg bg-gradient-to-r from-lime-500 via-green-500 to-emerald-500 px-8 py-2.5 text-center text-base font-bold text-white shadow-lg shadow-emerald-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-emerald-300 dark:shadow-lg dark:shadow-emerald-800/80 dark:focus:ring-emerald-800"
+      >Schreib mir</button
+    >
+  </div>
+</div>

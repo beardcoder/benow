@@ -1,19 +1,21 @@
 ---
-import logo from "../assets/logo--uni.svg?raw";
+import logo from '../assets/logo--uni.svg?raw'
 
 const menu = [
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Über mich", href: "/about" },
-  { name: "Blog", href: "/blog" },
-];
+  { name: 'Portfolio', href: '/portfolio' },
+  { name: 'Über mich', href: '/about' },
+  { name: 'Blog', href: '/blog' },
+]
 ---
 
-<nav class="absolute w-full z-20 h-14 text-black">
-  <div class="container pt-4 mx-auto px-4 flex items-center">
-    <a href="/" class="h-6 w-auto inline-flex mr-10" set:html={logo}></a>
+<nav class="absolute z-20 h-14 w-full">
+  <div class="container mx-auto flex items-center px-4 pt-4">
+    <a href="/" class="mr-10 inline-flex h-6 w-auto"
+      ><Fragment set:html={logo} />
+    </a>
     {
       menu.map((item) => (
-        <a class="text-lg font-bold mr-4 inline-block pt-2" href={item.href}>
+        <a class="mr-4 inline-block pt-2 text-lg font-bold" href={item.href}>
           {item.name}
         </a>
       ))
