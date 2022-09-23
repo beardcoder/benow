@@ -7,7 +7,7 @@ const config = {
   reactStrictMode: true,
   serverRuntimeConfig: {
     // Will only be available on the server side
-    token: 'zLbKvsPdr_BJKh7DDtkisEroJk6nSZoX',
+    token: 'IrF9fmPzva1RCQg-dAC8zUlUygTzuGep',
   },
   publicRuntimeConfig: {
     url: 'https://backend.viking.uber.space',
