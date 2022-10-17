@@ -30,7 +30,7 @@
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0",
+    "react-icons": "^4.6.0",
     "react-intersection-observer": "^9.4.0",
     "rehype-stringify": "^9.0.3",
     "remark-parse": "^10.0.1",
