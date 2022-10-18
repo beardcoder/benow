@@ -18,7 +18,7 @@
     "test": "npm run e2e:headless"
   },
   "dependencies": {
-    "@fontsource/inter": "^4.5.13",
+    "@fontsource/inter": "^4.5.14",
     "@fontsource/open-sans": "^4.5.13",
     "@octokit/rest": "^19.0.5",
     "classnames": "^2.3.2",
