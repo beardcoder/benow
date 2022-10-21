@@ -22,7 +22,7 @@
     "@fontsource/open-sans": "^4.5.13",
     "@octokit/rest": "^19.0.5",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.5",
+    "dayjs": "^1.11.6",
     "framer-motion": "^7.6.1",
     "next": "^12.3.1",
     "next-seo": "^5.6.0",
