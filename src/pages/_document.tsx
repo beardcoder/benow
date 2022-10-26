@@ -4,6 +4,8 @@ export default function Document() {
   return (
     <Html lang='de'>
       <Head>
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+        <link rel='icon' type='image/png' href='/favicon.png' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
@@ -22,11 +24,11 @@ export default function Document() {
           href='/favicon-16x16.png'
         />
         <link rel='manifest' href='/site.webmanifest' />
-        <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
-        <meta name='msapplication-TileColor' content='#000000' />
-        <meta name='theme-color' content='#000000' />
+        <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#22c55e' />
+        <meta name='msapplication-TileColor' content='#22c55e' />
+        <meta name='theme-color' content='#ffffff' />
       </Head>
-      <body className='tracking-tight text-gray-800 bg-white dark:bg-black dark:text-gray-100'>
+      <body className='text-neutral-800 bg-white dark:bg-neutral-900 dark:text-neutral-100'>
         <Main />
         <NextScript />
       </body>

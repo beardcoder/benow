@@ -21,7 +21,7 @@ export const HelperJsonLd = ({}: Props): JSX.Element => {
         }}
       />
       <LogoJsonLd
-        logo='https://www.letsbenow.de/creativeworkspace.svg'
+        logo='https://www.letsbenow.de/icon.svg'
         url='https://www.letsbenow.de'
       />
       <SocialProfileJsonLd

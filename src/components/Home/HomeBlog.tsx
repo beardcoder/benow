@@ -11,11 +11,7 @@ type Props = {
   posts: Article[]
 } & JSX.IntrinsicElements['section']
 
-export const HomeBlog: FunctionComponent<Props> = ({
-  posts,
-  className,
-  ...props
-}): JSX.Element => {
+export function HomeBlog({ posts, className, ...props }: Props): JSX.Element {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0,

@@ -39,7 +39,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
   return (
     <section
       className={classNames(
-        'relative bg-gray-200 dark:bg-gray-900 py-36 overflow-x-hidden',
+        'relative bg-neutral-200 dark:bg-neutral-800 py-36 overflow-x-hidden',
         className
       )}
       {...props}

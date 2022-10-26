@@ -1,7 +1,3 @@
-import '@fontsource/inter/700.css'
-import '@fontsource/open-sans'
-import '@fontsource/open-sans/300.css'
-import '@fontsource/open-sans/700.css'
 import '@/src/styles/globals.css'
 import 'nprogress/nprogress.css'
 import 'swiper/css'
@@ -15,7 +11,7 @@ import { HelperJsonLd } from '@/src/components/Helper/HelperJsonLd'
 
 nprogress.configure({ showSpinner: false })
 
-function Website({ Component, pageProps }: AppProps) {
+export default function Website({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const delay = 500 // in milliseconds
     let timer: NodeJS.Timeout | null = null
@@ -39,4 +35,3 @@ function Website({ Component, pageProps }: AppProps) {
     </>
   )
 }
-export default Website

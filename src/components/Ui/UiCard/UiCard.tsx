@@ -20,25 +20,24 @@ export const UiCard: FunctionComponent<Props> = ({
 }): JSX.Element => {
   if (href) {
     return (
-      <Link href={href}>
-        <a
-          className={classNames(
-            'block duration-200 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900 hover:shadow-md transition-shadow',
-            className
-          )}
-          target={target}
-          rel={rel}
-          {...props}
-        >
-          {children}
-        </a>
+      <Link
+        href={href}
+        className={classNames(
+          'block duration-200 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 hover:shadow-md transition-shadow',
+          className
+        )}
+        target={target}
+        rel={rel}
+        {...props}
+      >
+        {children}
       </Link>
     )
   }
   return (
     <div
       className={classNames(
-        'block duration-200 rounded-xl bg-gray-100 dark:bg-gray-900',
+        'block duration-200 rounded-xl bg-neutral-100 dark:bg-neutral-800',
         className
       )}
       {...props}

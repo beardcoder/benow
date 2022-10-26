@@ -1,14 +1,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { FunctionComponent, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { UiButton } from '../Ui/Button/UiButton'
 
 type Props = { image: string } & JSX.IntrinsicElements['header']
 
-export const HomeHeader: FunctionComponent<Props> = ({
-  ...props
-}): JSX.Element => {
+export function HomeHeader({ ...props }: Props): JSX.Element {
   const { scrollY } = useScroll()
   const ref = useRef<HTMLDivElement>(null)
   const [divHeight, getDivHeight] = useState<number>(0)
@@ -18,14 +16,14 @@ export const HomeHeader: FunctionComponent<Props> = ({
     getDivHeight(Number(div))
   }, [divHeight])
 
-  const opacity = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
+  const opacity = useTransform(scrollY, [divHeight / 2, 0], [0.2, 1])
   const translateY = useTransform(scrollY, [divHeight, 0], [200, 0], {
     clamp: false,
   })
 
   return (
     <header
-      className='relative flex overflow-hidden bg-gray-900'
+      className='relative flex overflow-hidden bg-neutral-800'
       data-cy='intro'
       ref={ref}
       {...props}
@@ -38,10 +36,9 @@ export const HomeHeader: FunctionComponent<Props> = ({
         <motion.div style={{ opacity }}>
           <Image
             src='/assets/header.jpg'
-            layout='fill'
-            objectFit='cover'
+            fill
             alt='Header image'
-            className='z-0'
+            className='z-0 object-cover'
           ></Image>
         </motion.div>
         <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>

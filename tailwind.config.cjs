@@ -11,12 +11,12 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
-      header: ['Inter', ...defaultTheme.fontFamily.sans],
+      sans: ['Urbanist', ...defaultTheme.fontFamily.sans],
+      header: ['Urbanist', ...defaultTheme.fontFamily.sans],
     },
     linearBorderGradients: (theme) => ({
       colors: {
-        primary: [theme('colors.sky.500'), theme('colors.teal.400')],
+        primary: [theme('colors.lime.500'), theme('colors.green.400')],
       },
     }),
     extend: {

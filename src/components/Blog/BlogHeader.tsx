@@ -39,10 +39,9 @@ export const BlogHeader: FunctionComponent<Props> = ({
       <motion.div style={{ opacity }}>
         <Image
           src={`${image}`}
-          layout='fill'
-          objectFit='cover'
+          fill
           alt='Header image'
-          className='z-0'
+          className='z-0 object-cover'
         ></Image>
       </motion.div>
       <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
@@ -77,5 +76,3 @@ export const BlogHeader: FunctionComponent<Props> = ({
     </header>
   )
 }
-
-export default BlogHeader

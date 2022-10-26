@@ -45,7 +45,7 @@ export default function BlogSlug({
         tags={tags}
         id='intro'
       />
-      <article>
+      <article className='mt-10'>
         <div className='container flex flex-col items-start px-5 mx-auto lg:px-0 lg:flex-row'>
           <BlogContent
             className='lg:w-5/6'

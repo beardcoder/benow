@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import Link from 'next/link'
 import { FunctionComponent } from 'react'
+import { UrlObject } from 'url'
 
 import styles from './UiButton.module.css'
 
@@ -9,7 +10,7 @@ type Props = {
   tagName?: string
   small?: boolean
   block?: boolean
-  href?: string
+  href: string | UrlObject
   [key: string]: any
 } & JSX.IntrinsicElements['a']
 export const UiButton: FunctionComponent<Props> = ({
@@ -21,24 +22,20 @@ export const UiButton: FunctionComponent<Props> = ({
   href,
   ...props
 }): JSX.Element => {
-  const Wrapper = ({ children }: any) =>
-    href ? <Link href={href}>{children}</Link> : <>{children}</>
-
   return (
-    <Wrapper>
-      <a
-        className={classNames(
-          styles.button,
-          small ? styles.buttonSmall : undefined,
-          block ? styles.buttonBlock : undefined,
-          tagName === 'a' ? styles.buttonIsLink : undefined,
-          'border-gradient',
-          className
-        )}
-        {...props}
-      >
-        {children}
-      </a>
-    </Wrapper>
+    <Link
+      href={href}
+      className={classNames(
+        styles.button,
+        small ? styles.buttonSmall : undefined,
+        block ? styles.buttonBlock : undefined,
+        tagName === 'a' ? styles.buttonIsLink : undefined,
+        'border-gradient',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Link>
   )
 }
