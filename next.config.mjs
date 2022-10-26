@@ -10,7 +10,7 @@ const config = {
     token: 'IrF9fmPzva1RCQg-dAC8zUlUygTzuGep',
   },
   publicRuntimeConfig: {
-    url: 'https://backend.viking.uber.space',
+    url: 'https://api.letsbenow.de',
   },
   redirects: async () => [
     {
@@ -36,7 +36,7 @@ const config = {
   },
   poweredByHeader: false,
   images: {
-    domains: ['images.ctfassets.net', 'backend.viking.uber.space'],
+    domains: ['images.ctfassets.net', 'api.letsbenow.de'],
     formats: ['image/avif', 'image/webp'],
   },
 }
