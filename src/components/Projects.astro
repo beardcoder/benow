@@ -22,7 +22,7 @@ const { title, projects } = Astro.props
     <ul class="mt-12 flex space-x-8">
       {
         projects?.map((project) => (
-          <li class="w-1/3 rounded-xl bg-neutral-200 p-4 dark:bg-neutral-700">
+          <li class="w-1/3">
             <div>
               <Image
                 src={getAssetURL(project.image)}

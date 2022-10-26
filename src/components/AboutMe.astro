@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Picture } from '@astrojs/image/components'
 import { getAssetURL } from '../utils/get-asset-url'
 
 export type Props = {
@@ -13,30 +13,7 @@ const { image, title, text } = Astro.props
 
 <section id="about" class="bg-neutral-100 dark:bg-neutral-700">
   <div class="container mx-auto flex space-x-14 px-4 py-20">
-    <div class="overflow-hidden md:w-1/3">
-      {
-        image && (
-          <Fragment>
-            <Image
-              src={getAssetURL(image)}
-              aspectRatio={1 / 1}
-              width={800}
-              sizes="(max-width: 800px) 100vw, 800px"
-              class="hidden lg:block"
-              alt="descriptive text"
-            />
-            <Image
-              src={getAssetURL(image)}
-              width={600}
-              aspectRatio={3 / 4}
-              class="lg:hidden"
-              alt="descriptive text"
-            />
-          </Fragment>
-        )
-      }
-    </div>
-    <div class="flex flex-col justify-center md:w-2/3">
+    <div class="flex flex-col justify-center md:w-3/5">
       <div>
         <h2
           class="text-hightlight mb-4 text-4xl font-black lg:text-5xl"
@@ -45,6 +22,20 @@ const { image, title, text } = Astro.props
         </h2>
         <div class="text-lg lg:text-xl" set:html={text}></div>
       </div>
+    </div>
+    <div class="overflow-hidden md:w-2/5">
+      {
+        image && (
+          <Picture
+            src={getAssetURL(image)}
+            widths={[200, 400, 800]}
+            formats={['webp', 'jpg']}
+            aspectRatio="4:3"
+            sizes="(max-width: 800px) 100vw, 800px"
+            alt="Markus Sommer"
+          />
+        )
+      }
     </div>
   </div>
 </section>
