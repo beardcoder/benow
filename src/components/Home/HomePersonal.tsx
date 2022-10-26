@@ -23,7 +23,6 @@ export const HomePersonal: FunctionComponent<Props> = ({
           src={`${image}?width=600&height=600`}
           width='600'
           height='600'
-          responsive
           alt='Markus Sommer'
         ></Image>
       </div>
