@@ -12,7 +12,7 @@ type Props = {
   block?: boolean
   href: string | UrlObject
   [key: string]: any
-} & JSX.IntrinsicElements['a']
+}
 export const UiButton: FunctionComponent<Props> = ({
   children,
   className,
