@@ -7,8 +7,8 @@ type Props = {
   href?: string
   target?: string
   rel?: string
-} & JSX.IntrinsicElements['div'] &
-  JSX.IntrinsicElements['a']
+  children?: any
+}
 
 export const UiCard: FunctionComponent<Props> = ({
   children,
@@ -23,7 +23,7 @@ export const UiCard: FunctionComponent<Props> = ({
       <Link
         href={href}
         className={classNames(
-          'block duration-200 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 hover:shadow-md transition-shadow',
+          'block duration-200 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 hover:shadow-md transition-shadow',
           className
         )}
         target={target}
@@ -37,7 +37,7 @@ export const UiCard: FunctionComponent<Props> = ({
   return (
     <div
       className={classNames(
-        'block duration-200 rounded-xl bg-neutral-100 dark:bg-neutral-800',
+        'block duration-200 rounded-xl bg-neutral-100 dark:bg-neutral-900',
         className
       )}
       {...props}
