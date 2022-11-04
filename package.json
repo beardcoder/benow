@@ -45,7 +45,7 @@
   "devDependencies": {
     "@directus/sdk": "^10.1.5",
     "@mapbox/rehype-prism": "^0.8.0",
-    "@next/env": "^13.0.1",
+    "@next/env": "^13.0.2",
     "@prettier/plugin-xml": "^2.2.0",
     "@tailwindcss/typography": "^0.5.7",
     "@types/node": "^18.11.9",
