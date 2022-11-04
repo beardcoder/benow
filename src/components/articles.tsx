@@ -1,17 +1,16 @@
-import classNames from 'classnames'
-import { FunctionComponent } from 'react'
+import { cx } from 'classix'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from 'react-simple-typewriter'
 
-import { Article } from '@/@types/api'
+import type { Article as ArticleType } from '@/@types/api'
 
-import { HomeBlogPost } from './HomeBlogPost/HomeBlogPost'
+import Article from './article'
 
 type Props = {
-  posts: Article[]
+  articles: ArticleType[]
 } & JSX.IntrinsicElements['section']
 
-export function HomeBlog({ posts, className, ...props }: Props): JSX.Element {
+export default function Articles({ articles, className, ...props }: Props) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0,
@@ -34,7 +33,7 @@ export function HomeBlog({ posts, className, ...props }: Props): JSX.Element {
   return (
     <section
       {...props}
-      className={classNames('container relative px-8 mx-auto', className)}
+      className={cx('container relative px-8 mx-auto', className)}
     >
       <div className='flex flex-col mb-16 md:flex-row'>
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
@@ -47,23 +46,21 @@ export function HomeBlog({ posts, className, ...props }: Props): JSX.Element {
             es hier nieder. Um mein Wissen und meine Erfahrungen mit euch zu
             Teilen. Gerne Lese ich auch Feedback zu meinen Artikeln. Schreibt
             mit einfach eine Email an{' '}
-            <a href='mailto:markussom@gmail.com'>markussom@gmail.com</a>
+            <a href='mailto:markus@letsbenow.de'>markus@letsbenow.de</a>
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
           <h2 className='pb-1 text-gradient'>Blog&nbsp;</h2>
-          <div className='mb-8 h2 md:mb-14' ref={ref}>
+          <div className='mb-8 h2-sub md:mb-14' ref={ref}>
             {text}
           </div>
         </div>
       </div>
       <div className='flex flex-wrap -mx-8'>
-        {posts.map((post, i) => (
-          <HomeBlogPost post={post} key={i}></HomeBlogPost>
+        {articles.map((article, i) => (
+          <Article {...article} key={i} />
         ))}
       </div>
     </section>
   )
 }
-
-export default HomeBlog

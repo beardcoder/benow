@@ -1,15 +1,8 @@
-import getConfig from 'next/config'
 import Image from 'next/image'
-import { FunctionComponent } from 'react'
-
-import { getAssetURL } from '@/src/utils/get-asset-url'
-const { publicRuntimeConfig } = getConfig()
 
 type Props = { image: string } & JSX.IntrinsicElements['section']
 
-export const HomePersonal: FunctionComponent<Props> = ({
-  ...props
-}): JSX.Element => {
+export default function AboutMe({ ...props }) {
   const { image } = props
   return (
     <section
@@ -45,5 +38,3 @@ export const HomePersonal: FunctionComponent<Props> = ({
     </section>
   )
 }
-
-export default HomePersonal

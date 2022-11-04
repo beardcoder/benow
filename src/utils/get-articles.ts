@@ -1,16 +1,12 @@
-import getConfig from 'next/config'
-
 import { Article } from '@/@types/api'
 import { getDirectusClient } from '@/src/utils/directus-client'
 import { markdownToHtml } from '@/src/utils/markdown-to-html'
 
-const { publicRuntimeConfig } = getConfig()
-
 /**
- * It returns a promise that resolves to an array of IPostFields
- * @returns An array of IPostFields
+ * It returns a promise that resolves to an array of IarticleFields
+ * @returns An array of IarticleFields
  */
-export async function getAllPosts(
+export async function getAllArticles(
   fields: (keyof Article)[]
 ): Promise<Article[]> {
   const directusClient = await getDirectusClient()
@@ -21,24 +17,24 @@ export async function getAllPosts(
   if (!data) {
     return []
   }
-  const posts: Article[] = []
+  const articles: Article[] = []
 
-  data.forEach((item) => {
-    const post = mapFields(fields, item)
-    posts.push(post)
+  data.forEach((item: any) => {
+    const article = mapFields(fields, item)
+    articles.push(article)
   })
 
-  return posts
+  return articles
 }
 
 /**
- * It takes a slug and an array of fields, and returns a post object with the fields you requested
- * @param {string} slug - The slug of the post you want to retrieve.
+ * It takes a slug and an array of fields, and returns a article object with the fields you requested
+ * @param {string} slug - The slug of the article you want to retrieve.
  * @param {Field[]} fields - An array of strings that represent the fields you want to retrieve from
  * the Contentful API.
- * @returns A post object with the fields specified in the fields array.
+ * @returns A article object with the fields specified in the fields array.
  */
-export async function getPostBySlug(
+export async function getArticleBySlug(
   slug: string,
   fields: (keyof Article)[]
 ): Promise<Article | null> {
@@ -51,24 +47,24 @@ export async function getPostBySlug(
     return null
   }
 
-  const rawPost = data[0]
+  const rawArticle = data[0] as Article
 
-  const post = mapFields(fields, rawPost)
-  return post
+  const article = mapFields(fields, rawArticle)
+  return article
 }
 function mapFields(fields: (keyof Article)[], data: Article) {
-  const post: Partial<Article> = {}
+  const article: Partial<Article> = {}
   fields.forEach((field) => {
     if (field === 'content' && data.content) {
-      post[field] = markdownToHtml(data.content)
+      article[field] = markdownToHtml(data.content)
       return
     }
 
     if (typeof data[field] !== 'undefined') {
       // @ts-ignore
-      post[field] = data[field]
+      article[field] = data[field]
     }
   })
 
-  return post as Article
+  return article as Article
 }

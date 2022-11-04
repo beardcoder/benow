@@ -12,7 +12,9 @@ describe('Home', () => {
   it('Intro: should have contact button', () => {
     const section = cy.get('[data-cy="intro"]')
     section.get('[data-cy="contact"]').contains('Kontakt aufnehmen')
-    section.get('[data-cy="contact"]').should('have.attr', 'href', 'mailto:markussom@gmail.com')
+    section
+      .get('[data-cy="contact"]')
+      .should('have.attr', 'href', 'mailto:markus@letsbenow.de')
   })
 
   it('Personal: should have a image', () => {

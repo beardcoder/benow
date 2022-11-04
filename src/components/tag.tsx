@@ -1,18 +1,13 @@
-import classNames from 'classnames'
-import { FunctionComponent } from 'react'
+import { cx } from 'classix'
 
 type Props = {
   light?: boolean
 } & JSX.IntrinsicElements['div']
 
-export const UiTag: FunctionComponent<Props> = ({
-  children,
-  light = false,
-  ...props
-}): JSX.Element => {
+export default function Tag({ children, light = false, ...props }: Props) {
   return (
     <div
-      className={classNames(
+      className={cx(
         'inline-block px-4 py-1 mb-4 mr-4 text-sm  rounded-full bg-neutral-800 dark:bg-neutral-200 text-white dark:text-black'
       )}
       {...props}
@@ -21,5 +16,3 @@ export const UiTag: FunctionComponent<Props> = ({
     </div>
   )
 }
-
-export default UiTag

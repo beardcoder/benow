@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { FunctionComponent, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FiCalendar, FiTag, FiUser } from 'react-icons/fi'
 
 type Props = {
@@ -12,14 +12,14 @@ type Props = {
   tags?: string[]
 } & JSX.IntrinsicElements['header']
 
-export const BlogHeader: FunctionComponent<Props> = ({
+export default function ArticleHero({
   title,
   image,
   createdAt,
   author,
   tags,
   ...props
-}): JSX.Element => {
+}: Props) {
   const { scrollY } = useScroll()
   const ref = useRef<HTMLDivElement>(null)
   const [divHeight, getDivHeight] = useState<number>(0)
@@ -36,10 +36,11 @@ export const BlogHeader: FunctionComponent<Props> = ({
 
   return (
     <header className='relative overflow-hidden bg-black' {...props} ref={ref}>
-      <motion.div style={{ opacity }}>
+      <motion.div style={{ opacity }} className='absolute inset-0'>
         <Image
           src={`${image}`}
           fill
+          priority
           alt='Header image'
           className='z-0 object-cover'
         ></Image>

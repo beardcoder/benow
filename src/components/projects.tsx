@@ -1,22 +1,17 @@
-import classNames from 'classnames'
-import { FunctionComponent, useRef } from 'react'
+import { cx } from 'classix'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from 'react-simple-typewriter'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Project } from '@/@types/api'
+import type { Project as ProjectType } from '@/@types/api'
 
-import { HomeProjectsProject } from './HomeProjectsProject/HomeProjectsProject'
+import Project from './project'
 
 type Props = {
-  projects: Project[]
+  projects: ProjectType[]
 } & JSX.IntrinsicElements['section']
 
-export const HomeProjects: FunctionComponent<Props> = ({
-  className,
-  projects,
-  ...props
-}): JSX.Element => {
+export default function Projects({ className, projects, ...props }: Props) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0,
@@ -38,7 +33,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
   }
   return (
     <section
-      className={classNames(
+      className={cx(
         'relative bg-neutral-200 dark:bg-neutral-800 py-36 overflow-x-hidden',
         className
       )}
@@ -62,7 +57,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
             <h2 className='text-gradient' ref={ref}>
               Projekte
             </h2>
-            <div className='mb-8 h2 md:mb-14'>{text}</div>
+            <div className='mb-8 h2-sub md:mb-14'>{text}</div>
           </div>
         </div>
 
@@ -82,7 +77,7 @@ export const HomeProjects: FunctionComponent<Props> = ({
             <div className='grid grid-flow-col gap-6 auto-cols-4/5 md:auto-cols-1/3'>
               {projects.map((project, i) => (
                 <SwiperSlide key={i}>
-                  <HomeProjectsProject project={project} />
+                  <Project {...project} />
                 </SwiperSlide>
               ))}
             </div>
@@ -92,5 +87,3 @@ export const HomeProjects: FunctionComponent<Props> = ({
     </section>
   )
 }
-
-export default HomeProjects

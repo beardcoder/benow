@@ -3,22 +3,22 @@ import { GetStaticProps } from 'next'
 import { Article, Home } from '@/@types/api'
 import { IRepo } from '@/@types/repo'
 import { ISnippet } from '@/@types/snippet'
-import { HomeBlog } from '@/src/components/Home/HomeBlog'
-import { HomeHeader } from '@/src/components/Home/HomeHeader'
-import { HomePersonal } from '@/src/components/Home/HomePersonal'
-import { HomeProjects } from '@/src/components/Home/HomeProjects'
-import { HomeRepos } from '@/src/components/Home/HomeRepos'
-import { HomeSnippets } from '@/src/components/Home/HomeSnippets'
-import { LayoutPage } from '@/src/components/Layout/LayoutPage'
+import AboutMe from '@/src/components/about-me'
+import Articles from '@/src/components/articles'
+import Hero from '@/src/components/hero'
+import Layout from '@/src/components/layout'
+import Projects from '@/src/components/projects'
+import Repos from '@/src/components/repos'
+import Snippets from '@/src/components/snippets'
 import { getDirectusClient } from '@/src/utils/directus-client'
-import { getAllPosts } from '@/src/utils/get-blog'
+import { getAllArticles } from '@/src/utils/get-articles'
 import { getRepos } from '@/src/utils/get-repos'
 import { getSnippets } from '@/src/utils/get-snippets'
 
 import { getAssetURL } from '../utils/get-asset-url'
 
 type Props = {
-  posts: Article[]
+  articles: Article[]
   home: Home
   repos: IRepo[]
   snippets: ISnippet[]
@@ -26,30 +26,30 @@ type Props = {
 }
 
 export default function Index({
-  posts,
+  articles,
   repos,
   snippets,
   home,
   projects,
 }: Props) {
   return (
-    <LayoutPage>
-      <HomeHeader image={getAssetURL(home.image)} id='intro' />
+    <Layout>
+      <Hero image={getAssetURL(home.image)} id='intro' />
       <main>
-        <HomePersonal id='me' image={getAssetURL(home.avatar)} />
-        <HomeProjects projects={projects} id='projects' className='mb-32' />
-        <HomeBlog id='blog' posts={posts} className='mb-20' />
-        <HomeRepos id='repos' repos={repos} className='mb-20' />
-        <HomeSnippets id='snippets' snippets={snippets} className='mb-20' />
+        <AboutMe id='me' image={getAssetURL(home.avatar)} />
+        <Projects projects={projects} id='projects' className='mb-32' />
+        <Articles id='blog' articles={articles} className='mb-20' />
+        <Repos id='repos' repos={repos} className='mb-20' />
+        <Snippets id='snippets' snippets={snippets} className='mb-20' />
       </main>
-    </LayoutPage>
+    </Layout>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const repos: IRepo[] = await getRepos()
   const snippets: ISnippet[] = await getSnippets()
-  const posts = await getAllPosts(['slug', 'title', 'image', 'tags'])
+  const articles = await getAllArticles(['slug', 'title', 'image', 'tags'])
 
   const directusClient = await getDirectusClient()
   const home = await directusClient.singleton('home').read()
@@ -62,9 +62,10 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       repos,
       snippets,
-      posts,
+      articles,
       home,
       projects,
     },
+    revalidate: 10, // In seconds
   }
 }

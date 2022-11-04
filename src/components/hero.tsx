@@ -2,11 +2,11 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-import { UiButton } from '../Ui/Button/UiButton'
+import Button from './button'
 
 type Props = { image: string } & JSX.IntrinsicElements['header']
 
-export function HomeHeader({ ...props }: Props): JSX.Element {
+export default function Hero({ image, ...props }: Props) {
   const { scrollY } = useScroll()
   const ref = useRef<HTMLDivElement>(null)
   const [divHeight, getDivHeight] = useState<number>(0)
@@ -31,12 +31,16 @@ export function HomeHeader({ ...props }: Props): JSX.Element {
       <motion.div
         style={{ translateY }}
         transition={{ duration: 1 }}
-        className='w-full'
+        className='w-full h-full'
       >
-        <motion.div style={{ opacity }}>
+        <motion.div
+          style={{ opacity }}
+          className='absolute inset-0 min-h-full w-full'
+        >
           <Image
-            src='/assets/header.jpg'
+            src={image}
             fill
+            priority
             alt='Header image'
             className='z-0 object-cover'
           ></Image>
@@ -51,18 +55,16 @@ export function HomeHeader({ ...props }: Props): JSX.Element {
             Designer
           </h1>
           <div className='mt-16'>
-            <UiButton
+            <Button
               data-cy='contact'
               className='text-white md:text-xl'
-              href='mailto:markussom@gmail.com'
+              href='mailto:markus@letsbenow.de'
             >
               Kontakt aufnehmen
-            </UiButton>
+            </Button>
           </div>
         </div>
       </motion.div>
     </header>
   )
 }
-
-export default HomeHeader
