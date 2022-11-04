@@ -4,7 +4,7 @@ type Props = {} & JSX.IntrinsicElements['div']
 
 import { Urbanist } from '@next/font/google'
 import { cx } from 'classix'
-const urbanist = Urbanist({ weight: ['400', '700', '800'] })
+const urbanist = Urbanist({ weight: ['400', '700', '800'], subsets: ['latin'] })
 
 export default function Layout({ children, ...props }: Props) {
   return (
