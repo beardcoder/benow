@@ -18,6 +18,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(403).send('Forbidden')
   }
 
+  console.log('[Next.js] Revalidating /')
+  await res.revalidate('/')
   if (collection === 'articles') {
     const { keys } = req.body
 
@@ -29,11 +31,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         .readOne(key, { fields: ['slug'] })
 
       await res.revalidate(`/blog/${directusRes.slug}`)
-      await res.revalidate('/')
     }
   }
 
   return res.status(200).send('Success')
+}
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
 }
 
 export default handler
