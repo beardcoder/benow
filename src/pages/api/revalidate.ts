@@ -19,6 +19,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   console.log('[Next.js] Revalidating /')
+  await res.revalidate('')
   await res.revalidate('/')
   if (collection === 'articles') {
     const { keys } = req.body
