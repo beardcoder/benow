@@ -39,7 +39,7 @@
     "remark-rehype": "^10.1.0",
     "sharp": "^0.31.2",
     "start-server-and-test": "^1.14.0",
-    "swiper": "^8.4.4",
+    "swiper": "^8.4.5",
     "tailwindcss-border-gradients": "^2.0.3",
     "unified": "^10.1.2"
   },
