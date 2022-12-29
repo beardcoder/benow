@@ -11,8 +11,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Urbanist', ...defaultTheme.fontFamily.sans],
-      header: ['Urbanist', ...defaultTheme.fontFamily.sans],
+      sans: ['var(--font-urbanist)', ...defaultTheme.fontFamily.sans],
+      header: ['var(--font-playfairDisplay)', ...defaultTheme.fontFamily.sans],
     },
     linearBorderGradients: (theme) => ({
       colors: {

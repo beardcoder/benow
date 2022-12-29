@@ -2,6 +2,7 @@ import '@/src/styles/globals.css'
 import 'nprogress/nprogress.css'
 import 'swiper/css'
 
+import { Playfair_Display, Urbanist } from '@next/font/google'
 import type { AppProps } from 'next/app'
 import { Router } from 'next/router'
 import { DefaultSeo, LogoJsonLd, SocialProfileJsonLd } from 'next-seo'
@@ -9,6 +10,15 @@ import nprogress from 'nprogress'
 import { useEffect } from 'react'
 
 nprogress.configure({ showSpinner: false })
+
+const urbanist = Urbanist({
+  weight: ['400', '700', '800'],
+  subsets: ['latin'],
+})
+const playfairDisplay = Playfair_Display({
+  weight: ['400', '700', '800'],
+  subsets: ['latin'],
+})
 
 export default function Website({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -58,7 +68,17 @@ export default function Website({ Component, pageProps }: AppProps) {
           'https://twitter.com/beardcoder',
         ]}
       />
-      <Component {...pageProps} />
+      <style jsx global>
+        {`
+          :root {
+            --font-urbanist: ${urbanist.style.fontFamily};
+            --font-playfairDisplay: ${playfairDisplay.style.fontFamily};
+          }
+        `}
+      </style>
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
   )
 }

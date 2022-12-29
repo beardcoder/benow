@@ -28,7 +28,7 @@ export default function Document() {
         <meta name='msapplication-TileColor' content='#22c55e' />
         <meta name='theme-color' content='#ffffff' />
       </Head>
-      <body className='text-neutral-800 bg-white dark:bg-neutral-900 dark:text-neutral-100'>
+      <body className='text-neutral-800 bg-white dark:bg-neutral-900 dark:text-neutral-100 font-sans'>
         <Main />
         <NextScript />
       </body>

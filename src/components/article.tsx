@@ -29,7 +29,7 @@ export default function Article({ slug, image, tags, title }: Props) {
               </span>
             ))}
         </p>
-        <h3>{title}</h3>
+        <h3 className='font-sans'>{title}</h3>
       </UiCard>
     </div>
   )

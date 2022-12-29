@@ -19,7 +19,7 @@ export default function Snippet({ url, description }: Props) {
             </linearGradient>
           </svg>
         </div>
-        <h3 className='truncate'>{description}</h3>
+        <h3 className='truncate font-sans'>{description}</h3>
       </div>
     </UiCard>
   )

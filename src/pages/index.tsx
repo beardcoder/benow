@@ -35,13 +35,11 @@ export default function Index({
   return (
     <Layout>
       <Hero image={getAssetURL(home.image)} id='intro' />
-      <main>
-        <AboutMe id='me' image={getAssetURL(home.avatar)} />
-        <Projects projects={projects} id='projects' className='mb-32' />
-        <Articles id='blog' articles={articles} className='mb-20' />
-        <Repos id='repos' repos={repos} className='mb-20' />
-        <Snippets id='snippets' snippets={snippets} className='mb-20' />
-      </main>
+      <AboutMe id='me' image={getAssetURL(home.avatar)} />
+      <Projects projects={projects} id='projects' className='mb-32' />
+      <Articles id='blog' articles={articles} className='mb-20' />
+      <Repos id='repos' repos={repos} className='mb-20' />
+      <Snippets id='snippets' snippets={snippets} className='mb-20' />
     </Layout>
   )
 }

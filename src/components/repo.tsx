@@ -22,7 +22,7 @@ export default function Repo({ url, name, description }: Props) {
           </svg>
         </div>
         <div className='overflow-hidden'>
-          <h3 className='mb-4 truncate'>{name}</h3>
+          <h3 className='truncate font-sans'>{name}</h3>
           <p className='truncate'>{description}</p>
         </div>
       </div>

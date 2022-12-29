@@ -22,16 +22,16 @@
 
 .burgerBunTopOpen {
   transform-origin: bottom;
-  transform: rotatez(45deg) translate(3px, -1px);
+  transform: rotate(45deg) translate(3px, -1px);
 }
 
 .burgerFillingOpen {
   transform-origin: top;
-  transform: rotatez(-45deg);
+  transform: rotate(-45deg);
 }
 
 .burgerBunBottomOpen {
   transform-origin: bottom;
   width: 50%;
-  transform: translate(22px, -4px) rotatez(45deg);
+  transform: translate(22px, -4px) rotate(45deg);
 }

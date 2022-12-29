@@ -7,7 +7,7 @@ type Props = Project
 export default function Project({ name, keywords, url }: Props) {
   return (
     <div>
-      <h3 className='block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl'>
+      <h3 className='font-sans block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl'>
         {name}
       </h3>
       <div className='md:text-center'>
