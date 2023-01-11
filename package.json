@@ -41,7 +41,7 @@
     "@mapbox/rehype-prism": "^0.8.0",
     "@next/env": "^13.1.1",
     "@prettier/plugin-xml": "^2.2.0",
-    "@tailwindcss/typography": "^0.5.8",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.11.18",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.26",
