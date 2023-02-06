@@ -26,12 +26,7 @@ export default function AboutMe({ ...props }) {
             <span className='pb-1 text-gradient'>Markus Sommer&nbsp;</span>
           </h2>
           <p className='max-w-3xl text-lg prose dark:prose-invert text-opacity-70'>
-            Mein Fokus und meine Leidenschaft sind auf die Benutzererfahrung
-            (User Experience) gerichtet. Brauchst du Hilfe z. B. um deine
-            Website in neuem Glanz erstrahlen zu lassen, Moderne Web
-            Technologieren einzusetzen oder mal einen Tipp wie du eine Sitemap
-            einrichtest? Dann schreibe mich an. Ich stehe gerne mit Rat und Tat
-            zur Seite.
+            Lass mich dir helfen, deine Online-Präsenz auf die nächste Stufe zu bringen! Meine Leidenschaft für die Benutzererfahrung (User Experience) brennt lichterloh und ich bin bereit, all mein Wissen und meine Erfahrung in dein Projekt zu investieren. Sei es durch eine Auffrischung deiner Website mit modernen Web-Technologien, die Einrichtung einer Sitemap oder jeglichen anderen Rat, den du benötigst. Schreib mir jetzt und lass uns gemeinsam dein Ziel erreichen!
           </p>
         </div>
       </div>
