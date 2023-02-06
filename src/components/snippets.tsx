@@ -32,26 +32,17 @@ export default function Snippets({ snippets, className, ...props }: Props) {
     )
   }
   return (
-    <section
-      className={cx('relative px-8 overflow-x-hidden', className)}
-      {...props}
-    >
+    <section className={cx('relative px-8 overflow-x-hidden', className)} {...props}>
       <div className='container py-12 mx-auto'>
         <div className='flex flex-col mb-10 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
-              100%
-            </div>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
             <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-              <strong>Nachhaltigkeit beim Programmieren?</strong> Klingt seltsam
-              ist aber gar nicht so weit hergeholt. Jeden Tag verbringen wir
-              zeit immer wieder die selben Aufgaben zu erledigen. Dies
-              verbraucht Rohstoffe, Zeit und Nerven. Warum nicht einfach dinge
-              die man oft braucht abspeichern sodass man sie schnell abrufen
-              kann. Genau das sind Snippets. Kein Code Schnipsel die das leben
-              erleichtern. Hier gehe ich noch einen Schritt weiter und Teile
-              meine Schnippsel mit euch damit auch ihr schneller und Effizienter
-              mit eueren Rohstoffen umgehen könnt.
+              <strong>"Nachhaltigkeit im Programmieren?</strong> Es mag ungewöhnlich klingen, aber es ist gar nicht so
+              abwegig. Jeden Tag verbringen wir viel Zeit damit, dieselben Aufgaben zu erledigen, was Ressourcen, Zeit
+              und Energie verbraucht. Warum speichern wir nicht einfach häufig benötigte Dinge ab, um sie schnell
+              abrufen zu können? Diese Dinge nennt man Snippets. Ich gehe hier noch einen Schritt weiter und teile meine
+              Snippets mit euch, damit ihr effizienter mit euren Ressourcen umgehen könnt."
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
