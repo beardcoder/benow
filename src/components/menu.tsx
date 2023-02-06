@@ -42,18 +42,9 @@ export default function Menu() {
         tabIndex={0}
         onClick={() => toggleOpen(!open)}
       >
-        <div
-          className={cx(styles.burgerBunTop, open && styles.burgerBunTopOpen)}
-        />
-        <div
-          className={cx(styles.burgerFilling, open && styles.burgerFillingOpen)}
-        />
-        <div
-          className={cx(
-            styles.burgerBunBottom,
-            open && styles.burgerBunBottomOpen
-          )}
-        />
+        <div className={cx(styles.burgerBunTop, open && styles.burgerBunTopOpen)} />
+        <div className={cx(styles.burgerFilling, open && styles.burgerFillingOpen)} />
+        <div className={cx(styles.burgerBunBottom, open && styles.burgerBunBottomOpen)} />
       </button>
       <div
         className={cx(

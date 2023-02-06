@@ -12,15 +12,7 @@ type Props = {
   href: string | UrlObject
   [key: string]: any
 }
-export default function Button({
-  children,
-  className,
-  tagName,
-  small = false,
-  block = false,
-  href,
-  ...props
-}: Props) {
+export default function Button({ children, className, tagName, small = false, block = false, href, ...props }: Props) {
   return (
     <Link
       href={href}

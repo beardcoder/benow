@@ -12,12 +12,7 @@ export default function Article({ slug, image, tags, title }: Props) {
       <UiCard
         href={`/blog/${slug}`}
         image={
-          <Image
-            src={`${getAssetURL(image)}?width=480&height=280&fit=fill`}
-            width='480'
-            height='280'
-            alt={title}
-          />
+          <Image src={`${getAssetURL(image)}?width=480&height=280&fit=fill`} width='480' height='280' alt={title} />
         }
       >
         <p className='pb-2 text-sm'>

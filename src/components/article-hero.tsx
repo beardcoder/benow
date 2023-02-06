@@ -12,14 +12,7 @@ type Props = {
   tags?: string[]
 } & JSX.IntrinsicElements['header']
 
-export default function ArticleHero({
-  title,
-  image,
-  createdAt,
-  author,
-  tags,
-  ...props
-}: Props) {
+export default function ArticleHero({ title, image, createdAt, author, tags, ...props }: Props) {
   const { scrollY } = useScroll()
   const ref = useRef<HTMLDivElement>(null)
   const [divHeight, getDivHeight] = useState<number>(0)
@@ -37,27 +30,16 @@ export default function ArticleHero({
   return (
     <header className='relative overflow-hidden bg-black' {...props} ref={ref}>
       <motion.div style={{ opacity }} className='absolute inset-0'>
-        <Image
-          src={`${image}`}
-          fill
-          priority
-          alt='Header image'
-          className='z-0 object-cover'
-        ></Image>
+        <Image src={`${image}`} fill priority alt='Header image' className='z-0 object-cover'></Image>
       </motion.div>
       <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
-      <motion.div
-        style={{ translateY }}
-        transition={{ duration: 1 }}
-        className='w-full'
-      >
+      <motion.div style={{ translateY }} transition={{ duration: 1 }} className='w-full'>
         <div className='container relative z-10 flex flex-col max-w-4xl px-5 pt-48 pb-8 mx-auto text-center md:px-0'>
           <h1>{title}&nbsp;</h1>
         </div>
         <div className='container relative z-10 justify-center pb-48 mx-auto text-white md:flex'>
           <div className='flex justify-center mb-4'>
-            <FiCalendar size='24' className='mr-3' />{' '}
-            {dayjs(createdAt).locale('de-DE').format('DD.MM.YYYY')}
+            <FiCalendar size='24' className='mr-3' /> {dayjs(createdAt).locale('de-DE').format('DD.MM.YYYY')}
           </div>
           <div className='flex justify-center mb-4 md:ml-10'>
             <FiUser size='24' className='mr-3' /> {author}

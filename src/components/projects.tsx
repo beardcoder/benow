@@ -33,20 +33,18 @@ export default function Projects({ className, projects, ...props }: Props) {
   }
   return (
     <section
-      className={cx(
-        'relative bg-neutral-200 dark:bg-neutral-800 py-36 overflow-x-hidden',
-        className
-      )}
+      className={cx('relative bg-neutral-200 dark:bg-neutral-800 py-36 overflow-x-hidden', className)}
       {...props}
     >
       <div className='container px-5 mx-auto md:px-0'>
         <div className='flex flex-col mb-20 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
-              100%
-            </div>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
             <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-              Hier zeige ich meine aktuellen Projekte und beweise meine Fähigkeiten im Webdesign. Jedes Projekt wird mit Sorgfalt und Leidenschaft angefertigt, um eine benutzerfreundliche und einzigartige Online-Erfahrung für meine Kunden zu schaffen. Schau dir meine Arbeiten an und lass dich inspirieren. Kontaktiere mich, wenn du bereit bist, deine Online-Präsenz zu verbessern.
+              Hier zeige ich meine aktuellen Projekte und beweise meine Fähigkeiten im Webdesign. Jedes Projekt wird mit
+              Sorgfalt und Leidenschaft angefertigt, um eine benutzerfreundliche und einzigartige Online-Erfahrung für
+              meine Kunden zu schaffen. Schau dir meine Arbeiten an und lass dich inspirieren. Kontaktiere mich, wenn du
+              bereit bist, deine Online-Präsenz zu verbessern.
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>

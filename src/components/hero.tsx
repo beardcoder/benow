@@ -22,28 +22,10 @@ export default function Hero({ image, ...props }: Props) {
   })
 
   return (
-    <header
-      className='relative flex overflow-hidden bg-neutral-800'
-      data-cy='intro'
-      ref={ref}
-      {...props}
-    >
-      <motion.div
-        style={{ translateY }}
-        transition={{ duration: 1 }}
-        className='w-full h-full'
-      >
-        <motion.div
-          style={{ opacity }}
-          className='absolute inset-0 min-h-full w-full'
-        >
-          <Image
-            src={image}
-            fill
-            priority
-            alt='Header image'
-            className='z-0 object-cover'
-          ></Image>
+    <header className='relative flex overflow-hidden bg-neutral-800' data-cy='intro' ref={ref} {...props}>
+      <motion.div style={{ translateY }} transition={{ duration: 1 }} className='w-full h-full'>
+        <motion.div style={{ opacity }} className='absolute inset-0 min-h-full w-full'>
+          <Image src={image} fill priority alt='Header image' className='z-0 object-cover'></Image>
         </motion.div>
         <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
         <div className='container relative z-10 flex flex-col px-5 py-48 mx-auto text-center md:px-0'>
@@ -55,11 +37,7 @@ export default function Hero({ image, ...props }: Props) {
             Designer
           </h1>
           <div className='mt-16'>
-            <Button
-              data-cy='contact'
-              className='text-white md:text-xl'
-              href='mailto:markus@letsbenow.de'
-            >
+            <Button data-cy='contact' className='text-white md:text-xl' href='mailto:markus@letsbenow.de'>
               Kontakt aufnehmen
             </Button>
           </div>

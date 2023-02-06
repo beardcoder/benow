@@ -22,9 +22,7 @@ export const UiCard: FunctionComponent<Props> = ({
   rel,
   ...props
 }): JSX.Element => {
-  const Content = () => (
-    <div className={cx(dense ? 'p-2 md:p-4' : 'p-4 md:p-6')}>{children}</div>
-  )
+  const Content = () => <div className={cx(dense ? 'p-2 md:p-4' : 'p-4 md:p-6')}>{children}</div>
 
   if (href) {
     return (
@@ -45,10 +43,7 @@ export const UiCard: FunctionComponent<Props> = ({
   }
   return (
     <div
-      className={cx(
-        'block duration-200 rounded-xl bg-neutral-100 dark:bg-neutral-800 h-full',
-        className
-      )}
+      className={cx('block duration-200 rounded-xl bg-neutral-100 dark:bg-neutral-800 h-full', className)}
       {...props}
     >
       {image}

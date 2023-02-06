@@ -7,13 +7,9 @@ type Props = Project
 export default function Project({ name, keywords, url }: Props) {
   return (
     <div>
-      <h3 className='font-sans block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl'>
-        {name}
-      </h3>
+      <h3 className='font-sans block mb-5 text-xl font-bold uppercase md:text-center md:text-2xl'>{name}</h3>
       <div className='md:text-center'>
-        <div className='text-sm'>
-          {keywords && keywords.map((ele, y) => <Tag key={y}>{ele}</Tag>)}
-        </div>
+        <div className='text-sm'>{keywords && keywords.map((ele, y) => <Tag key={y}>{ele}</Tag>)}</div>
         {url && (
           <Button target='_blank' className='mt-4' tagName='a' href={url} small>
             Zum {name} Projekt

@@ -32,21 +32,15 @@ export default function HomeRepos({ repos, className, ...props }: Props) {
     )
   }
   return (
-    <section
-      className={cx('relative px-8 overflow-x-hidden py-12', className)}
-      {...props}
-    >
+    <section className={cx('relative px-8 overflow-x-hidden py-12', className)} {...props}>
       <div className='container mx-auto'>
         <div className='flex flex-col mb-10 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
-              100%
-            </div>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
             <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-              Open Source ist die Zukunft der modernen Software Entwicklung.
-              Egal ob es darum geht schneller Programme oder Webseiten zu
-              entwickeln oder sich mit Kollegen auf der Ganzen Welt
-              auszutauschen.
+              Ich bin von den Vorteilen von Open Source begeistert und sehe es als unverzichtbar für meine tägliche
+              Arbeit als Softwareentwickler. Es ermöglicht mir, schneller und effizienter zu arbeiten und durch den
+              Austausch mit Entwicklern auf der ganzen Welt ständig zu lernen und mich weiterzuentwickeln.
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
