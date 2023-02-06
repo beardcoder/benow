@@ -46,11 +46,7 @@ export default function Projects({ className, projects, ...props }: Props) {
               100%
             </div>
             <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-              Bavaria ipsum dolor sit amet Gamsbart, af woass Wuascht, moan
-              boarischer griaß woass Stubn ma obacht du, Kirwa blärrd so kummt,
-              Aasgem Trachtnhuat wui Weiznglasl Broadwurschtbudn woass gehd
-              allerweil no gor Aasgem waar I Wia scho wea God Bia Jodler Luja
-              graudwiggal ausgähd Hemad waar.
+              Hier zeige ich meine aktuellen Projekte und beweise meine Fähigkeiten im Webdesign. Jedes Projekt wird mit Sorgfalt und Leidenschaft angefertigt, um eine benutzerfreundliche und einzigartige Online-Erfahrung für meine Kunden zu schaffen. Schau dir meine Arbeiten an und lass dich inspirieren. Kontaktiere mich, wenn du bereit bist, deine Online-Präsenz zu verbessern.
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
