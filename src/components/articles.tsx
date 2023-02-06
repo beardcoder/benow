@@ -36,10 +36,10 @@ export default function Articles({ articles, className, ...props }: Props) {
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
           <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
           <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-            Gedanken, Ideen oder auch Tutorials findet ihr in meinem Blog. Immer wenn ich etwas Neues gefunden hbe das
-            mich fasziniert schreibe ich es hier nieder. Um mein Wissen und meine Erfahrungen mit euch zu Teilen. Gerne
-            Lese ich auch Feedback zu meinen Artikeln. Schreibt mit einfach eine Email an{' '}
-            <a href='mailto:markus@letsbenow.de'>markus@letsbenow.de</a>
+            In meinem Blog teile ich mit Ihnen meine Gedanken, Ideen und Tutorials zu Themen, die mich faszinieren. Ich
+            möchte mein Wissen und meine Erfahrungen mit Ihnen teilen und freue mich immer über Feedback. Wenn Sie
+            Fragen oder Anregungen haben, schreiben Sie mir gerne eine Email an{' '}
+            <a href='mailto:markus@letsbenow.de'>markus@letsbenow.de</a>. Lassen Sie uns gemeinsam lernen und wachsen.
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
