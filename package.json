@@ -44,7 +44,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.13.0",
     "@types/nprogress": "^0.2.0",
-    "@types/react": "18.0.27",
+    "@types/react": "18.0.28",
     "autoprefixer": "^10.4.13",
     "dotenv": "^16.0.3",
     "eslint": "8.34.0",
