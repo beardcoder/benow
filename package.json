@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@fontsource/open-sans": "^4.5.14",
-    "@next/font": "^13.2.4",
     "@octokit/rest": "^19.0.7",
     "classix": "^2.1.24",
     "classnames": "^2.3.2",
