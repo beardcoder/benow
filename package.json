@@ -19,7 +19,7 @@
     "classix": "^2.1.24",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.7",
-    "framer-motion": "^10.3.2",
+    "framer-motion": "^10.4.0",
     "next": "^13.2.4",
     "next-seo": "^5.15.0",
     "next-sitemap": "^4.0.5",
@@ -32,7 +32,7 @@
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "sharp": "^0.31.3",
-    "swiper": "^9.1.0",
+    "swiper": "^9.1.1",
     "tailwindcss-border-gradients": "^2.0.3",
     "unified": "^10.1.2"
   },
