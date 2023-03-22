@@ -1,9 +1,12 @@
 import Image from 'next/image'
+import type { FunctionComponent } from 'react'
 
-type Props = { image: string } & JSX.IntrinsicElements['section']
+type Props = {
+  image: string
+  text: string
+} & JSX.IntrinsicElements['section']
 
-export default function AboutMe({ ...props }) {
-  const { image } = props
+const AboutMe: FunctionComponent<Props> = ({ image, text, ...props }) => {
   return (
     <section
       className='relative z-30 mx-auto md:flex max-w-screen-2xl'
@@ -25,21 +28,14 @@ export default function AboutMe({ ...props }) {
             Hi, ich bin{' '}
             <span className='pb-1 text-gradient'>Markus Sommer&nbsp;</span>
           </h2>
-          <p className='max-w-3xl text-lg prose dark:prose-invert text-opacity-70'>
-            Als UX-Profi bringe ich Fachwissen und Erfahrung in dein Projekt, um
-            deine Online-Präsenz zu optimieren. Meine Leidenschaft für die
-            Benutzererfahrung und mein tiefes Verständnis für moderne
-            Web-Technologien helfen dir, deine Website an die Bedürfnisse deiner
-            Zielgruppe anzupassen. Egal, ob du eine Auffrischung deiner Website
-            mit modernen Funktionen benötigst, eine benutzerfreundliche Sitemap
-            einrichten möchtest oder jeglichen anderen Rat brauchst, ich bin
-            bereit, dich zu unterstützen. Schreibe mir jetzt und lass uns
-            gemeinsam an deinem Erfolg arbeiten. Mit meiner Unterstützung kannst
-            du dein Ziel erreichen und deine Online-Präsenz auf ein neues Level
-            bringen.
-          </p>
+          <div
+            className='max-w-3xl text-lg prose dark:prose-invert text-opacity-70'
+            dangerouslySetInnerHTML={{ __html: text }}
+          ></div>
         </div>
       </div>
     </section>
   )
 }
+
+export default AboutMe

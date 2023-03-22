@@ -35,7 +35,11 @@ export default function Index({
   return (
     <Layout>
       <Hero image={getAssetURL(home.image)} id='intro' />
-      <AboutMe id='me' image={getAssetURL(home.avatar)} />
+      <AboutMe
+        id='me'
+        image={getAssetURL(home.avatar)}
+        text={home.about_text}
+      />
       <Projects projects={projects} id='projects' className='mb-32' />
       <Articles id='blog' articles={articles} className='mb-20' />
       <Repos id='repos' repos={repos} className='mb-20' />

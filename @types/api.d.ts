@@ -16,6 +16,10 @@ export type Home = {
   id: ID
   image: Field
   avatar: Field
+  title: Field
+  about_title: Field
+  about_text: Field
+  projects_title: Field
 }
 export type Project = {
   id: ID

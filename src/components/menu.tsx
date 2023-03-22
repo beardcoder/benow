@@ -1,4 +1,5 @@
 import { cx } from 'classix'
+import { motion, MotionProps } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -31,48 +32,88 @@ const nav = [
   },
 ]
 
+const variantsItems = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
+    },
+  },
+  closed: {
+    y: -50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
+    },
+  },
+}
+
+const variantsWrapper = {
+  open: {
+    y: '0',
+    transition: {
+      type: 'spring',
+      delayChildren: 0.3,
+      staggerChildren: 0.1,
+    },
+  },
+  closed: {
+    y: '-100%',
+    transition: {
+      type: 'spring',
+      duration: Object.keys(nav).length * 0.1,
+      delay: 0.1,
+      staggerChildren: 0.1,
+    },
+  },
+}
+
 export default function Menu() {
-  const [open, toggleOpen] = useState(false)
+  const [isOpen, toggleOpen] = useState(false)
   return (
-    <div className='absolute top-0 right-0 z-50'>
+    <>
       <button
-        className='w-12 mt-10 mr-10 relative z-50'
+        className='w-12 mt-10 mr-10 z-50 absolute top-0 right-0'
         aria-label='Show Navigation Menu'
-        aria-expanded='false'
+        aria-expanded={isOpen ? 'true' : 'false'}
         tabIndex={0}
-        onClick={() => toggleOpen(!open)}
+        onClick={() => toggleOpen(!isOpen)}
       >
-        <div className={cx(styles.burgerBunTop, open && styles.burgerBunTopOpen)} />
-        <div className={cx(styles.burgerFilling, open && styles.burgerFillingOpen)} />
-        <div className={cx(styles.burgerBunBottom, open && styles.burgerBunBottomOpen)} />
+        <div
+          className={cx(styles.burgerBunTop, isOpen && styles.burgerBunTopOpen)}
+        />
+        <div
+          className={cx(
+            styles.burgerFilling,
+            isOpen && styles.burgerFillingOpen
+          )}
+        />
+        <div
+          className={cx(
+            styles.burgerBunBottom,
+            isOpen && styles.burgerBunBottomOpen
+          )}
+        />
       </button>
-      <div
-        className={cx(
-          'fixed flex left-0 right-0 h-full bg-black transition-all duration-200',
-          open ? 'top-0' : '-top-full'
-        )}
+      <motion.nav
+        animate={isOpen ? 'open' : 'closed'}
+        className='fixed flex flex-col justify-center items-center inset-0 bg-black transition-all duration-200 z-40'
+        initial={false}
+        variants={variantsWrapper}
       >
-        <nav className='mx-auto my-auto text-center'>
-          {nav.map((link, i) => (
+        {nav.map((link, i) => (
+          <motion.div key={i} variants={variantsItems}>
             <Link
-              key={i}
               href={`/#${link.id}`}
               onClick={() => toggleOpen(false)}
-              className='block py-5 text-4xl font-bold text-white uppercase hover:text-gradient'
+              className='block py-5 text-4xl font-bold text-white uppercase hover:text-gradient text-[6vh] pt-[3vh] pb-[3vh] leading-none'
             >
               {link.title}
-              <style jsx>{`
-                a {
-                  font-size: 6vh;
-                  line-height: 1;
-                  padding-top: 3vh;
-                  padding-bottom: 3vh;
-                }
-              `}</style>
             </Link>
-          ))}
-        </nav>
-      </div>
-    </div>
+          </motion.div>
+        ))}
+      </motion.nav>
+    </>
   )
 }
