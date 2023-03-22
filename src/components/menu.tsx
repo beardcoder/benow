@@ -1,5 +1,5 @@
 import merge from 'deepmerge'
-import { type Variants, motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
 
