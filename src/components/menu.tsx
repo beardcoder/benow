@@ -1,9 +1,7 @@
-import { cx } from 'classix'
-import { motion, MotionProps } from 'framer-motion'
+import merge from 'deepmerge'
+import { type Variants, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
-
-import styles from './menu.module.css'
 
 const nav = [
   {
@@ -32,7 +30,7 @@ const nav = [
   },
 ]
 
-const variantsItems = {
+const variantsItems: Variants = {
   open: {
     y: 0,
     opacity: 1,
@@ -49,7 +47,7 @@ const variantsItems = {
   },
 }
 
-const variantsWrapper = {
+const variantsWrapper: Variants = {
   open: {
     y: '0',
     transition: {
@@ -69,33 +67,75 @@ const variantsWrapper = {
   },
 }
 
+const lineVariants: Variants = {
+  open: {
+    transition: {
+      bounce: 0,
+      duration: 0.2,
+    },
+  },
+  closed: {
+    rotate: 0,
+    transition: {
+      bounce: 0,
+      duration: 0.2,
+    },
+  },
+}
+
 export default function Menu() {
   const [isOpen, toggleOpen] = useState(false)
   return (
     <>
-      <button
-        className='w-12 mt-10 mr-10 z-50 absolute top-0 right-0'
+      <motion.button
+        className='w-12 mt-10 mr-10 z-50 absolute top-0 right-0 space-y-2'
         aria-label='Show Navigation Menu'
         aria-expanded={isOpen ? 'true' : 'false'}
+        animate={isOpen ? 'open' : 'closed'}
         tabIndex={0}
         onClick={() => toggleOpen(!isOpen)}
       >
-        <div
-          className={cx(styles.burgerBunTop, isOpen && styles.burgerBunTopOpen)}
-        />
-        <div
-          className={cx(
-            styles.burgerFilling,
-            isOpen && styles.burgerFillingOpen
+        <motion.div
+          className='bg-white w-1/2 rounded-full h-[5px]'
+          animate={isOpen ? 'open' : 'closed'}
+          variants={merge(
+            {
+              open: {
+                rotate: 45,
+                translateX: 3,
+                translateY: 5,
+              },
+            },
+            lineVariants
           )}
         />
-        <div
-          className={cx(
-            styles.burgerBunBottom,
-            isOpen && styles.burgerBunBottomOpen
+        <motion.div
+          className='bg-white w-full rounded-full h-[5px]'
+          animate={isOpen ? 'open' : 'closed'}
+          variants={merge(
+            {
+              open: {
+                rotate: -45,
+              },
+            },
+            lineVariants
           )}
         />
-      </button>
+        <motion.div
+          className='bg-white w-4/5 rounded-full h-[5px]'
+          animate={isOpen ? 'open' : 'closed'}
+          variants={merge(
+            {
+              open: {
+                rotate: 45,
+                translateX: 8,
+                translateY: -9,
+              },
+            },
+            lineVariants
+          )}
+        />
+      </motion.button>
       <motion.nav
         animate={isOpen ? 'open' : 'closed'}
         className='fixed flex flex-col justify-center items-center inset-0 bg-black transition-all duration-200 z-40'
