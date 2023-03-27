@@ -38,7 +38,7 @@
     "unified": "^10.1.2"
   },
   "devDependencies": {
-    "@directus/sdk": "^10.3.2",
+    "@directus/sdk": "^10.3.3",
     "@mapbox/rehype-prism": "^0.8.0",
     "@next/env": "^13.2.4",
     "@prettier/plugin-xml": "^2.2.0",
