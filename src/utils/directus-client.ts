@@ -1,7 +1,7 @@
 import { Directus } from '@directus/sdk'
 import getConfig from 'next/config'
 
-import { DirectusApi } from '@/@types/api'
+import { DirectusApi } from '@@/@types/api'
 
 const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
 const { url } = publicRuntimeConfig

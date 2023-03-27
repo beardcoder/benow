@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react'
 import { GoLightBulb } from 'react-icons/go'
 
-import { ISnippet } from '@/@types/snippet'
-import { UiCard } from '@/src/components/card'
+import { Card } from '@/components/ui/card'
+import { ISnippet } from '@@/@types/snippet'
 
 type Props = ISnippet
 
-export default function Snippet({ url, description }: Props) {
+const SnippetsItem: FunctionComponent<Props> = ({ url, description }) => {
   return (
-    <UiCard href={`${url}`} target='_blank' rel='noreferrer'>
+    <Card href={`${url}`} target='_blank' rel='noreferrer'>
       <div className='flex flex-row items-center'>
         <div className='pt-1 pr-4'>
           <GoLightBulb size='30' style={{ fill: 'url(#gradient)' }} />
@@ -21,6 +21,8 @@ export default function Snippet({ url, description }: Props) {
         </div>
         <h3 className='truncate font-sans'>{description}</h3>
       </div>
-    </UiCard>
+    </Card>
   )
 }
+
+export default SnippetsItem

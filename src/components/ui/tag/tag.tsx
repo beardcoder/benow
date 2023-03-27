@@ -1,10 +1,15 @@
 import { cx } from 'classix'
+import { FunctionComponent } from 'react'
 
 type Props = {
   light?: boolean
 } & JSX.IntrinsicElements['div']
 
-export default function Tag({ children, light = false, ...props }: Props) {
+const Tag: FunctionComponent<Props> = ({
+  children,
+  light = false,
+  ...props
+}) => {
   return (
     <div
       className={cx(
@@ -16,3 +21,5 @@ export default function Tag({ children, light = false, ...props }: Props) {
     </div>
   )
 }
+
+export default Tag

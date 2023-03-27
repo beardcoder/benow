@@ -2,9 +2,9 @@ import { cx } from 'classix'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from 'react-simple-typewriter'
 
-import type { Article as ArticleType } from '@/@types/api'
+import type { Article as ArticleType } from '@@/@types/api'
 
-import Article from './article'
+import { ArticlesItem } from '.'
 
 type Props = {
   articles: ArticleType[]
@@ -31,15 +31,23 @@ export default function Articles({ articles, className, ...props }: Props) {
     )
   }
   return (
-    <section {...props} className={cx('container relative px-8 mx-auto', className)}>
+    <section
+      {...props}
+      className={cx('container relative px-8 mx-auto', className)}
+    >
       <div className='flex flex-col mb-16 md:flex-row'>
         <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-          <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
+          <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
+            100%
+          </div>
           <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-            In meinem Blog teile ich mit Ihnen meine Gedanken, Ideen und Tutorials zu Themen, die mich faszinieren. Ich
-            möchte mein Wissen und meine Erfahrungen mit Ihnen teilen und freue mich immer über Feedback. Wenn Sie
-            Fragen oder Anregungen haben, schreiben Sie mir gerne eine Email an{' '}
-            <a href='mailto:markus@letsbenow.de'>markus@letsbenow.de</a>. Lassen Sie uns gemeinsam lernen und wachsen.
+            In meinem Blog teile ich mit Ihnen meine Gedanken, Ideen und
+            Tutorials zu Themen, die mich faszinieren. Ich möchte mein Wissen
+            und meine Erfahrungen mit Ihnen teilen und freue mich immer über
+            Feedback. Wenn Sie Fragen oder Anregungen haben, schreiben Sie mir
+            gerne eine Email an{' '}
+            <a href='mailto:markus@letsbenow.de'>markus@letsbenow.de</a>. Lassen
+            Sie uns gemeinsam lernen und wachsen.
           </p>
         </div>
         <div className='order-1 w-full md:order-2 md:w-1/2'>
@@ -51,7 +59,7 @@ export default function Articles({ articles, className, ...props }: Props) {
       </div>
       <div className='flex flex-wrap -mx-8'>
         {articles.map((article, i) => (
-          <Article {...article} key={i} />
+          <ArticlesItem {...article} key={i} />
         ))}
       </div>
     </section>

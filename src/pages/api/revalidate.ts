@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { getDirectusClient } from '@/src/utils/directus-client'
+import { getDirectusClient } from '@/utils/directus-client'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { collection } = req.body

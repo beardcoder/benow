@@ -4,12 +4,12 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { ArticleJsonLd, NextSeo } from 'next-seo'
 import { FiArrowLeft } from 'react-icons/fi'
 
-import { Article } from '@/@types/api'
-import ArticleHero from '@/src/components/article-hero'
-import Button from '@/src/components/button'
-import Layout from '@/src/components/layout'
-import { getAllArticles, getArticleBySlug } from '@/src/utils/get-articles'
-import { getAssetURL } from '@/src/utils/get-asset-url'
+import ArticleHero from '@/components/article-hero'
+import Layout from '@/components/layout'
+import { Button } from '@/components/ui/button'
+import { getAllArticles, getArticleBySlug } from '@/utils/get-articles'
+import { getAssetURL } from '@/utils/get-asset-url'
+import { Article } from '@@/@types/api'
 
 export default function BlogSlug({
   title,

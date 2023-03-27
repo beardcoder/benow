@@ -1,6 +1,6 @@
-import { Article } from '@/@types/api'
-import { getDirectusClient } from '@/src/utils/directus-client'
-import { markdownToHtml } from '@/src/utils/markdown-to-html'
+import { getDirectusClient } from '@/utils/directus-client'
+import { markdownToHtml } from '@/utils/markdown-to-html'
+import { Article } from '@@/@types/api'
 
 /**
  * It returns a promise that resolves to an array of IarticleFields

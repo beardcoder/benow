@@ -1,17 +1,22 @@
 import { cx } from 'classix'
+import { FunctionComponent } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from 'react-simple-typewriter'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { IRepo } from '@/@types/repo'
+import { ISnippet } from '@@/@types/snippet'
 
-import Repo from './repo'
+import { SnippetsItem } from '.'
 
 type Props = {
-  repos: IRepo[]
+  snippets: ISnippet[]
 } & JSX.IntrinsicElements['section']
 
-export default function HomeRepos({ repos, className, ...props }: Props) {
+const Snippets: FunctionComponent<Props> = ({
+  snippets,
+  className,
+  ...props
+}) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0,
@@ -21,7 +26,7 @@ export default function HomeRepos({ repos, className, ...props }: Props) {
     text = (
       <>
         <Typewriter
-          words={['„Made with love“']}
+          words={['„Conscious experience“']}
           cursor
           cursorStyle='_'
           typeSpeed={100}
@@ -32,19 +37,29 @@ export default function HomeRepos({ repos, className, ...props }: Props) {
     )
   }
   return (
-    <section className={cx('relative px-8 overflow-x-hidden py-12', className)} {...props}>
-      <div className='container mx-auto'>
+    <section
+      className={cx('relative px-8 overflow-x-hidden', className)}
+      {...props}
+    >
+      <div className='container py-12 mx-auto'>
         <div className='flex flex-col mb-10 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
+              100%
+            </div>
             <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-              Ich bin von den Vorteilen von Open Source begeistert und sehe es als unverzichtbar für meine tägliche
-              Arbeit als Softwareentwickler. Es ermöglicht mir, schneller und effizienter zu arbeiten und durch den
-              Austausch mit Entwicklern auf der ganzen Welt ständig zu lernen und mich weiterzuentwickeln.
+              <strong>Nachhaltigkeit im Programmieren?</strong> Es mag
+              ungewöhnlich klingen, aber es ist gar nicht so abwegig. Jeden Tag
+              verbringen wir viel Zeit damit, dieselben Aufgaben zu erledigen,
+              was Ressourcen, Zeit und Energie verbraucht. Warum speichern wir
+              nicht einfach häufig benötigte Dinge ab, um sie schnell abrufen zu
+              können? Diese Dinge nennt man Snippets. Ich gehe hier noch einen
+              Schritt weiter und teile meine Snippets mit euch, damit ihr
+              effizienter mit euren Ressourcen umgehen könnt.
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
-            <h2 className='pb-1 text-gradient'>Coding&nbsp;</h2>
+            <h2 className='pb-1 text-gradient'>Snippets&nbsp;</h2>
             <div className='mb-8 h2-sub md:mb-14' ref={ref}>
               {text}
             </div>
@@ -64,9 +79,9 @@ export default function HomeRepos({ repos, className, ...props }: Props) {
         >
           <div className='w-full'>
             <div className='grid grid-flow-col gap-6 auto-cols-4/5 md:auto-cols-1/3'>
-              {repos.map((repo, i) => (
+              {snippets.map((snippet, i) => (
                 <SwiperSlide key={i}>
-                  <Repo {...repo} />
+                  <SnippetsItem {...snippet} />
                 </SwiperSlide>
               ))}
             </div>
@@ -76,3 +91,5 @@ export default function HomeRepos({ repos, className, ...props }: Props) {
     </section>
   )
 }
+
+export default Snippets

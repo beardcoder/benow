@@ -1,17 +1,18 @@
 import { cx } from 'classix'
+import { FC } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from 'react-simple-typewriter'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import type { Project as ProjectType } from '@/@types/api'
+import { IRepo } from '@@/@types/repo'
 
-import Project from './project'
+import { ReposItem } from '.'
 
 type Props = {
-  projects: ProjectType[]
+  repos: IRepo[]
 } & JSX.IntrinsicElements['section']
 
-export default function Projects({ className, projects, ...props }: Props) {
+const Repos: FC<Props> = ({ repos, className, ...props }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0,
@@ -21,7 +22,7 @@ export default function Projects({ className, projects, ...props }: Props) {
     text = (
       <>
         <Typewriter
-          words={['„Made in Bavaria“']}
+          words={['„Made with love“']}
           cursor
           cursorStyle='_'
           typeSpeed={100}
@@ -33,28 +34,30 @@ export default function Projects({ className, projects, ...props }: Props) {
   }
   return (
     <section
-      className={cx('relative bg-neutral-200 dark:bg-neutral-800 py-36 overflow-x-hidden', className)}
+      className={cx('relative px-8 overflow-x-hidden py-12', className)}
       {...props}
     >
-      <div className='container px-5 mx-auto md:px-0'>
-        <div className='flex flex-col mb-20 md:flex-row'>
+      <div className='container mx-auto'>
+        <div className='flex flex-col mb-10 md:flex-row'>
           <div className='order-2 w-full md:order-1 md:w-1/2 mr-7'>
-            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>100%</div>
+            <div className='hidden mb-4 text-right h2 md:text-5xl md:block'>
+              100%
+            </div>
             <p className='max-w-xl ml-auto prose dark:prose-invert md:text-right'>
-              Hier zeige ich meine aktuellen Projekte und beweise meine Fähigkeiten im Webdesign. Jedes Projekt wird mit
-              Sorgfalt und Leidenschaft angefertigt, um eine benutzerfreundliche und einzigartige Online-Erfahrung für
-              meine Kunden zu schaffen. Schau dir meine Arbeiten an und lass dich inspirieren. Kontaktiere mich, wenn du
-              bereit bist, deine Online-Präsenz zu verbessern.
+              Ich bin von den Vorteilen von Open Source begeistert und sehe es
+              als unverzichtbar für meine tägliche Arbeit als
+              Softwareentwickler. Es ermöglicht mir, schneller und effizienter
+              zu arbeiten und durch den Austausch mit Entwicklern auf der ganzen
+              Welt ständig zu lernen und mich weiterzuentwickeln.
             </p>
           </div>
           <div className='order-1 w-full md:order-2 md:w-1/2'>
-            <h2 className='text-gradient' ref={ref}>
-              Projekte
-            </h2>
-            <div className='mb-8 h2-sub md:mb-14'>{text}</div>
+            <h2 className='pb-1 text-gradient'>Coding&nbsp;</h2>
+            <div className='mb-8 h2-sub md:mb-14' ref={ref}>
+              {text}
+            </div>
           </div>
         </div>
-
         <Swiper
           spaceBetween={32}
           slidesPerView={1.3}
@@ -63,15 +66,15 @@ export default function Projects({ className, projects, ...props }: Props) {
               slidesPerView: 2.3,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 3.5,
             },
           }}
         >
           <div className='w-full'>
             <div className='grid grid-flow-col gap-6 auto-cols-4/5 md:auto-cols-1/3'>
-              {projects.map((project, i) => (
+              {repos.map((repo, i) => (
                 <SwiperSlide key={i}>
-                  <Project {...project} />
+                  <ReposItem {...repo} />
                 </SwiperSlide>
               ))}
             </div>
@@ -81,3 +84,5 @@ export default function Projects({ className, projects, ...props }: Props) {
     </section>
   )
 }
+
+export default Repos
