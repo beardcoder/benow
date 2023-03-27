@@ -64,10 +64,10 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Build sitemap
-        run: npm run sitemap
+        run: pnpm run sitemap
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
