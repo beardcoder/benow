@@ -13,7 +13,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
-    "@fontsource/open-sans": "^4.5.14",
+    "@fontsource/open-sans": "^5.0.0",
     "@octokit/rest": "^19.0.7",
     "classix": "^2.1.24",
     "classnames": "^2.3.2",
