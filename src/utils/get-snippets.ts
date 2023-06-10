@@ -11,6 +11,7 @@ import { ISnippet } from '@@/@types/snippet'
 export async function getSnippets(): Promise<ISnippet[]> {
   try {
     const { data } = await octokitClient().gists.listForUser({
+      // @ts-ignore
       username: 'beardcoder',
     })
     return data
