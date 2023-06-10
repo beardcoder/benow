@@ -1,3 +1,5 @@
+import bundleAnalyzer from '@next/bundle-analyzer'
+
 import headers from './headers.mjs'
 
 /**
@@ -41,4 +43,8 @@ const config = {
   },
 }
 
-export default config
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+export default withBundleAnalyzer(config)
