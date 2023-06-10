@@ -3,9 +3,7 @@ import { IRepo } from '@@/@types/repo'
 
 export async function getRepos(): Promise<IRepo[]> {
   try {
-    const { data } = await octokitClient().repos.listForUser({
-      username: 'beardcoder',
-    })
+    const { data } = await octokitClient().repos.listForAuthenticatedUser()
     return data
       .filter((item) => !item.fork)
       .filter((item_1) => !item_1.private)

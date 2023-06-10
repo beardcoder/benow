@@ -6,7 +6,7 @@ import { Octokit } from '@octokit/rest'
  */
 export function octokitClient() {
   return new Octokit({
-    auth: process.env.GITHUB_ACCESS_TOKEN,
+    auth: process.env.GH_ACCESS_TOKEN ?? process.env.GITHUB_ACCESS_TOKEN,
     userAgent: 'letsbenow',
   })
 }
