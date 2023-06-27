@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@next/bundle-analyzer':
-    specifier: ^13.4.4
-    version: 13.4.4
+    specifier: ^13.4.7
+    version: 13.4.7
   '@octokit/rest':
     specifier: ^19.0.11
     version: 19.0.11
@@ -289,8 +289,8 @@ packages:
       unist-util-visit: 2.0.3
     dev: true
 
-  /@next/bundle-analyzer@13.4.4:
-    resolution: {integrity: sha512-OxdqGfzElMjcLDw3XkUTqpEjyB/R2n3sOjiWuOGm414j5hAD2AIcXWv4q6FTN9rERgojrkw+g3z5yeLZgJ3YKg==}
+  /@next/bundle-analyzer@13.4.7:
+    resolution: {integrity: sha512-cIcU07u6WdDUF1nrFYOSPvx/pie8euxSnWB1Y/XMYj2g5ls+iyaDr/ChyZugD5hNW754x0NFy1CwzpObA0bffQ==}
     dependencies:
       webpack-bundle-analyzer: 4.7.0
     transitivePeerDependencies:
