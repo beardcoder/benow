@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -69,8 +69,8 @@ dependencies:
     specifier: ^0.32.1
     version: 0.32.1
   swiper:
-    specifier: ^9.3.2
-    version: 9.3.2
+    specifier: ^9.4.1
+    version: 9.4.1
   tailwindcss-border-gradients:
     specifier: ^2.0.3
     version: 2.0.3
@@ -5234,8 +5234,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /swiper@9.3.2:
-    resolution: {integrity: sha512-Kj9Z4kXRmJR3YT/Wj+XLWj8P6IcRt+WG38uL8M3/Wny7+6sV0TlP9vnE1X+Co9c7VzNooojWGnFa+Wf/9+CUMA==}
+  /swiper@9.4.1:
+    resolution: {integrity: sha512-1nT2T8EzUpZ0FagEqaN/YAhRj33F2x/lN6cyB0/xoYJDMf8KwTFT3hMOeoB8Tg4o3+P/CKqskP+WX0Df046fqA==}
     engines: {node: '>= 4.7.0'}
     dependencies:
       ssr-window: 4.0.2
