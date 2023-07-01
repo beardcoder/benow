@@ -1,3 +1,5 @@
+'use client'
+
 import { cx } from 'classix'
 import { useInView } from 'react-intersection-observer'
 import { Typewriter } from 'react-simple-typewriter'

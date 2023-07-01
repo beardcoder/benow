@@ -1,3 +1,5 @@
+'use client'
+
 import merge from 'deepmerge'
 import { motion, type Variants } from 'framer-motion'
 import Link from 'next/link'

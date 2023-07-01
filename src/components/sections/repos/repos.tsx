@@ -1,3 +1,5 @@
+'use client'
+
 import { cx } from 'classix'
 import { FC } from 'react'
 import { useInView } from 'react-intersection-observer'

@@ -7,13 +7,6 @@ import headers from './headers.mjs'
  */
 const config = {
   reactStrictMode: true,
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-    token: 'IrF9fmPzva1RCQg-dAC8zUlUygTzuGep',
-  },
-  publicRuntimeConfig: {
-    url: 'https://api.letsbenow.de',
-  },
   redirects: async () => [
     {
       source: '/:path*',
@@ -28,17 +21,6 @@ const config = {
       permanent: true,
     },
   ],
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
-    }
-    return config
-  },
   async headers() {
     return [
       {
