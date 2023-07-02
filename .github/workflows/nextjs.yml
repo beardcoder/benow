@@ -83,4 +83,4 @@ jobs:
           host: ${{ secrets.UBERSPACE_HOST }}
           username: ${{ secrets.UBERSPACE_USER }}
           key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
-          script: supervisorctl stop letsbenow.de && killall node && supervisorctl start letsbenow.de
+          script: pm2 restart letsbenow
