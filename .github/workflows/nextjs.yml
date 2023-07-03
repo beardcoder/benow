@@ -83,4 +83,4 @@ jobs:
           host: ${{ secrets.UBERSPACE_HOST }}
           username: ${{ secrets.UBERSPACE_USER }}
           key: ${{ secrets.DEPLOY_KEY_PRIVATE }}
-          script: pm2 restart letsbenow
+          script: cd /home/${{ secrets.UBERSPACE_USER }}/html/letsbenow.de/ && pm2 startOrRestart ecosystem.config.js --env production
