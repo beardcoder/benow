@@ -20,6 +20,12 @@ const config = {
       destination: 'https://letsbenow.de/:path*',
       permanent: true,
     },
+    {
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www.letsbenow.de' }],
+      destination: 'https://letsbenow.de/:path*',
+      permanent: true,
+    },
   ],
   async headers() {
     return [
