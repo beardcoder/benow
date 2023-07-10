@@ -9,7 +9,7 @@ const config = {
   reactStrictMode: true,
   serverRuntimeConfig: {
     // Will only be available on the server side
-    token: 'IrF9fmPzva1RCQg-dAC8zUlUygTzuGep',
+    token: process.env.API_TOKEN || '',
   },
   publicRuntimeConfig: {
     url: 'https://api.letsbenow.de',

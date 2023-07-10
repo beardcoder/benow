@@ -7,7 +7,7 @@ import { Article } from '@@/@types/api'
  * @returns An array of IarticleFields
  */
 export async function getAllArticles(
-  fields: (keyof Article)[]
+  fields: (keyof Article)[],
 ): Promise<Article[]> {
   const directusClient = await getDirectusClient()
   const { data } = await directusClient.items('articles').readByQuery({
@@ -36,7 +36,7 @@ export async function getAllArticles(
  */
 export async function getArticleBySlug(
   slug: string,
-  fields: (keyof Article)[]
+  fields: (keyof Article)[],
 ): Promise<Article | null> {
   const directusClient = await getDirectusClient()
   const { data } = await directusClient.items('articles').readByQuery({

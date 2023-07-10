@@ -5,18 +5,18 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     allow:
-      - dependency-type: "all"
+      - dependency-type: 'all'
     assignees:
-      - "beardcoder"
-      
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      - 'beardcoder'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
     assignees:
-      - "beardcoder"
+      - 'beardcoder'

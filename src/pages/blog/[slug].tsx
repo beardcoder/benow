@@ -37,7 +37,7 @@ export default function BlogSlug({
       <ArticleHero
         title={title}
         image={`${getAssetURL(
-          image
+          image,
         )}?width=2560&height=600&fit=cover&transforms=[["blur", 5]]`}
         createdAt={date_created}
         author='Markus Sommer'
@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   let article: Article | null = null
   article = await getArticleBySlug(
     typeof params?.slug === 'string' ? params?.slug : '',
-    ['title', 'image', 'slug', 'tags', 'date_created', 'content']
+    ['title', 'image', 'slug', 'tags', 'date_created', 'content'],
   )
   return {
     props: {
