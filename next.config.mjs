@@ -12,7 +12,7 @@ const config = {
     token: process.env.API_TOKEN || '',
   },
   publicRuntimeConfig: {
-    url: 'https://api.letsbenow.de',
+    url: process.env.API_URL || 'https://api.letsbenow.de',
   },
   redirects: async () => [
     {
