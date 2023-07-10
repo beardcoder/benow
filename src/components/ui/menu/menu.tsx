@@ -108,7 +108,7 @@ export default function Menu() {
                 translateY: 5,
               },
             },
-            lineVariants
+            lineVariants,
           )}
         />
         <motion.div
@@ -120,7 +120,7 @@ export default function Menu() {
                 rotate: -45,
               },
             },
-            lineVariants
+            lineVariants,
           )}
         />
         <motion.div
@@ -134,7 +134,7 @@ export default function Menu() {
                 translateY: -9,
               },
             },
-            lineVariants
+            lineVariants,
           )}
         />
       </motion.button>

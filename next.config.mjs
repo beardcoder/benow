@@ -7,6 +7,13 @@ import headers from './headers.mjs'
  */
 const config = {
   reactStrictMode: true,
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    token: process.env.API_TOKEN || '',
+  },
+  publicRuntimeConfig: {
+    url: 'https://api.letsbenow.de',
+  },
   redirects: async () => [
     {
       source: '/:path*',

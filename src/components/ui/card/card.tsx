@@ -32,7 +32,7 @@ const Card: FunctionComponent<Props> = ({
         href={href}
         className={cx(
           'block duration-200 rounded-xl overflow-hidden bg-neutral-100 dark:bg-neutral-800 hover:shadow-md dark:hover:bg-neutral-700 dark:transition-colors transition-shadow h-full',
-          className
+          className,
         )}
         target={target}
         rel={rel}
@@ -47,7 +47,7 @@ const Card: FunctionComponent<Props> = ({
     <div
       className={cx(
         'block duration-200 rounded-xl bg-neutral-100 dark:bg-neutral-800 h-full',
-        className
+        className,
       )}
       {...props}
     >

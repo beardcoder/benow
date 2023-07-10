@@ -5,16 +5,10 @@
     "plugin:import/recommended",
     "plugin:import/typescript"
   ],
-  "plugins": [
-    "simple-import-sort",
-    "import"
-  ],
+  "plugins": ["simple-import-sort", "import"],
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {

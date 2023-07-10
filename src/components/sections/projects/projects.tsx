@@ -42,7 +42,7 @@ const Projects: FunctionComponent<Props> = ({
     <section
       className={cx(
         'relative bg-neutral-200 dark:bg-neutral-800 py-36 overflow-x-hidden',
-        className
+        className,
       )}
       {...props}
     >
