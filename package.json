@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "analyze": "ANALYZE=true next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "sitemap": "next-sitemap --config next-sitemap.config.cjs",
     "export": "next export",
     "start": "next start",
