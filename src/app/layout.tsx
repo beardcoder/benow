@@ -19,24 +19,7 @@ export const metadata: Metadata = {
   title: 'Markus Sommer — Frontendartist & Webentwickler',
   description:
     'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend',
-  icons: [
-    { rel: 'icon', type: 'image/svg+xml', url: '/favicon.svg' },
-    { rel: 'icon', type: 'image/png', url: '/favicon.png' },
-    { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      url: '/favicon-32x32.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      url: '/favicon-16x16.png',
-    },
-  ],
-
+  icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/favicon.svg' }],
   manifest: '/site.webmanifest',
 }
 
