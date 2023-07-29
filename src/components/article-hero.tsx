@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
-import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
 import { FiCalendar, FiTag, FiUser } from 'react-icons/fi'
+import { H1 } from './ui/headline'
+import { playfair } from '@/app/layout'
 
 type Props = {
   image: string
@@ -20,60 +20,42 @@ export default function ArticleHero({
   tags,
   ...props
 }: Props) {
-  const { scrollY } = useScroll()
-  const ref = useRef<HTMLDivElement>(null)
-  const [divHeight, getDivHeight] = useState<number>(0)
-
-  useEffect(() => {
-    const div = (ref.current && ref.current.clientHeight) || 0
-    getDivHeight(Number(div))
-  }, [divHeight])
-
-  const opacity = useTransform(scrollY, [divHeight / 2 - 50, 0], [0, 1])
-  const translateY = useTransform(scrollY, [divHeight, 0], [200, 0], {
-    clamp: false,
-  })
-
   return (
-    <header className='relative overflow-hidden bg-black' {...props} ref={ref}>
-      <motion.div style={{ opacity }} className='absolute inset-0'>
+    <header className="relative overflow-hidden bg-black" {...props}>
+      <div className="absolute inset-0">
         <Image
           src={`${image}`}
           fill
           priority
-          alt='Header image'
-          className='z-0 object-cover'
-        ></Image>
-      </motion.div>
-      <div className='absolute inset-0 z-0 bg-black bg-opacity-50'></div>
-      <motion.div
-        style={{ translateY }}
-        transition={{ duration: 1 }}
-        className='w-full'
-      >
-        <div className='container relative z-10 flex flex-col max-w-4xl px-5 pt-48 pb-8 mx-auto text-center md:px-0'>
-          <h1>{title}&nbsp;</h1>
+          alt="Header image"
+          className="z-0 object-cover"
+        />
+      </div>
+      <div className="absolute inset-0 z-0 bg-black bg-opacity-50" />
+      <div className="w-full">
+        <div className="container relative z-10 flex flex-col max-w-4xl px-5 pt-48 pb-8 mx-auto text-center md:px-0">
+          <H1 className={playfair.className}>{title}</H1>
         </div>
-        <div className='container relative z-10 justify-center pb-48 mx-auto text-white md:flex'>
-          <div className='flex justify-center mb-4'>
-            <FiCalendar size='24' className='mr-3' />{' '}
+        <div className="container relative z-10 justify-center pb-48 mx-auto text-white md:flex">
+          <div className="flex justify-center mb-4">
+            <FiCalendar size="24" className="mr-3" />{' '}
             {dayjs(createdAt).locale('de-DE').format('DD.MM.YYYY')}
           </div>
-          <div className='flex justify-center mb-4 md:ml-10'>
-            <FiUser size='24' className='mr-3' /> {author}
+          <div className="flex justify-center mb-4 md:ml-10">
+            <FiUser size="24" className="mr-3" /> {author}
           </div>
-          <div className='flex justify-center mb-4 md:ml-10'>
-            <FiTag size='24' className='mr-3' />{' '}
+          <div className="flex justify-center mb-4 md:ml-10">
+            <FiTag size="24" className="mr-3" />{' '}
             {tags &&
               tags.map((tag, key) => (
-                <span key={key} className='mr-1'>
+                <span key={key} className="mr-1">
                   {tag}
                   {tags && key !== tags.length - 1 && ', '}
                 </span>
               ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </header>
   )
 }

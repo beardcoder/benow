@@ -1,22 +1,45 @@
-import { Directus } from '@directus/sdk'
-import getConfig from 'next/config'
+import { createDirectus, rest, staticToken } from '@directus/sdk'
 
-import { DirectusApi } from '@@/@types/api'
-
-const { publicRuntimeConfig, serverRuntimeConfig } = getConfig()
-const { url } = publicRuntimeConfig
-const { email, password, token } = serverRuntimeConfig
-
-const directus = new Directus<DirectusApi>(url)
-
-export async function getDirectusClient() {
-  if (await directus.auth.token) return directus
-
-  if (email && password) {
-    await directus.auth.login({ email, password })
-  } else if (token) {
-    await directus.auth.static(token)
-  }
-
-  return directus
+export type Article = {
+  id: number
+  image: string
+  status: string
+  sort: number
+  date_created: string
+  date_updated: string
+  title: string
+  slug: string
+  tags?: string[]
+  content: string
 }
+
+export type Project = {
+  id: number
+  image: string
+  status: string
+  sort: number
+  date_created: string
+  name: string
+  url?: string
+  keywords?: string[]
+}
+
+export type Home = {
+  id: number
+  avatar: string
+  image: string
+  title: string
+  about_title: string
+  about_text: string
+  projects_title: string
+}
+
+type Schema = {
+  home: Home
+  projects: Project[]
+  articles: Article[]
+}
+
+export const client = createDirectus<Schema>(process.env.API_URL)
+  .with(rest())
+  .with(staticToken(process.env.API_TOKEN))
