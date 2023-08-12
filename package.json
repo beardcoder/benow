@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@directus/sdk": "^11.0.1",
+    "@directus/sdk": "^11.0.2",
     "@mapbox/rehype-prism": "^0.8.0",
-    "@types/node": "20.4.8",
-    "@types/react": "18.2.18",
+    "@types/node": "20.4.10",
+    "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "dayjs": "^1.11.9",
     "deepmerge": "^4.3.1",
-    "eslint": "8.46.0",
+    "eslint": "8.47.0",
     "eslint-config-next": "13.4.13",
     "framer-motion": "^10.15.1",
     "graphql-tag": "^2.12.6",
@@ -43,6 +43,6 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/mapbox__rehype-prism": "^0.8.0",
     "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.4.1"
+    "prettier-plugin-tailwindcss": "^0.5.2"
   }
 }

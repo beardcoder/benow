@@ -60,7 +60,7 @@ export default async function BlogSlug({
         </div>
         <div className="my-12 text-center">
           <Button href="/#blog">
-            <FiArrowLeft className="inline-block mr-1 stroke-1" />{' '}
+            <FiArrowLeft className="inline-block mr-1 text-lg" />{' '}
             <span className="pr-2">Zurück</span>
           </Button>
         </div>

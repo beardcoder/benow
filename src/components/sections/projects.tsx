@@ -76,17 +76,13 @@ export default function Projects({ projects }: Props) {
                       <div className="text-sm">
                         {keywords?.map((ele, y) => <Tag key={y}>{ele}</Tag>)}
                       </div>
-                      {url && (
-                        <Button
-                          target="_blank"
-                          className="mt-4"
-                          tagName="a"
-                          href={url}
-                          small
-                        >
-                          Zum {name} Projekt
-                        </Button>
-                      )}
+                      <div className="mt-4">
+                        {url && (
+                          <Button target="_blank" tagName="a" href={url} small>
+                            Zum {name} Projekt
+                          </Button>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>

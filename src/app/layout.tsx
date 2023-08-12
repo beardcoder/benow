@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   title: 'Markus Sommer — Frontendartist & Webentwickler',
   description:
     'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend',
-  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({
