@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Urbanist } from 'next/font/google'
 import Menu from '../components/menu'
 import { twMerge } from 'tailwind-merge'
+import Script from 'next/script'
 
 export const urbanist = Urbanist({
   subsets: ['latin'],
@@ -28,6 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
+      <Script
+        src="https://tracking.letsbenow.de/script.js"
+        data-website-id="e66e564e-d8b9-469d-93cc-1defbfe9ddc1"
+      />
       <body
         className={twMerge(
           urbanist.variable,
