@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="de">
       <Script
         src="https://tracking.letsbenow.de/script.js"
-        data-website-id="e66e564e-d8b9-469d-93cc-1defbfe9ddc1"
+        data-website-id="7d21000e-18fc-429a-820f-ac28e804f339"
       />
       <body
         className={twMerge(
