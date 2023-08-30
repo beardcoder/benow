@@ -53,7 +53,7 @@ export default async function BlogSlug({
             <ReactMarkdown
               children={article.content}
               remarkPlugins={[link, remarkInlineLinks]}
-              rehypePlugins={[rehypePrism, rehypeStringify]}
+              rehypePlugins={[rehypePrism, rehypeStringify as any]}
               linkTarget="_blank"
             />
           </div>
