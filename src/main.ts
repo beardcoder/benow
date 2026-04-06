@@ -4,69 +4,67 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 // ============================================
-// PREFERS REDUCED MOTION CHECK
+// ENVIRONMENT
 // ============================================
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+const hasPointer    = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+
+// ============================================
+// CHARACTER SPLITTING
+// Wraps each character in an overflow-hidden
+// envelope so we can slide them in from below.
+// ============================================
+
+function splitChars(line: HTMLElement): HTMLElement[] {
+  const text = line.textContent ?? ''
+  line.innerHTML = text
+    .split('')
+    .map((ch) =>
+      ch === ' '
+        ? '<span class="char-space"> </span>'
+        : `<span class="char-outer"><span class="char">${ch}</span></span>`
+    )
+    .join('')
+  return Array.from(line.querySelectorAll<HTMLElement>('.char'))
+}
 
 // ============================================
 // CUSTOM CURSOR
 // ============================================
 
-if (hasHover) {
-  const cursorOuter = document.querySelector<HTMLElement>('.cursor-outer')!
-  const cursorDot   = document.querySelector<HTMLElement>('.cursor-dot')!
+if (hasPointer) {
+  const outer = document.querySelector<HTMLElement>('.cursor-outer')!
+  const dot   = document.querySelector<HTMLElement>('.cursor-dot')!
+  let revealed = false
 
-  // Start off-screen, invisible — first mousemove reveals them
-  let cursorInit = false
-
-  document.addEventListener('mousemove', (e: MouseEvent) => {
-    if (!cursorInit) {
-      gsap.to([cursorOuter, cursorDot], {
+  document.addEventListener('mousemove', ({ clientX: x, clientY: y }) => {
+    if (!revealed) {
+      gsap.to([outer, dot], {
         opacity: 1,
         scale: 1,
-        duration: 0.4,
-        ease: 'power2.out',
+        duration: 0.5,
+        ease: 'back.out(1.4)',
       })
-      cursorInit = true
+      revealed = true
     }
-
-    // Dot follows immediately
-    gsap.to(cursorDot, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.06,
-      ease: 'none',
-    })
-
-    // Outer ring follows with lag — "weight" feel
-    gsap.to(cursorOuter, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.5,
-      ease: 'power3.out',
-    })
+    // Dot — instant
+    gsap.to(dot,  { x, y, duration: 0.06, ease: 'none' })
+    // Ring — lags behind for "weight" feel
+    gsap.to(outer, { x, y, duration: 0.55, ease: 'power3.out' })
   })
 
-  // Hover state on interactive elements
-  const hoverTargets = document.querySelectorAll<HTMLElement>('a, button')
-  hoverTargets.forEach((el) => {
-    el.addEventListener('mouseenter', () => {
-      cursorOuter.classList.add('is-hovering')
-    })
-    el.addEventListener('mouseleave', () => {
-      cursorOuter.classList.remove('is-hovering')
-    })
+  document.querySelectorAll<HTMLElement>('a, button').forEach((el) => {
+    el.addEventListener('mouseenter', () => outer.classList.add('is-hovering'))
+    el.addEventListener('mouseleave', () => outer.classList.remove('is-hovering'))
   })
 
-  // Fade cursor when pointer leaves viewport
-  document.addEventListener('mouseleave', () => {
-    gsap.to([cursorOuter, cursorDot], { opacity: 0, duration: 0.25 })
-  })
-  document.addEventListener('mouseenter', () => {
-    gsap.to([cursorOuter, cursorDot], { opacity: 1, duration: 0.25 })
-  })
+  document.addEventListener('mouseleave', () =>
+    gsap.to([outer, dot], { opacity: 0, duration: 0.25 })
+  )
+  document.addEventListener('mouseenter', () =>
+    gsap.to([outer, dot], { opacity: 1, duration: 0.25 })
+  )
 }
 
 // ============================================
@@ -76,198 +74,261 @@ if (hasHover) {
 gsap.to('.scroll-progress', {
   scaleX: 1,
   ease: 'none',
-  scrollTrigger: {
-    start: 0,
-    end: 'max',
-    scrub: 0.2,
+  scrollTrigger: { start: 0, end: 'max', scrub: 0.3 },
+})
+
+// ============================================
+// NAV — background on scroll
+// ============================================
+
+ScrollTrigger.create({
+  start: 'top -80px',
+  onUpdate: (self) => {
+    const nav = document.querySelector('.nav')
+    if (self.progress > 0) {
+      nav?.classList.add('is-scrolled')
+    } else {
+      nav?.classList.remove('is-scrolled')
+    }
   },
 })
+
+// ============================================
+// HERO PHOTO PARALLAX
+// ============================================
+
+if (!reducedMotion) {
+  gsap.to('.hero-photo', {
+    yPercent: 22,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 0.8,
+    },
+  })
+}
 
 // ============================================
 // INTRO ANIMATION
 // ============================================
 
 if (reducedMotion) {
-  // Reduced motion: just make everything visible immediately
-  const loader = document.querySelector<HTMLElement>('.loader')
-  if (loader) loader.style.display = 'none'
-
+  // Skip all setup — everything visible via CSS
+  document.querySelector<HTMLElement>('.loader')!.style.display = 'none'
   gsap.set('.nav', { opacity: 1 })
   document.querySelector('.nav')?.classList.add('is-visible')
-  gsap.set('.hero-line', { scaleX: 1 })
-  gsap.set('.hero-role, .hero-sep, .hero-location, .hero-scroll', { opacity: 1 })
-  gsap.set('.section-label, .reveal-inner, .about-body, .project-item, .link-card', {
-    opacity: 1,
-    y: 0,
-    clearProps: 'transform',
-  })
+  // Reveal name lines without animation
+  document.querySelectorAll<HTMLElement>('.name-line').forEach(splitChars)
+  gsap.set('.char', { y: 0 })
+  gsap.set(
+    '.hero-line, .hero-role, .hero-sep, .hero-location, .hero-scroll, ' +
+    '.section-label, .reveal-inner, .about-body, .about-tags, ' +
+    '.project-item, .link-card',
+    { opacity: 1, y: 0, clearProps: 'transform' }
+  )
 } else {
-  // — Establish initial states for animated elements —
-  gsap.set('.name-word', { y: '110%' })
+  // — Split characters —
+  const allChars: HTMLElement[] = []
+  document.querySelectorAll<HTMLElement>('.name-line').forEach((line) => {
+    allChars.push(...splitChars(line))
+  })
+
+  // — Set initial states —
+  gsap.set(allChars, { y: '115%' })
   gsap.set('.nav', { opacity: 0 })
   gsap.set('.hero-line', { scaleX: 0, transformOrigin: 'left center' })
-  gsap.set('.hero-role, .hero-sep, .hero-location, .hero-scroll', { opacity: 0 })
-  gsap.set('.section-label', { opacity: 0, y: 8 })
-  gsap.set('.reveal-inner', { y: '105%' })
-  gsap.set('.about-body', { opacity: 0, y: 22 })
-  gsap.set('.project-item', { opacity: 0, y: 14 })
-  gsap.set('.link-card', { opacity: 0, y: 12 })
+  gsap.set('.hero-role, .hero-sep, .hero-location', { opacity: 0, y: 12 })
+  gsap.set('.hero-scroll', { opacity: 0 })
+  gsap.set('.section-label', { opacity: 0, y: 10 })
+  gsap.set('.reveal-inner', { y: '108%' })
+  gsap.set('.about-body', { opacity: 0, y: 28 })
+  gsap.set('.about-tags', { opacity: 0, y: 16 })
+  gsap.set('.project-item', { opacity: 0, y: 20 })
+  gsap.set('.link-card', { opacity: 0, y: 16 })
 
-  // — Choreographed intro timeline —
-  const intro = gsap.timeline({
-    onComplete: () => {
-      const loader = document.querySelector<HTMLElement>('.loader')
-      if (loader) loader.style.display = 'none'
-      document.querySelector('.nav')?.classList.add('is-visible')
-    },
-  })
+  // — Loader bar animation then dissolve —
+  const loader = document.querySelector<HTMLElement>('.loader')!
+  const bar    = document.querySelector<HTMLElement>('.loader-bar')!
 
-  intro
-    // 1. Loader dissolves
-    .to('.loader', {
+  gsap.timeline()
+    .to(bar, {
+      height: '60px',
+      duration: 0.7,
+      ease: 'power3.inOut',
+    })
+    .to(bar, {
+      opacity: 0,
+      duration: 0.3,
+      ease: 'power2.in',
+    })
+    .to(loader, {
       opacity: 0,
       duration: 0.55,
       ease: 'power2.inOut',
-    }, 0.45)
+      onComplete: () => { loader.style.display = 'none' },
+    })
 
-    // 2. Structural lines extend (overlaps loader fade)
+  // — Hero choreography — starts while loader fades —
+  const intro = gsap.timeline({ delay: 0.55 })
+
+  intro
+    // Structural lines extend
     .to('.hero-line', {
       scaleX: 1,
-      duration: 1.05,
+      duration: 1.1,
       ease: 'power3.inOut',
-      stagger: 0.08,
-    }, 0.75)
+      stagger: 0.09,
+    }, 0)
 
-    // 3. Name rises from below (cinematic reveal)
-    .to('.name-word', {
-      y: '0%',
-      duration: 1.15,
-      stagger: 0.13,
-      ease: 'power4.out',
-    }, 0.95)
-
-    // 4. Navigation fades in (overlapping with name)
+    // Nav fades in quietly
     .to('.nav', {
       opacity: 1,
-      duration: 0.65,
+      duration: 0.7,
       ease: 'power2.out',
-    }, 1.0)
+      onComplete: () => {
+        document.querySelector('.nav')?.classList.add('is-visible')
+      },
+    }, 0.1)
 
-    // 5. Hero metadata
+    // Characters slide up — main event
+    .to(allChars, {
+      y: '0%',
+      duration: 0.9,
+      stagger: 0.025,
+      ease: 'power4.out',
+    }, 0.25)
+
+    // Meta row — staggered fade
     .to(['.hero-role', '.hero-sep', '.hero-location'], {
       opacity: 1,
+      y: 0,
       duration: 0.7,
-      stagger: 0.08,
+      stagger: 0.09,
       ease: 'power3.out',
-    }, 1.55)
+    }, 0.85)
 
-    // 6. Scroll indicator
+    // Scroll hint
     .to('.hero-scroll', {
       opacity: 1,
-      duration: 0.55,
+      duration: 0.6,
       ease: 'power2.out',
-    }, 1.8)
+    }, 1.1)
 }
 
 // ============================================
-// SCROLL-TRIGGERED REVEALS
+// SCROLL REVEALS
 // ============================================
 
 if (!reducedMotion) {
-  // — About section —
+  // — About —
   ScrollTrigger.create({
     trigger: '#about',
-    start: 'top 78%',
+    start: 'top 76%',
     once: true,
     onEnter: () => {
-      const tl = gsap.timeline()
-      tl.to('#about .section-label', {
-        opacity: 1,
-        y: 0,
-        duration: 0.65,
-        ease: 'power3.out',
-      })
-      .to('#about .reveal-inner', {
-        y: '0%',
-        duration: 1.0,
-        stagger: 0.11,
-        ease: 'power4.out',
-      }, '-=0.35')
-      .to('.about-body', {
-        opacity: 1,
-        y: 0,
-        duration: 0.85,
-        stagger: 0.12,
-        ease: 'power3.out',
-      }, '-=0.5')
+      gsap.timeline()
+        .to('#about .section-label', {
+          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
+        })
+        .to('#about .reveal-inner', {
+          y: '0%',
+          duration: 1.05,
+          stagger: 0.12,
+          ease: 'power4.out',
+        }, '-=0.35')
+        .to('.about-body', {
+          opacity: 1, y: 0,
+          duration: 0.85,
+          stagger: 0.13,
+          ease: 'power3.out',
+        }, '-=0.55')
+        .to('.about-tags', {
+          opacity: 1, y: 0,
+          duration: 0.6,
+          ease: 'power3.out',
+        }, '-=0.4')
     },
   })
 
-  // — Work section —
+  // Subtle parallax on about lead text
+  gsap.to('.about-lead', {
+    yPercent: -8,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#about',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.2,
+    },
+  })
+
+  // — Work —
   ScrollTrigger.create({
     trigger: '#work',
     start: 'top 78%',
     once: true,
     onEnter: () => {
-      const tl = gsap.timeline()
-      tl.to('#work .section-label', {
-        opacity: 1,
-        y: 0,
-        duration: 0.65,
-        ease: 'power3.out',
-      })
-      .to('.project-item', {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: 'power3.out',
-      }, '-=0.3')
+      gsap.timeline()
+        .to('#work .section-label', {
+          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
+        })
+        .to('.project-item', {
+          opacity: 1, y: 0,
+          duration: 0.75,
+          stagger: 0.11,
+          ease: 'power3.out',
+        }, '-=0.3')
     },
   })
 
-  // — Connect section —
+  // — Connect —
   ScrollTrigger.create({
     trigger: '#connect',
     start: 'top 78%',
     once: true,
     onEnter: () => {
-      const tl = gsap.timeline()
-      tl.to('#connect .section-label', {
-        opacity: 1,
-        y: 0,
-        duration: 0.65,
-        ease: 'power3.out',
-      })
-      .to('#connect .reveal-inner', {
-        y: '0%',
-        duration: 1.0,
-        stagger: 0.1,
-        ease: 'power4.out',
-      }, '-=0.3')
-      .to('.link-card', {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.09,
-        ease: 'power3.out',
-      }, '-=0.55')
+      gsap.timeline()
+        .to('#connect .section-label', {
+          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
+        })
+        .to('#connect .reveal-inner', {
+          y: '0%',
+          duration: 1.05,
+          stagger: 0.12,
+          ease: 'power4.out',
+        }, '-=0.3')
+        .to('.link-card', {
+          opacity: 1, y: 0,
+          duration: 0.65,
+          stagger: 0.1,
+          ease: 'power3.out',
+        }, '-=0.55')
     },
   })
 }
 
 // ============================================
-// SMOOTH ANCHOR SCROLLING
+// SCROLL BUTTON — hero scroll hint
 // ============================================
 
-document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', (e) => {
-    const href = anchor.getAttribute('href')
-    if (!href || href === '#') return
+document.querySelector('.hero-scroll')?.addEventListener('click', () => {
+  document.getElementById('about')?.scrollIntoView({
+    behavior: reducedMotion ? 'instant' : 'smooth',
+  })
+})
 
+// ============================================
+// ANCHOR LINKS
+// ============================================
+
+document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href')
+    if (!href || href === '#') return
     const target = document.querySelector<HTMLElement>(href)
     if (!target) return
-
     e.preventDefault()
     target.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth' })
   })

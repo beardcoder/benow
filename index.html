@@ -9,7 +9,7 @@
   <meta property="og:description" content="Frontend Developer & Designer aus Bayern." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://letsbenow.de" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Markus Sommer" />
   <meta name="twitter:description" content="Frontend Developer & Designer aus Bayern." />
   <title>Markus Sommer</title>
@@ -20,21 +20,31 @@
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;1,300&display=swap"
     rel="stylesheet"
   />
-
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/src/style.css" />
+
+  <noscript>
+    <style>
+      .loader { display: none !important; }
+      .nav, .hero-line, .hero-role, .hero-sep, .hero-location,
+      .hero-scroll, .section-label, .reveal-inner, .about-body,
+      .project-item, .link-card { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 <body>
 
-  <!-- Custom Cursor (desktop only) -->
+  <!-- Custom Cursor -->
   <div class="cursor-outer" aria-hidden="true"></div>
   <div class="cursor-dot" aria-hidden="true"></div>
 
-  <!-- Scroll Progress Indicator -->
+  <!-- Scroll Progress -->
   <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Loader -->
-  <div class="loader" aria-hidden="true"></div>
+  <div class="loader" aria-hidden="true">
+    <div class="loader-bar"></div>
+  </div>
 
   <!-- Navigation -->
   <nav class="nav" aria-label="Hauptnavigation">
@@ -45,17 +55,31 @@
     </ul>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════
+       HERO — full-bleed photo + parallax
+  ═══════════════════════════════════ -->
   <section id="hero" class="hero" aria-labelledby="hero-name">
-    <div class="hero-bg" aria-hidden="true"></div>
+
+    <!-- Photo (place your portrait at public/markus.jpg) -->
+    <div class="hero-photo-wrap" aria-hidden="true">
+      <img
+        class="hero-photo"
+        src="/markus.jpg"
+        alt=""
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+
+    <!-- Overlay gradient — bottom darkens for readability -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
     <div class="hero-line hero-line--top" aria-hidden="true"></div>
 
     <div class="hero-content">
       <h1 class="hero-name" id="hero-name">
-        <span class="name-clip"><span class="name-word">MARKUS</span></span>
-        <span class="name-clip"><span class="name-word">SOMMER</span></span>
+        <span class="name-line">MARKUS</span>
+        <span class="name-line">SOMMER</span>
       </h1>
       <div class="hero-meta">
         <p class="hero-role">Frontend Developer &amp; Designer</p>
@@ -66,15 +90,38 @@
 
     <div class="hero-line hero-line--bottom" aria-hidden="true"></div>
 
-    <div class="hero-scroll" aria-hidden="true">
+    <button class="hero-scroll" aria-label="Nach unten scrollen">
       <span class="scroll-label">Scroll</span>
-      <span class="scroll-line"></span>
-    </div>
+      <span class="scroll-line" aria-hidden="true"></span>
+    </button>
   </section>
 
-  <!-- ═══════════════════════════════════════
+  <!-- ═══════════════════════════════════
+       MARQUEE — kinetic typography band
+  ═══════════════════════════════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Frontend Developer</span><span class="msep">·</span>
+      <span>Designer</span><span class="msep">·</span>
+      <span>Bavaria</span><span class="msep">·</span>
+      <span>Est. 1984</span><span class="msep">·</span>
+      <span>Web Performance</span><span class="msep">·</span>
+      <span>Typografie</span><span class="msep">·</span>
+      <span>Open Source</span><span class="msep">·</span>
+      <!-- Duplicate for seamless loop -->
+      <span>Frontend Developer</span><span class="msep">·</span>
+      <span>Designer</span><span class="msep">·</span>
+      <span>Bavaria</span><span class="msep">·</span>
+      <span>Est. 1984</span><span class="msep">·</span>
+      <span>Web Performance</span><span class="msep">·</span>
+      <span>Typografie</span><span class="msep">·</span>
+      <span>Open Source</span><span class="msep">·</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
        ABOUT
-  ═══════════════════════════════════════ -->
+  ═══════════════════════════════════ -->
   <section id="about" class="about section" aria-labelledby="about-heading">
     <div class="container">
       <div class="section-label" aria-hidden="true">
@@ -96,18 +143,24 @@
             und baue digitale Erlebnisse, die schnell, durchdacht und
             dauerhaft sind.
           </p>
-          <p class="about-body about-body--spaced">
+          <p class="about-body">
             Mein Fokus liegt auf sauberem Code, starker Typografie und
             Interaktionen, die man spürt. Weniger, aber besser.
           </p>
+          <div class="about-tags" aria-label="Schwerpunkte">
+            <span class="about-tag">Frontend</span>
+            <span class="about-tag">Design</span>
+            <span class="about-tag">Performance</span>
+            <span class="about-tag">Motion</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
+  <!-- ═══════════════════════════════════
        WORK / PROJECTS
-  ═══════════════════════════════════════ -->
+  ═══════════════════════════════════ -->
   <section id="work" class="work section" aria-labelledby="work-heading">
     <div class="container">
       <div class="section-label" aria-hidden="true">
@@ -115,7 +168,6 @@
         <span class="label-sep"></span>
         <span class="label-text">Ausgewählte Projekte</span>
       </div>
-
       <h2 class="sr-only" id="work-heading">Projekte</h2>
 
       <ul class="project-list" role="list">
@@ -125,8 +177,8 @@
             target="_blank"
             rel="noopener noreferrer"
             class="project-link"
-            aria-label="letsbenow.de öffnen"
           >
+            <span class="project-index" aria-hidden="true">01</span>
             <span class="project-name">letsbenow.de</span>
             <span class="project-meta">
               <span class="project-type">Platform · Design · Dev</span>
@@ -137,7 +189,8 @@
         </li>
 
         <li class="project-item">
-          <a href="#" class="project-link" aria-label="Projekt zwei öffnen">
+          <a href="#" class="project-link">
+            <span class="project-index" aria-hidden="true">02</span>
             <span class="project-name">Projekt Zwei</span>
             <span class="project-meta">
               <span class="project-type">Web · Development</span>
@@ -148,7 +201,8 @@
         </li>
 
         <li class="project-item">
-          <a href="#" class="project-link" aria-label="Projekt drei öffnen">
+          <a href="#" class="project-link">
+            <span class="project-index" aria-hidden="true">03</span>
             <span class="project-name">Projekt Drei</span>
             <span class="project-meta">
               <span class="project-type">Frontend · Design</span>
@@ -164,8 +218,8 @@
             target="_blank"
             rel="noopener noreferrer"
             class="project-link"
-            aria-label="GitHub öffnen"
           >
+            <span class="project-index" aria-hidden="true">04</span>
             <span class="project-name">Open Source</span>
             <span class="project-meta">
               <span class="project-type">GitHub · Repositories</span>
@@ -178,9 +232,9 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
+  <!-- ═══════════════════════════════════
        CONNECT
-  ═══════════════════════════════════════ -->
+  ═══════════════════════════════════ -->
   <section id="connect" class="connect section" aria-labelledby="connect-heading">
     <div class="container">
       <div class="section-label" aria-hidden="true">
@@ -195,43 +249,38 @@
       </h2>
 
       <div class="links-grid">
-        <a
-          href="mailto:markus@letsbenow.de"
-          class="link-card"
-          aria-label="E-Mail senden"
-        >
+        <a href="mailto:markus@letsbenow.de" class="link-card">
           <span class="link-label">Email</span>
           <span class="link-name">markus@letsbenow.de</span>
+          <span class="link-arrow" aria-hidden="true">↗</span>
         </a>
-
         <a
           href="https://github.com/beardcoder"
           target="_blank"
           rel="noopener noreferrer"
           class="link-card"
-          aria-label="GitHub Profil öffnen"
         >
           <span class="link-label">GitHub</span>
           <span class="link-name">beardcoder</span>
+          <span class="link-arrow" aria-hidden="true">↗</span>
         </a>
-
         <a
           href="https://letsbenow.de"
           target="_blank"
           rel="noopener noreferrer"
           class="link-card"
-          aria-label="letsbenow.de öffnen"
         >
           <span class="link-label">Website</span>
           <span class="link-name">letsbenow.de</span>
+          <span class="link-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════
+  <!-- ═══════════════════════════════════
        FOOTER
-  ═══════════════════════════════════════ -->
+  ═══════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
     <div class="container footer-inner">
       <p class="footer-copy">© 2024 Markus Sommer</p>
