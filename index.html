@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Markus Sommer — Frontend Developer & Designer aus Bayern. Ich baue digitale Erlebnisse mit Präzision und Handwerk." />
+  <meta name="author" content="Markus Sommer" />
+  <meta property="og:title" content="Markus Sommer" />
+  <meta property="og:description" content="Frontend Developer & Designer aus Bayern." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://letsbenow.de" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Markus Sommer" />
+  <meta name="twitter:description" content="Frontend Developer & Designer aus Bayern." />
+  <title>Markus Sommer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;1,300&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor (desktop only) -->
+  <div class="cursor-outer" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Loader -->
+  <div class="loader" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#" class="nav-logo" aria-label="Zurück nach oben">MS</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" class="hero" aria-labelledby="hero-name">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-line hero-line--top" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-name" id="hero-name">
+        <span class="name-clip"><span class="name-word">MARKUS</span></span>
+        <span class="name-clip"><span class="name-word">SOMMER</span></span>
+      </h1>
+      <div class="hero-meta">
+        <p class="hero-role">Frontend Developer &amp; Designer</p>
+        <span class="hero-sep" aria-hidden="true"></span>
+        <p class="hero-location">Bayern, Deutschland</p>
+      </div>
+    </div>
+
+    <div class="hero-line hero-line--bottom" aria-hidden="true"></div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="scroll-label">Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <section id="about" class="about section" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">
+        <span class="label-number">01</span>
+        <span class="label-sep"></span>
+        <span class="label-text">Über mich</span>
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-lead" id="about-heading">
+          <span class="reveal-clip"><span class="reveal-inner">Ich baue</span></span>
+          <span class="reveal-clip"><span class="reveal-inner">für das Web.</span></span>
+        </h2>
+
+        <div class="about-right">
+          <p class="about-body">
+            Frontend-Entwickler und Designer aus Bayern. Ich arbeite an der
+            Schnittstelle von technischer Präzision und visuellem Handwerk —
+            und baue digitale Erlebnisse, die schnell, durchdacht und
+            dauerhaft sind.
+          </p>
+          <p class="about-body about-body--spaced">
+            Mein Fokus liegt auf sauberem Code, starker Typografie und
+            Interaktionen, die man spürt. Weniger, aber besser.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       WORK / PROJECTS
+  ═══════════════════════════════════════ -->
+  <section id="work" class="work section" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">
+        <span class="label-number">02</span>
+        <span class="label-sep"></span>
+        <span class="label-text">Ausgewählte Projekte</span>
+      </div>
+
+      <h2 class="sr-only" id="work-heading">Projekte</h2>
+
+      <ul class="project-list" role="list">
+        <li class="project-item">
+          <a
+            href="https://letsbenow.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+            aria-label="letsbenow.de öffnen"
+          >
+            <span class="project-name">letsbenow.de</span>
+            <span class="project-meta">
+              <span class="project-type">Platform · Design · Dev</span>
+              <span class="project-year">2024</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="project-item">
+          <a href="#" class="project-link" aria-label="Projekt zwei öffnen">
+            <span class="project-name">Projekt Zwei</span>
+            <span class="project-meta">
+              <span class="project-type">Web · Development</span>
+              <span class="project-year">2024</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="project-item">
+          <a href="#" class="project-link" aria-label="Projekt drei öffnen">
+            <span class="project-name">Projekt Drei</span>
+            <span class="project-meta">
+              <span class="project-type">Frontend · Design</span>
+              <span class="project-year">2023</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="project-item">
+          <a
+            href="https://github.com/beardcoder"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-link"
+            aria-label="GitHub öffnen"
+          >
+            <span class="project-name">Open Source</span>
+            <span class="project-meta">
+              <span class="project-type">GitHub · Repositories</span>
+              <span class="project-year">Ongoing</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONNECT
+  ═══════════════════════════════════════ -->
+  <section id="connect" class="connect section" aria-labelledby="connect-heading">
+    <div class="container">
+      <div class="section-label" aria-hidden="true">
+        <span class="label-number">03</span>
+        <span class="label-sep"></span>
+        <span class="label-text">Connect</span>
+      </div>
+
+      <h2 class="connect-lead" id="connect-heading">
+        <span class="reveal-clip"><span class="reveal-inner">Lass uns</span></span>
+        <span class="reveal-clip"><span class="reveal-inner">reden.</span></span>
+      </h2>
+
+      <div class="links-grid">
+        <a
+          href="mailto:markus@letsbenow.de"
+          class="link-card"
+          aria-label="E-Mail senden"
+        >
+          <span class="link-label">Email</span>
+          <span class="link-name">markus@letsbenow.de</span>
+        </a>
+
+        <a
+          href="https://github.com/beardcoder"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-card"
+          aria-label="GitHub Profil öffnen"
+        >
+          <span class="link-label">GitHub</span>
+          <span class="link-name">beardcoder</span>
+        </a>
+
+        <a
+          href="https://letsbenow.de"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-card"
+          aria-label="letsbenow.de öffnen"
+        >
+          <span class="link-label">Website</span>
+          <span class="link-name">letsbenow.de</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2024 Markus Sommer</p>
+      <p class="footer-tagline">Made in Bavaria &mdash; since 1984</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
