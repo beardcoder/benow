@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {},
+  output: 'export',
   images: {
-    domains: ['images.ctfassets.net', 'api.letsbenow.de'],
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
 }
 

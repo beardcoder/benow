@@ -1,25 +1,27 @@
 import './globals.css'
-import type { Metadata } from 'next'
-import { Playfair_Display, Urbanist } from 'next/font/google'
-import Menu from '../components/menu'
-import { twMerge } from 'tailwind-merge'
-import Script from 'next/script'
-
-export const urbanist = Urbanist({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-urbanist',
-})
-export const playfair = Playfair_Display({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-playfair',
-})
+import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Markus Sommer — Frontendartist & Webentwickler',
+  title: 'Markus Sommer — Creative Developer',
   description:
-    'Persönliche Webseite von Markus Sommer ein Entwickler für moderne Web Technologien, Design und Frontend',
+    'Frontendartist & Webentwickler. Crafting modern, immersive web experiences with precision and purpose.',
+  openGraph: {
+    title: 'Markus Sommer — Creative Developer',
+    description:
+      'Frontendartist & Webentwickler. Crafting modern, immersive web experiences with precision and purpose.',
+    type: 'website',
+    locale: 'de_DE',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#0a0a0a',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -29,27 +31,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de">
-      <Script
-        src="https://tracking.letsbenow.de/script.js"
-        data-website-id="7d21000e-18fc-429a-820f-ac28e804f339"
-      />
-      <body
-        className={twMerge(
-          urbanist.variable,
-          playfair.variable,
-          'text-neutral-800 bg-white dark:bg-neutral-900 dark:text-neutral-100 font-sans',
-        )}
-      >
-        <div className="relative w-full">
-          <Menu />
-
-          {children}
-
-          <footer className="p-10 text-center text-white bg-neutral-800">
-            Markus Sommer since 1984, 100% Made with ☕ and 🦄 in Bavaria
-          </footer>
-        </div>
-      </body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   )
 }
