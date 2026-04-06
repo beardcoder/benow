@@ -94,18 +94,18 @@ ScrollTrigger.create({
 })
 
 // ============================================
-// HERO PHOTO PARALLAX
+// HERO RINGS — slow parallax drift
 // ============================================
 
 if (!reducedMotion) {
-  gsap.to('.hero-photo', {
-    yPercent: 22,
+  gsap.to('.hero-rings', {
+    yPercent: -15,
     ease: 'none',
     scrollTrigger: {
       trigger: '.hero',
       start: 'top top',
       end: 'bottom top',
-      scrub: 0.8,
+      scrub: 1.5,
     },
   })
 }
@@ -122,6 +122,8 @@ if (reducedMotion) {
   // Reveal name lines without animation
   document.querySelectorAll<HTMLElement>('.name-line').forEach(splitChars)
   gsap.set('.char', { y: 0 })
+  gsap.set('.hero-rings', { opacity: 0.06 })
+  gsap.set('.hero-origin', { opacity: 1 })
   gsap.set(
     '.hero-line, .hero-role, .hero-sep, .hero-location, .hero-scroll, ' +
     '.section-label, .reveal-inner, .about-body, .about-tags, ' +
@@ -140,7 +142,9 @@ if (reducedMotion) {
   gsap.set('.nav', { opacity: 0 })
   gsap.set('.hero-line', { scaleX: 0, transformOrigin: 'left center' })
   gsap.set('.hero-role, .hero-sep, .hero-location', { opacity: 0, y: 12 })
+  gsap.set('.hero-origin', { opacity: 0 })
   gsap.set('.hero-scroll', { opacity: 0 })
+  gsap.set('.hero-rings', { opacity: 0 })
   gsap.set('.section-label', { opacity: 0, y: 10 })
   gsap.set('.reveal-inner', { y: '108%' })
   gsap.set('.about-body', { opacity: 0, y: 28 })
@@ -155,66 +159,80 @@ if (reducedMotion) {
   gsap.timeline()
     .to(bar, {
       height: '60px',
-      duration: 0.7,
+      duration: 0.8,
       ease: 'power3.inOut',
     })
     .to(bar, {
       opacity: 0,
-      duration: 0.3,
+      duration: 0.4,
       ease: 'power2.in',
     })
     .to(loader, {
       opacity: 0,
-      duration: 0.55,
+      duration: 0.6,
       ease: 'power2.inOut',
       onComplete: () => { loader.style.display = 'none' },
     })
 
   // — Hero choreography — starts while loader fades —
-  const intro = gsap.timeline({ delay: 0.55 })
+  const intro = gsap.timeline({ delay: 0.6 })
 
   intro
+    // Rings emerge slowly — atmospheric
+    .to('.hero-rings', {
+      opacity: 0.08,
+      duration: 2.5,
+      ease: 'power2.out',
+    }, 0)
+
     // Structural lines extend
     .to('.hero-line', {
       scaleX: 1,
-      duration: 1.1,
+      duration: 1.3,
       ease: 'power3.inOut',
-      stagger: 0.09,
+      stagger: 0.12,
     }, 0)
 
     // Nav fades in quietly
     .to('.nav', {
       opacity: 1,
-      duration: 0.7,
+      duration: 0.8,
       ease: 'power2.out',
       onComplete: () => {
         document.querySelector('.nav')?.classList.add('is-visible')
       },
-    }, 0.1)
+    }, 0.15)
 
-    // Characters slide up — main event
+    // Origin text — subtle
+    .to('.hero-origin', {
+      opacity: 1,
+      duration: 0.9,
+      ease: 'power2.out',
+    }, 0.3)
+
+    // Characters slide up — main event, slower and more monumental
     .to(allChars, {
       y: '0%',
-      duration: 0.9,
-      stagger: 0.025,
+      duration: 1.1,
+      stagger: 0.03,
       ease: 'power4.out',
-    }, 0.25)
+    }, 0.35)
 
     // Meta row — staggered fade
     .to(['.hero-role', '.hero-sep', '.hero-location'], {
       opacity: 1,
       y: 0,
-      duration: 0.7,
-      stagger: 0.09,
+      duration: 0.8,
+      stagger: 0.1,
       ease: 'power3.out',
-    }, 0.85)
+    }, 1.0)
 
     // Scroll hint
     .to('.hero-scroll', {
       opacity: 1,
-      duration: 0.6,
+      duration: 0.7,
       ease: 'power2.out',
-    }, 1.1)
+    }, 1.3)
 }
 
 // ============================================
@@ -230,25 +248,25 @@ if (!reducedMotion) {
     onEnter: () => {
       gsap.timeline()
         .to('#about .section-label', {
-          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
         })
         .to('#about .reveal-inner', {
           y: '0%',
-          duration: 1.05,
-          stagger: 0.12,
+          duration: 1.2,
+          stagger: 0.14,
           ease: 'power4.out',
-        }, '-=0.35')
+        }, '-=0.4')
         .to('.about-body', {
           opacity: 1, y: 0,
-          duration: 0.85,
-          stagger: 0.13,
+          duration: 1.0,
+          stagger: 0.15,
           ease: 'power3.out',
-        }, '-=0.55')
+        }, '-=0.6')
         .to('.about-tags', {
           opacity: 1, y: 0,
-          duration: 0.6,
+          duration: 0.7,
           ease: 'power3.out',
-        }, '-=0.4')
+        }, '-=0.45')
     },
   })
 
@@ -260,7 +278,7 @@ if (!reducedMotion) {
       trigger: '#about',
       start: 'top bottom',
       end: 'bottom top',
-      scrub: 1.2,
+      scrub: 1.5,
     },
   })
 
@@ -272,14 +290,14 @@ if (!reducedMotion) {
     onEnter: () => {
       gsap.timeline()
         .to('#work .section-label', {
-          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
         })
         .to('.project-item', {
           opacity: 1, y: 0,
-          duration: 0.75,
-          stagger: 0.11,
+          duration: 0.9,
+          stagger: 0.13,
           ease: 'power3.out',
-        }, '-=0.3')
+        }, '-=0.35')
     },
   })
 
@@ -291,20 +309,20 @@ if (!reducedMotion) {
     onEnter: () => {
       gsap.timeline()
         .to('#connect .section-label', {
-          opacity: 1, y: 0, duration: 0.65, ease: 'power3.out',
+          opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
         })
         .to('#connect .reveal-inner', {
           y: '0%',
-          duration: 1.05,
-          stagger: 0.12,
+          duration: 1.2,
+          stagger: 0.14,
           ease: 'power4.out',
-        }, '-=0.3')
+        }, '-=0.35')
         .to('.link-card', {
           opacity: 1, y: 0,
-          duration: 0.65,
-          stagger: 0.1,
+          duration: 0.8,
+          stagger: 0.12,
           ease: 'power3.out',
-        }, '-=0.55')
+        }, '-=0.6')
     },
   })
 }

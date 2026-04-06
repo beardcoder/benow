@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:ital,wght@0,300;0,400;1,300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:ital,wght@0,300;0,400;1,300&display=swap"
     rel="stylesheet"
   />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,8 +27,9 @@
     <style>
       .loader { display: none !important; }
       .nav, .hero-line, .hero-role, .hero-sep, .hero-location,
-      .hero-scroll, .section-label, .reveal-inner, .about-body,
+      .hero-scroll, .hero-origin, .section-label, .reveal-inner, .about-body,
       .project-item, .link-card { opacity: 1 !important; transform: none !important; }
+      .hero-rings { opacity: 0.08 !important; }
     </style>
   </noscript>
 </head>
@@ -56,30 +57,26 @@
   </nav>
 
   <!-- ═══════════════════════════════════
-       HERO — full-bleed photo + parallax
+       HERO — typographic, monumental
   ═══════════════════════════════════ -->
   <section id="hero" class="hero" aria-labelledby="hero-name">
 
-    <!-- Photo (place your portrait at public/markus.jpg) -->
-    <div class="hero-photo-wrap" aria-hidden="true">
-      <img
-        class="hero-photo"
-        src="/markus.jpg"
-        alt=""
-        fetchpriority="high"
-        decoding="async"
-      />
+    <!-- Abstract atmospheric rings -->
+    <div class="hero-rings" aria-hidden="true">
+      <svg class="ring ring--outer" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="300" r="280" stroke="currentColor" stroke-width="0.5"/>
+        <circle cx="300" cy="300" r="220" stroke="currentColor" stroke-width="0.3"/>
+        <circle cx="300" cy="300" r="160" stroke="currentColor" stroke-width="0.3"/>
+      </svg>
     </div>
-
-    <!-- Overlay gradient — bottom darkens for readability -->
-    <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-line hero-line--top" aria-hidden="true"></div>
 
     <div class="hero-content">
+      <p class="hero-origin" aria-hidden="true">Bayern · Est. 1984</p>
       <h1 class="hero-name" id="hero-name">
-        <span class="name-line">MARKUS</span>
-        <span class="name-line">SOMMER</span>
+        <span class="name-line">Markus</span>
+        <span class="name-line">Sommer</span>
       </h1>
       <div class="hero-meta">
         <p class="hero-role">Frontend Developer &amp; Designer</p>
@@ -147,12 +144,12 @@
             Mein Fokus liegt auf sauberem Code, starker Typografie und
             Interaktionen, die man spürt. Weniger, aber besser.
           </p>
-          <div class="about-tags" aria-label="Schwerpunkte">
-            <span class="about-tag">Frontend</span>
-            <span class="about-tag">Design</span>
-            <span class="about-tag">Performance</span>
-            <span class="about-tag">Motion</span>
-          </div>
+          <ul class="about-tags" role="list" aria-label="Schwerpunkte">
+            <li class="about-tag">Frontend</li>
+            <li class="about-tag">Design</li>
+            <li class="about-tag">Performance</li>
+            <li class="about-tag">Motion</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -236,6 +233,13 @@
        CONNECT
   ═══════════════════════════════════ -->
   <section id="connect" class="connect section" aria-labelledby="connect-heading">
+    <!-- Abstract topo line divider -->
+    <div class="topo-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 30 Q150 10 300 30 T600 30 T900 30 T1200 30" stroke="currentColor" stroke-width="0.5" fill="none"/>
+        <path d="M0 35 Q200 15 400 35 T800 35 T1200 35" stroke="currentColor" stroke-width="0.3" fill="none" opacity="0.5"/>
+      </svg>
+    </div>
     <div class="container">
       <div class="section-label" aria-hidden="true">
         <span class="label-number">03</span>
@@ -245,7 +249,7 @@
 
       <h2 class="connect-lead" id="connect-heading">
         <span class="reveal-clip"><span class="reveal-inner">Lass uns</span></span>
-        <span class="reveal-clip"><span class="reveal-inner">reden.</span></span>
+        <span class="reveal-clip"><span class="reveal-inner"><em>reden.</em></span></span>
       </h2>
 
       <div class="links-grid">
@@ -283,7 +287,7 @@
   ═══════════════════════════════════ -->
   <footer class="footer" role="contentinfo">
     <div class="container footer-inner">
-      <p class="footer-copy">© 2024 Markus Sommer</p>
+      <p class="footer-copy">© 2025 Markus Sommer</p>
       <p class="footer-tagline">Made in Bavaria &mdash; since 1984</p>
     </div>
   </footer>
