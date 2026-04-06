@@ -9,7 +9,7 @@ const projects = [
     title: 'benow.de',
     description: 'Persönliche Website & digitale Visitenkarte',
     tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-    url: 'https://letsbenow.de',
+    url: 'https://benow.de',
   },
   {
     title: 'Frontend Architecture',
