@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "oxlint src/",
+    "fmt": "oxfmt --write src/",
+    "fmt:check": "oxfmt --check src/",
+    "check": "tsc --noEmit && oxlint src/ && oxfmt --check src/"
   },
   "dependencies": {
-    "gsap": "^3.12.5"
+    "gsap": "^3.14.2"
   },
   "devDependencies": {
+    "oxfmt": "^0.44.0",
+    "oxlint": "^1.59.0",
     "typescript": "^6.0.2",
-    "vite": "^8.0.7"
+    "vite": "^8.0.8"
   }
 }
