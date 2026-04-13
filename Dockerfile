@@ -8,9 +8,10 @@ COPY . .
 RUN bun run build
 
 FROM ferronserver/ferron:2-alpine
-
+USER root
 RUN apk add --no-cache curl
 
+USER nobody
 COPY ferron.kdl /etc/ferron.kdl
 COPY --from=build --chown=nobody:nobody /app/dist /var/www/ferron
 
