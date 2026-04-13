@@ -116,17 +116,6 @@ if (!reducedMotion) {
       scrub: 1.5,
     },
   });
-
-  gsap.to(".hero-watermark", {
-    yPercent: 15,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".hero",
-      start: "top top",
-      end: "bottom top",
-      scrub: 3,
-    },
-  });
 }
 
 // ============================================
@@ -140,7 +129,7 @@ if (reducedMotion) {
   gsap.set(".char", { y: 0 });
   gsap.set(".blob", { opacity: 1 });
   gsap.set(".hero-badge", { opacity: 1 });
-  gsap.set(".hero-sub", { opacity: 1 });
+  gsap.set(".hero-col-right", { opacity: 1 });
   gsap.set(".hero-tag", { opacity: 1, y: 0 });
   gsap.set(".hero-scroll", { opacity: 1 });
   gsap.set(
@@ -160,7 +149,7 @@ if (reducedMotion) {
   gsap.set(allChars, { y: "130%" });
   gsap.set(".nav", { opacity: 0 });
   gsap.set(".hero-badge", { opacity: 0, y: 20 });
-  gsap.set(".hero-sub", { opacity: 0, y: 25 });
+  gsap.set(".hero-col-right", { opacity: 0, y: 25 });
   gsap.set(".hero-tag", { opacity: 0, y: 30 });
   gsap.set(".hero-scroll", { opacity: 0 });
   gsap.set(".blob", { opacity: 0 });
@@ -259,7 +248,7 @@ if (reducedMotion) {
 
     // Subtitle
     .to(
-      ".hero-sub",
+      ".hero-col-right",
       {
         opacity: 1,
         y: 0,

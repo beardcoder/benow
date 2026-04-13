@@ -80,7 +80,7 @@
   </nav>
 
   <!-- ==============================
-       HERO — monumental, full-bleed
+       HERO — grid-broken, typographic
   ============================== -->
   <section class="hero" aria-labelledby="hero-name">
 
@@ -91,27 +91,49 @@
       <div class="blob blob--3"></div>
     </div>
 
-    <!-- Watermark -->
-    <div class="hero-watermark" aria-hidden="true">Erde</div>
+    <div class="hero-grid">
+      <!-- Left column: badge + name -->
+      <div class="hero-col-left">
+        <div class="hero-badge">
+          <span class="hero-badge-line"></span>
+          <span class="hero-badge-text">Est. 1984</span>
+        </div>
 
-    <div class="hero-content">
-      <div class="hero-badge">Bayern &middot; Est. 1984</div>
-
-      <h1 class="hero-name" id="hero-name">
-        <span class="hero-name-line" data-text="Markus">Markus</span>
-        <span class="hero-name-line hero-name-line--accent" data-text="Sommer">Sommer</span>
-      </h1>
-
-      <div class="hero-sub">
-        <span class="hero-role">Frontend Developer</span>
-        <span class="hero-ampersand">&</span>
-        <span class="hero-role">Designer</span>
+        <h1 class="hero-name" id="hero-name">
+          <span class="hero-name-line" data-text="Markus">Markus</span>
+          <span class="hero-name-line hero-name-line--accent" data-text="Sommer">Sommer</span>
+        </h1>
       </div>
 
-      <div class="hero-tagline">
-        <span class="hero-tag">Verwurzelt.</span>
-        <span class="hero-tag">Digital.</span>
-        <span class="hero-tag">Geerdet.</span>
+      <!-- Right column: role + tagline, offset down -->
+      <div class="hero-col-right">
+        <div class="hero-role-block">
+          <span class="hero-role-num" aria-hidden="true">01</span>
+          <div class="hero-role-text">
+            <span class="hero-role">Frontend</span>
+            <span class="hero-role">Developer</span>
+          </div>
+        </div>
+
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <div class="hero-role-block">
+          <span class="hero-role-num" aria-hidden="true">02</span>
+          <div class="hero-role-text">
+            <span class="hero-role">Digital</span>
+            <span class="hero-role">Designer</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom: tagline spanning full width -->
+      <div class="hero-bottom">
+        <div class="hero-tagline">
+          <span class="hero-tag">Verwurzelt.</span>
+          <span class="hero-tag">Digital.</span>
+          <span class="hero-tag">Geerdet.</span>
+        </div>
+        <span class="hero-location">Bayern, DE</span>
       </div>
     </div>
 

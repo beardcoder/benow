@@ -423,7 +423,7 @@ button {
 }
 
 /* ============================================
-   HERO — full-screen monumental
+   HERO — grid-broken, typographic
    ============================================ */
 .hero {
   min-height: 100svh;
@@ -505,52 +505,60 @@ button {
   }
 }
 
-/* Watermark */
-.hero-watermark {
-  position: absolute;
-  bottom: -8%;
-  right: -3%;
-  font-family: var(--f-display);
-  font-size: clamp(15rem, 35vw, 45rem);
-  font-weight: 900;
-  line-height: 0.8;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(74, 124, 89, 0.06);
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-
-/* Hero content */
-.hero-content {
+/* Hero grid — asymmetric 2-column layout */
+.hero-grid {
   position: relative;
   z-index: 3;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 0 clamp(2rem, 5vw, 5rem);
   padding: 0 var(--pad);
   max-width: var(--max-w);
   margin: 0 auto;
   width: 100%;
+  align-items: end;
+}
+
+/* Left column */
+.hero-col-left {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2.5rem);
 }
 
 .hero-badge {
-  font-family: var(--f-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  color: var(--c-moss);
-  margin-bottom: clamp(2rem, 4vh, 3.5rem);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   opacity: 0;
   will-change: opacity;
 }
 
+.hero-badge-line {
+  width: 32px;
+  height: 1px;
+  background: var(--c-moss);
+}
+
+.hero-badge-text {
+  font-family: var(--f-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-moss);
+}
+
 .hero-name {
   font-family: var(--f-display);
-  font-size: clamp(5rem, 15vw, 18rem);
+  font-size: clamp(5rem, 14vw, 16rem);
   font-weight: 900;
-  line-height: 0.88;
+  line-height: 0.85;
   letter-spacing: -0.04em;
   color: var(--c-parchment);
-  margin-bottom: clamp(2rem, 4vw, 3rem);
   user-select: none;
 }
 
@@ -558,12 +566,13 @@ button {
   display: block;
   overflow: hidden;
   line-height: 0.92;
-  padding-bottom: 0.08em;
+  padding-bottom: 0.1em;
 }
 
 .hero-name-line--accent {
   font-style: italic;
   color: var(--c-terracotta);
+  padding-left: clamp(1rem, 5vw, 6rem);
 }
 
 /* Character wrappers */
@@ -583,45 +592,95 @@ button {
   width: 0.25em;
 }
 
-/* Hero sub */
-.hero-sub {
+/* Right column — offset role blocks */
+.hero-col-right {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
-  align-items: center;
-  gap: clamp(0.6rem, 1.5vw, 1.2rem);
-  margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2rem);
+  padding-bottom: clamp(1rem, 3vh, 2rem);
   opacity: 0;
   will-change: opacity;
 }
 
-.hero-role {
+.hero-role-block {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.hero-role-num {
   font-family: var(--f-body);
-  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-  font-weight: 300;
-  letter-spacing: 0.05em;
-  color: var(--c-cream);
-}
-
-.hero-ampersand {
-  font-family: var(--f-display);
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  font-weight: 400;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   color: var(--c-terracotta);
+  opacity: 0.5;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.35em;
+  flex-shrink: 0;
 }
 
-/* Tagline */
+.hero-role-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-role {
+  font-family: var(--f-display);
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--c-cream);
+  letter-spacing: -0.02em;
+}
+
+.hero-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--c-dim);
+}
+
+/* Bottom row — tagline spanning full width */
+.hero-bottom {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(2rem, 4vh, 3.5rem);
+  margin-top: clamp(2rem, 4vh, 3.5rem);
+  border-top: 1px solid rgba(58, 61, 52, 0.3);
+}
+
 .hero-tagline {
   display: flex;
-  gap: clamp(0.8rem, 2vw, 2rem);
-  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 4rem);
 }
 
 .hero-tag {
   font-family: var(--f-display);
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
   font-weight: 400;
   color: var(--c-muted);
   opacity: 0;
   will-change: opacity, transform;
+  position: relative;
+}
+
+.hero-tag:first-child {
+  font-style: italic;
+  color: var(--c-moss-light);
+}
+
+.hero-location {
+  font-family: var(--f-body);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--c-dim);
 }
 
 /* Scroll hint */
@@ -1273,13 +1332,40 @@ button {
   .nav-location {
     display: none;
   }
-
   .nav-grid {
     grid-template-columns: auto 1fr;
   }
-
   .nav-menu {
     justify-self: end;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+  }
+
+  .hero-col-right {
+    grid-column: 1;
+    grid-row: auto;
+    flex-direction: row;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-top: clamp(1.5rem, 3vh, 2.5rem);
+    padding-bottom: 0;
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: auto;
+    align-self: stretch;
+  }
+
+  .hero-role {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  }
+
+  .hero-bottom {
+    grid-column: 1;
   }
 
   .about-body {
@@ -1316,20 +1402,43 @@ button {
 @media (max-width: 600px) {
   .hero-name {
     font-size: clamp(3.8rem, 18vw, 6rem);
-    margin-bottom: 1.5rem;
   }
 
-  .hero-watermark {
+  .hero-name-line--accent {
+    padding-left: 0;
+  }
+
+  .hero-col-right {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .hero-role {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+  }
+
+  .hero-role-num {
     display: none;
-  }
-
-  .hero-sub {
-    flex-wrap: wrap;
   }
 
   .hero-tagline {
     flex-direction: column;
     gap: 0.3rem;
+  }
+
+  .hero-location {
+    display: none;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
   }
 
   .nav-tagline,
