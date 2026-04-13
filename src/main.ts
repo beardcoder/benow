@@ -28,43 +28,42 @@ function splitChars(line: HTMLElement): HTMLElement[] {
 }
 
 // ============================================
-// CUSTOM CURSOR — organic motion
+// CUSTOM CURSOR
 // ============================================
 
 if (hasPointer) {
-  const outer = document.querySelector<HTMLElement>(".cursor-outer")!;
+  const ring = document.querySelector<HTMLElement>(".cursor-ring")!;
   const dot = document.querySelector<HTMLElement>(".cursor-dot")!;
   let revealed = false;
 
   document.addEventListener("mousemove", ({ clientX: x, clientY: y }) => {
     if (!revealed) {
-      gsap.to([outer, dot], {
+      gsap.to([ring, dot], {
         opacity: 1,
-        scale: 1,
         duration: 0.6,
         ease: "back.out(1.7)",
       });
       revealed = true;
     }
     gsap.to(dot, { x, y, duration: 0.08, ease: "none" });
-    gsap.to(outer, { x, y, duration: 0.6, ease: "power3.out" });
+    gsap.to(ring, { x, y, duration: 0.55, ease: "power3.out" });
   });
 
   document.querySelectorAll<HTMLElement>("a, button").forEach((el) => {
-    el.addEventListener("mouseenter", () => outer.classList.add("is-hovering"));
-    el.addEventListener("mouseleave", () => outer.classList.remove("is-hovering"));
+    el.addEventListener("mouseenter", () => ring.classList.add("is-hover"));
+    el.addEventListener("mouseleave", () => ring.classList.remove("is-hover"));
   });
 
   document.addEventListener("mouseleave", () =>
-    gsap.to([outer, dot], { opacity: 0, duration: 0.3 }),
+    gsap.to([ring, dot], { opacity: 0, duration: 0.3 }),
   );
-  document.addEventListener("mouseenter", () =>
-    gsap.to([outer, dot], { opacity: 1, duration: 0.3 }),
-  );
+  document.addEventListener("mouseenter", () => {
+    if (revealed) gsap.to([ring, dot], { opacity: 1, duration: 0.3 });
+  });
 }
 
 // ============================================
-// SCROLL PROGRESS — growing root
+// SCROLL PROGRESS
 // ============================================
 
 gsap.to(".scroll-progress", {
@@ -90,13 +89,13 @@ ScrollTrigger.create({
 });
 
 // ============================================
-// HERO FLORA — slow parallax drift
+// HERO BLOBS — parallax drift
 // ============================================
 
 if (!reducedMotion) {
-  gsap.to(".flora--1", {
-    yPercent: -20,
-    rotation: 15,
+  gsap.to(".blob--1", {
+    yPercent: -25,
+    xPercent: 10,
     ease: "none",
     scrollTrigger: {
       trigger: ".hero",
@@ -106,9 +105,9 @@ if (!reducedMotion) {
     },
   });
 
-  gsap.to(".flora--2", {
-    yPercent: -40,
-    rotation: -10,
+  gsap.to(".blob--2", {
+    yPercent: -35,
+    xPercent: -8,
     ease: "none",
     scrollTrigger: {
       trigger: ".hero",
@@ -117,77 +116,90 @@ if (!reducedMotion) {
       scrub: 1.5,
     },
   });
+
+  gsap.to(".hero-watermark", {
+    yPercent: 15,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 3,
+    },
+  });
 }
 
 // ============================================
-// INTRO ANIMATION — organic choreography
+// INTRO ANIMATION
 // ============================================
 
 if (reducedMotion) {
   document.querySelector<HTMLElement>(".loader")!.style.display = "none";
   gsap.set(".nav", { opacity: 1 });
-  document.querySelector(".nav")?.classList.add("is-visible");
-  document.querySelectorAll<HTMLElement>(".name-line").forEach(splitChars);
+  document.querySelectorAll<HTMLElement>(".hero-name-line").forEach(splitChars);
   gsap.set(".char", { y: 0 });
-  gsap.set(".hero-flora", { opacity: 0.12 });
-  gsap.set(".hero-origin", { opacity: 1 });
-  gsap.set(".tagline-word", { opacity: 1, y: 0 });
+  gsap.set(".blob", { opacity: 1 });
+  gsap.set(".hero-badge", { opacity: 1 });
+  gsap.set(".hero-sub", { opacity: 1 });
+  gsap.set(".hero-tag", { opacity: 1, y: 0 });
   gsap.set(".hero-scroll", { opacity: 1 });
   gsap.set(
-    ".section-label, .reveal-inner, .philosophy-text, " +
-      ".project-item, .link-card, .skill-item, .fullscreen-text",
+    ".section-tag, .about-text, .about-detail, " +
+      ".skill-bar, .project-card, .link-strip, .interlude-word, " +
+      ".links-text",
     { opacity: 1, y: 0, clearProps: "transform" },
   );
 } else {
   // Split hero characters
   const allChars: HTMLElement[] = [];
-  document.querySelectorAll<HTMLElement>(".name-line").forEach((line) => {
+  document.querySelectorAll<HTMLElement>(".hero-name-line").forEach((line) => {
     allChars.push(...splitChars(line));
   });
 
   // Set initial states
-  gsap.set(allChars, { y: "120%" });
+  gsap.set(allChars, { y: "130%" });
   gsap.set(".nav", { opacity: 0 });
-  gsap.set(".hero-origin", { opacity: 0, y: 20 });
-  gsap.set(".tagline-word", { opacity: 0, y: 30 });
+  gsap.set(".hero-badge", { opacity: 0, y: 20 });
+  gsap.set(".hero-sub", { opacity: 0, y: 25 });
+  gsap.set(".hero-tag", { opacity: 0, y: 30 });
   gsap.set(".hero-scroll", { opacity: 0 });
-  gsap.set(".hero-flora", { opacity: 0 });
-  gsap.set(".section-label", { opacity: 0, y: 14 });
-  gsap.set(".reveal-inner", { y: "110%" });
-  gsap.set(".philosophy-text", { opacity: 0, y: 35 });
-  gsap.set(".project-item", { opacity: 0, y: 25 });
-  gsap.set(".link-card", { opacity: 0, y: 20 });
-  gsap.set(".skill-item", { opacity: 0, y: 30 });
-  gsap.set(".fullscreen-text", { opacity: 0, y: 60 });
-  gsap.set(".nature-word", { opacity: 0, x: -30 });
+  gsap.set(".blob", { opacity: 0 });
+  gsap.set(".section-tag", { opacity: 0, y: 14 });
+  gsap.set(".about-text", { y: "120%", opacity: 0 });
+  gsap.set(".about-detail", { opacity: 0, y: 35 });
+  gsap.set(".skill-bar", { opacity: 0, x: -40 });
+  gsap.set(".project-card", { opacity: 0, y: 50, scale: 0.95 });
+  gsap.set(".link-strip", { opacity: 0, x: -30 });
+  gsap.set(".interlude-word", { opacity: 0, y: 80, rotation: 3 });
+  gsap.set(".links-text", { y: "120%", opacity: 0 });
 
-  // Loader animation
+  // Loader sequence
   const loader = document.querySelector<HTMLElement>(".loader")!;
-  const ring = document.querySelector<HTMLElement>(".loader-ring")!;
-  const loaderText = document.querySelector<HTMLElement>(".loader-text")!;
+  const loaderRoot = document.querySelector<HTMLElement>(".loader-root")!;
+  const loaderLabel = document.querySelector<HTMLElement>(".loader-label")!;
 
   gsap
     .timeline()
-    .to(ring, {
-      scale: 1.3,
+    .to(loaderRoot, {
+      scale: 1.1,
       opacity: 0,
-      duration: 0.8,
+      duration: 0.7,
       ease: "power2.inOut",
-      delay: 0.6,
+      delay: 1.4,
     })
     .to(
-      loaderText,
+      loaderLabel,
       {
         opacity: 0,
         y: -10,
         duration: 0.4,
         ease: "power2.in",
       },
-      "-=0.5",
+      "-=0.4",
     )
     .to(loader, {
       opacity: 0,
-      duration: 0.6,
+      duration: 0.5,
       ease: "power2.inOut",
       onComplete: () => {
         loader.style.display = "none";
@@ -195,69 +207,79 @@ if (reducedMotion) {
     });
 
   // Hero choreography
-  const intro = gsap.timeline({ delay: 0.8 });
+  const intro = gsap.timeline({ delay: 1.2 });
 
   intro
-    // Flora emerges — atmospheric, slow
+    // Blobs fade in
     .to(
-      ".hero-flora",
+      ".blob",
       {
-        opacity: 0.15,
+        opacity: 1,
         duration: 3,
+        stagger: 0.3,
         ease: "power2.out",
       },
       0,
     )
 
-    // Nav fades in
+    // Nav
     .to(
       ".nav",
       {
         opacity: 1,
         duration: 1,
         ease: "power2.out",
-        onComplete: () => {
-          document.querySelector(".nav")?.classList.add("is-visible");
-        },
       },
       0.2,
     )
 
-    // Origin text with upward float
+    // Badge
     .to(
-      ".hero-origin",
+      ".hero-badge",
       {
         opacity: 1,
         y: 0,
-        duration: 1,
+        duration: 0.9,
         ease: "power3.out",
       },
       0.4,
     )
 
-    // Characters grow upward — like plants
+    // Name characters — grow upward like roots
     .to(
       allChars,
       {
         y: "0%",
-        duration: 1.3,
-        stagger: 0.035,
+        duration: 1.4,
+        stagger: 0.03,
         ease: "power4.out",
       },
       0.5,
     )
 
-    // Tagline words — staggered with bounce
+    // Subtitle
     .to(
-      ".tagline-word",
+      ".hero-sub",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      },
+      1.3,
+    )
+
+    // Tagline words
+    .to(
+      ".hero-tag",
       {
         opacity: 1,
         y: 0,
         duration: 0.9,
-        stagger: 0.18,
-        ease: "back.out(1.4)",
+        stagger: 0.15,
+        ease: "back.out(1.3)",
       },
-      1.2,
+      1.5,
     )
 
     // Scroll hint
@@ -268,114 +290,97 @@ if (reducedMotion) {
         duration: 0.8,
         ease: "power2.out",
       },
-      1.8,
+      2.0,
     );
 }
 
 // ============================================
-// SCROLL REVEALS — nature-inspired motion
+// SCROLL REVEALS
 // ============================================
 
 if (!reducedMotion) {
-  // — Philosophie section —
+  // — About section —
   ScrollTrigger.create({
-    trigger: "#philosophie",
+    trigger: "#about",
     start: "top 74%",
     once: true,
     onEnter: () => {
       gsap
         .timeline()
-        .to("#philosophie .section-label", {
+        .to("#about .section-tag", {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: "power3.out",
         })
         .to(
-          "#philosophie .reveal-inner",
+          ".about-text",
           {
             y: "0%",
-            duration: 1.4,
-            stagger: 0.16,
+            opacity: 1,
+            duration: 1.3,
+            stagger: 0.14,
             ease: "power4.out",
           },
           "-=0.3",
         )
         .to(
-          ".philosophy-text",
+          ".about-detail",
           {
             opacity: 1,
             y: 0,
             duration: 1.1,
-            stagger: 0.18,
+            stagger: 0.16,
             ease: "power3.out",
           },
-          "-=0.7",
+          "-=0.6",
         );
     },
   });
 
-  // Nature words — parallax floating on scroll
-  document.querySelectorAll<HTMLElement>(".nature-word").forEach((word) => {
-    const speed = parseFloat(word.dataset.speed ?? "1");
-
-    ScrollTrigger.create({
-      trigger: "#philosophie",
-      start: "top 80%",
-      end: "bottom 20%",
-      onEnter: () => {
-        gsap.to(word, {
-          opacity: 0.06,
-          x: 0,
-          duration: 1.5,
-          ease: "power2.out",
-        });
-      },
-    });
-
-    gsap.to(word, {
-      yPercent: -50 * speed,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#philosophie",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 2,
-      },
-    });
-  });
-
   // Parallax on headline
-  gsap.to(".philosophie-headline", {
-    yPercent: -10,
+  gsap.to(".about-headline", {
+    yPercent: -8,
     ease: "none",
     scrollTrigger: {
-      trigger: "#philosophie",
+      trigger: "#about",
       start: "top bottom",
       end: "bottom top",
       scrub: 2,
     },
   });
 
-  // — Interlude — full-screen text reveal —
+  // About background glow
+  gsap.to(".about-bg", {
+    scale: 1.3,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 3,
+    },
+  });
+
+  // — Interlude —
   ScrollTrigger.create({
     trigger: ".interlude",
-    start: "top 60%",
+    start: "top 55%",
     once: true,
     onEnter: () => {
-      gsap.to(".fullscreen-text", {
+      gsap.to(".interlude-word", {
         opacity: 1,
         y: 0,
-        duration: 1.2,
-        stagger: 0.25,
+        rotation: 0,
+        duration: 1.3,
+        stagger: 0.2,
         ease: "back.out(1.2)",
       });
     },
   });
 
-  // Interlude parallax on background glow
-  gsap.to(".interlude-bg", {
-    scale: 1.5,
+  gsap.to(".interlude-glow", {
+    scale: 1.6,
     ease: "none",
     scrollTrigger: {
       trigger: ".interlude",
@@ -385,71 +390,58 @@ if (!reducedMotion) {
     },
   });
 
-  // — Skills — staggered reveal with playful bounce —
+  // — Skills — staggered slide-in —
   ScrollTrigger.create({
     trigger: ".skills",
     start: "top 76%",
     once: true,
     onEnter: () => {
-      gsap.to(".skill-item", {
+      gsap.to(".skill-bar", {
         opacity: 1,
-        y: 0,
+        x: 0,
         duration: 1,
-        stagger: 0.15,
-        ease: "back.out(1.4)",
+        stagger: 0.12,
+        ease: "power3.out",
       });
     },
   });
 
-  // Skill icons — rotate on scroll
-  document.querySelectorAll<HTMLElement>(".skill-icon").forEach((icon) => {
-    gsap.to(icon, {
-      rotation: 10,
-      ease: "none",
-      scrollTrigger: {
-        trigger: icon,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: 3,
-      },
-    });
-  });
-
-  // — Work —
+  // — Projects — cards rise and scale —
   ScrollTrigger.create({
-    trigger: "#work",
-    start: "top 76%",
+    trigger: "#projects",
+    start: "top 74%",
     once: true,
     onEnter: () => {
       gsap
         .timeline()
-        .to("#work .section-label", {
+        .to("#projects .section-tag", {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: "power3.out",
         })
         .to(
-          ".project-item",
+          ".project-card",
           {
             opacity: 1,
             y: 0,
-            duration: 1,
-            stagger: 0.14,
-            ease: "power3.out",
+            scale: 1,
+            duration: 1.1,
+            stagger: 0.15,
+            ease: "back.out(1.1)",
           },
           "-=0.3",
         );
     },
   });
 
-  // Project names — slight parallax
-  document.querySelectorAll<HTMLElement>(".project-name").forEach((name) => {
-    gsap.to(name, {
-      xPercent: 3,
+  // Project cards — subtle parallax on individual cards
+  document.querySelectorAll<HTMLElement>(".project-card").forEach((card, i) => {
+    gsap.to(card, {
+      yPercent: i % 2 === 0 ? -5 : 5,
       ease: "none",
       scrollTrigger: {
-        trigger: name,
+        trigger: card,
         start: "top bottom",
         end: "bottom top",
         scrub: 2,
@@ -457,50 +449,51 @@ if (!reducedMotion) {
     });
   });
 
-  // — Connect —
+  // — Links —
   ScrollTrigger.create({
-    trigger: "#connect",
-    start: "top 76%",
+    trigger: "#links",
+    start: "top 74%",
     once: true,
     onEnter: () => {
       gsap
         .timeline()
-        .to("#connect .section-label", {
+        .to("#links .section-tag", {
           opacity: 1,
           y: 0,
           duration: 0.8,
           ease: "power3.out",
         })
         .to(
-          "#connect .reveal-inner",
+          ".links-text",
           {
             y: "0%",
-            duration: 1.4,
-            stagger: 0.16,
+            opacity: 1,
+            duration: 1.3,
+            stagger: 0.14,
             ease: "power4.out",
           },
           "-=0.3",
         )
         .to(
-          ".link-card",
+          ".link-strip",
           {
             opacity: 1,
-            y: 0,
+            x: 0,
             duration: 0.9,
-            stagger: 0.14,
-            ease: "back.out(1.2)",
+            stagger: 0.12,
+            ease: "power3.out",
           },
-          "-=0.6",
+          "-=0.5",
         );
     },
   });
 
-  // Connect lead — parallax
-  gsap.to(".connect-lead", {
-    yPercent: -8,
+  // Links headline parallax
+  gsap.to(".links-headline", {
+    yPercent: -6,
     ease: "none",
     scrollTrigger: {
-      trigger: "#connect",
+      trigger: "#links",
       start: "top bottom",
       end: "bottom top",
       scrub: 2,
@@ -509,30 +502,30 @@ if (!reducedMotion) {
 }
 
 // ============================================
-// MARQUEE — speed up on scroll
+// MARQUEE — speed on scroll
 // ============================================
 
 if (!reducedMotion) {
-  const marqueeTrack = document.querySelector<HTMLElement>(".marquee-track");
-  if (marqueeTrack) {
+  const mTrack = document.querySelector<HTMLElement>(".marquee-track");
+  if (mTrack) {
     ScrollTrigger.create({
       trigger: ".marquee",
       start: "top bottom",
       end: "bottom top",
       onUpdate: (self) => {
-        const speed = 1 + self.progress * 2;
-        marqueeTrack.style.animationDuration = `${30 / speed}s`;
+        const speed = 1 + self.progress * 2.5;
+        mTrack.style.animationDuration = `${28 / speed}s`;
       },
     });
   }
 }
 
 // ============================================
-// SCROLL BUTTON — hero scroll hint
+// SCROLL BUTTON
 // ============================================
 
 document.querySelector(".hero-scroll")?.addEventListener("click", () => {
-  const target = document.getElementById("philosophie") || document.getElementById("about");
+  const target = document.getElementById("about") || document.getElementById("philosophie");
   target?.scrollIntoView({
     behavior: reducedMotion ? "instant" : "smooth",
   });

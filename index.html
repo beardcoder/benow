@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=Figtree:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -26,324 +26,327 @@
   <noscript>
     <style>
       .loader { display: none !important; }
-      .nav, .hero-line, .hero-role, .hero-sep, .hero-location,
-      .hero-scroll, .hero-origin, .section-label, .reveal-inner, .about-body,
-      .project-item, .link-card, .nature-word, .philosophy-text,
-      .fullscreen-text { opacity: 1 !important; transform: none !important; }
-      .hero-flora { opacity: 0.15 !important; }
+      .nav, .hero-name-char, .hero-sub, .hero-badge,
+      .hero-scroll, .section-heading, .about-text, .about-detail,
+      .skill-bar, .project-card, .link-strip, .marquee-track,
+      .interlude-word { opacity: 1 !important; transform: none !important; }
     </style>
   </noscript>
 </head>
 <body>
 
-  <!-- Custom Cursor — organic dot -->
-  <div class="cursor-outer" aria-hidden="true"></div>
-  <div class="cursor-dot" aria-hidden="true"></div>
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Scroll Progress — root growing across top -->
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <!-- Scroll progress -->
   <div class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Loader -->
   <div class="loader" aria-hidden="true">
-    <div class="loader-ring"></div>
-    <span class="loader-text">Verwurzelt</span>
+    <div class="loader-root">
+      <svg viewBox="0 0 60 80" fill="none">
+        <path class="loader-trunk" d="M30 80 L30 40" stroke="currentColor" stroke-width="2"/>
+        <path class="loader-branch loader-branch--1" d="M30 55 Q15 45 10 30" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path class="loader-branch loader-branch--2" d="M30 45 Q45 35 50 20" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path class="loader-branch loader-branch--3" d="M30 35 Q20 25 15 10" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <circle class="loader-leaf loader-leaf--1" cx="10" cy="30" r="3" fill="currentColor"/>
+        <circle class="loader-leaf loader-leaf--2" cx="50" cy="20" r="3" fill="currentColor"/>
+        <circle class="loader-leaf loader-leaf--3" cx="15" cy="10" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+    <span class="loader-label">Verwurzelt</span>
   </div>
 
   <!-- Navigation -->
   <nav class="nav" aria-label="Hauptnavigation">
-    <a href="#" class="nav-logo" aria-label="Zurück nach oben">
-      <span class="nav-logo-mark">MS</span>
-    </a>
+    <a href="#" class="nav-logo" aria-label="Zurück nach oben">MS</a>
     <ul class="nav-links" role="list">
-      <li><a href="#philosophie">Philosophie</a></li>
-      <li><a href="#work">Projekte</a></li>
-      <li><a href="#connect">Kontakt</a></li>
+      <li><a href="#about">Philosophie</a></li>
+      <li><a href="#projects">Projekte</a></li>
+      <li><a href="#links">Kontakt</a></li>
     </ul>
   </nav>
 
-  <!-- ═══════════════════════════════════
-       HERO — full-screen, monumental typography
-  ═══════════════════════════════════ -->
-  <section id="hero" class="hero" aria-labelledby="hero-name">
+  <!-- ==============================
+       HERO — monumental, full-bleed
+  ============================== -->
+  <section class="hero" aria-labelledby="hero-name">
 
-    <!-- Organic background — SVG flora shapes -->
-    <div class="hero-flora" aria-hidden="true">
-      <svg class="flora flora--1" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="400" cy="400" r="380" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
-        <circle cx="400" cy="400" r="300" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
-        <circle cx="400" cy="400" r="220" stroke="currentColor" stroke-width="0.3" opacity="0.15"/>
-        <path d="M400 20 Q420 200 400 400 Q380 600 400 780" stroke="currentColor" stroke-width="0.4" opacity="0.2"/>
-        <path d="M20 400 Q200 380 400 400 Q600 420 780 400" stroke="currentColor" stroke-width="0.4" opacity="0.2"/>
-      </svg>
-      <svg class="flora flora--2" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M200 0 C230 100 280 150 200 200 C120 150 170 100 200 0Z" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.15"/>
-        <path d="M200 200 C230 300 280 350 200 400 C120 350 170 300 200 200Z" stroke="currentColor" stroke-width="0.5" fill="none" opacity="0.1"/>
-      </svg>
+    <!-- Organic blobs -->
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
     </div>
 
+    <!-- Watermark -->
+    <div class="hero-watermark" aria-hidden="true">Erde</div>
+
     <div class="hero-content">
-      <p class="hero-origin">Bayern · Est. 1984</p>
+      <div class="hero-badge">Bayern &middot; Est. 1984</div>
 
       <h1 class="hero-name" id="hero-name">
-        <span class="name-line">Markus</span>
-        <span class="name-line">Sommer</span>
+        <span class="hero-name-line" data-text="Markus">Markus</span>
+        <span class="hero-name-line hero-name-line--accent" data-text="Sommer">Sommer</span>
       </h1>
 
+      <div class="hero-sub">
+        <span class="hero-role">Frontend Developer</span>
+        <span class="hero-ampersand">&</span>
+        <span class="hero-role">Designer</span>
+      </div>
+
       <div class="hero-tagline">
-        <span class="tagline-word">Verwurzelt.</span>
-        <span class="tagline-word">Digital.</span>
-        <span class="tagline-word">Geerdet.</span>
+        <span class="hero-tag">Verwurzelt.</span>
+        <span class="hero-tag">Digital.</span>
+        <span class="hero-tag">Geerdet.</span>
       </div>
     </div>
 
     <button class="hero-scroll" aria-label="Nach unten scrollen">
-      <svg class="scroll-arrow" viewBox="0 0 24 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="12" y1="0" x2="12" y2="44" stroke="currentColor" stroke-width="1"/>
-        <polyline points="6,38 12,44 18,38" stroke="currentColor" stroke-width="1" fill="none"/>
-      </svg>
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
     </button>
   </section>
 
-  <!-- ═══════════════════════════════════
-       NATURE MARQUEE — full-width kinetic band
-  ═══════════════════════════════════ -->
+  <!-- ==============================
+       MARQUEE — kinetic nature band
+  ============================== -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span class="marquee-word">Wald</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Code</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Wurzeln</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Design</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Erde</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Handwerk</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Bayern</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Natur</span>
-      <span class="marquee-dot"></span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-word">Wald</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Code</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Wurzeln</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Design</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Erde</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Handwerk</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Bayern</span>
-      <span class="marquee-dot"></span>
-      <span class="marquee-word">Natur</span>
-      <span class="marquee-dot"></span>
+      <span class="mq-word">Wald</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Code</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Wurzeln</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Design</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Erde</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Handwerk</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Bayern</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Natur</span>
+      <span class="mq-sep">/</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="mq-word">Wald</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Code</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Wurzeln</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Design</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Erde</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Handwerk</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Bayern</span>
+      <span class="mq-sep">/</span>
+      <span class="mq-word">Natur</span>
+      <span class="mq-sep">/</span>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════
-       PHILOSOPHIE — full-screen statement
-  ═══════════════════════════════════ -->
-  <section id="philosophie" class="philosophie section" aria-labelledby="philosophie-heading">
-    <div class="container">
-      <div class="section-label">
-        <span class="label-number">01</span>
-        <span class="label-line"></span>
-        <span class="label-text">Philosophie</span>
+  <!-- ==============================
+       ABOUT — full-bleed statement
+  ============================== -->
+  <section id="about" class="about" aria-labelledby="about-heading">
+    <div class="about-bg" aria-hidden="true"></div>
+    <div class="about-container">
+      <div class="section-tag">
+        <span class="tag-num">01</span>
+        <span class="tag-line"></span>
+        <span class="tag-label">Philosophie</span>
       </div>
 
-      <div class="philosophie-content">
-        <h2 class="philosophie-headline" id="philosophie-heading">
-          <span class="reveal-clip"><span class="reveal-inner">Gutes Design</span></span>
-          <span class="reveal-clip"><span class="reveal-inner">wächst von</span></span>
-          <span class="reveal-clip"><span class="reveal-inner"><em>innen heraus.</em></span></span>
-        </h2>
+      <h2 class="about-headline" id="about-heading">
+        <span class="about-text">Gutes Design</span>
+        <span class="about-text">wächst von</span>
+        <span class="about-text about-text--em">innen heraus.</span>
+      </h2>
 
-        <div class="philosophie-body">
-          <p class="philosophy-text">
-            Wie ein Baum braucht gutes Handwerk starke Wurzeln. Ich baue
-            digitale Erlebnisse, die nicht nur schön sind — sondern
-            tief verankert in technischer Präzision und gestalterischem Instinkt.
-          </p>
-          <p class="philosophy-text">
-            Frontend-Entwicklung. Design. Performance. Motion.
-            Alles aus einem Guss — verwurzelt in Bayern, gewachsen im Web.
-          </p>
-        </div>
-      </div>
-
-      <!-- Nature words — scattered, animated -->
-      <div class="nature-words" aria-hidden="true">
-        <span class="nature-word" data-speed="0.8">Wurzeln</span>
-        <span class="nature-word" data-speed="1.2">Wachstum</span>
-        <span class="nature-word" data-speed="0.6">Erde</span>
-        <span class="nature-word" data-speed="1.0">Stille</span>
-        <span class="nature-word" data-speed="0.9">Beständigkeit</span>
+      <div class="about-body">
+        <p class="about-detail about-detail--lead">
+          Wie ein Baum braucht gutes Handwerk starke Wurzeln. Ich baue
+          digitale Erlebnisse, die nicht nur schön sind — sondern
+          tief verankert in technischer Präzision und gestalterischem Instinkt.
+        </p>
+        <p class="about-detail">
+          Frontend-Entwicklung. Design. Performance. Motion.
+          Alles aus einem Guss — verwurzelt in Bayern, gewachsen im Web.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       FULLSCREEN TEXT INTERLUDE
-  ═══════════════════════════════════ -->
+  <!-- ==============================
+       INTERLUDE — bold fullscreen
+  ============================== -->
   <section class="interlude" aria-hidden="true">
-    <div class="interlude-bg"></div>
-    <p class="interlude-text">
-      <span class="fullscreen-text">Weniger.</span>
-      <span class="fullscreen-text">Aber</span>
-      <span class="fullscreen-text"><em>besser.</em></span>
+    <div class="interlude-glow"></div>
+    <p class="interlude-statement">
+      <span class="interlude-word">Weniger.</span>
+      <span class="interlude-word">Aber</span>
+      <span class="interlude-word interlude-word--warm">besser.</span>
     </p>
   </section>
 
-  <!-- ═══════════════════════════════════
-       SKILLS — organic tags
-  ═══════════════════════════════════ -->
-  <section class="skills section" aria-label="Fähigkeiten">
-    <div class="container">
-      <div class="skills-grid">
-        <div class="skill-item" data-index="0">
-          <span class="skill-icon">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L4 24l20 20 20-20L24 4z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-          </span>
-          <h3 class="skill-title">Frontend</h3>
-          <p class="skill-desc">TypeScript, React, Vite, performantes Web.</p>
-        </div>
-        <div class="skill-item" data-index="1">
-          <span class="skill-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-          </span>
-          <h3 class="skill-title">Design</h3>
-          <p class="skill-desc">Typografie, Layout, visuelle Klarheit.</p>
-        </div>
-        <div class="skill-item" data-index="2">
-          <span class="skill-icon">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M4 44 Q24 4 44 44" stroke="currentColor" stroke-width="1.5" fill="none"/><line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" stroke-width="1"/></svg>
-          </span>
-          <h3 class="skill-title">Performance</h3>
-          <p class="skill-desc">Schnell. Schlank. Keine Kompromisse.</p>
-        </div>
-        <div class="skill-item" data-index="3">
-          <span class="skill-icon">
-            <svg viewBox="0 0 48 48" fill="none"><path d="M4 24 C4 4 44 4 44 24 C44 44 4 44 4 24Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-          </span>
-          <h3 class="skill-title">Motion</h3>
-          <p class="skill-desc">Animationen, die man spürt, nicht sieht.</p>
-        </div>
+  <!-- ==============================
+       SKILLS — expanding bars
+  ============================== -->
+  <section class="skills" aria-label="Fähigkeiten">
+    <div class="skills-container">
+      <div class="skill-bar" data-index="0">
+        <div class="skill-bar-fill"></div>
+        <span class="skill-num">01</span>
+        <h3 class="skill-name">Frontend</h3>
+        <p class="skill-info">TypeScript, React, Vite, performantes Web.</p>
+        <span class="skill-icon-wrap">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 2L2 16l14 14 14-14L16 2z" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
+      </div>
+      <div class="skill-bar" data-index="1">
+        <div class="skill-bar-fill"></div>
+        <span class="skill-num">02</span>
+        <h3 class="skill-name">Design</h3>
+        <p class="skill-info">Typografie, Layout, visuelle Klarheit.</p>
+        <span class="skill-icon-wrap">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="0.8"/></svg>
+        </span>
+      </div>
+      <div class="skill-bar" data-index="2">
+        <div class="skill-bar-fill"></div>
+        <span class="skill-num">03</span>
+        <h3 class="skill-name">Performance</h3>
+        <p class="skill-info">Schnell. Schlank. Keine Kompromisse.</p>
+        <span class="skill-icon-wrap">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M2 30 Q16 2 30 30" stroke="currentColor" stroke-width="1.2"/><line x1="16" y1="2" x2="16" y2="30" stroke="currentColor" stroke-width="0.8"/></svg>
+        </span>
+      </div>
+      <div class="skill-bar" data-index="3">
+        <div class="skill-bar-fill"></div>
+        <span class="skill-num">04</span>
+        <h3 class="skill-name">Motion</h3>
+        <p class="skill-info">Animationen, die man spürt, nicht sieht.</p>
+        <span class="skill-icon-wrap">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M2 16 C2 2 30 2 30 16 C30 30 2 30 2 16Z" stroke="currentColor" stroke-width="1.2"/></svg>
+        </span>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       WORK / PROJECTS
-  ═══════════════════════════════════ -->
-  <section id="work" class="work section" aria-labelledby="work-heading">
-    <div class="container">
-      <div class="section-label">
-        <span class="label-number">02</span>
-        <span class="label-line"></span>
-        <span class="label-text">Ausgewählte Projekte</span>
+  <!-- ==============================
+       PROJECTS — card grid
+  ============================== -->
+  <section id="projects" class="projects" aria-labelledby="projects-heading">
+    <div class="projects-container">
+      <div class="section-tag">
+        <span class="tag-num">02</span>
+        <span class="tag-line"></span>
+        <span class="tag-label">Ausgewählte Projekte</span>
       </div>
-      <h2 class="sr-only" id="work-heading">Projekte</h2>
+      <h2 class="sr-only" id="projects-heading">Projekte</h2>
 
-      <ul class="project-list" role="list">
-        <li class="project-item">
-          <a href="https://letsbenow.de" target="_blank" rel="noopener noreferrer" class="project-link">
-            <span class="project-index" aria-hidden="true">01</span>
-            <span class="project-name">letsbenow.de</span>
-            <span class="project-meta">
-              <span class="project-type">Platform · Design · Dev</span>
-              <span class="project-year">2024</span>
-              <span class="project-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-              </span>
-            </span>
-          </a>
-        </li>
+      <div class="projects-grid">
+        <a href="https://letsbenow.de" target="_blank" rel="noopener noreferrer" class="project-card project-card--large">
+          <div class="project-card-bg project-card-bg--moss"></div>
+          <span class="project-num">01</span>
+          <div class="project-card-content">
+            <h3 class="project-title">letsbenow.de</h3>
+            <p class="project-desc">Platform &middot; Design &middot; Dev</p>
+          </div>
+          <span class="project-year">2024</span>
+          <span class="project-arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
 
-        <li class="project-item">
-          <a href="#" class="project-link">
-            <span class="project-index" aria-hidden="true">02</span>
-            <span class="project-name">Projekt Zwei</span>
-            <span class="project-meta">
-              <span class="project-type">Web · Development</span>
-              <span class="project-year">2024</span>
-              <span class="project-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-              </span>
-            </span>
-          </a>
-        </li>
+        <a href="#" class="project-card">
+          <div class="project-card-bg project-card-bg--bark"></div>
+          <span class="project-num">02</span>
+          <div class="project-card-content">
+            <h3 class="project-title">Projekt Zwei</h3>
+            <p class="project-desc">Web &middot; Development</p>
+          </div>
+          <span class="project-year">2024</span>
+          <span class="project-arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
 
-        <li class="project-item">
-          <a href="#" class="project-link">
-            <span class="project-index" aria-hidden="true">03</span>
-            <span class="project-name">Projekt Drei</span>
-            <span class="project-meta">
-              <span class="project-type">Frontend · Design</span>
-              <span class="project-year">2023</span>
-              <span class="project-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-              </span>
-            </span>
-          </a>
-        </li>
+        <a href="#" class="project-card">
+          <div class="project-card-bg project-card-bg--terra"></div>
+          <span class="project-num">03</span>
+          <div class="project-card-content">
+            <h3 class="project-title">Projekt Drei</h3>
+            <p class="project-desc">Frontend &middot; Design</p>
+          </div>
+          <span class="project-year">2023</span>
+          <span class="project-arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
 
-        <li class="project-item">
-          <a href="https://github.com/beardcoder" target="_blank" rel="noopener noreferrer" class="project-link">
-            <span class="project-index" aria-hidden="true">04</span>
-            <span class="project-name">Open Source</span>
-            <span class="project-meta">
-              <span class="project-type">GitHub · Repositories</span>
-              <span class="project-year">Ongoing</span>
-              <span class="project-arrow" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-              </span>
-            </span>
-          </a>
-        </li>
-      </ul>
+        <a href="https://github.com/beardcoder" target="_blank" rel="noopener noreferrer" class="project-card project-card--large">
+          <div class="project-card-bg project-card-bg--forest"></div>
+          <span class="project-num">04</span>
+          <div class="project-card-content">
+            <h3 class="project-title">Open Source</h3>
+            <p class="project-desc">GitHub &middot; Repositories</p>
+          </div>
+          <span class="project-year">Ongoing</span>
+          <span class="project-arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       CONNECT
-  ═══════════════════════════════════ -->
-  <section id="connect" class="connect section" aria-labelledby="connect-heading">
-    <div class="container">
-      <div class="section-label">
-        <span class="label-number">03</span>
-        <span class="label-line"></span>
-        <span class="label-text">Kontakt</span>
+  <!-- ==============================
+       LINKS / CONTACT — bold strips
+  ============================== -->
+  <section id="links" class="links" aria-labelledby="links-heading">
+    <div class="links-container">
+      <div class="section-tag">
+        <span class="tag-num">03</span>
+        <span class="tag-line"></span>
+        <span class="tag-label">Kontakt & Links</span>
       </div>
 
-      <h2 class="connect-lead" id="connect-heading">
-        <span class="reveal-clip"><span class="reveal-inner">Lass uns</span></span>
-        <span class="reveal-clip"><span class="reveal-inner"><em>reden.</em></span></span>
+      <h2 class="links-headline" id="links-heading">
+        <span class="links-text">Lass uns</span>
+        <span class="links-text links-text--em">reden.</span>
       </h2>
 
-      <div class="links-grid">
-        <a href="mailto:markus@letsbenow.de" class="link-card">
-          <span class="link-label">Email</span>
-          <span class="link-name">markus@letsbenow.de</span>
-          <span class="link-arrow" aria-hidden="true">
+      <div class="link-strips">
+        <a href="mailto:markus@letsbenow.de" class="link-strip">
+          <span class="link-strip-label">Email</span>
+          <span class="link-strip-value">markus@letsbenow.de</span>
+          <span class="link-strip-arrow">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
           </span>
         </a>
-        <a href="https://github.com/beardcoder" target="_blank" rel="noopener noreferrer" class="link-card">
-          <span class="link-label">GitHub</span>
-          <span class="link-name">beardcoder</span>
-          <span class="link-arrow" aria-hidden="true">
+        <a href="https://github.com/beardcoder" target="_blank" rel="noopener noreferrer" class="link-strip">
+          <span class="link-strip-label">GitHub</span>
+          <span class="link-strip-value">beardcoder</span>
+          <span class="link-strip-arrow">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
           </span>
         </a>
-        <a href="https://letsbenow.de" target="_blank" rel="noopener noreferrer" class="link-card">
-          <span class="link-label">Website</span>
-          <span class="link-name">letsbenow.de</span>
-          <span class="link-arrow" aria-hidden="true">
+        <a href="https://letsbenow.de" target="_blank" rel="noopener noreferrer" class="link-strip">
+          <span class="link-strip-label">Website</span>
+          <span class="link-strip-value">letsbenow.de</span>
+          <span class="link-strip-arrow">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
           </span>
         </a>
@@ -351,13 +354,13 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
+  <!-- ==============================
        FOOTER
-  ═══════════════════════════════════ -->
+  ============================== -->
   <footer class="footer" role="contentinfo">
-    <div class="container footer-inner">
+    <div class="footer-inner">
       <p class="footer-copy">&copy; 2026 Markus Sommer</p>
-      <p class="footer-tagline">Gewachsen in Bayern &mdash; verwurzelt im Web</p>
+      <p class="footer-motto">Gewachsen in Bayern &mdash; verwurzelt im Web</p>
     </div>
   </footer>
 
