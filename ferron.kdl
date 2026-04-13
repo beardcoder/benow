@@ -1,5 +1,6 @@
-:3000 {
+* {
   root "/var/www/html"
+  default_http_port 3000
   compressed
   etag
   cache
