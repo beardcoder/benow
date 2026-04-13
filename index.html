@@ -90,6 +90,12 @@
       <div class="blob blob--2"></div>
       <div class="blob blob--3"></div>
     </div>
+    <div class="hero-wash" aria-hidden="true"></div>
+    <div class="hero-contours" aria-hidden="true"></div>
+    <div class="hero-orbit hero-orbit--1" aria-hidden="true"></div>
+    <div class="hero-orbit hero-orbit--2" aria-hidden="true"></div>
+    <div class="hero-side-note hero-side-note--left" aria-hidden="true">ruhig gebaut</div>
+    <div class="hero-side-note hero-side-note--right" aria-hidden="true">mit zug nach vorne</div>
 
     <div class="hero-grid">
       <!-- Left column: badge + name -->
@@ -103,6 +109,11 @@
           <span class="hero-name-line" data-text="Markus">Markus</span>
           <span class="hero-name-line hero-name-line--accent" data-text="Sommer">Sommer</span>
         </h1>
+
+        <p class="hero-intro">
+          Ich gestalte digitale Räume, die klar stehen, sich natürlich anfühlen
+          und genug Reibung haben, um im Kopf zu bleiben.
+        </p>
       </div>
 
       <!-- Right column: role + tagline, offset down -->
@@ -124,6 +135,22 @@
             <span class="hero-role">Designer</span>
           </div>
         </div>
+
+        <aside class="hero-stage">
+          <div class="hero-stage-panel">
+            <span class="hero-stage-kicker">Arbeitsweise</span>
+            <p class="hero-stage-copy">
+              Plakative Flächen, klare Typografie, technische Ruhe.
+              Keine sterile Perfektion. Lieber eine Seite mit Haltung.
+            </p>
+          </div>
+          <div class="hero-stage-meta">
+            <span>Konzept</span>
+            <span>Design</span>
+            <span>Frontend</span>
+            <span>Motion</span>
+          </div>
+        </aside>
       </div>
 
       <!-- Bottom: tagline spanning full width -->
@@ -148,6 +175,7 @@
   ============================== -->
   <section id="about" class="about" aria-labelledby="about-heading">
     <div class="about-bg" aria-hidden="true"></div>
+    <div class="about-trace" aria-hidden="true">erdig</div>
     <div class="about-container">
       <div class="section-tag">
         <span class="tag-num">01</span>
@@ -155,23 +183,66 @@
         <span class="tag-label">Philosophie</span>
       </div>
 
-      <h2 class="about-headline" id="about-heading">
-        <span class="about-text">Gutes Design</span>
-        <span class="about-text">wächst von</span>
-        <span class="about-text about-text--em">innen heraus.</span>
-      </h2>
+      <div class="about-layout">
+        <div class="about-main">
+          <h2 class="about-headline" id="about-heading">
+            <span class="about-text">Gutes Design</span>
+            <span class="about-text">wächst von</span>
+            <span class="about-text about-text--em">innen heraus.</span>
+          </h2>
 
-      <div class="about-body">
-        <p class="about-detail about-detail--lead">
-          Wie ein Baum braucht gutes Handwerk starke Wurzeln. Ich baue
-          digitale Erlebnisse, die nicht nur schön sind — sondern
-          tief verankert in technischer Präzision und gestalterischem Instinkt.
-        </p>
-        <p class="about-detail">
-          Frontend-Entwicklung. Design. Performance. Motion.
-          Alles aus einem Guss — verwurzelt in Bayern, gewachsen im Web.
-        </p>
+          <div class="about-body">
+            <p class="about-detail about-detail--lead">
+              Wie ein Baum braucht gutes Handwerk starke Wurzeln. Ich baue
+              digitale Erlebnisse, die nicht nur schön sind, sondern tief
+              verankert in technischer Präzision und gestalterischem Instinkt.
+            </p>
+            <p class="about-detail">
+              Frontend-Entwicklung. Design. Performance. Motion. Alles aus einem
+              Guss, verwurzelt in Bayern, gewachsen im Web.
+            </p>
+          </div>
+        </div>
+
+        <aside class="about-panel">
+          <p class="about-pull">
+            Digital darf stark wirken, solange es nicht geschniegelt, sondern
+            lebendig bleibt.
+          </p>
+          <div class="about-panel-meta">
+            <span>Klarheit</span>
+            <span>Substanz</span>
+            <span>Rhythmus</span>
+          </div>
+        </aside>
       </div>
+    </div>
+  </section>
+
+  <section class="flow-band" aria-hidden="true">
+    <div class="flow-band-track flow-band-track--a">
+      <span>erdig</span>
+      <span>praezise</span>
+      <span>markant</span>
+      <span>ruhig</span>
+      <span>lebendig</span>
+      <span>erdig</span>
+      <span>praezise</span>
+      <span>markant</span>
+      <span>ruhig</span>
+      <span>lebendig</span>
+    </div>
+    <div class="flow-band-track flow-band-track--b">
+      <span>konzept</span>
+      <span>form</span>
+      <span>code</span>
+      <span>rhythmus</span>
+      <span>wirkung</span>
+      <span>konzept</span>
+      <span>form</span>
+      <span>code</span>
+      <span>rhythmus</span>
+      <span>wirkung</span>
     </div>
   </section>
 
@@ -192,6 +263,13 @@
   ============================== -->
   <section class="skills" aria-label="Fähigkeiten">
     <div class="skills-container">
+      <div class="skills-lead">
+        <p class="skills-lead-kicker">Was trägt</p>
+        <p class="skills-lead-copy">
+          Solide Technik im Kern, plakative Gestaltung an der Oberfläche und
+          Motion nur dort, wo sie Spannung und Orientierung schafft.
+        </p>
+      </div>
       <div class="skill-bar" data-index="0">
         <div class="skill-bar-fill"></div>
         <span class="skill-num">01</span>
@@ -235,6 +313,7 @@
        PROJECTS — card grid
   ============================== -->
   <section id="projects" class="projects" aria-labelledby="projects-heading">
+    <div class="projects-plane" aria-hidden="true"></div>
     <div class="projects-container">
       <div class="section-tag">
         <span class="tag-num">02</span>
@@ -242,6 +321,13 @@
         <span class="tag-label">Ausgewählte Projekte</span>
       </div>
       <h2 class="sr-only" id="projects-heading">Projekte</h2>
+      <div class="projects-intro">
+        <p class="projects-lead-copy">
+          Projekte sollen nicht nur funktionieren. Sie sollen eine Temperatur
+          haben, eine Sprache, ein klares Gewicht.
+        </p>
+        <p class="projects-side-note">aus konzept wird oberfläche wird code</p>
+      </div>
 
       <div class="projects-grid">
         <!-- Hero card — spans full width, tall -->
@@ -306,6 +392,7 @@
        LINKS / CONTACT — bold strips
   ============================== -->
   <section id="links" class="links" aria-labelledby="links-heading">
+    <div class="links-plane" aria-hidden="true"></div>
     <div class="links-container">
       <div class="section-tag">
         <span class="tag-num">03</span>
@@ -317,6 +404,10 @@
         <span class="links-text">Lass uns</span>
         <span class="links-text links-text--em">reden.</span>
       </h2>
+      <p class="links-side-note">
+        Wenn du etwas bauen willst, das nicht beliebig aussieht, sondern steht,
+        dann sprechen wir.
+      </p>
 
       <div class="link-strips">
         <a href="mailto:markus@letsbenow.de" class="link-strip">

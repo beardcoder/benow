@@ -93,6 +93,30 @@ ScrollTrigger.create({
 // ============================================
 
 if (!reducedMotion) {
+  gsap.to(".hero-wash", {
+    yPercent: -10,
+    xPercent: 4,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 2.5,
+    },
+  });
+
+  gsap.to(".hero-contours", {
+    yPercent: -12,
+    rotation: -4,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 3,
+    },
+  });
+
   gsap.to(".blob--1", {
     yPercent: -25,
     xPercent: 10,
@@ -116,6 +140,30 @@ if (!reducedMotion) {
       scrub: 1.5,
     },
   });
+
+  gsap.to(".hero-orbit--1", {
+    yPercent: -18,
+    xPercent: -6,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 2,
+    },
+  });
+
+  gsap.to(".hero-orbit--2", {
+    yPercent: -24,
+    xPercent: 10,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: 2.4,
+    },
+  });
 }
 
 // ============================================
@@ -128,14 +176,16 @@ if (reducedMotion) {
   document.querySelectorAll<HTMLElement>(".hero-name-line").forEach(splitChars);
   gsap.set(".char", { y: 0 });
   gsap.set(".blob", { opacity: 1 });
+  gsap.set(".hero-wash, .hero-contours, .hero-orbit, .hero-side-note", { opacity: 1 });
   gsap.set(".hero-badge", { opacity: 1 });
   gsap.set(".hero-col-right", { opacity: 1 });
+  gsap.set(".hero-intro, .hero-stage", { opacity: 1, y: 0 });
   gsap.set(".hero-tag", { opacity: 1, y: 0 });
   gsap.set(".hero-scroll", { opacity: 1 });
   gsap.set(
     ".section-tag, .about-text, .about-detail, " +
-      ".skill-bar, .project-card, .link-strip, .interlude-word, " +
-      ".links-text",
+      ".about-panel, .skill-bar, .project-card, .link-strip, .interlude-word, " +
+      ".links-text, .skills-lead-copy, .projects-lead-copy, .projects-side-note, .links-side-note",
     { opacity: 1, y: 0, clearProps: "transform" },
   );
 } else {
@@ -153,14 +203,22 @@ if (reducedMotion) {
   gsap.set(".hero-tag", { opacity: 0, y: 30 });
   gsap.set(".hero-scroll", { opacity: 0 });
   gsap.set(".blob", { opacity: 0 });
+  gsap.set(".hero-wash, .hero-contours, .hero-orbit, .hero-side-note", { opacity: 0 });
+  gsap.set(".hero-intro", { opacity: 0, y: 24 });
+  gsap.set(".hero-stage", { opacity: 0, y: 32 });
   gsap.set(".section-tag", { opacity: 0, y: 14 });
   gsap.set(".about-text", { y: "120%", opacity: 0 });
   gsap.set(".about-detail", { opacity: 0, y: 35 });
+  gsap.set(".about-panel", { opacity: 0, y: 36, rotation: 3 });
+  gsap.set(".skills-lead-copy", { opacity: 0, y: 36 });
   gsap.set(".skill-bar", { opacity: 0, x: -40 });
+  gsap.set(".projects-lead-copy", { opacity: 0, y: 36 });
+  gsap.set(".projects-side-note", { opacity: 0, y: 20 });
   gsap.set(".project-card", { opacity: 0, y: 50, scale: 0.95 });
   gsap.set(".link-strip", { opacity: 0, x: -30 });
   gsap.set(".interlude-word", { opacity: 0, y: 80, rotation: 3 });
   gsap.set(".links-text", { y: "120%", opacity: 0 });
+  gsap.set(".links-side-note", { opacity: 0, y: 28 });
 
   // Loader sequence
   const loader = document.querySelector<HTMLElement>(".loader")!;
@@ -210,6 +268,16 @@ if (reducedMotion) {
       },
       0,
     )
+    .to(
+      ".hero-wash, .hero-contours, .hero-orbit, .hero-side-note",
+      {
+        opacity: 1,
+        duration: 1.6,
+        stagger: 0.08,
+        ease: "power2.out",
+      },
+      0.1,
+    )
 
     // Nav
     .to(
@@ -256,6 +324,26 @@ if (reducedMotion) {
         ease: "power3.out",
       },
       1.3,
+    )
+    .to(
+      ".hero-intro",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      },
+      1.5,
+    )
+    .to(
+      ".hero-stage",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.95,
+        ease: "power3.out",
+      },
+      1.7,
     )
 
     // Tagline words
@@ -323,6 +411,17 @@ if (!reducedMotion) {
             ease: "power3.out",
           },
           "-=0.6",
+        )
+        .to(
+          ".about-panel",
+          {
+            opacity: 1,
+            y: 0,
+            rotation: 3,
+            duration: 1,
+            ease: "power3.out",
+          },
+          "-=0.8",
         );
     },
   });
@@ -348,6 +447,40 @@ if (!reducedMotion) {
       start: "top bottom",
       end: "bottom top",
       scrub: 3,
+    },
+  });
+
+  gsap.to(".about-trace", {
+    yPercent: -10,
+    xPercent: 4,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#about",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2.5,
+    },
+  });
+
+  gsap.to(".flow-band-track--a", {
+    xPercent: -12,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".flow-band",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1.6,
+    },
+  });
+
+  gsap.to(".flow-band-track--b", {
+    xPercent: 12,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".flow-band",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 1.2,
     },
   });
 
@@ -385,13 +518,25 @@ if (!reducedMotion) {
     start: "top 76%",
     once: true,
     onEnter: () => {
-      gsap.to(".skill-bar", {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: "power3.out",
-      });
+      gsap
+        .timeline()
+        .to(".skills-lead-copy", {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+        })
+        .to(
+          ".skill-bar",
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            stagger: 0.12,
+            ease: "power3.out",
+          },
+          "-=0.5",
+        );
     },
   });
 
@@ -409,6 +554,26 @@ if (!reducedMotion) {
           duration: 0.8,
           ease: "power3.out",
         })
+        .to(
+          ".projects-lead-copy",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+          },
+          "-=0.3",
+        )
+        .to(
+          ".projects-side-note",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power3.out",
+          },
+          "-=0.7",
+        )
         .to(
           ".project-card",
           {
@@ -436,6 +601,19 @@ if (!reducedMotion) {
         scrub: 2,
       },
     });
+  });
+
+  gsap.to(".projects-plane", {
+    yPercent: -8,
+    xPercent: -5,
+    rotation: -16,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#projects",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2.8,
+    },
   });
 
   // — Links —
@@ -486,6 +664,33 @@ if (!reducedMotion) {
       start: "top bottom",
       end: "bottom top",
       scrub: 2,
+    },
+  });
+
+  ScrollTrigger.create({
+    trigger: "#links",
+    start: "top 68%",
+    once: true,
+    onEnter: () => {
+      gsap.to(".links-side-note", {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      });
+    },
+  });
+
+  gsap.to(".links-plane", {
+    yPercent: -9,
+    xPercent: 6,
+    rotation: 15,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#links",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 2.4,
     },
   });
 }
