@@ -7,8 +7,8 @@ RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 
-FROM caddy:2-alpine
-COPY Caddyfile /etc/caddy/Caddyfile
-COPY --from=build /app/dist /srv
+FROM ferronserver/ferron:2-alpine
+COPY ferron.kdl /etc/ferron.kdl
+COPY --from=build /app/dist /var/www/ferron
 
 EXPOSE 3000
