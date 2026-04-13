@@ -1,0 +1,5 @@
+:3000 {
+  root "/var/www/ferron"
+  compressed
+  etag
+}
