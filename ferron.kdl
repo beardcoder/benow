@@ -1,6 +1,5 @@
-* {
-  root "/var/www/html"
-  default_http_port 3000
+:80 {
+  root "/var/www/ferron"
   compressed
   etag
   cache
