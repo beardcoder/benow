@@ -627,65 +627,6 @@ button {
 }
 
 /* ============================================
-   MARQUEE
-   ============================================ */
-.marquee {
-  overflow: hidden;
-  padding-block: clamp(1.2rem, 2.5vh, 2rem);
-  background: var(--c-forest);
-  border-top: 1px solid rgba(74, 124, 89, 0.15);
-  border-bottom: 1px solid rgba(74, 124, 89, 0.15);
-  position: relative;
-  z-index: 2;
-}
-
-.marquee-track {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  width: max-content;
-  animation: mq-scroll 28s linear infinite;
-}
-
-.mq-word {
-  font-family: var(--f-display);
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  color: var(--c-parchment);
-  padding-inline: clamp(0.8rem, 2vw, 2rem);
-  opacity: 0.5;
-  transition: opacity 0.3s;
-}
-
-.mq-sep {
-  font-family: var(--f-display);
-  font-size: clamp(1.2rem, 2.5vw, 2rem);
-  color: var(--c-terracotta);
-  opacity: 0.4;
-  padding-inline: 0.3rem;
-  font-weight: 300;
-}
-
-@keyframes mq-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-.marquee:hover .mq-word {
-  opacity: 0.8;
-}
-
-/* ============================================
    SECTION TAG (shared label component)
    ============================================ */
 .section-tag {
@@ -940,7 +881,7 @@ button {
 }
 
 /* ============================================
-   PROJECTS — card grid (inspired by references)
+   PROJECTS — asymmetric bento grid
    ============================================ */
 .projects {
   padding-block: clamp(8rem, 18vh, 16rem);
@@ -956,8 +897,9 @@ button {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
 }
 
 .project-card {
@@ -965,9 +907,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(2rem, 3.5vw, 3rem);
+  padding: clamp(1.8rem, 3vw, 2.8rem);
   border-radius: 16px;
-  min-height: clamp(260px, 35vh, 380px);
   overflow: hidden;
   will-change: transform, opacity;
   transition: transform 0.6s var(--ease-out);
@@ -977,22 +918,21 @@ button {
   transform: translateY(-6px);
 }
 
-/* Alternating grid placement */
-.project-card:nth-child(1) {
+/* Bento placement */
+.project-card--hero {
   grid-column: 1;
-}
-.project-card:nth-child(2) {
-  grid-column: 2;
-}
-.project-card:nth-child(3) {
-  grid-column: 1;
-}
-.project-card:nth-child(4) {
-  grid-column: 2;
+  grid-row: 1 / 3;
+  min-height: clamp(400px, 50vh, 560px);
 }
 
-.project-card--large {
-  min-height: clamp(300px, 40vh, 420px);
+.project-card--sm {
+  grid-column: 2;
+  min-height: clamp(180px, 24vh, 270px);
+}
+
+.project-card--wide {
+  grid-column: 1 / -1;
+  min-height: clamp(200px, 22vh, 280px);
 }
 
 /* Card backgrounds */
@@ -1302,6 +1242,12 @@ button {
 
   .projects-grid {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .project-card--hero {
+    grid-row: 1 / 3;
+    min-height: clamp(320px, 40vh, 450px);
   }
 
   .skill-bar {
@@ -1363,11 +1309,15 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .project-card {
+  .project-card--hero,
+  .project-card--sm,
+  .project-card--wide {
+    grid-column: 1;
+    grid-row: auto;
     min-height: 240px;
   }
 
-  .project-card--large {
+  .project-card--hero {
     min-height: 280px;
   }
 
@@ -1392,13 +1342,6 @@ button {
 
   .skill-num {
     display: none;
-  }
-
-  .mq-word {
-    font-size: clamp(1.4rem, 7vw, 2rem);
-  }
-  .marquee-track {
-    animation-duration: 18s;
   }
 
   .interlude-statement {
@@ -1433,9 +1376,6 @@ button {
   }
   .nav {
     opacity: 1;
-  }
-  .marquee-track {
-    animation: none;
   }
   .blob {
     animation: none !important;

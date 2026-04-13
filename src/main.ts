@@ -502,25 +502,6 @@ if (!reducedMotion) {
 }
 
 // ============================================
-// MARQUEE — speed on scroll
-// ============================================
-
-if (!reducedMotion) {
-  const mTrack = document.querySelector<HTMLElement>(".marquee-track");
-  if (mTrack) {
-    ScrollTrigger.create({
-      trigger: ".marquee",
-      start: "top bottom",
-      end: "bottom top",
-      onUpdate: (self) => {
-        const speed = 1 + self.progress * 2.5;
-        mTrack.style.animationDuration = `${28 / speed}s`;
-      },
-    });
-  }
-}
-
-// ============================================
 // SCROLL BUTTON
 // ============================================
 
