@@ -510,10 +510,11 @@ button {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1.8fr 1fr;
   grid-template-rows: 1fr auto;
-  gap: 0 clamp(2rem, 5vw, 5rem);
+  gap: 0 clamp(2rem, 4vw, 4rem);
   padding: 0 var(--pad);
+  padding-top: clamp(5rem, 10vh, 8rem);
   max-width: var(--max-w);
   margin: 0 auto;
   width: 100%;
@@ -554,10 +555,10 @@ button {
 
 .hero-name {
   font-family: var(--f-display);
-  font-size: clamp(5rem, 14vw, 16rem);
+  font-size: clamp(4rem, 8.5vw, 11rem);
   font-weight: 900;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
   color: var(--c-parchment);
   user-select: none;
 }
@@ -565,14 +566,15 @@ button {
 .hero-name-line {
   display: block;
   overflow: hidden;
-  line-height: 0.92;
-  padding-bottom: 0.1em;
+  line-height: 0.95;
+  padding-bottom: 0.08em;
+  white-space: nowrap;
 }
 
 .hero-name-line--accent {
   font-style: italic;
   color: var(--c-terracotta);
-  padding-left: clamp(1rem, 5vw, 6rem);
+  margin-left: clamp(0.5rem, 3vw, 3rem);
 }
 
 /* Character wrappers */
@@ -1401,11 +1403,11 @@ button {
    ============================================ */
 @media (max-width: 600px) {
   .hero-name {
-    font-size: clamp(3.8rem, 18vw, 6rem);
+    font-size: clamp(2.8rem, 13vw, 5rem);
   }
 
   .hero-name-line--accent {
-    padding-left: 0;
+    margin-left: 0;
   }
 
   .hero-col-right {
