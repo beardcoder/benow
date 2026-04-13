@@ -1,5 +1,7 @@
 :3000 {
-  root "/var/www/ferron"
+  root "/var/www/html"
   compressed
   etag
+  cache
+  file_cache_control "max-age=3600"
 }

@@ -9,6 +9,6 @@ RUN bun run build
 
 FROM ferronserver/ferron:2-alpine
 COPY ferron.kdl /etc/ferron.kdl
-COPY --from=build /app/dist /var/www/ferron
+COPY --from=build --chown=65534:65534 /app/dist /var/www/html
 
 EXPOSE 3000
