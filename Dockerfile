@@ -15,5 +15,4 @@ USER nobody
 COPY ferron.kdl /etc/ferron.kdl
 COPY --from=build --chown=nobody:nobody /app/dist /var/www/ferron
 
-
 EXPOSE 80
