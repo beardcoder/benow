@@ -1,450 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Markus Sommer — Frontend Developer & Designer aus Bayern. Digitale Erlebnisse mit Wurzeln." />
-  <meta name="author" content="Markus Sommer" />
-  <meta property="og:title" content="Markus Sommer — Verwurzelt im Web" />
-  <meta property="og:description" content="Frontend Developer & Designer aus Bayern." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://letsbenow.de" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Markus Sommer" />
-  <meta name="twitter:description" content="Frontend Developer & Designer aus Bayern." />
-  <title>Markus Sommer — Verwurzelt im Web</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Markus Sommer — plakatives Webdesign und Webentwicklung mit geerdeter, naturverbundener Ästhetik."
+    />
+    <meta name="author" content="Markus Sommer" />
+    <meta property="og:title" content="Markus Sommer — Linktree im Erdmodus" />
+    <meta
+      property="og:description"
+      content="Kurze Info über Markus Sommer und direkte Links zu Mail, Website und GitHub."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://letsbenow.de" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Markus Sommer" />
+    <meta
+      name="twitter:description"
+      content="Plakatives Webdesign und Webentwicklung mit natürlicher Tiefe."
+    />
+    <title>Markus Sommer — Linktree im Erdmodus</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
 
-  <noscript>
-    <style>
-      .loader { display: none !important; }
-      .nav, .hero-name-char, .hero-sub, .hero-badge,
-      .hero-scroll, .section-heading, .about-text, .about-detail,
-      .skill-bar, .project-card, .link-strip, .marquee-track,
-      .interlude-word { opacity: 1 !important; transform: none !important; }
-    </style>
-  </noscript>
-</head>
-<body>
+    <noscript>
+      <style>
+        .loader {
+          display: none !important;
+        }
 
-  <!-- Grain overlay -->
-  <div class="grain" aria-hidden="true"></div>
+        .nav,
+        .hero-kicker,
+        .hero-intro,
+        .hero-manifesto-line,
+        .hero-card,
+        .hero-link,
+        .section-eyebrow,
+        .about-copy,
+        .about-quote,
+        .link-card,
+        .links-note {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
 
-  <!-- Custom cursor -->
-  <div class="cursor" aria-hidden="true">
-    <div class="cursor-ring"></div>
-    <div class="cursor-dot"></div>
-  </div>
-
-  <!-- Scroll progress -->
-  <div class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Loader -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader-root">
-      <svg viewBox="0 0 60 80" fill="none">
-        <path class="loader-trunk" d="M30 80 L30 40" stroke="currentColor" stroke-width="2"/>
-        <path class="loader-branch loader-branch--1" d="M30 55 Q15 45 10 30" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        <path class="loader-branch loader-branch--2" d="M30 45 Q45 35 50 20" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        <path class="loader-branch loader-branch--3" d="M30 35 Q20 25 15 10" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        <circle class="loader-leaf loader-leaf--1" cx="10" cy="30" r="3" fill="currentColor"/>
-        <circle class="loader-leaf loader-leaf--2" cx="50" cy="20" r="3" fill="currentColor"/>
-        <circle class="loader-leaf loader-leaf--3" cx="15" cy="10" r="3" fill="currentColor"/>
-      </svg>
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor-ring"></div>
+      <div class="cursor-dot"></div>
     </div>
-    <span class="loader-label">Verwurzelt</span>
-  </div>
 
-  <!-- Navigation -->
-  <nav class="nav" aria-label="Hauptnavigation">
-    <div class="nav-grid">
-      <a href="#" class="nav-mark" aria-label="Zurück nach oben">
-        <span class="nav-mark-m">M</span><span class="nav-mark-dot">&middot;</span><span class="nav-mark-s">S</span>
-      </a>
-      <span class="nav-tagline">Developer<br/>&amp; Designer</span>
-      <ul class="nav-menu" role="list">
-        <li><a href="#about" class="nav-link"><span class="nav-link-num">01</span><span class="nav-link-text">Philosophie</span></a></li>
-        <li><a href="#projects" class="nav-link"><span class="nav-link-num">02</span><span class="nav-link-text">Projekte</span></a></li>
-        <li><a href="#links" class="nav-link"><span class="nav-link-num">03</span><span class="nav-link-text">Kontakt</span></a></li>
-      </ul>
-      <span class="nav-location">Bayern, DE</span>
-    </div>
-  </nav>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
-  <!-- ==============================
-       HERO — grid-broken, typographic
-  ============================== -->
-  <section class="hero" aria-labelledby="hero-name">
-
-    <!-- Organic blobs -->
-    <div class="hero-blobs" aria-hidden="true">
-      <div class="blob blob--1"></div>
-      <div class="blob blob--2"></div>
-      <div class="blob blob--3"></div>
-    </div>
-    <div class="hero-wash" aria-hidden="true"></div>
-    <div class="hero-contours" aria-hidden="true"></div>
-    <div class="hero-orbit hero-orbit--1" aria-hidden="true"></div>
-    <div class="hero-orbit hero-orbit--2" aria-hidden="true"></div>
-    <div class="hero-side-note hero-side-note--left" aria-hidden="true">ruhig gebaut</div>
-    <div class="hero-side-note hero-side-note--right" aria-hidden="true">mit zug nach vorne</div>
-
-    <div class="hero-grid">
-      <!-- Left column: badge + name -->
-      <div class="hero-col-left">
-        <div class="hero-badge">
-          <span class="hero-badge-line"></span>
-          <span class="hero-badge-text">Est. 1984</span>
-        </div>
-
-        <h1 class="hero-name" id="hero-name">
-          <span class="hero-name-line" data-text="Markus">Markus</span>
-          <span class="hero-name-line hero-name-line--accent" data-text="Sommer">Sommer</span>
-        </h1>
-
-        <p class="hero-intro">
-          Ich gestalte digitale Räume, die klar stehen, sich natürlich anfühlen
-          und genug Reibung haben, um im Kopf zu bleiben.
-        </p>
+    <div class="loader" aria-hidden="true">
+      <div class="loader-sigil">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+      <span class="loader-label">markus sommer · linktree</span>
+    </div>
 
-      <!-- Right column: role + tagline, offset down -->
-      <div class="hero-col-right">
-        <div class="hero-role-block">
-          <span class="hero-role-num" aria-hidden="true">01</span>
-          <div class="hero-role-text">
-            <span class="hero-role">Frontend</span>
-            <span class="hero-role">Developer</span>
-          </div>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <div class="nav-inner nav-shell">
+        <a href="#top" class="nav-brand" aria-label="Nach oben springen">
+          <span class="nav-brand-seal" aria-hidden="true"></span>
+          <span class="nav-brand-stack">
+            <span class="nav-brand-mark">MS</span>
+            <span class="nav-brand-text">Webdesign &amp; Webentwicklung</span>
+          </span>
+        </a>
+        <div class="nav-meta">
+          <span class="nav-meta-note">Bayern · geerdet · verfügbar</span>
+          <a href="#about" class="nav-link">Info</a>
+          <a href="#links" class="nav-link">Links</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-aura hero-aura--forest" aria-hidden="true"></div>
+        <div class="hero-aura hero-aura--clay" aria-hidden="true"></div>
+        <div class="hero-gridlines" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit--lg" aria-hidden="true"></div>
+        <div class="hero-orbit hero-orbit--sm" aria-hidden="true"></div>
+        <div class="hero-side-label hero-side-label--left" aria-hidden="true">
+          digital ritual
+        </div>
+        <div class="hero-side-label hero-side-label--right" aria-hidden="true">
+          geerdet &amp; plakativ
         </div>
 
-        <div class="hero-divider" aria-hidden="true"></div>
+        <div class="hero-shell">
+          <div class="hero-copy">
+            <p class="hero-kicker">Sonne · Erde · Interface · gebaut für das Web</p>
+            <h1 class="hero-name" id="hero-heading">
+              <span class="hero-name-line">Markus</span>
+              <span class="hero-name-line hero-name-line--accent">Sommer</span>
+            </h1>
+            <p class="hero-intro">
+              Ich baue plakative Websites mit klarer Technik, warmer Präsenz und
+              einer Bildsprache zwischen Interface, Erde, Licht und stiller Spiritualität.
+            </p>
 
-        <div class="hero-role-block">
-          <span class="hero-role-num" aria-hidden="true">02</span>
-          <div class="hero-role-text">
-            <span class="hero-role">Digital</span>
-            <span class="hero-role">Designer</span>
+            <div class="hero-manifesto" aria-label="Gestalterische Haltung">
+              <span class="hero-manifesto-line">Mutig.</span>
+              <span class="hero-manifesto-line">Geerdet.</span>
+              <span class="hero-manifesto-line">Leicht spirituell.</span>
+            </div>
+
+            <div class="hero-links">
+              <a href="#links" class="hero-link hero-link--primary">Zu meinen Links</a>
+              <a href="mailto:markus@letsbenow.de" class="hero-link">Direkt schreiben</a>
+            </div>
           </div>
+
+          <aside class="hero-card" aria-label="Kurzinfo über Markus Sommer">
+            <p class="hero-card-kicker">Kurz zu mir</p>
+            <p class="hero-card-copy">
+              Freelance Webdesigner &amp; Frontend-Entwickler aus Bayern. Ich verbinde
+              Konzept, visuelle Klarheit, Rhythmus und sauberen Code zu Seiten mit Haltung.
+            </p>
+            <div class="hero-card-tags" aria-label="Schwerpunkte">
+              <span>Konzept</span>
+              <span>UI Design</span>
+              <span>Frontend</span>
+              <span>Motion</span>
+            </div>
+          </aside>
         </div>
 
-        <aside class="hero-stage">
-          <div class="hero-stage-panel">
-            <span class="hero-stage-kicker">Arbeitsweise</span>
-            <p class="hero-stage-copy">
-              Plakative Flächen, klare Typografie, technische Ruhe.
-              Keine sterile Perfektion. Lieber eine Seite mit Haltung.
+        <button class="hero-scroll" aria-label="Zum Infobereich scrollen">
+          <span class="hero-scroll-line"></span>
+          <span class="hero-scroll-text">Mehr</span>
+        </button>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-heading">
+        <div class="about-band" aria-hidden="true"></div>
+        <div class="about-rings" aria-hidden="true"></div>
+        <div class="about-inner">
+          <div class="section-eyebrow">
+            <span>01</span>
+            <span>Kurzinfo</span>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-main">
+              <h2 id="about-heading" class="about-title">
+                Ruhig im Kern.<br />
+                Klar in der Wirkung.
+              </h2>
+              <p class="about-copy about-copy--lead">
+                Ich mag Oberflächen, die groß atmen dürfen, bis an den Rand reichen
+                und trotzdem technisch sauber, schnell und bewusst gebaut bleiben.
+              </p>
+              <p class="about-copy">
+                Mein Fokus liegt auf Webdesign und Webentwicklung für Menschen oder Marken,
+                die keine austauschbare Standardoptik suchen, sondern etwas mit Charakter,
+                Erdung, Klarheit und einem kleinen Funken Ritual.
+              </p>
+            </div>
+
+            <aside
+              class="about-quote"
+              aria-label="Gestalterische Haltung von Markus Sommer"
+            >
+              <p>
+                Zwischen moderner UI, plakativer Fläche und naturverbundener Atmosphäre
+                entsteht das, was ich gern baue: digitale Räume mit Seele, Wärme und Präsenz.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="links" class="links" aria-labelledby="links-heading">
+        <div class="links-backdrop" aria-hidden="true"></div>
+        <div class="links-inner">
+          <div class="section-eyebrow">
+            <span>02</span>
+            <span>Linktree</span>
+          </div>
+
+          <div class="links-header">
+            <h2 id="links-heading" class="links-title">Direkt weiter.</h2>
+            <p class="links-note">
+              Drei klare Wege: schreiben, Arbeit ansehen oder in den Code schauen.
             </p>
           </div>
-          <div class="hero-stage-meta">
-            <span>Konzept</span>
-            <span>Design</span>
-            <span>Frontend</span>
-            <span>Motion</span>
-          </div>
-        </aside>
-      </div>
 
-      <!-- Bottom: tagline spanning full width -->
-      <div class="hero-bottom">
-        <div class="hero-tagline">
-          <span class="hero-tag">Verwurzelt.</span>
-          <span class="hero-tag">Digital.</span>
-          <span class="hero-tag">Geerdet.</span>
-        </div>
-        <span class="hero-location">Bayern, DE</span>
-      </div>
-    </div>
+          <div class="links-stack">
+            <a href="mailto:markus@letsbenow.de" class="link-card link-card--mail">
+              <span class="link-card-label">Mail</span>
+              <span class="link-card-title">markus@letsbenow.de</span>
+              <span class="link-card-meta">Für Anfragen, Ideen und Zusammenarbeit</span>
+            </a>
 
-    <button class="hero-scroll" aria-label="Nach unten scrollen">
-      <div class="scroll-line"></div>
-      <span class="scroll-text">Scroll</span>
-    </button>
-  </section>
+            <a
+              href="https://letsbenow.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-card link-card--site"
+            >
+              <span class="link-card-label">Website</span>
+              <span class="link-card-title">letsbenow.de</span>
+              <span class="link-card-meta">Arbeiten, Haltung und digitale Oberflächen</span>
+            </a>
 
-  <!-- ==============================
-       ABOUT — full-bleed statement
-  ============================== -->
-  <section id="about" class="about" aria-labelledby="about-heading">
-    <div class="about-bg" aria-hidden="true"></div>
-    <div class="about-trace" aria-hidden="true">erdig</div>
-    <div class="about-container">
-      <div class="section-tag">
-        <span class="tag-num">01</span>
-        <span class="tag-line"></span>
-        <span class="tag-label">Philosophie</span>
-      </div>
-
-      <div class="about-layout">
-        <div class="about-main">
-          <h2 class="about-headline" id="about-heading">
-            <span class="about-text">Gutes Design</span>
-            <span class="about-text">wächst von</span>
-            <span class="about-text about-text--em">innen heraus.</span>
-          </h2>
-
-          <div class="about-body">
-            <p class="about-detail about-detail--lead">
-              Wie ein Baum braucht gutes Handwerk starke Wurzeln. Ich baue
-              digitale Erlebnisse, die nicht nur schön sind, sondern tief
-              verankert in technischer Präzision und gestalterischem Instinkt.
-            </p>
-            <p class="about-detail">
-              Frontend-Entwicklung. Design. Performance. Motion. Alles aus einem
-              Guss, verwurzelt in Bayern, gewachsen im Web.
-            </p>
+            <a
+              href="https://github.com/beardcoder"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-card link-card--code"
+            >
+              <span class="link-card-label">GitHub</span>
+              <span class="link-card-title">beardcoder</span>
+              <span class="link-card-meta">Repos, Experimente und Webentwicklung</span>
+            </a>
           </div>
         </div>
+      </section>
+    </main>
 
-        <aside class="about-panel">
-          <p class="about-pull">
-            Digital darf stark wirken, solange es nicht geschniegelt, sondern
-            lebendig bleibt.
-          </p>
-          <div class="about-panel-meta">
-            <span>Klarheit</span>
-            <span>Substanz</span>
-            <span>Rhythmus</span>
-          </div>
-        </aside>
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <p>© 2026 Markus Sommer</p>
+        <p>Gebaut zwischen Bayern, Browser und Waldrand.</p>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <section class="flow-band" aria-hidden="true">
-    <div class="flow-band-track flow-band-track--a">
-      <span>erdig</span>
-      <span>praezise</span>
-      <span>markant</span>
-      <span>ruhig</span>
-      <span>lebendig</span>
-      <span>erdig</span>
-      <span>praezise</span>
-      <span>markant</span>
-      <span>ruhig</span>
-      <span>lebendig</span>
-    </div>
-    <div class="flow-band-track flow-band-track--b">
-      <span>konzept</span>
-      <span>form</span>
-      <span>code</span>
-      <span>rhythmus</span>
-      <span>wirkung</span>
-      <span>konzept</span>
-      <span>form</span>
-      <span>code</span>
-      <span>rhythmus</span>
-      <span>wirkung</span>
-    </div>
-  </section>
-
-  <!-- ==============================
-       INTERLUDE — bold fullscreen
-  ============================== -->
-  <section class="interlude" aria-hidden="true">
-    <div class="interlude-glow"></div>
-    <p class="interlude-statement">
-      <span class="interlude-word">Weniger.</span>
-      <span class="interlude-word">Aber</span>
-      <span class="interlude-word interlude-word--warm">besser.</span>
-    </p>
-  </section>
-
-  <!-- ==============================
-       SKILLS — expanding bars
-  ============================== -->
-  <section class="skills" aria-label="Fähigkeiten">
-    <div class="skills-container">
-      <div class="skills-lead">
-        <p class="skills-lead-kicker">Was trägt</p>
-        <p class="skills-lead-copy">
-          Solide Technik im Kern, plakative Gestaltung an der Oberfläche und
-          Motion nur dort, wo sie Spannung und Orientierung schafft.
-        </p>
-      </div>
-      <div class="skill-bar" data-index="0">
-        <div class="skill-bar-fill"></div>
-        <span class="skill-num">01</span>
-        <h3 class="skill-name">Frontend</h3>
-        <p class="skill-info">TypeScript, React, Vite, performantes Web.</p>
-        <span class="skill-icon-wrap">
-          <svg viewBox="0 0 32 32" fill="none"><path d="M16 2L2 16l14 14 14-14L16 2z" stroke="currentColor" stroke-width="1.2"/></svg>
-        </span>
-      </div>
-      <div class="skill-bar" data-index="1">
-        <div class="skill-bar-fill"></div>
-        <span class="skill-num">02</span>
-        <h3 class="skill-name">Design</h3>
-        <p class="skill-info">Typografie, Layout, visuelle Klarheit.</p>
-        <span class="skill-icon-wrap">
-          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="0.8"/></svg>
-        </span>
-      </div>
-      <div class="skill-bar" data-index="2">
-        <div class="skill-bar-fill"></div>
-        <span class="skill-num">03</span>
-        <h3 class="skill-name">Performance</h3>
-        <p class="skill-info">Schnell. Schlank. Keine Kompromisse.</p>
-        <span class="skill-icon-wrap">
-          <svg viewBox="0 0 32 32" fill="none"><path d="M2 30 Q16 2 30 30" stroke="currentColor" stroke-width="1.2"/><line x1="16" y1="2" x2="16" y2="30" stroke="currentColor" stroke-width="0.8"/></svg>
-        </span>
-      </div>
-      <div class="skill-bar" data-index="3">
-        <div class="skill-bar-fill"></div>
-        <span class="skill-num">04</span>
-        <h3 class="skill-name">Motion</h3>
-        <p class="skill-info">Animationen, die man spürt, nicht sieht.</p>
-        <span class="skill-icon-wrap">
-          <svg viewBox="0 0 32 32" fill="none"><path d="M2 16 C2 2 30 2 30 16 C30 30 2 30 2 16Z" stroke="currentColor" stroke-width="1.2"/></svg>
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==============================
-       PROJECTS — card grid
-  ============================== -->
-  <section id="projects" class="projects" aria-labelledby="projects-heading">
-    <div class="projects-plane" aria-hidden="true"></div>
-    <div class="projects-container">
-      <div class="section-tag">
-        <span class="tag-num">02</span>
-        <span class="tag-line"></span>
-        <span class="tag-label">Ausgewählte Projekte</span>
-      </div>
-      <h2 class="sr-only" id="projects-heading">Projekte</h2>
-      <div class="projects-intro">
-        <p class="projects-lead-copy">
-          Projekte sollen nicht nur funktionieren. Sie sollen eine Temperatur
-          haben, eine Sprache, ein klares Gewicht.
-        </p>
-        <p class="projects-side-note">aus konzept wird oberfläche wird code</p>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Hero card — spans full width, tall -->
-        <a href="https://letsbenow.de" target="_blank" rel="noopener noreferrer" class="project-card project-card--hero">
-          <div class="project-card-bg project-card-bg--moss"></div>
-          <span class="project-num">01</span>
-          <div class="project-card-content">
-            <h3 class="project-title">letsbenow.de</h3>
-            <p class="project-desc">Platform &middot; Design &middot; Dev</p>
-          </div>
-          <span class="project-year">2024</span>
-          <span class="project-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-
-        <!-- Two stacked small cards on the right -->
-        <a href="#" class="project-card project-card--sm">
-          <div class="project-card-bg project-card-bg--bark"></div>
-          <span class="project-num">02</span>
-          <div class="project-card-content">
-            <h3 class="project-title">Projekt Zwei</h3>
-            <p class="project-desc">Web &middot; Development</p>
-          </div>
-          <span class="project-year">2024</span>
-          <span class="project-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-
-        <a href="#" class="project-card project-card--sm">
-          <div class="project-card-bg project-card-bg--terra"></div>
-          <span class="project-num">03</span>
-          <div class="project-card-content">
-            <h3 class="project-title">Projekt Drei</h3>
-            <p class="project-desc">Frontend &middot; Design</p>
-          </div>
-          <span class="project-year">2023</span>
-          <span class="project-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-
-        <!-- Wide card spanning bottom -->
-        <a href="https://github.com/beardcoder" target="_blank" rel="noopener noreferrer" class="project-card project-card--wide">
-          <div class="project-card-bg project-card-bg--forest"></div>
-          <span class="project-num">04</span>
-          <div class="project-card-content">
-            <h3 class="project-title">Open Source</h3>
-            <p class="project-desc">GitHub &middot; Repositories</p>
-          </div>
-          <span class="project-year">Ongoing</span>
-          <span class="project-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==============================
-       LINKS / CONTACT — bold strips
-  ============================== -->
-  <section id="links" class="links" aria-labelledby="links-heading">
-    <div class="links-plane" aria-hidden="true"></div>
-    <div class="links-container">
-      <div class="section-tag">
-        <span class="tag-num">03</span>
-        <span class="tag-line"></span>
-        <span class="tag-label">Kontakt & Links</span>
-      </div>
-
-      <h2 class="links-headline" id="links-heading">
-        <span class="links-text">Lass uns</span>
-        <span class="links-text links-text--em">reden.</span>
-      </h2>
-      <p class="links-side-note">
-        Wenn du etwas bauen willst, das nicht beliebig aussieht, sondern steht,
-        dann sprechen wir.
-      </p>
-
-      <div class="link-strips">
-        <a href="mailto:markus@letsbenow.de" class="link-strip">
-          <span class="link-strip-label">Email</span>
-          <span class="link-strip-value">markus@letsbenow.de</span>
-          <span class="link-strip-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-        <a href="https://github.com/beardcoder" target="_blank" rel="noopener noreferrer" class="link-strip">
-          <span class="link-strip-label">GitHub</span>
-          <span class="link-strip-value">beardcoder</span>
-          <span class="link-strip-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-        <a href="https://letsbenow.de" target="_blank" rel="noopener noreferrer" class="link-strip">
-          <span class="link-strip-label">Website</span>
-          <span class="link-strip-value">letsbenow.de</span>
-          <span class="link-strip-arrow">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5"/></svg>
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==============================
-       FOOTER
-  ============================== -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 Markus Sommer</p>
-      <p class="footer-motto">Gewachsen in Bayern &mdash; verwurzelt im Web</p>
-    </div>
-  </footer>
-
-  <script type="module" src="/src/main.ts"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
