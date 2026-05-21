@@ -1,0 +1,36 @@
+{
+	# Global options
+	admin off
+	persist_config off
+	auto_https off
+}
+
+:8080 {
+	root * /srv
+	encode zstd gzip
+
+	# Long cache for hashed assets emitted by Astro/Vite (/_astro/*)
+	@hashed path /_astro/*
+	header @hashed Cache-Control "public, max-age=31536000, immutable"
+
+	# Static assets — moderate cache
+	@static path *.svg *.png *.jpg *.jpeg *.webp *.avif *.ico *.woff *.woff2
+	header @static Cache-Control "public, max-age=2592000"
+
+	# HTML — short cache, always revalidate
+	@html path *.html /
+	header @html Cache-Control "public, max-age=0, must-revalidate"
+
+	# Security & misc headers
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "interest-cohort=()"
+		-Server
+	}
+
+	file_server
+
+	# SPA-style fallback to /index.html for unknown routes (harmless for single-page Astro)
+	try_files {path} {path}/ /index.html
+}

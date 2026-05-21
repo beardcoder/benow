@@ -1,0 +1,16 @@
+---
+import { profile } from '~/data/profile';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" data-reveal>
+  <p class="footer__statement">{profile.footerStatement}</p>
+  <div class="footer__meta">
+    <span class="footer__mark">
+      <span class="footer__mark-dot"></span>
+      © {year} {profile.name}
+    </span>
+    <span>v 1.0 · still &amp; now</span>
+  </div>
+</footer>

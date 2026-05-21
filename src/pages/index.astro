@@ -1,0 +1,72 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Background from '~/components/Background.astro';
+import Hero from '~/components/Hero.astro';
+import LinkCard from '~/components/LinkCard.astro';
+import Footer from '~/components/Footer.astro';
+import { links } from '~/data/links';
+
+const primary = links.filter((l) => l.category === 'primary');
+const social = links.filter((l) => l.category === 'social');
+const connect = links.filter((l) => l.category === 'connect');
+const spirit = links.filter((l) => l.category === 'spirit');
+
+// Stagger delay base in ms — sections enter one after another
+const baseDelay = 900;
+const step = 90;
+let counter = 0;
+const delay = () => baseDelay + step * counter++;
+---
+
+<Layout>
+  <Background />
+
+  <main class="shell">
+    <Hero />
+
+    <section class="section" aria-label="Wichtigste Wege">
+      <div class="section__head" data-reveal style={`--delay: ${baseDelay - 200}ms`}>
+        <span class="eyebrow">Beginn hier</span>
+      </div>
+      {primary.map((link) => (
+        <LinkCard link={link} delay={delay()} />
+      ))}
+    </section>
+
+    <section class="section" aria-label="Soziale Netzwerke">
+      <div class="section__head" data-reveal style={`--delay: ${delay()}ms`}>
+        <span class="eyebrow">Folgen &amp; vernetzen</span>
+      </div>
+      <div class="social-row">
+        {social.map((link) => (
+          <LinkCard link={link} delay={delay()} compact />
+        ))}
+      </div>
+    </section>
+
+    <section class="section" aria-label="Kontakt">
+      <div class="section__head" data-reveal style={`--delay: ${delay()}ms`}>
+        <span class="eyebrow">Direkter Draht</span>
+      </div>
+      {connect.map((link) => (
+        <LinkCard link={link} delay={delay()} />
+      ))}
+    </section>
+
+    <section class="section" aria-label="Praxis &amp; Spiel">
+      <div class="section__head" data-reveal style={`--delay: ${delay()}ms`}>
+        <span class="eyebrow">Praxis &amp; Spiel</span>
+      </div>
+      {spirit.map((link) => (
+        <LinkCard link={link} delay={delay()} />
+      ))}
+    </section>
+
+    <Footer />
+  </main>
+</Layout>
+
+<script>
+  import { initInteractions } from '~/scripts/interactions';
+  initInteractions();
+</script>

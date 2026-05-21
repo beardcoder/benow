@@ -1,0 +1,40 @@
+---
+import type { LinkItem } from '~/data/links';
+import Icon from './Icon.astro';
+
+interface Props {
+  link: LinkItem;
+  delay?: number;
+  compact?: boolean;
+}
+
+const { link, delay = 0, compact = false } = Astro.props;
+const isExternal = link.url.startsWith('http');
+const rel = isExternal ? 'noopener noreferrer' : undefined;
+const target = isExternal ? '_blank' : undefined;
+
+const classes = ['link'];
+if (link.featured && !compact) classes.push('link--featured');
+---
+
+<a
+  class={classes.join(' ')}
+  href={link.url}
+  target={target}
+  rel={rel}
+  data-reveal
+  data-magnetic
+  style={`--accent: ${link.accent}; --delay: ${delay}ms`}
+  aria-label={`${link.label}${link.sublabel ? ' — ' + link.sublabel : ''}`}
+>
+  <span class="link__icon" aria-hidden="true">
+    <Icon name={link.icon} />
+  </span>
+  <span class="link__body">
+    <span class="link__label">{link.label}</span>
+    {link.sublabel && <span class="link__sublabel">{link.sublabel}</span>}
+  </span>
+  <span class="link__arrow" aria-hidden="true">
+    <Icon name="arrow" />
+  </span>
+</a>
