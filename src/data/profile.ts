@@ -7,7 +7,9 @@ export interface Profile {
   tagline: string;
   location: string;
   avatar?: string;
+  ogImage?: string;
   footerStatement: string;
+  footerVersion?: string;
   initials: string;
 }
 

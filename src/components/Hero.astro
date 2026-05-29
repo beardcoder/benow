@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { profile } from '~/data/profile';
-import avatar from '~/assets/markus.jpg';
+import defaultAvatar from '~/assets/markus.jpg';
 
 const claimWords = profile.claim.flatMap(line => line.split(' '));
 ---
@@ -9,17 +9,29 @@ const claimWords = profile.claim.flatMap(line => line.split(' '));
 <header class="hero">
    <div class="hero__top" data-reveal>
      <div class="hero__avatar">
-      <Image
-        src={avatar}
-        alt={`Portrait von ${profile.name}`}
-        widths={[92, 184, 276]}
-        sizes="(min-width: 720px) 110px, 92px"
-        format="webp"
-        quality={82}
-        loading="eager"
-        fetchpriority="high"
-        class="hero__avatar-img"
-       />
+      {profile.avatar ? (
+        <img
+          src={profile.avatar}
+          alt={`Portrait von ${profile.name}`}
+          width="110"
+          height="110"
+          loading="eager"
+          fetchpriority="high"
+          class="hero__avatar-img"
+        />
+      ) : (
+        <Image
+          src={defaultAvatar}
+          alt={`Portrait von ${profile.name}`}
+          widths={[92, 184, 276]}
+          sizes="(min-width: 720px) 110px, 92px"
+          format="webp"
+          quality={82}
+          loading="eager"
+          fetchpriority="high"
+          class="hero__avatar-img"
+        />
+      )}
      </div>
    <div class="hero__meta">
       <span class="hero__name">{profile.name}</span>

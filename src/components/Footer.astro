@@ -11,6 +11,6 @@ const year = new Date().getFullYear();
       <span class="footer__mark-dot"></span>
       © {year} {profile.name}
     </span>
-    <span>v 1.0 · still &amp; now</span>
+    <span>{profile.footerVersion ?? 'v 1.0 · still & now'}</span>
   </div>
 </footer>

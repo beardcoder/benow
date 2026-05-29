@@ -6,6 +6,7 @@ import Background from '~/components/Background.astro';
 import Hero from '~/components/Hero.astro';
 import LinkCard from '~/components/LinkCard.astro';
 import Footer from '~/components/Footer.astro';
+import sections from '~/data/sections.json';
 
 const allLinks = await getCollection('links');
 const links: LinkItem[] = allLinks
@@ -32,7 +33,7 @@ const delay = () => baseDelay + step * counter++;
 
     <section class="section" aria-label="Wichtigste Wege">
       <div class="section__head" data-reveal style={`--delay: ${baseDelay - 200}ms`}>
-        <span class="eyebrow">Beginn hier</span>
+        <span class="eyebrow">{sections.primary}</span>
       </div>
       {primary.map((link) => (
         <LinkCard link={link} delay={delay()} />
@@ -41,7 +42,7 @@ const delay = () => baseDelay + step * counter++;
 
     <section class="section" aria-label="Soziale Netzwerke">
       <div class="section__head" data-reveal style={`--delay: ${delay()}ms`}>
-        <span class="eyebrow">Folgen &amp; vernetzen</span>
+        <span class="eyebrow">{sections.social}</span>
       </div>
       <div class="social-row">
         {social.map((link) => (
@@ -52,7 +53,7 @@ const delay = () => baseDelay + step * counter++;
 
     <section class="section" aria-label="Kontakt">
       <div class="section__head" data-reveal style={`--delay: ${delay()}ms`}>
-        <span class="eyebrow">Direkter Draht</span>
+        <span class="eyebrow">{sections.connect}</span>
       </div>
       {connect.map((link) => (
         <LinkCard link={link} delay={delay()} />
@@ -61,7 +62,7 @@ const delay = () => baseDelay + step * counter++;
 
     <section class="section" aria-label="Praxis &amp; Spiel">
       <div class="section__head" data-reveal style={`--delay: ${delay()}ms`}>
-        <span class="eyebrow">Praxis &amp; Spiel</span>
+        <span class="eyebrow">{sections.spirit}</span>
       </div>
       {spirit.map((link) => (
         <LinkCard link={link} delay={delay()} />
