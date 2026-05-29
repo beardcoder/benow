@@ -1,11 +1,12 @@
 {
   "name": "Markus Sommer",
-  "handle": "Be present. Be powerful. Be you.",
+  "handle": "letsbenow",
+  "claim": ["Be present.", "Be powerful.", "Be you."],
   "tagline": "Webdesigner crafting digital spaces where breath meets code. Bayern-based, globally inspired.",
   "location": "Bayern · Deutschland",
   "initials": "MS",
+  "avatar": "/media/markus.jpg",
+  "ogImage": "/media/markus.jpg",
   "footerStatement": "Build with love and power in bavaria",
-  "claim": [
-    "Crafted with conscious breath, clean lines, and a cup of tea. No tracking. Just presence."
-  ]
+  "footerVersion": "v 1.0 · still & now"
 }

@@ -1,7 +1,7 @@
 /* ============================================================
    letsbenow — global styles
    Dark, premium, spirit-techy. Mobile-first.
-   ============================================================ */
+    ========================================================= */
 
 :root {
   /* Color palette — deep midnight with warm + cool accents */
@@ -17,9 +17,9 @@
   --ink-soft: #cfc8b8;
   --ink-mute: #8a8478;
 
-  --accent-warm: #f7c873;   /* gold/amber — Bayern, Sonne */
-  --accent-cool: #9eead6;   /* mint/teal — Atem, Wasser */
-  --accent-deep: #b8a4ff;   /* violet — Spirit, LARP */
+  --accent-warm: #f7c873;
+  --accent-cool: #9eead6;
+  --accent-deep: #b8a4ff;
   --accent-rose: #ff8fb1;
 
   /* Type */
@@ -78,8 +78,7 @@ button {
   cursor: pointer;
 }
 
-img,
-svg {
+img, svg {
   display: block;
   max-width: 100%;
 }
@@ -89,10 +88,7 @@ svg {
   color: var(--bg-0);
 }
 
-/* ----------------------------------------------------------
-   Typography helpers
-   ---------------------------------------------------------- */
-
+/* Typography */
 .display {
   font-family: var(--font-display);
   font-weight: 300;
@@ -110,10 +106,7 @@ svg {
   color: var(--ink-mute);
 }
 
-/* ----------------------------------------------------------
-   Layout shell
-   ---------------------------------------------------------- */
-
+/* Layout shell */
 .shell {
   position: relative;
   z-index: 1;
@@ -127,10 +120,7 @@ svg {
   gap: clamp(2.5rem, 7vw, 4rem);
 }
 
-/* ----------------------------------------------------------
-   Background — aurora + grain + organic blobs
-   ---------------------------------------------------------- */
-
+/* Background — aurora + grain */
 .bg {
   position: fixed;
   inset: 0;
@@ -140,7 +130,6 @@ svg {
   background:
     radial-gradient(120% 80% at 50% -10%, rgba(247, 200, 115, 0.10), transparent 60%),
     radial-gradient(80% 60% at 100% 100%, rgba(184, 164, 255, 0.08), transparent 60%),
-    radial-gradient(60% 50% at 0% 80%, rgba(158, 234, 214, 0.06), transparent 60%),
     var(--bg-0);
 }
 
@@ -185,26 +174,15 @@ svg {
 }
 
 @keyframes drift {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(4vw, -3vw, 0) scale(1.08); }
-  100% { transform: translate3d(-3vw, 4vw, 0) scale(0.95); }
-}
-
-.bg__blob--c {
-  /* override transform-driven center for this one */
-  animation-name: drift-center;
-}
-
-@keyframes drift-center {
-  0%   { transform: translate(-50%, -50%) scale(1); }
-  50%  { transform: translate(-46%, -54%) scale(1.1); }
-  100% { transform: translate(-54%, -48%) scale(0.96); }
+   0%    { transform: translate3d(0, 0, 0) scale(1); }
+   50%   { transform: translate3d(4vw, -3vw, 0) scale(1.08); }
+  100%   { transform: translate3d(-3vw, 4vw, 0) scale(0.95); }
 }
 
 .bg__grain {
   position: absolute;
   inset: -50%;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 0.5 0 '/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
   opacity: 0.18;
   mix-blend-mode: overlay;
   animation: grain 1.6s steps(6) infinite;
@@ -212,29 +190,19 @@ svg {
 }
 
 @keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10%      { transform: translate(-2%, -3%); }
-  20%      { transform: translate(-4%, 2%); }
-  30%      { transform: translate(2%, -4%); }
-  40%      { transform: translate(-1%, 3%); }
-  50%      { transform: translate(3%, 1%); }
-  60%      { transform: translate(-3%, 2%); }
-  70%      { transform: translate(4%, -1%); }
-  80%      { transform: translate(-2%, -2%); }
-  90%      { transform: translate(1%, 3%); }
+   0%, 100% { transform: translate(0, 0); }
+  10%        { transform: translate(-2%, -3%); }
+  20%        { transform: translate(-4%, 2%); }
+  30%        { transform: translate(2%, -4%); }
+  40%        { transform: translate(-1%, 3%); }
+  50%        { transform: translate(3%, 1%); }
+  60%        { transform: translate(-3%, 2%); }
+  70%        { transform: translate(4%, -1%); }
+  80%        { transform: translate(-2%, -2%); }
+  90%        { transform: translate(1%, 3%); }
 }
 
-.bg__vignette {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(120% 90% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
-}
-
-/* ----------------------------------------------------------
-   Reveal on scroll
-   ---------------------------------------------------------- */
-
+/* Reveal on scroll */
 [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 24px, 0);
@@ -250,31 +218,23 @@ svg {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+   [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .bg__blob,
-  .bg__grain,
-  .hero__pulse {
+   }
+   .bg__blob,
+   .bg__grain {
     animation: none !important;
-  }
+   }
 }
 
-/* ----------------------------------------------------------
-   Hero
-   ---------------------------------------------------------- */
-
+/* Hero */
 .hero {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding-top: clamp(1.5rem, 6vw, 3rem);
-  opacity: var(--hero-opacity, 1);
-  transform: translate3d(0, var(--hero-shift, 0), 0);
-  will-change: transform, opacity;
 }
 
 .hero__top {
@@ -293,40 +253,38 @@ svg {
 }
 
 .hero__avatar::before {
-  /* soft accent halo — bleeds outside the disc */
-  content: '';
-  position: absolute;
-  inset: -18%;
-  border-radius: 50%;
-  background:
+   content: '';
+   position: absolute;
+   inset: -18%;
+   border-radius: 50%;
+   background:
     radial-gradient(circle at 30% 25%, rgba(247, 200, 115, 0.55), transparent 55%),
     radial-gradient(circle at 75% 80%, rgba(184, 164, 255, 0.45), transparent 60%),
     radial-gradient(circle at 80% 20%, rgba(158, 234, 214, 0.35), transparent 60%);
-  filter: blur(18px);
-  opacity: 0.85;
-  z-index: -1;
-  animation: breathe 6s var(--ease-in-out) infinite;
+   filter: blur(18px);
+   opacity: 0.85;
+   z-index: -1;
+   animation: breathe 6s var(--ease-in-out) infinite;
 }
 
 .hero__avatar::after {
-  /* crisp gradient ring on the rim */
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  padding: 2px;
-  background: conic-gradient(
+   content: '';
+   position: absolute;
+   inset: -2px;
+   border-radius: 50%;
+   padding: 2px;
+   background: conic-gradient(
     from 200deg,
     var(--accent-warm),
     var(--accent-rose) 25%,
     var(--accent-deep) 50%,
     var(--accent-cool) 75%,
     var(--accent-warm)
-  );
+   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
+   -webkit-mask-composite: xor;
           mask-composite: exclude;
   opacity: 0.55;
   pointer-events: none;
@@ -341,16 +299,12 @@ svg {
   background: var(--bg-1);
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 10px 30px -8px rgba(0, 0, 0, 0.6);
+     0 10px 30px -8px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes breathe {
-  0%, 100% { transform: scale(1);    opacity: 0.75; }
+   0%, 100% { transform: scale(1);    opacity: 0.75; }
   50%      { transform: scale(1.06); opacity: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__avatar::before { animation: none; }
 }
 
 .hero__name {
@@ -396,7 +350,7 @@ svg {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
+   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: 0.4; transform: scale(0.8); }
 }
 
@@ -408,7 +362,6 @@ svg {
   font-size: clamp(3.2rem, 14vw, 5.5rem);
   color: var(--ink);
   margin-top: 0.5rem;
-  font-variation-settings: 'opsz' 144, 'SOFT' 80;
 }
 
 .hero__claim-line {
@@ -439,14 +392,14 @@ svg {
 }
 
 @keyframes rise {
-  to {
+   to {
     transform: translate3d(0, 0, 0);
     opacity: 1;
-  }
+   }
 }
 
 @keyframes shimmer {
-  0%   { background-position: 0% 50%; }
+   0%    { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
 
@@ -459,17 +412,14 @@ svg {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__claim-word {
+   .hero__claim-word {
     transform: none;
     opacity: 1;
     animation: none;
-  }
+   }
 }
 
-/* ----------------------------------------------------------
-   Section
-   ---------------------------------------------------------- */
-
+/* Section */
 .section {
   display: flex;
   flex-direction: column;
@@ -490,10 +440,7 @@ svg {
   background: linear-gradient(90deg, var(--border-strong), transparent);
 }
 
-/* ----------------------------------------------------------
-   LinkCard
-   ---------------------------------------------------------- */
-
+/* LinkCard */
 .link {
   position: relative;
   display: flex;
@@ -510,7 +457,7 @@ svg {
     transform 500ms var(--ease-spring),
     border-color 400ms var(--ease-out),
     background 400ms var(--ease-out);
-  -webkit-tap-highlight-color: transparent;
+   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   will-change: transform;
 }
@@ -522,10 +469,10 @@ svg {
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(135deg, var(--accent, var(--accent-warm)) 0%, transparent 60%);
-  -webkit-mask:
+   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
+   -webkit-mask-composite: xor;
           mask-composite: exclude;
   opacity: 0;
   transition: opacity 500ms var(--ease-out);
@@ -534,16 +481,15 @@ svg {
 }
 
 .link::after {
-  /* glow halo */
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: radial-gradient(
-    160px 100px at var(--mx, 50%) var(--my, 50%),
+   content: '';
+   position: absolute;
+   inset: -1px;
+   border-radius: inherit;
+   background: radial-gradient(
+     160px 100px at var(--mx, 50%) var(--my, 50%),
     var(--accent, var(--accent-warm)),
     transparent 70%
-  );
+   );
   opacity: 0;
   transition: opacity 500ms var(--ease-out);
   z-index: 0;
@@ -569,7 +515,7 @@ svg {
 }
 
 .link:active {
-  --scale: 0.985;
+   --scale: 0.985;
   transition-duration: 120ms;
 }
 
@@ -603,8 +549,8 @@ svg {
 
 .link:hover .link__icon,
 .link:focus-visible .link__icon {
-  --icon-scale: 1.06;
-  --icon-rot: -3deg;
+   --icon-scale: 1.06;
+   --icon-rot: -3deg;
   box-shadow: 0 0 28px -4px var(--accent, var(--accent-warm));
 }
 
@@ -658,9 +604,9 @@ svg {
 .link:hover .link__arrow,
 .link:focus-visible .link__arrow {
   color: var(--accent, var(--accent-warm));
-  --ax: 4px;
-  --ay: -4px;
-  --ar: -8deg;
+   --ax: 4px;
+   --ay: -4px;
+   --ar: -8deg;
 }
 
 .link__arrow svg {
@@ -668,7 +614,7 @@ svg {
   height: 16px;
 }
 
-/* Featured cards (Portfolio, Termin) get bigger treatment */
+/* Featured cards */
 .link--featured {
   padding: 1.35rem 1.4rem;
   background: linear-gradient(135deg, var(--surface-strong), var(--surface));
@@ -692,12 +638,7 @@ svg {
   letter-spacing: -0.025em;
 }
 
-/* Stagger entrance handled inline via --delay */
-
-/* ----------------------------------------------------------
-   Social row — compact horizontal layout
-   ---------------------------------------------------------- */
-
+/* Social row */
 .social-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -735,10 +676,7 @@ svg {
   display: none;
 }
 
-/* ----------------------------------------------------------
-   Footer
-   ---------------------------------------------------------- */
-
+/* Footer */
 .footer {
   margin-top: 1rem;
   padding-top: 2rem;
@@ -780,22 +718,19 @@ svg {
   box-shadow: 0 0 8px var(--accent-warm);
 }
 
-/* ----------------------------------------------------------
-   Tablet / desktop tuning
-   ---------------------------------------------------------- */
-
+/* Tablet / desktop */
 @media (min-width: 720px) {
-  :root { --max-w: 600px; }
+   :root { --max-w: 600px; }
 
-  .hero__claim {
+   .hero__claim {
     font-size: clamp(4rem, 7vw, 6rem);
-  }
+   }
 
-  .link {
+   .link {
     padding: 1.2rem 1.4rem;
-  }
+   }
 }
 
 @media (min-width: 1024px) {
-  :root { --max-w: 640px; }
+   :root { --max-w: 640px; }
 }

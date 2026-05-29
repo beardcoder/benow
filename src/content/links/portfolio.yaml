@@ -1,0 +1,8 @@
+label: Portfolio
+sublabel: Projekte & Works
+url: https://markussommer.de
+icon: portfolio
+category: primary
+accent: '#f7c873'
+featured: true
+order: 1

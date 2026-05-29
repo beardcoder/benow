@@ -3,12 +3,12 @@ import { Image } from 'astro:assets';
 import { profile } from '~/data/profile';
 import avatar from '~/assets/markus.jpg';
 
-const claimWords = profile.claim.split(' ');
+const claimWords = profile.claim.flatMap(line => line.split(' '));
 ---
 
 <header class="hero">
-  <div class="hero__top" data-reveal>
-    <div class="hero__avatar">
+   <div class="hero__top" data-reveal>
+     <div class="hero__avatar">
       <Image
         src={avatar}
         alt={`Portrait von ${profile.name}`}
@@ -19,33 +19,33 @@ const claimWords = profile.claim.split(' ');
         loading="eager"
         fetchpriority="high"
         class="hero__avatar-img"
-      />
-    </div>
-    <div class="hero__meta">
+       />
+     </div>
+   <div class="hero__meta">
       <span class="hero__name">{profile.name}</span>
       <span class="hero__handle">@{profile.handle}</span>
       <span class="hero__location">
         <span class="hero__pulse"></span>
         {profile.location}
       </span>
-    </div>
-  </div>
+   </div>
+</div>
 
-  <h1 class="hero__claim" aria-label={profile.claim}>
-    {claimWords.map((word, i) => (
-      <span class="hero__claim-line">
-        <span
-          class={`hero__claim-word${i === 1 ? ' hero__claim-word--accent' : ''}`}
-          style={`--delay: ${300 + i * 120}ms`}
-        >
-          {word}
-          {i < claimWords.length - 1 ? ' ' : ''}
-        </span>
+<h1 class="hero__claim" aria-label={profile.claim.join(' ')}>
+  {claimWords.map((word, i) => (
+    <span class="hero__claim-line">
+      <span
+        class={`hero__claim-word${i === 1 ? ' hero__claim-word--accent' : ''}`}
+        style={`--delay: ${300 + i * 80}ms`}
+      >
+        {word}
+        {i < claimWords.length - 1 ? ' ' : ''}
       </span>
-    ))}
-  </h1>
+    </span>
+  ))}
+</h1>
 
-  <p class="hero__tagline" data-reveal style="--delay: 800ms">
-    {profile.tagline}
-  </p>
+<p class="hero__tagline" data-reveal style="--delay: 600ms">
+  {profile.tagline}
+</p>
 </header>

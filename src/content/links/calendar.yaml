@@ -1,0 +1,8 @@
+label: Termin buchen
+sublabel: 15 Min · Beratung
+url: https://cal.com/letsbenow
+icon: calendar
+category: primary
+accent: '#9eead6'
+featured: true
+order: 2
