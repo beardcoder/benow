@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sveltia from 'astro-loader-sveltia-cms';
 
-import cloudflare from "@astrojs/cloudflare";
-
 export default defineConfig({
   site: 'https://letsbenow.de',
   output: 'static',
@@ -98,6 +96,4 @@ export default defineConfig({
       },
     }),
   ],
-
-  adapter: cloudflare()
 });
