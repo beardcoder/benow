@@ -3,7 +3,18 @@ import { Image } from 'astro:assets';
 import { profile } from '~/data/profile';
 import defaultAvatar from '~/assets/markus.jpg';
 
-const claimWords = profile.claim.flatMap(line => line.split(' '));
+// Stagger each word across all claim lines, but accent the closing
+// word of every line for a bolder, poster-like rhythm.
+let wordIndex = 0;
+const claimLines = profile.claim.map((line) => {
+  const words = line.split(' ');
+  return words.map((word, wi) => ({
+    word,
+    accent: wi === words.length - 1,
+    last: wi === words.length - 1,
+    delay: 300 + wordIndex++ * 90,
+  }));
+});
 ---
 
 <header class="hero">
@@ -44,20 +55,27 @@ const claimWords = profile.claim.flatMap(line => line.split(' '));
 </div>
 
 <h1 class="hero__claim" aria-label={profile.claim.join(' ')}>
-  {claimWords.map((word, i) => (
+  {claimLines.map((words) => (
     <span class="hero__claim-line">
-      <span
-        class={`hero__claim-word${i === 1 ? ' hero__claim-word--accent' : ''}`}
-        style={`--delay: ${300 + i * 80}ms`}
-      >
-        {word}
-        {i < claimWords.length - 1 ? ' ' : ''}
-      </span>
+      {words.map(({ word, accent, last, delay }) => (
+        <span
+          class={`hero__claim-word${accent ? ' hero__claim-word--accent' : ''}`}
+          style={`--delay: ${delay}ms`}
+        >{word}{!last ? ' ' : ''}</span>
+      ))}
     </span>
   ))}
 </h1>
 
-<p class="hero__tagline" data-reveal style="--delay: 600ms">
+<p class="hero__tagline" data-reveal style="--delay: 700ms">
   {profile.tagline}
 </p>
+
+<div class="breath" data-reveal style="--delay: 900ms" aria-hidden="true">
+  <span class="breath__orb"><span class="breath__core"></span></span>
+  <span class="breath__cue">
+    <span class="breath__word breath__word--in">einatmen</span>
+    <span class="breath__word breath__word--out">ausatmen</span>
+  </span>
+</div>
 </header>
