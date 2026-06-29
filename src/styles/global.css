@@ -100,10 +100,11 @@ img, svg {
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--ink-mute);
+  color: var(--ink-soft);
 }
 
 /* Layout shell */
@@ -133,11 +134,38 @@ img, svg {
     var(--bg-0);
 }
 
+/* Slow-rotating aurora halo — adds plakativ depth + perpetual motion */
+.bg__halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140vmax;
+  height: 140vmax;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    rgba(247, 200, 115, 0.12),
+    rgba(255, 143, 177, 0.10),
+    rgba(184, 164, 255, 0.12),
+    rgba(158, 234, 214, 0.10),
+    rgba(247, 200, 115, 0.12)
+  );
+  filter: blur(90px);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  will-change: transform;
+  animation: spin 60s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 .bg__blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.55;
+  opacity: 0.7;
   mix-blend-mode: screen;
   will-change: transform;
   animation: drift 22s var(--ease-in-out) infinite alternate;
@@ -356,12 +384,20 @@ img, svg {
 
 .hero__claim {
   font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
-  font-size: clamp(3.2rem, 14vw, 5.5rem);
+  font-weight: 460;
+  letter-spacing: -0.05em;
+  line-height: 0.84;
+  font-size: clamp(3.7rem, 16vw, 6.8rem);
   color: var(--ink);
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
+  transform-origin: left center;
+  animation: claim-breathe 9s var(--ease-in-out) 2.4s infinite;
+}
+
+/* Slow, mindful "breath" on the whole headline — barely perceptible */
+@keyframes claim-breathe {
+   0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.022); }
 }
 
 .hero__claim-line {
@@ -371,10 +407,15 @@ img, svg {
 
 .hero__claim-word {
   display: inline-block;
+  margin-right: 0.26em;
   transform: translate3d(0, 110%, 0);
   opacity: 0;
   animation: rise 1100ms var(--ease-out) forwards;
   animation-delay: var(--delay, 0ms);
+}
+
+.hero__claim-word:last-child {
+  margin-right: 0;
 }
 
 .hero__claim-word--accent {
@@ -411,11 +452,109 @@ img, svg {
   margin-top: 0.5rem;
 }
 
+/* Breathing cue — a literal, mindful pause built into the page.
+   One calm 11s cycle: ~5.5s inhale, ~5.5s exhale. */
+.breath {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.4rem;
+}
+
+.breath__orb {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  animation: breath-ring 11s var(--ease-in-out) infinite;
+}
+
+.breath__orb::before {
+  content: '';
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-cool), transparent 65%);
+  opacity: 0.35;
+  filter: blur(8px);
+  animation: breath-glow 11s var(--ease-in-out) infinite;
+}
+
+.breath__core {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cool);
+  box-shadow: 0 0 12px var(--accent-cool);
+  animation: breath-core 11s var(--ease-in-out) infinite;
+}
+
+@keyframes breath-ring {
+   0%, 100% { transform: scale(1);    border-color: var(--border-strong); }
+  50%       { transform: scale(1.55); border-color: var(--accent-cool); }
+}
+
+@keyframes breath-core {
+   0%, 100% { transform: scale(1);   opacity: 0.6; }
+  50%       { transform: scale(1.4); opacity: 1; }
+}
+
+@keyframes breath-glow {
+   0%, 100% { opacity: 0.15; transform: scale(0.9); }
+  50%       { opacity: 0.55; transform: scale(1.2); }
+}
+
+.breath__cue {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.breath__word {
+  display: block;
+  animation: breath-label 11s var(--ease-in-out) infinite;
+}
+
+.breath__word--out {
+  position: absolute;
+  inset: 0;
+  animation-name: breath-label-out;
+}
+
+@keyframes breath-label {
+   0%, 45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+@keyframes breath-label-out {
+   0%, 45% { opacity: 0; }
+  55%, 100% { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
    .hero__claim-word {
     transform: none;
     opacity: 1;
     animation: none;
+   }
+   .hero__claim {
+    animation: none;
+   }
+   .breath__orb,
+   .breath__orb::before,
+   .breath__core,
+   .breath__word {
+    animation: none !important;
+   }
+   .breath__word--out {
+    display: none;
    }
 }
 
@@ -433,11 +572,23 @@ img, svg {
   margin-bottom: 0.25rem;
 }
 
+.section__head::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent-warm);
+  box-shadow: 0 0 14px var(--accent-warm);
+  animation: pulse 3.2s var(--ease-in-out) infinite;
+}
+
 .section__head::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--border-strong), transparent);
+  background: linear-gradient(90deg, var(--accent-warm), var(--border-strong) 30%, transparent);
+  opacity: 0.6;
 }
 
 /* LinkCard */
@@ -618,6 +769,21 @@ img, svg {
 .link--featured {
   padding: 1.35rem 1.4rem;
   background: linear-gradient(135deg, var(--surface-strong), var(--surface));
+}
+
+.link--featured .link__icon {
+  animation: icon-glow 7s var(--ease-in-out) infinite;
+}
+
+@keyframes icon-glow {
+   0%, 100% { box-shadow: 0 0 14px -8px var(--accent, var(--accent-warm)); }
+  50%       { box-shadow: 0 0 30px -4px var(--accent, var(--accent-warm)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .link--featured .link__icon {
+    animation: none;
+   }
 }
 
 .link--featured .link__icon {
