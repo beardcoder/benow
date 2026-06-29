@@ -14,11 +14,10 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "12",
-    "astro": "^5.1.0",
+    "astro": "^6.4.8",
     "astro-loader-sveltia-cms": "^0.1.5"
   },
   "devDependencies": {
-    "wrangler": "^4.95.0"
+    "wrangler": "^4.105.0"
   }
 }
